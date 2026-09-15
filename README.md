@@ -1,5 +1,7 @@
 # WT Session Readout
 
+> ⚠️ **Development version.** This is the `Dev` branch — used for testing in-progress changes before they reach the stable release. Features here may be incomplete, broken, or change without notice, and data-affecting bugs are more likely than on the stable version. For the stable release, use [the main branch / production site](https://apoloxdragon.github.io/WarThunder-Tool/) instead.
+
 ## AI disclosure
 
 This project was built with the assistance of Claude (Anthropic). Code changes — including the parsing logic, bug fixes, and this README — were written collaboratively with Claude rather than entirely by hand.
@@ -16,11 +18,12 @@ A single-page, client-side tool for analyzing pasted War Thunder match-log text.
 
 Everything runs locally in the browser — no server, no build step, no account, no data leaves your machine (except when you explicitly export a file).
 
-**Live demo:** https://apoloxdragon.github.io/WarThunder-Tool/
+**Dev preview:** https://apoloxdragon.github.io/WT-Tool-Dev/ (this branch, unstable)
+**Stable release:** https://apoloxdragon.github.io/WarThunder-Tool/
 
 ## Usage
 
-Open `wt-log-analyzer.html` in a browser (or use the live demo above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads `css/styles.css` and `javascript/app.js` as relative paths.
+Open `wt-log-analyzer.html` in a browser (or use one of the demos above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads its stylesheet and scripts as relative paths.
 
 Paste one or more match reports — from "Victory/Defeat in the [Mode] ... mission!" through the "Session:" and "Total:" lines — into the text box and click **Analyze**. No local data? Click **Load Example Data** to try it with the sample log in `example data/` (this only works on a server/hosted page, not when the file is opened directly from disk, since browsers block that fetch over `file://`).
 
@@ -48,11 +51,18 @@ By default, anything with "Tank Assault" in its mode name is split into its own 
 ## Project structure
 
 ```
-wt-log-analyzer.html   Markup only
-css/styles.css         Styling
-javascript/app.js      Parsing, analysis, goal calculator, import/export logic
-example data/          Sample match-log text and exported session data for testing
-index.html             Redirects to wt-log-analyzer.html (for GitHub Pages' root URL)
+wt-log-analyzer.html          Markup only
+css/styles.css                 Styling
+javascript/storage.js          localStorage persistence helpers (loaded first)
+javascript/themes.js           Theme system + picker
+javascript/categories.js       Battle-type category rules editor
+javascript/parser.js           Raw log parsing (parseLog)
+javascript/math.js             Pure stat/goal math, no DOM access
+javascript/goal-calculator.js  Goal calculator DOM wiring
+javascript/import-export.js    File import + HTML/JSON export
+javascript/main.js             App state, analyze() orchestration
+example data/                  Sample match-log text and exported session data for testing
+index.html                     Redirects to wt-log-analyzer.html (for GitHub Pages' root URL)
 ```
 
 ## Development
