@@ -116,6 +116,17 @@ button.secondary:hover { color: var(--text); border-color: var(--accent); }
   display: none;
 }
 
+.dev-banner {
+  background: var(--loss);
+  color: #fff;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 8px 12px;
+}
+.dev-banner a { color: #fff; }
+
 .section { margin-top: 30px; }
 .section-title {
   color: var(--accent);
@@ -341,7 +352,7 @@ details.rules-toggle summary {
 
 @media print {
   body { background: #fff; color: #111; padding: 0; }
-  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle { display: none !important; }
+  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle, .dev-banner { display: none !important; }
   .brief { border-left-color: #333; }
   .brief p, .section-title, th, .dim, .stat-cell .lbl { color: #555 !important; }
   .stat-cell .num, .section-title { color: #111 !important; }
