@@ -58,6 +58,13 @@ body {
   padding-top: 10px;
 }
 .theme-picker label { font-size: 11px; color: var(--dim); margin-right: 4px; }
+.github-link {
+  display: flex;
+  align-items: center;
+  color: var(--dim);
+  margin-right: 4px;
+}
+.github-link:hover { color: var(--accent); }
 .swatch {
   width: 20px; height: 20px;
   border: 1px solid var(--border);
