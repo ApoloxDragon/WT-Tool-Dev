@@ -88,6 +88,15 @@ document.getElementById('importFile').addEventListener('change', (e) => {
 
 /* ---------- Export ---------- */
 // Depends on: lastMatches (main.js), THEMES/currentTheme (themes.js).
+
+// Filename-safe local-time stamp (no ":" or "/", which are invalid in
+// Windows filenames) so repeated exports don't overwrite each other.
+function localTimestampForFilename(date) {
+  const pad = n => String(n).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
+    + `_${pad(date.getHours())}-${pad(date.getMinutes())}-${pad(date.getSeconds())}`;
+}
+
 document.getElementById('printBtn').addEventListener('click', () => {
   window.print();
 });
@@ -101,6 +110,9 @@ document.getElementById('minimalToggle').addEventListener('click', (e) => {
 
 document.getElementById('exportBtn').addEventListener('click', () => {
   if (!lastMatches) { alert('Run Analyze first.'); return; }
+
+  const exportDate = new Date();
+  const fileStamp = localTimestampForFilename(exportDate);
 
   if (minimalExport) {
     // Compact, short-key JSON — no styling, no boilerplate, minimum tokens for pasting/re-uploading.
@@ -119,7 +131,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'wt-session-data.json';
+    a.download = `wt-session-data-${fileStamp}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -127,7 +139,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     return;
   }
 
-  const now = new Date().toLocaleString();
+  const now = exportDate.toLocaleString();
   const themesJson = JSON.stringify(THEMES);
 
   // Export only the deduped match list — duplicates are fully omitted, not just struck through.
@@ -235,7 +247,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'wt-session-report.html';
+  a.download = `wt-session-report-${fileStamp}.html`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
