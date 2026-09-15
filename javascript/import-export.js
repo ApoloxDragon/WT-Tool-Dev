@@ -79,6 +79,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
       }
     }
 
+    saveState('importedMatches', importedMatches);
     importNote.textContent = `Imported ${added} match(es)` + (skipped ? ` — ${skipped} already loaded, skipped.` : '.') + ' Click Analyze to include them.';
     e.target.value = '';
   };

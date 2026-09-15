@@ -1,9 +1,9 @@
 /* ---------- Category rules ---------- */
 // Each rule: { keyword, label }. First match (case-insensitive substring) wins.
 // Anything unmatched falls back to "Random Battles".
-let categoryRules = [
+let categoryRules = loadState('categoryRules', [
   { keyword: 'Tank Assault', label: 'Tank Assault' }
-];
+]);
 
 function classify(modeBase) {
   for (const rule of categoryRules) {
@@ -29,11 +29,13 @@ function renderRules() {
     inp.addEventListener('input', e => {
       const idx = +e.target.dataset.idx;
       categoryRules[idx][e.target.dataset.field] = e.target.value;
+      saveState('categoryRules', categoryRules);
     });
   });
   list.querySelectorAll('button.remove').forEach(btn => {
     btn.addEventListener('click', e => {
       categoryRules.splice(+e.target.dataset.idx, 1);
+      saveState('categoryRules', categoryRules);
       renderRules();
     });
   });
@@ -45,6 +47,7 @@ document.getElementById('addRuleBtn').addEventListener('click', () => {
   const lbl = document.getElementById('newLabel').value.trim();
   if (!kw || !lbl) return;
   categoryRules.push({ keyword: kw, label: lbl });
+  saveState('categoryRules', categoryRules);
   document.getElementById('newKeyword').value = '';
   document.getElementById('newLabel').value = '';
   renderRules();

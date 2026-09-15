@@ -5,7 +5,7 @@ const THEMES = {
   slate:  { bg:'#16181c', panel:'#1e2126', panel2:'#262a30', border:'#383d44', accent:'#c9ced6', text:'#e4e7ea', dim:'#7d848d' },
   forest: { bg:'#0f1712', panel:'#16211a', panel2:'#1c2921', border:'#2e402f', accent:'#6bbf7a', text:'#dcead9', dim:'#7b9a80' }
 };
-let currentTheme = 'blue';
+let currentTheme = loadState('theme', 'blue');
 
 function applyTheme(name) {
   const t = THEMES[name];
@@ -19,6 +19,7 @@ function applyTheme(name) {
   root.setProperty('--text', t.text);
   root.setProperty('--dim', t.dim);
   currentTheme = name;
+  saveState('theme', name);
   document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
 }
 
@@ -35,3 +36,4 @@ function buildThemePicker() {
   });
 }
 buildThemePicker();
+applyTheme(currentTheme); // apply the restored (or default) theme's CSS variables
