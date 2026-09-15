@@ -598,25 +598,34 @@ function parseLog(text) {
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
     const totalRP = lastTotal ? parseInt(lastTotal[3].replace(/,/g, '')) : 0;
 
-    const researched = [];
-    const ruIdx = block.indexOf('Researched unit:');
-    if (ruIdx !== -1) {
-      const after = block.slice(ruIdx + 'Researched unit:'.length);
-      const stopWords = ['Researching progress:', 'Used items:', 'Session:'];
+    // The Total RP for a match is the sum of RP toward the just-completed
+    // "Researched unit" AND any "Researching progress" (a different, not-yet-
+    // finished vehicle). Both sections must be parsed or the per-target
+    // breakdown undercounts and Total RP looks inflated by comparison.
+    function extractTargets(marker, stopWords) {
+      const idx = block.indexOf(marker);
+      if (idx === -1) return [];
+      const after = block.slice(idx + marker.length);
       let stop = after.length;
       stopWords.forEach(w => {
-        const idx = after.indexOf(w);
-        if (idx !== -1 && idx < stop) stop = idx;
+        const wIdx = after.indexOf(w);
+        if (wIdx !== -1 && wIdx < stop) stop = wIdx;
       });
       const section = after.slice(0, stop);
       const lineRe = /([A-Za-z0-9À-ÿ'".\-() ]+?):\s*([\d,]+)\s*RP/g;
+      const out = [];
       let lm;
       while ((lm = lineRe.exec(section)) !== null) {
         const name = lm[1].trim();
         const rp = parseInt(lm[2].replace(/,/g, ''));
-        if (name && rp) researched.push({ name, rp });
+        if (name && rp) out.push({ name, rp });
       }
+      return out;
     }
+    const researched = [
+      ...extractTargets('Researched unit:', ['Researching progress:', 'Used items:', 'Session:']),
+      ...extractTargets('Researching progress:', ['Used items:', 'Session:'])
+    ];
 
     const modeBase = headers[i].modeRaw.replace(/\s*#\d+$/, '').trim();
     const category = classify(modeBase);
