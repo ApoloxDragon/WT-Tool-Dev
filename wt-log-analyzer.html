@@ -599,27 +599,56 @@ document.getElementById('printBtn').addEventListener('click', () => {
 document.getElementById('exportBtn').addEventListener('click', () => {
   if (!lastMatches) { alert('Run Analyze first.'); return; }
   const now = new Date().toLocaleString();
+  const themesJson = JSON.stringify(THEMES);
   const html = `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>WT Session Report — ${now}</title>
 <style>
-  body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:#fff; color:#111; padding:30px; max-width:900px; margin:0 auto; }
-  h1 { font-size: 20px; margin-bottom: 2px; }
-  .meta { color:#666; font-size:12px; margin-bottom:24px; }
-  h2 { font-size: 13px; text-transform: uppercase; letter-spacing:0.04em; color:#444; border-bottom:1px solid #ccc; padding-bottom:6px; margin-top:28px; }
+  :root {
+    --bg: ${THEMES[currentTheme].bg}; --panel: ${THEMES[currentTheme].panel}; --panel-2: ${THEMES[currentTheme].panel2};
+    --border: ${THEMES[currentTheme].border}; --accent: ${THEMES[currentTheme].accent};
+    --text: ${THEMES[currentTheme].text}; --dim: ${THEMES[currentTheme].dim};
+    --win: #7fbf6a; --loss: #d16158;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:var(--bg); color:var(--text); padding:30px 16px 60px; margin:0; transition: background 0.15s, color 0.15s; }
+  .wrap { max-width:900px; margin:0 auto; }
+  .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  h1 { font-size: 20px; margin: 0 0 2px 0; }
+  .meta { color:var(--dim); font-size:12px; margin-bottom:24px; }
+  .theme-picker { display:flex; gap:6px; align-items:center; padding-top:2px; }
+  .theme-picker label { font-size:11px; color:var(--dim); margin-right:4px; }
+  .swatch { width:20px; height:20px; border:1px solid var(--border); cursor:pointer; padding:0; }
+  .swatch.active { outline:2px solid var(--text); outline-offset:2px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing:0.04em; color:var(--accent); border-bottom:1px solid var(--border); padding-bottom:6px; margin-top:28px; }
   table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
-  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #ddd; }
-  th { color:#666; font-weight:400; font-size:11px; }
-  td.num, th.num { text-align:right; }
-  tr.win td.result { color:#2a7a2a; }
-  tr.loss td.result { color:#a12f2f; }
-  .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#ddd; border:1px solid #ddd; margin-top:8px; }
-  .stat-cell { background:#fff; padding:12px 10px; }
-  .stat-cell .num { font-size:18px; font-weight:700; }
-  .stat-cell .lbl { font-size:10.5px; color:#777; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--border); }
+  th { color:var(--dim); font-weight:400; font-size:11px; }
+  td.num, th.num { text-align:right; font-variant-numeric: tabular-nums; }
+  tr.win td.result { color:var(--win); }
+  tr.loss td.result { color:var(--loss); }
+  .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:8px; }
+  .stat-cell { background:var(--panel); padding:12px 10px; }
+  .stat-cell .num { font-size:18px; font-weight:700; color:var(--accent); }
+  .stat-cell .lbl { font-size:10.5px; color:var(--dim); }
+  @media print {
+    body { background:#fff !important; color:#111 !important; }
+    .theme-picker { display:none !important; }
+    .stat-cell, table, th, td { background:#fff !important; border-color:#ccc !important; }
+    .stat-cell .num, h1, h2 { color:#111 !important; }
+    .meta, th, .dim, .stat-cell .lbl { color:#555 !important; }
+    tr.win td.result { color:#2a7a2a !important; }
+    tr.loss td.result { color:#a12f2f !important; }
+  }
 </style></head>
 <body>
-  <h1>War Thunder Session Report</h1>
-  <div class="meta">Generated ${now}</div>
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>War Thunder Session Report</h1>
+      <div class="meta">Generated ${now}</div>
+    </div>
+    <div class="theme-picker" id="themePicker"><label>Theme</label></div>
+  </div>
   <h2>Overall</h2>
   <div class="stat-row">${document.getElementById('overallStats').innerHTML}</div>
   <h2>Battle Type Split</h2>
@@ -628,6 +657,30 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   <table>${document.getElementById('targetTable').innerHTML}</table>
   <h2>Per-Match Detail</h2>
   <table>${document.getElementById('matchTable').innerHTML}</table>
+</div>
+<script>
+  const THEMES = ${themesJson};
+  let currentTheme = '${currentTheme}';
+  function applyTheme(name) {
+    const t = THEMES[name]; if (!t) return;
+    const root = document.documentElement.style;
+    root.setProperty('--bg', t.bg); root.setProperty('--panel', t.panel);
+    root.setProperty('--panel-2', t.panel2); root.setProperty('--border', t.border);
+    root.setProperty('--accent', t.accent); root.setProperty('--text', t.text); root.setProperty('--dim', t.dim);
+    currentTheme = name;
+    document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
+  }
+  const picker = document.getElementById('themePicker');
+  Object.entries(THEMES).forEach(([name, t]) => {
+    const btn = document.createElement('button');
+    btn.className = 'swatch' + (name === currentTheme ? ' active' : '');
+    btn.style.background = t.accent;
+    btn.dataset.theme = name;
+    btn.title = name;
+    btn.addEventListener('click', () => applyTheme(name));
+    picker.appendChild(btn);
+  });
+<\/script>
 </body></html>`;
   const blob = new Blob([html], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
