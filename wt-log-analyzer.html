@@ -17,13 +17,16 @@
   }
   * { box-sizing: border-box; }
   body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: -12px -12px;
     color: var(--text);
     font-family: 'SF Mono', Consolas, Menlo, 'Courier New', monospace;
     margin: 0;
     padding: 24px 16px 60px;
     line-height: 1.5;
-    transition: background 0.15s, color 0.15s;
+    transition: background-color 0.15s, color 0.15s;
   }
   .wrap { max-width: 960px; margin: 0 auto; }
 
@@ -131,6 +134,10 @@
     justify-content: space-between;
     align-items: center;
   }
+  .section-title::before {
+    content: '› ';
+    color: var(--dim);
+  }
 
   .stat-row {
     display: grid;
@@ -230,6 +237,110 @@
     margin-bottom: 8px;
   }
 
+  .goal-panel {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 18px;
+  }
+  @media (max-width: 680px) {
+    .goal-panel { grid-template-columns: 1fr; }
+  }
+  .goal-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  .goal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .goal-field.span2 { grid-column: 1 / -1; }
+  .goal-field label {
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .goal-field select, .goal-field input {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    padding: 8px 9px;
+    width: 100%;
+  }
+  .goal-field select:focus, .goal-field input:focus { border-color: var(--accent); outline: none; }
+
+  .toggle-btn {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--dim);
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 9px 12px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+  .toggle-btn::before {
+    content: '○ ';
+    color: var(--dim);
+  }
+  .toggle-btn.active {
+    background: var(--accent);
+    color: #08101c;
+    border-color: var(--accent);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+  }
+  .toggle-btn.active::before {
+    content: '● ';
+    color: #08101c;
+  }
+
+  .goal-results { display: flex; flex-direction: column; }
+  .goal-hero {
+    background: var(--panel-2);
+    border: 1px solid var(--accent);
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .goal-hero-num {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-hero-lbl {
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 7px;
+  }
+  .goal-result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 2px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .goal-result-row:last-child { border-bottom: none; }
+  .goal-result-val {
+    color: var(--text);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: var(--panel); }
   ::-webkit-scrollbar-thumb { background: var(--border); }
@@ -296,6 +407,51 @@
       <div class="section-title">BATTLE TYPE SPLIT</div>
       <div class="scroll-x">
         <table id="splitTable"></table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">GOAL CALCULATOR</div>
+      <div class="goal-panel">
+        <div class="goal-inputs">
+          <div class="goal-field span2">
+            <label>Load averages from</label>
+            <select id="goalCategory"></select>
+          </div>
+          <div class="goal-field">
+            <label>Win rate %</label>
+            <input type="number" id="goalWinRate" step="0.1">
+          </div>
+          <div class="goal-field">
+            <label>Vehicle RP bonus</label>
+            <button type="button" id="boosterToggle" class="toggle-btn">+30% RP Booster</button>
+          </div>
+          <div class="goal-field">
+            <label>Avg win RP</label>
+            <input type="number" id="goalAvgWinRP">
+          </div>
+          <div class="goal-field">
+            <label>Avg loss RP</label>
+            <input type="number" id="goalAvgLossRP">
+          </div>
+          <div class="goal-field">
+            <label>Avg win SL</label>
+            <input type="number" id="goalAvgWinSL">
+          </div>
+          <div class="goal-field">
+            <label>Avg loss SL</label>
+            <input type="number" id="goalAvgLossSL">
+          </div>
+          <div class="goal-field">
+            <label>RP goal remaining</label>
+            <input type="number" id="goalRpTarget" placeholder="e.g. 64114">
+          </div>
+          <div class="goal-field">
+            <label>SL goal remaining</label>
+            <input type="number" id="goalSlTarget" placeholder="e.g. 305000">
+          </div>
+        </div>
+        <div class="goal-results" id="goalOutput"></div>
       </div>
     </div>
 
@@ -429,6 +585,9 @@ function parseLog(text) {
     const sessionMatch = block.match(/Session:\s*([a-f0-9]+)/i);
     const sessionId = sessionMatch ? sessionMatch[1] : ('noid-' + i);
 
+    const timeMatch = block.match(/Time Played\s+(\d+):(\d+)/);
+    const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
+
     const totalRegex = /Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP,\s*([\d,]+)\s*RP/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
@@ -460,13 +619,14 @@ function parseLog(text) {
 
     matches.push({
       result: headers[i].result, mode: modeBase, category,
-      mission: headers[i].mission, sessionId, netSL, totalRP, researched
+      mission: headers[i].mission, sessionId, netSL, totalRP, researched, timeSec
     });
   }
   return matches;
 }
 
 let lastMatches = null; // cache for export
+let lastCategoryStats = null; // cache for goal calculator
 
 /* ---------- Analyze ---------- */
 function analyze() {
@@ -518,19 +678,30 @@ function analyze() {
   ].map(([lbl, num]) => `<div class="stat-cell"><div class="num">${num}</div><div class="lbl">${lbl}</div></div>`).join('');
 
   const categories = [...new Set(matches.map(m => m.category))];
-  function catStats(cat) {
-    const ms = matches.filter(m => m.category === cat);
+  function catStats(filterFn) {
+    const ms = matches.filter(filterFn);
     const w = ms.filter(m => m.result === 'Victory');
     const l = ms.filter(m => m.result === 'Defeat');
     const sl = ms.reduce((a, m) => a + m.netSL, 0);
     const rp = ms.reduce((a, m) => a + m.totalRP, 0);
     const avgWin = w.length ? (w.reduce((a, m) => a + m.netSL, 0) / w.length) : 0;
     const avgLoss = l.length ? (l.reduce((a, m) => a + m.netSL, 0) / l.length) : 0;
-    return { count: ms.length, w: w.length, l: l.length, wr: ms.length ? (w.length/ms.length*100) : 0, sl, rp, avgWin, avgLoss };
+    const avgWinRP = w.length ? (w.reduce((a, m) => a + m.totalRP, 0) / w.length) : 0;
+    const avgLossRP = l.length ? (l.reduce((a, m) => a + m.totalRP, 0) / l.length) : 0;
+    const avgWinTime = w.length ? (w.reduce((a, m) => a + (m.timeSec||0), 0) / w.length) : 0;
+    const avgLossTime = l.length ? (l.reduce((a, m) => a + (m.timeSec||0), 0) / l.length) : 0;
+    return {
+      count: ms.length, w: w.length, l: l.length, wr: ms.length ? (w.length/ms.length*100) : 0, sl, rp,
+      avgWin, avgLoss, avgWinRP, avgLossRP, avgWinTime, avgLossTime
+    };
   }
 
+  lastCategoryStats = {};
+  categories.forEach(cat => { lastCategoryStats[cat] = catStats(m => m.category === cat); });
+  lastCategoryStats['All Combined'] = catStats(() => true);
+
   const splitRows = categories.map(cat => {
-    const s = catStats(cat);
+    const s = lastCategoryStats[cat];
     return `<tr>
       <td>${cat}</td>
       <td class="num">${s.count}</td>
@@ -547,6 +718,13 @@ function analyze() {
     <tr><th>Battle Type</th><th class="num">Matches</th><th class="num">W/L</th><th class="num">Win%</th>
         <th class="num">Total Net SL</th><th class="num">Avg Win SL</th><th class="num">Avg Loss SL</th><th class="num">Total RP</th></tr>
     ${splitRows}`;
+
+  const goalCatSelect = document.getElementById('goalCategory');
+  const catKeys = [...categories, 'All Combined'];
+  goalCatSelect.innerHTML = catKeys.map(c => `<option value="${c}">${c}</option>`).join('');
+  goalCatSelect.value = 'All Combined';
+  loadGoalFieldsFromCategory('All Combined');
+  computeGoalOutputs();
 
   const targetMap = {};
   matches.forEach(m => m.researched.forEach(r => {
@@ -580,12 +758,107 @@ function analyze() {
     ${matchRows}`;
 }
 
+/* ---------- Goal calculator ---------- */
+let goalTimeAvgs = { avgWinTime: 0, avgLossTime: 0 };
+let boosterActive = false;
+
+function formatTime(sec) {
+  if (!sec) return '—';
+  const m = Math.floor(sec / 60);
+  const s = Math.round(sec % 60);
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function loadGoalFieldsFromCategory(catKey) {
+  const stats = lastCategoryStats && lastCategoryStats[catKey];
+  if (!stats) return;
+  document.getElementById('goalWinRate').value = stats.wr.toFixed(1);
+  document.getElementById('goalAvgWinRP').value = Math.round(stats.avgWinRP);
+  document.getElementById('goalAvgLossRP').value = Math.round(stats.avgLossRP);
+  document.getElementById('goalAvgWinSL').value = Math.round(stats.avgWin);
+  document.getElementById('goalAvgLossSL').value = Math.round(stats.avgLoss);
+  goalTimeAvgs = { avgWinTime: stats.avgWinTime, avgLossTime: stats.avgLossTime };
+}
+
+function computeGoalOutputs() {
+  const out = document.getElementById('goalOutput');
+  if (!lastCategoryStats) { out.innerHTML = ''; return; }
+
+  const wr = parseFloat(document.getElementById('goalWinRate').value) || 0;
+  const avgWinRP = parseFloat(document.getElementById('goalAvgWinRP').value) || 0;
+  const avgLossRP = parseFloat(document.getElementById('goalAvgLossRP').value) || 0;
+  const avgWinSL = parseFloat(document.getElementById('goalAvgWinSL').value) || 0;
+  const avgLossSL = parseFloat(document.getElementById('goalAvgLossSL').value) || 0;
+  const rpGoal = parseFloat(document.getElementById('goalRpTarget').value) || 0;
+  const slGoal = parseFloat(document.getElementById('goalSlTarget').value) || 0;
+
+  const wrFrac = wr / 100;
+  const boosterMult = boosterActive ? 1.3 : 1;
+  const expRP = (wrFrac * avgWinRP + (1 - wrFrac) * avgLossRP) * boosterMult;
+  const expSL = wrFrac * avgWinSL + (1 - wrFrac) * avgLossSL;
+  const expTimeSec = wrFrac * goalTimeAvgs.avgWinTime + (1 - wrFrac) * goalTimeAvgs.avgLossTime;
+
+  const matchesRP = (rpGoal > 0 && expRP > 0) ? Math.ceil(rpGoal / expRP) : null;
+  const matchesSL = (slGoal > 0 && expSL > 0) ? Math.ceil(slGoal / expSL) : null;
+
+  let bottleneckMatches = null, bottleneckLabel = '';
+  if (matchesRP !== null || matchesSL !== null) {
+    bottleneckMatches = Math.max(matchesRP || 0, matchesSL || 0);
+    if (matchesRP !== null && matchesSL !== null) {
+      bottleneckLabel = matchesRP === matchesSL ? 'RP & SL tied' : (matchesRP > matchesSL ? 'RP-bound' : 'SL-bound');
+    } else {
+      bottleneckLabel = matchesRP !== null ? 'RP-bound' : 'SL-bound';
+    }
+  }
+
+  const totalTimeHrs = bottleneckMatches ? (bottleneckMatches * expTimeSec / 3600) : 0;
+
+  const heroHtml = `
+    <div class="goal-hero">
+      <div class="goal-hero-num">${bottleneckMatches !== null ? bottleneckMatches.toLocaleString() : '—'}</div>
+      <div class="goal-hero-lbl">matches needed${bottleneckLabel ? ' · ' + bottleneckLabel : ''}</div>
+    </div>`;
+
+  const rows = [
+    ['Expected RP / match', Math.round(expRP).toLocaleString() + (boosterActive ? ' (+30% applied)' : '')],
+    ['Expected net SL / match', Math.round(expSL).toLocaleString()],
+    ['Expected time / match', formatTime(expTimeSec)],
+    ['Matches needed — RP goal', matchesRP !== null ? matchesRP.toLocaleString() : '—'],
+    ['Matches needed — SL goal', matchesSL !== null ? matchesSL.toLocaleString() : '—'],
+    ['Est. active playtime', bottleneckMatches ? totalTimeHrs.toFixed(1) + ' hrs' : '—']
+  ];
+  out.innerHTML = heroHtml + rows.map(([lbl, val]) =>
+    `<div class="goal-result-row"><span>${lbl}</span><span class="goal-result-val">${val}</span></div>`
+  ).join('');
+}
+
+document.getElementById('goalCategory').addEventListener('change', (e) => {
+  loadGoalFieldsFromCategory(e.target.value);
+  computeGoalOutputs();
+});
+document.getElementById('boosterToggle').addEventListener('click', (e) => {
+  boosterActive = !boosterActive;
+  e.target.classList.toggle('active', boosterActive);
+  computeGoalOutputs();
+});
+['goalWinRate', 'goalAvgWinRP', 'goalAvgLossRP', 'goalAvgWinSL', 'goalAvgLossSL', 'goalRpTarget', 'goalSlTarget'].forEach(id => {
+  document.getElementById(id).addEventListener('input', computeGoalOutputs);
+});
+
 document.getElementById('analyzeBtn').addEventListener('click', analyze);
 document.getElementById('clearBtn').addEventListener('click', () => {
   document.getElementById('input').value = '';
   document.getElementById('results').style.display = 'none';
   document.getElementById('dupeWarn').style.display = 'none';
   lastMatches = null;
+  lastCategoryStats = null;
+  boosterActive = false;
+  document.getElementById('boosterToggle').classList.remove('active');
+  ['goalWinRate','goalAvgWinRP','goalAvgLossRP','goalAvgWinSL','goalAvgLossSL','goalRpTarget','goalSlTarget'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('goalOutput').innerHTML = '';
+  document.getElementById('goalCategory').innerHTML = '';
   const emptyState = document.getElementById('emptyState');
   emptyState.style.display = 'block';
   emptyState.textContent = 'No data yet — paste a log and hit Analyze.';
