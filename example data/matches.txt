@@ -1,0 +1,3490 @@
+Victory in the [Domination] Sweden mission!
+
+Destruction of ground targets            3    10201 SL     636 RP    
+    1:54    T-72M1(Germany)    3BM22      Leopard 1A5BE     200 mission points    2020 + (PA)1010 + (Booster)404 = 3434 SL    107 + (PA)107 = 214 RP
+    2:16    T-72M1(Germany)    3BM22      Leopard 1A5BE     200 mission points    2020 + (PA)1010 + (Booster)404 = 3434 SL    107 + (PA)107 = 214 RP
+    9:38    KPz-70             XM578E1    VBCI              200 mission points    1960 + (PA)980 + (Booster)393 = 3333 SL     104 + (PA)104 = 208 RP
+
+Assistance in destroying the enemy       1     1547 SL     100 RP    
+    4:42    T-72M1(Germany)    3BM22    AMX-32     120 mission points    909 + (PA)456 + (Booster)182 = 1547 SL    50 + (PA)50 = 100 RP
+
+Critical damage to the enemy             3     1022 SL      64 RP    
+    1:54    T-72M1(Germany)    3BM22      Leopard 1A5BE     60 mission points    202 + (PA)101 + (Booster)41 = 344 SL    11 + (PA)11 = 22 RP
+    2:16    T-72M1(Germany)    3BM22      Leopard 1A5BE     60 mission points    202 + (PA)101 + (Booster)41 = 344 SL    11 + (PA)11 = 22 RP
+    9:32    KPz-70             XM578E1    VBCI              60 mission points    196 + (PA)98 + (Booster)40 = 334 SL     10 + (PA)10 = 20 RP
+
+Damage to the enemy                      9     1538 SL      92 RP    
+    1:54    T-72M1(Germany)    3BM22               Leopard 1A5BE     20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    2:16    T-72M1(Germany)    3BM22               Leopard 1A5BE     20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    4:32    T-72M1(Germany)    3BM22               AMX-32            20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    6 + (PA)6 = 12 RP
+    6:04    T-72M1(Germany)    API-T (12.7mm)      MEPHISTO          20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    6:09    T-72M1(Germany)    AP-I(c) (12.7mm)    MEPHISTO          20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    9:32    KPz-70             Default (7.62mm)    VBCI              20 mission points    98 + (PA)49 + (Booster)20 = 167 SL     5 + (PA)5 = 10 RP
+    9:33    KPz-70             Default (7.62mm)    VBCI              20 mission points    98 + (PA)49 + (Booster)20 = 167 SL     5 + (PA)5 = 10 RP
+    9:37    KPz-70             Default (7.62mm)    VBCI              20 mission points    98 + (PA)49 + (Booster)20 = 167 SL     5 + (PA)5 = 10 RP
+    9:38    KPz-70             XM578E1             VBCI              20 mission points    98 + (PA)49 + (Booster)20 = 167 SL     5 + (PA)5 = 10 RP
+
+Capture of zones                         1     3573 SL     278 RP    
+    3:45    T-72M1(Germany)    39%    200 mission points    2101 + (PA)1051 + (Booster)421 = 3573 SL    139 + (PA)139 = 278 RP
+
+Awards                                   7     1700 SL               
+    1:54    Tank Rescuer     50 + (PA)25 + (Booster)10 = 85 SL   
+    2:17    Tank Rescuer     50 + (PA)25 + (Booster)10 = 85 SL   
+    2:17    Multi strike!    100 + (PA)50 + (Booster)20 = 170 SL 
+    4:35    Adamant          300 + (PA)150 + (Booster)60 = 510 SL
+    9:39    Tank Rescuer     50 + (PA)25 + (Booster)10 = 85 SL   
+    9:39    Avenger          150 + (PA)75 + (Booster)30 = 255 SL 
+    9:39    Eye for Eye      300 + (PA)150 + (Booster)60 = 510 SL
+
+Activity Time                                  3677 SL     306 RP    
+    KPz-70             701 + (PA)701 + (Booster)141 = 1543 SL    63 + (PA)63 = 126 RP
+    T-72M1(Germany)    970 + (PA)970 + (Booster)194 = 2134 SL    90 + (PA)90 = 180 RP
+    JaPz.K A2          0 SL                                      0 RP                
+
+Time Played                           9:24                3012 RP    
+    KPz-70             82%    3:06    476 + (PA)476 = 952 RP   
+    T-72M1(Germany)    95%    5:38    1030 + (PA)1030 = 2060 RP
+    JaPz.K A2          0%     0:40    0 RP                     
+
+Reward for winning                            10070 SL               
+
+Skill Bonus                                                337 RP    
+    KPz-70             I    101 RP
+    T-72M1(Germany)    I    236 RP
+    JaPz.K A2          I    0 RP  
+
+Earned: 33328 SL, 4825 CRP
+Activity: 89%
+Damaged Vehicles: KPz-70, T-72M1(Germany)
+Automatic repair of all vehicles: -8777 SL
+Automatic purchasing of ammo and "Crew Replenishment": -1980 SL
+
+Researched unit: 
+Leopard 2K: 5163 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 3378 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 73876ab00050b31
+Total: 22571 SL, 4825 CRP, 8541 RP
+
+Defeat in the [Domination] Sun City mission!
+
+Assistance in destroying the enemy             1    1286 SL      94 RP    
+    9:34    JaPz.K A2    OFL 105 G1    Object 122MT "MC"     120 mission points    756 + (PA)378 + (Booster)152 = 1286 SL    47 + (PA)47 = 94 RP
+
+Damage to the enemy                            6     951 SL      60 RP    
+    2:30    T-72M1(Germany)    3BM22               CM11                  20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    2:34    T-72M1(Germany)    IAI (12.7mm)        CM11                  20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    2:39    T-72M1(Germany)    AP-I(c) (12.7mm)    CM11                  20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    5:36    JaPz.K A2          OFL 105 G1          T-55M()               20 mission points    84 + (PA)42 + (Booster)17 = 143 SL     5 + (PA)5 = 10 RP
+    5:41    JaPz.K A2          OFL 105 G1          T-55M()               20 mission points    84 + (PA)42 + (Booster)17 = 143 SL     5 + (PA)5 = 10 RP
+    9:22    JaPz.K A2          OFL 105 G1          Object 122MT "MC"     20 mission points    84 + (PA)42 + (Booster)17 = 143 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                          1     143 SL               
+    5:35    JaPz.K A2    T-55M()     5 mission points    without UAV    84 + (PA)42 + (Booster)17 = 143 SL
+
+Awards                                         1     510 SL               
+    7:09    Adamant    300 + (PA)150 + (Booster)60 = 510 SL
+
+Activity Time                                       4110 SL     302 RP    
+    Gepard             800 + (PA)800 + (Booster)160 = 1760 SL    52 + (PA)52 = 104 RP
+    T-72M1(Germany)    138 + (PA)138 + (Booster)28 = 304 SL      13 + (PA)13 = 26 RP 
+    JaPz.K A2          930 + (PA)930 + (Booster)186 = 2046 SL    86 + (PA)86 = 172 RP
+
+Time Played                                11:43               1280 RP    
+    Gepard             0%     4:16    0 RP                  
+    T-72M1(Germany)    56%    1:59    142 + (PA)142 = 284 RP
+    JaPz.K A2          73%    5:28    498 + (PA)498 = 996 RP
+
+Reward for participating in the mission             1299 SL               
+
+Earned: 8299 SL, 1736 CRP
+Activity: 57%
+Damaged Vehicles: JaPz.K A2, T-72M1(Germany)
+Backup vehicles spent: JaPz.K A2
+Automatic repair of all vehicles: -2017 SL
+Automatic purchasing of ammo and "Crew Replenishment": -970 SL
+
+Researched unit: 
+Leopard 2K: 1770 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 340 RP
+JaPz.K A2 - Improved optics: 1292 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 7387a0300052799
+Total: 5312 SL, 1736 CRP, 3402 RP
+
+Defeat in the [Battle] Cargo port mission!
+
+Destruction of ground targets                  1    3434 SL     214 RP    
+    6:45    T-72M1(Germany)    3BM22    Merkava Mk.1()     200 mission points    2020 + (PA)1010 + (Booster)404 = 3434 SL    107 + (PA)107 = 214 RP
+
+Critical damage to the enemy                   1     344 SL      22 RP    
+    6:45    T-72M1(Germany)    3BM22    Merkava Mk.1()     60 mission points    202 + (PA)101 + (Booster)41 = 344 SL    11 + (PA)11 = 22 RP
+
+Damage to the enemy                            6    1044 SL      60 RP    
+    6:45    T-72M1(Germany)    3BM22               Merkava Mk.1()     20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    7:45    T-72M1(Germany)    3BM22               AFT09              20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    7:47    T-72M1(Germany)    Default (7.62mm)    AFT09              20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    7:55    T-72M1(Germany)    AP-I(c) (12.7mm)    XM246              20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    8:01    T-72M1(Germany)    API-T (12.7mm)      XM246              20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    8:04    T-72M1(Germany)    Default (7.62mm)    AFT09              20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+
+Scouting of the enemy                          2     286 SL               
+    11:51    JaPz.K A2    M60A3 TTS        5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    15:17    JaPz.K A2    AMX-30 Super     5 mission points    without UAV       84 + (PA)42 + (Booster)17 = 143 SL
+
+Awards                                         1     510 SL               
+    7:45    Adamant    300 + (PA)150 + (Booster)60 = 510 SL
+
+Activity Time                                       3457 SL     290 RP    
+    KPz-70             195 + (PA)195 + (Booster)39 = 429 SL      18 + (PA)18 = 36 RP 
+    T-72M1(Germany)    970 + (PA)970 + (Booster)194 = 2134 SL    90 + (PA)90 = 180 RP
+    JaPz.K A2          406 + (PA)406 + (Booster)82 = 894 SL      37 + (PA)37 = 74 RP 
+    Recon Micro        0 SL                                      0 RP                
+
+Time Played                                13:48               2060 RP    
+    KPz-70             50%    1:17    80 + (PA)80 = 160 RP   
+    T-72M1(Germany)    77%    7:34    746 + (PA)746 = 1492 RP
+    JaPz.K A2          33%    4:57    204 + (PA)204 = 408 RP 
+
+Reward for participating in the mission             1717 SL               
+
+Earned: 10792 SL, 2646 CRP
+Activity: 67%
+Damaged Vehicles: KPz-70, JaPz.K A2, T-72M1(Germany)
+Automatic repair of all vehicles: -6804 SL
+Automatic purchasing of ammo and "Crew Replenishment": -920 SL
+
+Researched unit: 
+Leopard 2K: 2843 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 1968 RP
+JaPz.K A2 - Improved optics: 482 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 7387dfb000548e6
+Total: 3068 SL, 2646 CRP, 5293 RP
+
+Defeat in the [Domination #2] Ardennes mission!
+
+Assistance in destroying the enemy            1    1511 SL     90 RP    
+    5:10    Leopard 1A5    DM33    T-62M-1     118 mission points    887 + (PA)445 + (Booster)179 = 1511 SL    45 + (PA)45 = 90 RP
+
+Critical damage to the enemy                  1     336 SL     20 RP    
+    5:06    Leopard 1A5    DM33    T-62M-1     59 mission points    197 + (PA)99 + (Booster)40 = 336 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                           1     169 SL     10 RP    
+    5:06    Leopard 1A5    DM33    T-62M-1     20 mission points    99 + (PA)50 + (Booster)20 = 169 SL    5 + (PA)5 = 10 RP
+
+Activity Time                                      4024 SL    338 RP    
+    T-72M1(Germany)    839 + (PA)839 + (Booster)168 = 1846 SL    78 + (PA)78 = 156 RP
+    Leopard 1A5        990 + (PA)990 + (Booster)198 = 2178 SL    91 + (PA)91 = 182 RP
+
+Time Played                                4:23               574 RP    
+    T-72M1(Germany)    37%    2:26    116 + (PA)116 = 232 RP
+    Leopard 1A5        70%    1:57    171 + (PA)171 = 342 RP
+
+Reward for participating in the mission            1211 SL              
+
+Earned: 7251 SL, 1032 CRP
+Activity: 59%
+Damaged Vehicles: Leopard 1A5, T-72M1(Germany)
+Automatic repair of all vehicles: -4351 SL
+Automatic purchasing of ammo and "Crew Replenishment": -220 SL
+
+Researched unit: 
+Leopard 2K: 1071 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 388 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738be9f00071f37
+Total: 2680 SL, 1032 CRP, 1459 RP
+
+
+Defeat in the [Domination #1] Tunisia mission!
+
+Scouting of the enemy                          1     137 SL              
+    5:08    TAM    T-55A     5 mission points    without UAV    80 + (PA)40 + (Booster)17 = 137 SL
+
+Damage taken by scouted enemies                1     273 SL              
+    5:18    TAM    T-55A     20 mission points    without UAV    160 + (PA)80 + (Booster)33 = 273 SL
+
+Destruction by allies of scouted enemies       1    1361 SL     50 RP    
+    5:18    TAM    T-55A     60 mission points    without UAV    ×    800 + (PA)400 + (Booster)161 = 1361 SL    25 + (PA)25 = 50 RP
+
+Awards                                         1     170 SL              
+    5:18    Intelligence    100 + (PA)50 + (Booster)20 = 170 SL
+
+Activity Time                                       2357 SL    198 RP    
+    T-72M1(Germany)    970 + (PA)970 + (Booster)194 = 2134 SL    90 + (PA)90 = 180 RP
+    TAM                101 + (PA)101 + (Booster)21 = 223 SL      9 + (PA)9 = 18 RP   
+
+Time Played                                 4:16               364 RP    
+    T-72M1(Germany)    33%    3:49    161 + (PA)161 = 322 RP
+    TAM                38%    0:27    21 + (PA)21 = 42 RP   
+
+Reward for participating in the mission              827 SL              
+
+Earned: 5125 SL, 612 CRP
+Activity: 50%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -4310 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Leopard 2K: 662 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 502 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738c0160007282e
+Total: 635 SL, 612 CRP, 1164 RP
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+
+Time Played           13:52                7140 RP    
+    JaPz.K A2    13:52    3570 + (PA)3570 = 7140 RP
+
+Reward for winning             47919 SL               
+
+Earned: 47919 SL, 7140 CRP
+Activity: 82%
+Respawns in battle: -15200 SL
+
+Researched unit: 
+Leopard 2K: 7140 RP
+
+Researching progress: 
+JaPz.K A2 - Improved optics: 6243 RP
+
+Session: 738c8c200075cfa
+Total: 32719 SL, 7140 CRP, 13383 RP
+
+Defeat in the [Domination #2] Eastern Europe mission!
+
+Scouting of the enemy                         2     280 SL              
+    1:12    JaPz.K A2    Merkava Mk.2D     5 mission points    without UAV       84 + (PA)42 + (Booster)17 = 143 SL
+    3:08    TAM          Merkava Mk.2D     5 mission points    UAV in the air    80 + (PA)40 + (Booster)17 = 137 SL
+
+Damage taken by scouted enemies               1     273 SL              
+    3:09    TAM    Merkava Mk.2D     20 mission points    UAV in the air    160 + (PA)80 + (Booster)33 = 273 SL
+
+Activity Time                                      3548 SL    294 RP    
+    JaPz.K A2      812 + (PA)812 + (Booster)163 = 1787 SL    75 + (PA)75 = 150 RP
+    TAM            800 + (PA)800 + (Booster)161 = 1761 SL    72 + (PA)72 = 144 RP
+    Recon Micro    0 SL                                      0 RP                
+
+Time Played                                3:35               430 RP    
+    JaPz.K A2    39%    1:29    72 + (PA)72 = 144 RP  
+    TAM          56%    2:06    143 + (PA)143 = 286 RP
+
+Reward for participating in the mission             821 SL              
+
+Earned: 4922 SL, 724 CRP
+Activity: 46%
+Damaged Vehicles: JaPz.K A2, TAM
+Automatic repair of all vehicles: -2005 SL
+Automatic purchasing of ammo and "Crew Replenishment": -185 SL
+
+Researched unit: 
+Leopard 2K: 724 RP
+
+Researching progress: 
+JaPz.K A2 - Suspension: 294 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738db0a0007ba75
+Total: 2732 SL, 724 CRP, 1018 RP
+
+Victory in the [Domination] Normandy mission!
+
+Assistance in destroying the enemy       1    1226 SL      86 RP    
+    9:01    TAM    Artillery    M60A1 Predator     118 mission points    720 + (PA)360 + (Booster)146 = 1226 SL    43 + (PA)43 = 86 RP
+
+Critical damage to the enemy             1     273 SL      20 RP    
+    6:24    TAM    Artillery    M60A1 Predator     59 mission points    160 + (PA)80 + (Booster)33 = 273 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                      4     548 SL      40 RP    
+    6:24    TAM    Artillery       M60A1 Predator     20 mission points    80 + (PA)40 + (Booster)17 = 137 SL    5 + (PA)5 = 10 RP
+    6:30    TAM    Artillery       M60A1 Predator     20 mission points    80 + (PA)40 + (Booster)17 = 137 SL    5 + (PA)5 = 10 RP
+    8:32    TAM    APFSDS Sabot    Strv 105           20 mission points    80 + (PA)40 + (Booster)17 = 137 SL    5 + (PA)5 = 10 RP
+    8:32    TAM    APFSDS Sabot    Strv 105           20 mission points    80 + (PA)40 + (Booster)17 = 137 SL    5 + (PA)5 = 10 RP
+
+Scouting of the enemy                    2     274 SL               
+    4:59    TAM    M60A1 Predator     5 mission points    UAV in the air    80 + (PA)40 + (Booster)17 = 137 SL
+    5:18    TAM    VFM5               5 mission points    UAV in the air    80 + (PA)40 + (Booster)17 = 137 SL
+
+Activity Time                                 3615 SL     298 RP    
+    JaPz.K A2    733 + (PA)733 + (Booster)147 = 1613 SL    67 + (PA)67 = 134 RP
+    TAM          910 + (PA)910 + (Booster)182 = 2002 SL    82 + (PA)82 = 164 RP
+
+Time Played                           8:04               1760 RP    
+    JaPz.K A2    37%    2:52    199 + (PA)199 = 398 RP 
+    TAM          72%    5:12    681 + (PA)681 = 1362 RP
+
+Reward for winning                            2773 SL               
+
+Earned: 8709 SL, 2204 CRP
+Activity: 59%
+Damaged Vehicles: TAM
+Backup vehicles spent: JaPz.K A2
+Automatic repair of all vehicles: -4966 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Leopard 2K: 2204 RP
+
+Researching progress: 
+JaPz.K A2 - Suspension: 532 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738dc9c0007c175
+Total: 3563 SL, 2204 CRP, 2736 RP
+
+Defeat in the [Battle] Ardennes (winter) mission!
+
+Scouting of the enemy                         3     429 SL              
+    3:18    JaPz.K A2    120S      5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    5:09    JaPz.K A2    T-72A     5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    6:04    JaPz.K A2    VRCC      5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+
+Activity Time                                      3881 SL    322 RP    
+    JaPz.K A2      930 + (PA)930 + (Booster)186 = 2046 SL    86 + (PA)86 = 172 RP
+    TAM            834 + (PA)834 + (Booster)167 = 1835 SL    75 + (PA)75 = 150 RP
+    Recon Micro    0 SL                                      0 RP                
+
+Time Played                                4:59               500 RP    
+    JaPz.K A2    39%    3:27    168 + (PA)168 = 336 RP
+    TAM          44%    1:32    82 + (PA)82 = 164 RP  
+
+Reward for participating in the mission             863 SL              
+
+Earned: 5173 SL, 822 CRP
+Activity: 40%
+Damaged Vehicles: JaPz.K A2, TAM
+Automatic repair of all vehicles: -4558 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Leopard 2K: 822 RP
+
+Researching progress: 
+JaPz.K A2 - Suspension: 508 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738def10007cb2e
+Total: 435 SL, 822 CRP, 1330 RP
+
+Victory in the [Conquest #3] Port Novorossiysk mission!
+
+Destruction of ground targets                  2    6290 SL     420 RP    
+    1:23    JaPz.K A2          OFL 105 G1    BTR-82AT       200 mission points    1680 + (PA)840 + (Booster)336 = 2856 SL     109 + (PA)109 = 218 RP
+    3:02    T-72M1(Germany)    3BM22         Object 435     197 mission points    2020 + (PA)1010 + (Booster)404 = 3434 SL    101 + (PA)101 = 202 RP
+
+Critical damage to the enemy                   2     630 SL      42 RP    
+    1:23    JaPz.K A2          OFL 105 G1    BTR-82AT       60 mission points    168 + (PA)84 + (Booster)34 = 286 SL     11 + (PA)11 = 22 RP
+    3:02    T-72M1(Germany)    3BM22         Object 435     59 mission points    202 + (PA)101 + (Booster)41 = 344 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                            3     491 SL      30 RP    
+    1:23    JaPz.K A2          OFL 105 G1    BTR-82AT       20 mission points    84 + (PA)42 + (Booster)17 = 143 SL     5 + (PA)5 = 10 RP
+    3:02    T-72M1(Germany)    3BM22         Object 435     20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+    7:33    T-72M1(Germany)    3BM22         Object 435     20 mission points    101 + (PA)51 + (Booster)22 = 174 SL    5 + (PA)5 = 10 RP
+
+Scouting of the enemy                          1     143 SL               
+    1:04    JaPz.K A2    T-64A (1971)     5 mission points    without UAV    84 + (PA)42 + (Booster)17 = 143 SL
+
+Damage taken by scouted enemies                1     286 SL               
+    1:36    JaPz.K A2    T-64A (1971)     20 mission points    without UAV    168 + (PA)84 + (Booster)34 = 286 SL
+
+Destruction by allies of scouted enemies       1    1428 SL      52 RP    
+    1:36    JaPz.K A2    T-64A (1971)     60 mission points    without UAV    ×    840 + (PA)420 + (Booster)168 = 1428 SL    26 + (PA)26 = 52 RP
+
+Awards                                         4    1020 SL               
+    1:23    According to Intelligence    100 + (PA)50 + (Booster)20 = 170 SL 
+    1:36    Intelligence                 100 + (PA)50 + (Booster)20 = 170 SL 
+    3:27    Help with Repairing          100 + (PA)50 + (Booster)20 = 170 SL 
+    4:07    Adamant                      300 + (PA)150 + (Booster)60 = 510 SL
+
+Activity Time                                       3450 SL     290 RP    
+    KPz-70             0 SL                                      0 RP                
+    T-72M1(Germany)    970 + (PA)970 + (Booster)194 = 2134 SL    90 + (PA)90 = 180 RP
+    JaPz.K A2          598 + (PA)598 + (Booster)120 = 1316 SL    55 + (PA)55 = 110 RP
+
+Time Played                                 7:29               1930 RP    
+    T-72M1(Germany)    69%    6:27    856 + (PA)856 = 1712 RP
+    JaPz.K A2          56%    1:02    109 + (PA)109 = 218 RP 
+
+Reward for winning                                  5940 SL               
+
+Earned: 19678 SL, 2764 CRP
+Activity: 78%
+Damaged Vehicles: JaPz.K A2, T-72M1(Germany)
+Automatic repair of all vehicles: -1412 SL
+Automatic purchasing of ammo and "Crew Replenishment": -875 SL
+
+Researched unit: 
+Leopard 2K: 2977 RP
+
+Researching progress: 
+T-72M1(Germany) - ESS: 1473 RP
+JaPz.K A2 - Suspension: 630 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738e0900007d1c7
+Total: 17391 SL, 2764 CRP, 5080 RP
+
+Defeat in the [Conquest #2] Alaska mission!
+
+Destruction of ground targets                 5    14130 SL    1014 RP    
+    2:09    T-72M1(Germany)    3BM22         T95E1      175 mission points    2020 + (PA)1010 = 3030 SL    91 + (PA)91 = 182 RP  
+    2:36    T-72M1(Germany)    3BM22         MBT-70     200 mission points    2020 + (PA)1010 = 3030 SL    107 + (PA)107 = 214 RP
+    2:52    T-72M1(Germany)    3BM22         XM803      197 mission points    2020 + (PA)1010 = 3030 SL    101 + (PA)101 = 202 RP
+    7:20    JaPz.K A2          OFL 105 G1    T58        200 mission points    1680 + (PA)840 = 2520 SL     104 + (PA)104 = 208 RP
+    7:29    JaPz.K A2          OFL 105 G1    XM246      200 mission points    1680 + (PA)840 = 2520 SL     104 + (PA)104 = 208 RP
+
+Assistance in destroying the enemy            1     1365 SL      86 RP    
+    3:49    T-72M1(Germany)    3BM22    T58     113 mission points    909 + (PA)456 = 1365 SL    43 + (PA)43 = 86 RP
+
+Critical damage to the enemy                  7     1968 SL     140 RP    
+    2:09    T-72M1(Germany)    3BM22         T95E1      52 mission points    202 + (PA)101 = 303 SL    9 + (PA)9 = 18 RP  
+    2:36    T-72M1(Germany)    3BM22         MBT-70     60 mission points    202 + (PA)101 = 303 SL    11 + (PA)11 = 22 RP
+    2:52    T-72M1(Germany)    3BM22         XM803      59 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    3:02    T-72M1(Germany)    3BM22         T58        57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    7:16    JaPz.K A2          OFL 105 G1    T58        60 mission points    168 + (PA)84 = 252 SL     10 + (PA)10 = 20 RP
+    7:29    JaPz.K A2          OFL 105 G1    XM246      60 mission points    168 + (PA)84 = 252 SL     10 + (PA)10 = 20 RP
+    7:49    JaPz.K A2          OFL 105 G1    T58        60 mission points    168 + (PA)84 = 252 SL     10 + (PA)10 = 20 RP
+
+Damage to the enemy                          14     1894 SL     140 RP    
+    2:09    T-72M1(Germany)    3BM22           T95E1      20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    2:36    T-72M1(Germany)    3BM22           MBT-70     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    2:52    T-72M1(Germany)    3BM22           XM803      20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    3:02    T-72M1(Germany)    3BM22           T58        20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    3:09    T-72M1(Germany)    3BM22           T58        20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    7:16    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    7:20    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    7:29    JaPz.K A2          OFL 105 G1      XM246      20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    7:49    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    7:53    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    7:58    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    8:02    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    8:10    JaPz.K A2          OFL 105 G1      T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    8:24    JaPz.K A2          APFSDS Sabot    T58        20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                         2      252 SL               
+    7:16    JaPz.K A2    T58     5 mission points    without UAV    84 + (PA)42 = 126 SL
+    7:54    JaPz.K A2    T58     5 mission points    without UAV    84 + (PA)42 = 126 SL
+
+Awards                                        8     2250 SL               
+    2:37    Base defender!           300 + (PA)150 = 450 SL
+    2:37    Multi strike!            100 + (PA)50 = 150 SL 
+    2:52    Shadow strike streak!    100 + (PA)50 = 150 SL 
+    2:52    Multi strike!            500 + (PA)250 = 750 SL
+    7:21    Tank Rescuer             50 + (PA)25 = 75 SL   
+    7:21    Eye for Eye              300 + (PA)150 = 450 SL
+    7:29    Tank Rescuer             50 + (PA)25 = 75 SL   
+    7:29    Multi strike!            100 + (PA)50 = 150 SL 
+
+Activity Time                                       4572 SL     422 RP    
+    KPz-70             529 + (PA)529 = 1058 SL    48 + (PA)48 = 96 RP 
+    T-72M1(Germany)    827 + (PA)827 = 1654 SL    77 + (PA)77 = 154 RP
+    JaPz.K A2          930 + (PA)930 = 1860 SL    86 + (PA)86 = 172 RP
+    TAM                0 SL                       0 RP                
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                8:02                1628 RP    
+    KPz-70             0%     0:47    0 RP                  
+    T-72M1(Germany)    86%    3:05    340 + (PA)340 = 680 RP
+    JaPz.K A2          91%    4:10    474 + (PA)474 = 948 RP
+
+Reward for participating in the mission             4839 SL               
+
+Skill Bonus                                                     259 RP    
+    KPz-70             I    8 RP  
+    T-72M1(Germany)    I    124 RP
+    JaPz.K A2          I    127 RP
+    TAM                I    0 RP  
+
+Earned: 31270 SL, 3689 CRP
+Activity: 88%
+Damaged Vehicles: JaPz.K A2, T-72M1(Germany)
+Automatic repair of all vehicles: -6872 SL
+Automatic purchasing of ammo and "Crew Replenishment": -2815 SL
+
+Researched unit: 
+Leopard 2K: 3866 RP
+
+Researching progress: 
+T-72M1(Germany) - Smoke grenade: 1772 RP
+JaPz.K A2 - Suspension: 1813 RP
+
+Session: 738e5d30007e651
+Total: 21583 SL, 3689 CRP, 7451 RP
+
+Defeat in the [Battle] Carpathians mission!
+
+Assistance in destroying the enemy             1    1511 SL    104 RP    
+    13:55    Leopard 1A5    DM33    Dardo     120 mission points    887 + (PA)445 + (Booster)179 = 1511 SL    52 + (PA)52 = 104 RP
+
+Critical damage to the enemy                   1     336 SL     22 RP    
+    7:11    Leopard 1A5    DM33    Dardo     60 mission points    197 + (PA)99 + (Booster)40 = 336 SL    11 + (PA)11 = 22 RP
+
+Damage to the enemy                            1     169 SL     12 RP    
+    7:11    Leopard 1A5    DM33    Dardo     20 mission points    99 + (PA)50 + (Booster)20 = 169 SL    6 + (PA)6 = 12 RP
+
+Scouting of the enemy                          6     858 SL              
+    2:18    JaPz.K A2    T-62M-1            5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    2:39    JaPz.K A2    MBT-70             5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    3:06    JaPz.K A2    BMP-3              5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    4:11    JaPz.K A2    MBT-70             5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    4:57    JaPz.K A2    BMP-3              5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+    5:24    JaPz.K A2    M60A1 RISE (P)     5 mission points    UAV in the air    84 + (PA)42 + (Booster)17 = 143 SL
+
+Damage taken by scouted enemies                1     286 SL              
+    3:00    JaPz.K A2    MBT-70     20 mission points    UAV in the air    168 + (PA)84 + (Booster)34 = 286 SL
+
+Destruction by allies of scouted enemies       1    1428 SL     52 RP    
+    3:00    JaPz.K A2    MBT-70     60 mission points    UAV in the air    ×    840 + (PA)420 + (Booster)168 = 1428 SL    26 + (PA)26 = 52 RP
+
+Awards                                         1     170 SL              
+    3:00    Intelligence    100 + (PA)50 + (Booster)20 = 170 SL
+
+Activity Time                                       3547 SL    298 RP    
+    KPz-70         195 + (PA)195 + (Booster)39 = 429 SL      18 + (PA)18 = 36 RP 
+    Leopard 1A5    487 + (PA)487 + (Booster)98 = 1072 SL     45 + (PA)45 = 90 RP 
+    JaPz.K A2      930 + (PA)930 + (Booster)186 = 2046 SL    86 + (PA)86 = 172 RP
+    Recon Micro    0 SL                                      0 RP                
+
+Time Played                                 6:43               822 RP    
+    KPz-70         36%    0:26    20 + (PA)20 = 40 RP   
+    Leopard 1A5    54%    0:58    66 + (PA)66 = 132 RP  
+    JaPz.K A2      49%    5:19    325 + (PA)325 = 650 RP
+
+Reward for participating in the mission             1628 SL              
+
+Earned: 9933 SL, 1310 CRP
+Activity: 69%
+Damaged Vehicles: KPz-70, JaPz.K A2, Leopard 1A5
+Automatic repair of all vehicles: -6046 SL
+Automatic purchasing of ammo and "Crew Replenishment": -220 SL
+
+Researched unit: 
+Leopard 2K: 1310 RP
+
+Researching progress: 
+JaPz.K A2 - Suspension: 874 RP
+
+Used items: 
+Active boosters SL: 
+Common: +20%SL
+* Personal booster
++20%SL, gives (+20%SL).
+
+Session: 738e3c60007de66
+Total: 3667 SL, 1310 CRP, 2184 RP
+
+Defeat in the [Domination #1] Test Site-2271 mission!
+
+Destruction of aircraft                         1    1800 SL      76 RP    
+    8:46    TAM    — (crashed without damage)    Pe-8     50 mission points    –    1200 + (PA)600 = 1800 SL    38 + (PA)38 = 76 RP
+
+Destruction of ground targets                   2    4800 SL     414 RP    
+    13:29    TAM    Artillery    M60A3 TTS     200 mission points    1600 + (PA)800 = 2400 SL    101 + (PA)101 = 202 RP
+    15:54    TAM    DM23         M247          200 mission points    1600 + (PA)800 = 2400 SL    106 + (PA)106 = 212 RP
+
+Critical damage to the enemy                    2     480 SL      42 RP    
+    12:40    TAM    DM23    M60A3 TTS     60 mission points    160 + (PA)80 = 240 SL    10 + (PA)10 = 20 RP
+    15:54    TAM    DM23    M247          60 mission points    160 + (PA)80 = 240 SL    11 + (PA)11 = 22 RP
+
+Damage to the enemy                             7     906 SL      74 RP    
+    5:38     JaPz.K A2            OFL 105 G1    BMP-2         20 mission points    84 + (PA)42 = 126 SL     5 + (PA)5 = 10 RP
+    12:40    TAM                  DM23          M60A3 TTS     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    13:23    TAM                  Artillery     M60A3 TTS     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    13:28    TAM                  Artillery     M60A3 TTS     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    13:29    TAM                  Artillery     M60A3 TTS     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    15:23    Recon Micro (TAM)    Default       B-52H         20 mission points    120 + (PA)60 = 180 SL    7 + (PA)7 = 14 RP
+    15:54    TAM                  DM23          M247          20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                           9    1110 SL               
+    3:26     JaPz.K A2    T-55A          5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    4:21     JaPz.K A2    T58            5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    4:49     JaPz.K A2    BMP-2          5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    5:14     JaPz.K A2    Object 435     5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    5:55     JaPz.K A2    MBT-70         5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    8:42     TAM          T58            5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    10:18    TAM          XM803          5 mission points    without UAV       80 + (PA)40 = 120 SL
+    12:43    TAM          M60A3 TTS      5 mission points    without UAV       80 + (PA)40 = 120 SL
+    14:02    TAM          BTR-80A        5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                 3     744 SL               
+    5:31     JaPz.K A2    BMP-2          20 mission points    UAV in the air    168 + (PA)84 = 252 SL
+    5:37     JaPz.K A2    Object 435     20 mission points    UAV in the air    168 + (PA)84 = 252 SL
+    14:38    TAM          BTR-80A        20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies        3    2580 SL     102 RP    
+    5:49     JaPz.K A2    Object 435     60 mission points    UAV in the air    ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+    10:44    TAM          XM803          15 mission points    without UAV       ×    80 + (PA)40 = 120 SL       0 RP               
+    14:38    TAM          BTR-80A        60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+
+Awards                                          5    1050 SL               
+    5:50     Intelligence    100 + (PA)50 = 150 SL 
+    14:38    Intelligence    100 + (PA)50 = 150 SL 
+    15:55    Tank Rescuer    50 + (PA)25 = 75 SL   
+    15:55    Avenger         150 + (PA)75 = 225 SL 
+    16:04    Adamant         300 + (PA)150 = 450 SL
+
+Activity Time                                        3680 SL     336 RP    
+    JaPz.K A2      930 + (PA)930 = 1860 SL    86 + (PA)86 = 172 RP
+    TAM            910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro    0 SL                       0 RP                
+
+Time Played                                 15:57               2814 RP    
+    JaPz.K A2    53%    5:47     383 + (PA)383 = 766 RP   
+    TAM          83%    10:10    1024 + (PA)1024 = 2048 RP
+
+Reward for participating in the mission              3220 SL               
+
+Skill Bonus                                                      290 RP    
+    JaPz.K A2    I    75 RP 
+    TAM          I    215 RP
+
+Earned: 20370 SL, 4148 CRP
+Activity: 76%
+Damaged Vehicles: JaPz.K A2, TAM
+Automatic repair of all vehicles: -4759 SL
+Automatic purchasing of ammo and "Crew Replenishment": -725 SL
+
+Researched unit: 
+Leopard 2K: 4148 RP
+
+Researching progress: 
+JaPz.K A2 - Suspension: 752 RP
+
+Session: 739f39e000e28bc
+Total: 14886 SL, 4148 CRP, 4900 RP
+
+Defeat in the [Tank Assault] Mozdok mission!
+
+Activity Time                                                           
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    JaPz.K A2      
+
+Time Played                                6:31               408 RP    
+    T-72M1(Germany)    6:07    199 + (PA)199 = 398 RP
+    JaPz.K A2          0:24    5 + (PA)5 = 10 RP     
+
+Reward for participating in the mission            3192 SL              
+
+Earned: 3192 SL, 408 CRP
+Activity: 61%
+Respawns in battle: -9779 SL
+Expenses compensation: 6587 SL
+
+Researched unit: 
+Leopard 2K: 527 RP
+
+Researching progress: 
+T-72M1(Germany) - Smoke grenade: 398 RP
+JaPz.K A2 - Tracks: 10 RP
+
+Session: 739ff0b000e7d34
+Total: 0 SL, 408 CRP, 935 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    Leopard 1A5    
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           17:52                5480 RP    
+    T-72M1(Germany)    14:55    2638 + (PA)2638 = 5276 RP
+    Leopard 1A5        2:57     102 + (PA)102 = 204 RP   
+
+Reward for winning             36766 SL               
+
+Earned: 36766 SL, 5480 CRP
+Activity: 78%
+Respawns in battle: -10551 SL
+
+Researched unit: 
+Leopard 2K: 7063 RP
+
+Researching progress: 
+T-72M1(Germany) - Smoke grenade: 5276 RP
+
+Session: 73a0103000e8b84
+Total: 26215 SL, 5480 CRP, 12339 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           26:22                7058 RP    
+    T-72M1(Germany)    26:22    3529 + (PA)3529 = 7058 RP
+
+Reward for winning             47369 SL               
+
+Earned: 47369 SL, 7058 CRP
+Activity: 86%
+Respawns in battle: -5204 SL
+
+Researched unit: 
+Leopard 2K: 9175 RP
+
+Researching progress: 
+T-72M1(Germany) - Smoke grenade: 2354 RP
+
+Session: 73a4c0000101f89
+Total: 42165 SL, 7058 CRP, 11529 RP
+
+Defeat in the [Domination #1] Mozdok mission!
+
+Critical damage to the enemy                  1     1746 SL      70 RP    
+    7:43    KPz-70    XM578E1    T-72A     60 mission points    196 + (PA)98 + (Booster)1452 = 1746 SL    10 + (PA)10 + (Booster)50 = 70 RP
+
+Damage to the enemy                           4     3519 SL     147 RP    
+    4:15    T-72M1(Germany)    Default (7.62mm)    ZTZ96A     20 mission points    101 + (PA)51 + (Booster)748 = 900 SL    6 + (PA)6 + (Booster)30 = 42 RP
+    7:33    KPz-70             XM578E1             T-72A      20 mission points    98 + (PA)49 + (Booster)726 = 873 SL     5 + (PA)5 + (Booster)25 = 35 RP
+    7:43    KPz-70             XM578E1             T-72A      20 mission points    98 + (PA)49 + (Booster)726 = 873 SL     5 + (PA)5 + (Booster)25 = 35 RP
+    8:24    KPz-70             DM43                T-72A      20 mission points    98 + (PA)49 + (Booster)726 = 873 SL     5 + (PA)5 + (Booster)25 = 35 RP
+
+Capture of zones                              1    41133 SL    2075 RP    
+    5:22    T-72M1(Germany)    87%    100 mission points    4622 + (PA)2311 + (Booster)34200 = 41133 SL    305 + (PA)305 + (Booster)1465 = 2075 RP
+
+Awards                                        1     2670 SL               
+    9:28    Adamant    300 + (PA)150 + (Booster)2220 = 2670 SL
+
+Activity Time                                      24726 SL    1640 RP    
+    KPz-70             970 + (PA)970 + (Booster)7179 = 9119 SL    88 + (PA)88 + (Booster)422 = 598 RP
+    T-72M1(Germany)    970 + (PA)970 + (Booster)7179 = 9119 SL    90 + (PA)90 + (Booster)432 = 612 RP
+    Leopard 1A5        690 + (PA)690 + (Booster)5108 = 6488 SL    63 + (PA)63 + (Booster)304 = 430 RP
+
+Time Played                                7:59                4025 RP    
+    KPz-70             68%    2:05    177 + (PA)177 + (Booster)850 = 1204 RP 
+    T-72M1(Germany)    56%    4:54    352 + (PA)352 + (Booster)1689 = 2393 RP
+    Leopard 1A5        50%    1:00    63 + (PA)63 + (Booster)302 = 428 RP    
+
+Reward for participating in the mission            14227 SL               
+
+Earned: 88021 SL, 7957 CRP
+Activity: 68%
+Damaged Vehicles: KPz-70, Leopard 1A5, T-72M1(Germany)
+Automatic repair of all vehicles: -8208 SL
+Automatic purchasing of ammo and "Crew Replenishment": -910 SL
+
+Researched unit: 
+Leopard 2K: 8469 RP
+
+Researching progress: 
+T-72M1(Germany) - Suspension: 3435 RP
+
+Used items: 
+Active boosters SL: 
+Common: +740%SL
+* Personal booster
+1) +500%SL, gives (+500%SL); 
+2) +300%SL, gives (+180%SL); 
+3) +150%SL, gives (+60%SL).
+Active boosters RP: 
+Common: +480%RP
+* Personal booster
+1) +300%RP, gives (+300%RP); 
+2) +200%RP, gives (+120%RP); 
+3) +150%RP, gives (+60%RP).
+
+Session: 73b04bc00143930
+Total: 78903 SL, 7957 CRP, 11904 RP
+
+Victory in the [Domination] Sweden mission!
+
+Destruction of ground targets            1    2955 SL     208 RP    
+    10:08    Leopard 1A5    DM33    T-72A     200 mission points    1970 + (PA)985 = 2955 SL    104 + (PA)104 = 208 RP
+
+Assistance in destroying the enemy       3    4062 SL     288 RP    
+    2:18    T-72M1(Germany)    API-T (12.7mm)    Merkava Mk.1B     120 mission points    909 + (PA)456 = 1365 SL    50 + (PA)50 = 100 RP
+    3:43    T-72M1(Germany)    IAI (12.7mm)      Object 435        118 mission points    909 + (PA)456 = 1365 SL    45 + (PA)45 = 90 RP 
+    6:36    Leopard 1A5        Artillery         BMD-4M            120 mission points    887 + (PA)445 = 1332 SL    49 + (PA)49 = 98 RP 
+
+Critical damage to the enemy             4    1198 SL      84 RP    
+    1:49     T-72M1(Germany)    3BM22        Object 435        59 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    2:08     T-72M1(Germany)    3BM22        Merkava Mk.1B     60 mission points    202 + (PA)101 = 303 SL    11 + (PA)11 = 22 RP
+    5:22     Leopard 1A5        Artillery    BMD-4M            60 mission points    197 + (PA)99 = 296 SL     11 + (PA)11 = 22 RP
+    10:05    Leopard 1A5        DM33         T-72A             60 mission points    197 + (PA)99 = 296 SL     10 + (PA)10 = 20 RP
+
+Damage to the enemy                      8    1204 SL      84 RP    
+    1:49     T-72M1(Germany)    3BM22             Object 435        20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    1:54     T-72M1(Germany)    IAI (12.7mm)      Object 435        20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    2:08     T-72M1(Germany)    APFSDS Sabot      Merkava Mk.1B     20 mission points    101 + (PA)51 = 152 SL    6 + (PA)6 = 12 RP
+    2:13     T-72M1(Germany)    API-T (12.7mm)    Merkava Mk.1B     20 mission points    101 + (PA)51 = 152 SL    6 + (PA)6 = 12 RP
+    5:21     Leopard 1A5        Artillery         BMD-4M            20 mission points    99 + (PA)50 = 149 SL     5 + (PA)5 = 10 RP
+    5:26     Leopard 1A5        Artillery         BMD-4M            20 mission points    99 + (PA)50 = 149 SL     5 + (PA)5 = 10 RP
+    9:53     Leopard 1A5        DM33              T-72A             20 mission points    99 + (PA)50 = 149 SL     5 + (PA)5 = 10 RP
+    10:05    Leopard 1A5        DM33              T-72A             20 mission points    99 + (PA)50 = 149 SL     5 + (PA)5 = 10 RP
+
+Awards                                   6    1950 SL               
+    2:10     Teamwork                     600 + (PA)300 = 900 SL
+    6:37     Assists streak!              150 + (PA)75 = 225 SL 
+    10:09    Tank Rescuer                 50 + (PA)25 = 75 SL   
+    10:09    Avenger                      150 + (PA)75 = 225 SL 
+    10:09    According to Intelligence    100 + (PA)50 = 150 SL 
+    10:19    Final blow!                  250 + (PA)125 = 375 SL
+
+Activity Time                                 2324 SL     214 RP    
+    T-72M1(Germany)    172 + (PA)172 = 344 SL     16 + (PA)16 = 32 RP 
+    Leopard 1A5        990 + (PA)990 = 1980 SL    91 + (PA)91 = 182 RP
+
+Time Played                           9:06               2614 RP    
+    T-72M1(Germany)    69%    1:38    217 + (PA)217 = 434 RP   
+    Leopard 1A5        78%    7:28    1090 + (PA)1090 = 2180 RP
+
+Reward for winning                            5485 SL               
+
+Earned: 19178 SL, 3492 CRP
+Activity: 83%
+Damaged Vehicles: Leopard 1A5, T-72M1(Germany)
+Automatic repair of all vehicles: -2703 SL
+Automatic purchasing of ammo and "Crew Replenishment": -1500 SL
+
+Researched unit: 
+Leopard 2K: 3566 RP
+
+Researching progress: 
+T-72M1(Germany) - Artillery Support: 742 RP
+
+Session: 73b084900145ca3
+Total: 14975 SL, 3492 CRP, 4308 RP
+
+Defeat in the [Domination #2] Maginot Line mission!
+
+Damage to the enemy                           2     304 SL     20 RP    
+    3:03    T-72M1(Germany)    3BM22    T-72A     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    3:10    T-72M1(Germany)    3BM22    T-72A     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+
+Activity Time                                      3460 SL    290 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                349 + (PA)349 = 698 SL     31 + (PA)31 = 62 RP 
+    Ozelot             411 + (PA)411 = 822 SL     24 + (PA)24 = 48 RP 
+
+Time Played                                8:30               648 RP    
+    T-72M1(Germany)    29%    7:36    283 + (PA)283 = 566 RP
+    TAM                38%    0:31    24 + (PA)24 = 48 RP   
+    Ozelot             35%    0:23    17 + (PA)17 = 34 RP   
+
+Reward for participating in the mission             753 SL              
+
+Earned: 4517 SL, 958 CRP
+Activity: 43%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -6824 SL
+Automatic purchasing of ammo and "Crew Replenishment": -690 SL
+Expenses compensation: 2997 SL
+
+Researched unit: 
+Leopard 2K: 1035 RP
+
+Researching progress: 
+T-72M1(Germany) - Artillery Support: 766 RP
+
+Session: 73b0b120014789b
+Total: 0 SL, 958 CRP, 1801 RP
+
+Defeat in the [Domination #2] Golden Quarry mission!
+
+Destruction of aircraft                       3     2619 SL     208 RP    
+    2:27    Gepard 1A2    DM13    Recon Micro (AI)    40 mission points    Own target (the rest of the reward)    582 + (PA)291 = 873 SL    37 + (PA)37 = 74 RP
+    4:08    Gepard 1A2    DM13    Recon Micro (AI)    40 mission points    Own target (the rest of the reward)    582 + (PA)291 = 873 SL    37 + (PA)37 = 74 RP
+    6:36    Gepard 1A2    DM13    G.91 Y              39 mission points    Own target (the rest of the reward)    582 + (PA)291 = 873 SL    30 + (PA)30 = 60 RP
+
+Severe damage to the enemy                    3    10476 SL     832 RP    
+    2:18    Gepard 1A2    DM13    Recon Micro (AI)    160 mission points    2328 + (PA)1164 = 3492 SL    147 + (PA)147 = 294 RP
+    4:02    Gepard 1A2    DM13    Recon Micro (AI)    160 mission points    2328 + (PA)1164 = 3492 SL    147 + (PA)147 = 294 RP
+    6:30    Gepard 1A2    DM13    G.91 Y              158 mission points    2328 + (PA)1164 = 3492 SL    122 + (PA)122 = 244 RP
+
+Critical damage to the enemy                  3     1311 SL     102 RP    
+    2:19    Gepard 1A2    DM13    Recon Micro (AI)    60 mission points    291 + (PA)146 = 437 SL    18 + (PA)18 = 36 RP
+    4:02    Gepard 1A2    DM13    Recon Micro (AI)    60 mission points    291 + (PA)146 = 437 SL    18 + (PA)18 = 36 RP
+    6:30    Gepard 1A2    DM13    G.91 Y              59 mission points    291 + (PA)146 = 437 SL    15 + (PA)15 = 30 RP
+
+Damage to the enemy                           6     1314 SL     104 RP    
+    2:18    Gepard 1A2    DM13      Recon Micro (AI)    20 mission points    146 + (PA)73 = 219 SL    9 + (PA)9 = 18 RP
+    2:24    Gepard 1A2    DM13      Recon Micro (AI)    20 mission points    146 + (PA)73 = 219 SL    9 + (PA)9 = 18 RP
+    3:59    Gepard 1A2    DM13      Recon Micro (AI)    20 mission points    146 + (PA)73 = 219 SL    9 + (PA)9 = 18 RP
+    4:05    Gepard 1A2    DM13      Recon Micro (AI)    20 mission points    146 + (PA)73 = 219 SL    9 + (PA)9 = 18 RP
+    6:30    Gepard 1A2    DM13      G.91 Y              20 mission points    146 + (PA)73 = 219 SL    8 + (PA)8 = 16 RP
+    6:36    Gepard 1A2    DM11A1    G.91 Y              20 mission points    146 + (PA)73 = 219 SL    8 + (PA)8 = 16 RP
+
+Awards                                        1       75 SL               
+    6:37    Tank Rescuer    50 + (PA)25 = 75 SL
+
+Activity Time                                       1950 SL     126 RP    
+    Gepard 1A2         860 + (PA)860 = 1720 SL    52 + (PA)52 = 104 RP
+    T-72M1(Germany)    115 + (PA)115 = 230 SL     11 + (PA)11 = 22 RP 
+
+Time Played                                6:14                1474 RP    
+    Gepard 1A2         94%    6:04    731 + (PA)731 = 1462 RP
+    T-72M1(Germany)    28%    0:10    6 + (PA)6 = 12 RP      
+
+Reward for participating in the mission             3535 SL               
+
+Skill Bonus                                                       3 RP    
+    T-72M1(Germany)    I    3 RP
+
+Earned: 21280 SL, 2849 CRP
+Activity: 80%
+Damaged Vehicles: T-72M1(Germany)
+Automatic repair of all vehicles: -6896 SL
+
+Researched unit: 
+Leopard 2K: 2853 RP
+
+Researching progress: 
+T-72M1(Germany) - Artillery Support: 37 RP
+
+Session: 73b0e1d001496fd
+Total: 14384 SL, 2849 CRP, 2890 RP
+
+Defeat in the [Conquest #3] Port Novorossiysk mission!
+
+Destruction of ground targets                   1    2520 SL     218 RP    
+    7:35    JaPz.K A2    OFL 105 G1    T-55AMD-1     200 mission points    1680 + (PA)840 = 2520 SL    109 + (PA)109 = 218 RP
+
+Critical damage to the enemy                    1     252 SL      22 RP    
+    7:35    JaPz.K A2    OFL 105 G1    T-55AMD-1     60 mission points    168 + (PA)84 = 252 SL    11 + (PA)11 = 22 RP
+
+Damage to the enemy                             1     126 SL      10 RP    
+    7:35    JaPz.K A2    OFL 105 G1    T-55AMD-1     20 mission points    84 + (PA)42 = 126 SL    5 + (PA)5 = 10 RP
+
+Capture of zones                                1    7878 SL     694 RP    
+    12:28    T-72M1(Germany)    100%    300 mission points    5252 + (PA)2626 = 7878 SL    347 + (PA)347 = 694 RP
+
+Scouting of the enemy                           5     630 SL               
+    4:16    JaPz.K A2    T-55A         5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    4:39    JaPz.K A2    AMX-30B2      5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    5:54    JaPz.K A2    T-55AMD-1     5 mission points    without UAV       84 + (PA)42 = 126 SL
+    7:34    JaPz.K A2    T-55AMD-1     5 mission points    without UAV       84 + (PA)42 = 126 SL
+    7:43    JaPz.K A2    IT-1          5 mission points    without UAV       84 + (PA)42 = 126 SL
+
+Damage taken by scouted enemies                 1     252 SL               
+    7:53    JaPz.K A2    IT-1     20 mission points    without UAV    168 + (PA)84 = 252 SL
+
+Destruction by allies of scouted enemies        1    1260 SL      52 RP    
+    7:53    JaPz.K A2    IT-1     60 mission points    without UAV    ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+
+Awards                                          3     675 SL               
+    7:35     Tank Rescuer    50 + (PA)25 = 75 SL   
+    7:53     Intelligence    100 + (PA)50 = 150 SL 
+    12:20    Adamant         300 + (PA)150 = 450 SL
+
+Activity Time                                        2826 SL     262 RP    
+    T-72M1(Germany)    483 + (PA)483 = 966 SL     45 + (PA)45 = 90 RP 
+    JaPz.K A2          930 + (PA)930 = 1860 SL    86 + (PA)86 = 172 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                 11:02               1890 RP    
+    T-72M1(Germany)    74%    1:58    188 + (PA)188 = 376 RP 
+    JaPz.K A2          67%    9:04    757 + (PA)757 = 1514 RP
+
+Reward for participating in the mission              3149 SL               
+
+Earned: 19568 SL, 3148 CRP
+Activity: 79%
+Damaged Vehicles: JaPz.K A2, T-72M1(Germany)
+Automatic repair of all vehicles: -6690 SL
+Automatic purchasing of ammo and "Crew Replenishment": -185 SL
+
+Researched unit: 
+Leopard 2K: 3264 RP
+
+Researching progress: 
+T-72M1(Germany) - Artillery Support: 1160 RP
+JaPz.K A2 - Tracks: 1988 RP
+
+Session: 73b10300014ab8a
+Total: 12693 SL, 3148 CRP, 6412 RP
+
+Victory in the [Domination] Cargo port mission!
+
+Critical damage to the enemy       1     294 SL      24 RP    
+    9:52    KPz-70    XM578E1    120S     60 mission points    196 + (PA)98 = 294 SL    12 + (PA)12 = 24 RP
+
+Damage to the enemy                1     147 SL      12 RP    
+    9:52    KPz-70    XM578E1    120S     20 mission points    98 + (PA)49 = 147 SL    6 + (PA)6 = 12 RP
+
+Awards                             2     600 SL               
+    2:59    Help with Repairing    100 + (PA)50 = 150 SL 
+    6:51    Adamant                300 + (PA)150 = 450 SL
+
+Activity Time                           2140 SL     196 RP    
+    KPz-70         80 + (PA)80 = 160 SL       7 + (PA)7 = 14 RP   
+    Leopard 1A5    990 + (PA)990 = 1980 SL    91 + (PA)91 = 182 RP
+
+Time Played                     8:30               1584 RP    
+    KPz-70         59%    2:29    274 + (PA)274 = 548 RP 
+    Leopard 1A5    46%    6:01    518 + (PA)518 = 1036 RP
+
+Reward for winning                      1206 SL               
+
+Earned: 4387 SL, 1816 CRP
+Activity: 51%
+Damaged Vehicles: KPz-70, Leopard 1A5
+Automatic repair of all vehicles: -8490 SL
+Automatic purchasing of ammo and "Crew Replenishment": -450 SL
+Expenses compensation: 4553 SL
+
+Researched unit: 
+Radkampfwagen 90: 1816 RP
+
+Session: 73b6f4900179ccc
+Total: 0 SL, 1816 CRP, 1816 RP
+
+Victory in the [Domination] Attica mission!
+
+Destruction of ground targets                   1    3030 SL     202 RP    
+    5:51    T-72M1(Germany)    3BM22    Type 87 RCV     197 mission points    2020 + (PA)1010 = 3030 SL    101 + (PA)101 = 202 RP
+
+Critical damage to the enemy                    1     303 SL      20 RP    
+    5:51    T-72M1(Germany)    3BM22    Type 87 RCV     59 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                             2     332 SL      26 RP    
+    5:51    T-72M1(Germany)    3BM22               Type 87 RCV     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    7:39    TAM                Default (7.62mm)    F4D-1           20 mission points    120 + (PA)60 = 180 SL    8 + (PA)8 = 16 RP
+
+Scouting of the enemy                           3     360 SL               
+    8:05     TAM    Type 87     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    12:21    TAM    M1296       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    12:51    TAM    ZA-35       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                 2     480 SL               
+    8:31     TAM    Type 87     20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    12:37    TAM    M1296       20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies        2    1320 SL      50 RP    
+    12:37    TAM    M1296     60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+    12:55    TAM    ZA-35     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL       0 RP               
+
+Awards                                          1     150 SL               
+    12:38    Intelligence    100 + (PA)50 = 150 SL
+
+Activity Time                                        3760 SL     344 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                 12:17               2654 RP    
+    T-72M1(Germany)    72%    6:15    865 + (PA)865 = 1730 RP
+    TAM                42%    6:02    462 + (PA)462 = 924 RP 
+
+Reward for winning                                   4476 SL               
+
+Earned: 14211 SL, 3296 CRP
+Activity: 60%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -6022 SL
+Automatic purchasing of ammo and "Crew Replenishment": -690 SL
+
+Researched unit: 
+Radkampfwagen 90: 3296 RP
+
+Session: 73b71ac0017a8a8
+Total: 7499 SL, 3296 CRP, 3296 RP
+
+Victory in the [Domination] Arctic. Polar Base mission!
+
+Scouting of the enemy                          4     498 SL               
+    0:59    JaPz.K A2    CV 9035NL          5 mission points    without UAV       84 + (PA)42 = 126 SL
+    1:36    JaPz.K A2    M60A1 RISE (P)     5 mission points    without UAV       84 + (PA)42 = 126 SL
+    2:09    JaPz.K A2    Leopard 1A5BE      5 mission points    without UAV       84 + (PA)42 = 126 SL
+    5:17    TAM          AMX-30 S DCA       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                4     996 SL               
+    1:30    JaPz.K A2    CV 9035NL          20 mission points    without UAV       168 + (PA)84 = 252 SL
+    1:41    JaPz.K A2    M60A1 RISE (P)     20 mission points    without UAV       168 + (PA)84 = 252 SL
+    2:29    JaPz.K A2    Leopard 1A5BE      20 mission points    without UAV       168 + (PA)84 = 252 SL
+    5:30    TAM          AMX-30 S DCA       20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies       4    4980 SL     206 RP    
+    1:30    JaPz.K A2    CV 9035NL          60 mission points    without UAV       ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+    1:47    JaPz.K A2    M60A1 RISE (P)     60 mission points    without UAV       ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+    2:29    JaPz.K A2    Leopard 1A5BE      60 mission points    without UAV       ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+    5:30    TAM          AMX-30 S DCA       60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+
+Awards                                         5    1500 SL               
+    1:31    Intelligence    100 + (PA)50 = 150 SL 
+    1:47    Intelligence    100 + (PA)50 = 150 SL 
+    2:30    Intelligence    100 + (PA)50 = 150 SL 
+    5:25    Teamwork        600 + (PA)300 = 900 SL
+    5:30    Intelligence    100 + (PA)50 = 150 SL 
+
+Activity Time                                       3748 SL     342 RP    
+    KPz-70         34 + (PA)34 = 68 SL        3 + (PA)3 = 6 RP    
+    JaPz.K A2      930 + (PA)930 = 1860 SL    86 + (PA)86 = 172 RP
+    TAM            910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro    0 SL                       0 RP                
+
+Time Played                                 7:20               1606 RP    
+    KPz-70       0%     0:39    0 RP                  
+    JaPz.K A2    77%    2:50    409 + (PA)409 = 818 RP
+    TAM          56%    3:51    394 + (PA)394 = 788 RP
+
+Reward for winning                                  4776 SL               
+
+Earned: 16498 SL, 2154 CRP
+Activity: 67%
+Damaged Vehicles: JaPz.K A2, TAM
+Automatic repair of all vehicles: -6217 SL
+Automatic purchasing of ammo and "Crew Replenishment": -550 SL
+
+Researched unit: 
+Radkampfwagen 90: 2154 RP
+
+Researching progress: 
+JaPz.K A2 - Tracks: 1146 RP
+
+Session: 73b769b0017bf99
+Total: 9731 SL, 2154 CRP, 3300 RP
+
+Victory in the [Tank Assault] Maginot Line mission!
+
+Activity Time                                         
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+    JaPz.K A2
+
+Time Played           20:56                7388 RP    
+    JaPz.K A2    20:56    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 89%
+Respawns in battle: -11838 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+JaPz.K A2 - Tracks: 2515 RP
+
+Session: 73b79020017ca30
+Total: 37734 SL, 7388 CRP, 9903 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           17:02                7140 RP    
+    T-72M1(Germany)    17:02    3570 + (PA)3570 = 7140 RP
+
+Reward for winning             47919 SL               
+
+Earned: 47919 SL, 7140 CRP
+Activity: 86%
+Respawns in battle: -21848 SL
+
+Researched unit: 
+Radkampfwagen 90: 7140 RP
+
+Session: 73b859d0017fc84
+Total: 26071 SL, 7140 CRP, 7140 RP
+
+Defeat in the [Domination] Japan mission!
+
+Destruction of ground targets                10    6120 SL    1839 RP    
+    1:57    Pz.IV F2    PzGr 39    AMD.35                 63 mission points     408 + (PA)204 = 612 SL    37 + (PA)75 + (Talismans)37 = 149 RP 
+    2:02    Pz.IV F2    PzGr 39    Marder III H           189 mission points    408 + (PA)204 = 612 SL    48 + (PA)96 + (Talismans)48 = 192 RP 
+    2:41    Pz.IV F2    PzGr 39    Strv m/42 EH           189 mission points    408 + (PA)204 = 612 SL    48 + (PA)96 + (Talismans)48 = 192 RP 
+    3:23    Pz.IV F2    PzGr 39    Pbv 301                175 mission points    408 + (PA)204 = 612 SL    45 + (PA)91 + (Talismans)45 = 181 RP 
+    3:48    Pz.IV F2    PzGr 39    AMD.35                 63 mission points     408 + (PA)204 = 612 SL    37 + (PA)75 + (Talismans)37 = 149 RP 
+    4:21    Pz.IV F2    PzGr 39    SU-122                 197 mission points    408 + (PA)204 = 612 SL    51 + (PA)102 + (Talismans)51 = 204 RP
+    5:56    Pz.IV F2    PzGr 39    T-28E                  189 mission points    408 + (PA)204 = 612 SL    48 + (PA)96 + (Talismans)48 = 192 RP 
+    6:18    Pz.IV F2    PzGr 39    SU-122                 197 mission points    408 + (PA)204 = 612 SL    51 + (PA)102 + (Talismans)51 = 204 RP
+    6:27    Pz.IV F2    PzGr 39    Strv m/40L             155 mission points    408 + (PA)204 = 612 SL    43 + (PA)86 + (Talismans)43 = 172 RP 
+    7:01    Pz.IV F2    PzGr 39    Gun Carrier (3-in)     197 mission points    408 + (PA)204 = 612 SL    51 + (PA)102 + (Talismans)51 = 204 RP
+
+Assistance in destroying the enemy            1     245 SL      78 RP    
+    4:51    Pz.IV F2    Default (7.92mm)    A-35B()     113 mission points    163 + (PA)82 = 245 SL    19 + (PA)40 + (Talismans)19 = 78 RP
+
+Critical damage to the enemy                 10     620 SL     191 RP    
+    1:57    Pz.IV F2    PzGr 39    AMD.35                 19 mission points    41 + (PA)21 = 62 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    2:02    Pz.IV F2    PzGr 39    Marder III H           57 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    2:41    Pz.IV F2    PzGr 39    Strv m/42 EH           57 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    3:23    Pz.IV F2    PzGr 39    Pbv 301                52 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    3:40    Pz.IV F2    PzGr 39    AMD.35                 19 mission points    41 + (PA)21 = 62 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    4:09    Pz.IV F2    PzGr 39    SU-122                 59 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    5:56    Pz.IV F2    PzGr 39    T-28E                  57 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    6:04    Pz.IV F2    PzGr 39    SU-122                 59 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    6:27    Pz.IV F2    PzGr 39    Strv m/40L             47 mission points    41 + (PA)21 = 62 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    7:01    Pz.IV F2    PzGr 39    Gun Carrier (3-in)     59 mission points    41 + (PA)21 = 62 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+
+Damage to the enemy                          19     570 SL     194 RP    
+    1:57    Pz.IV F2    PzGr 39             AMD.35                 20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    2:02    Pz.IV F2    PzGr 39             Marder III H           20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    2:41    Pz.IV F2    PzGr 39             Strv m/42 EH           20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    3:23    Pz.IV F2    PzGr 39             Pbv 301                20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    3:40    Pz.IV F2    Default (7.92mm)    AMD.35                 20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    3:40    Pz.IV F2    Default (7.92mm)    AMD.35                 20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    3:45    Pz.IV F2    Default (7.92mm)    AMD.35                 20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    3:48    Pz.IV F2    PzGr 39             AMD.35                 20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    4:04    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:10    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:16    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:21    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:50    Pz.IV F2    Default (7.92mm)    A-35B()                20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    5:56    Pz.IV F2    PzGr 39             T-28E                  20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    6:04    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:11    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:18    Pz.IV F2    PzGr 39             SU-122                 20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:27    Pz.IV F2    PzGr 39             Strv m/40L             20 mission points    20 + (PA)10 = 30 SL    2 + (PA)4 + (Talismans)2 = 8 RP 
+    7:01    Pz.IV F2    PzGr 39             Gun Carrier (3-in)     20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+
+Capture of zones                              1    1020 SL     444 RP    
+    5:15    Pz.IV F2    100%    300 mission points    680 + (PA)340 = 1020 SL    111 + (PA)222 + (Talismans)111 = 444 RP
+
+Awards                                       24    3225 SL               
+    1:57    Tank Rescuer             50 + (PA)25 = 75 SL   
+    2:02    Tank Rescuer             50 + (PA)25 = 75 SL   
+    2:02    Avenger                  150 + (PA)75 = 225 SL 
+    2:02    Multi strike!            100 + (PA)50 = 150 SL 
+    2:41    Tank Rescuer             50 + (PA)25 = 75 SL   
+    2:41    Shadow strike streak!    100 + (PA)50 = 150 SL 
+    2:41    Without a miss           200 + (PA)100 = 300 SL
+    3:24    Tank Rescuer             50 + (PA)25 = 75 SL   
+    3:24    Shadow strike streak!    100 + (PA)50 = 150 SL 
+    3:24    Without a miss           200 + (PA)100 = 300 SL
+    3:48    Professional             150 + (PA)75 = 225 SL 
+    4:22    Tank Rescuer             50 + (PA)25 = 75 SL   
+    4:22    Professional             50 + (PA)25 = 75 SL   
+    5:56    Tank Rescuer             50 + (PA)25 = 75 SL   
+    5:56    Professional             50 + (PA)25 = 75 SL   
+    6:19    Tank Rescuer             50 + (PA)25 = 75 SL   
+    6:19    Avenger                  100 + (PA)50 = 150 SL 
+    6:19    Professional             50 + (PA)25 = 75 SL   
+    6:28    Tank Rescuer             50 + (PA)25 = 75 SL   
+    6:28    Professional             50 + (PA)25 = 75 SL   
+    6:28    Shadow strike streak!    100 + (PA)50 = 150 SL 
+    6:28    Multi strike!            100 + (PA)50 = 150 SL 
+    6:28    Without a miss           200 + (PA)100 = 300 SL
+    7:01    Tank Rescuer             50 + (PA)25 = 75 SL   
+
+Activity Time                                       680 SL     156 RP    
+    Pz.IV F2    340 + (PA)340 = 680 SL    39 + (PA)78 + (Talismans)39 = 156 RP
+
+Time Played                                6:32               1365 RP    
+    Pz.IV F2    98%    6:32    341 + (PA)683 + (Talismans)341 = 1365 RP
+
+Reward for participating in the mission            1852 SL               
+
+Skill Bonus                                                   1062 RP    
+    Pz.IV F2    III    1062 RP
+
+Earned: 14332 SL, 5329 CRP
+Activity: 88%
+Damaged Vehicles: Pz.IV F2
+Automatic repair of all vehicles: -710 SL
+Automatic purchasing of ammo and "Crew Replenishment": -200 SL
+
+Researched unit: 
+Radkampfwagen 90: 1066 RP
+
+Session: 73b92170018264d
+Total: 13422 SL, 5329 CRP, 1066 RP
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           14:23                6320 RP    
+    T-72M1(Germany)    14:23    3160 + (PA)3160 = 6320 RP
+
+Reward for winning             42411 SL               
+
+Earned: 42411 SL, 6320 CRP
+Activity: 77%
+Respawns in battle: -8193 SL
+
+Researched unit: 
+Radkampfwagen 90: 6320 RP
+
+Session: 73c5e28001b1f46
+Total: 34218 SL, 6320 CRP, 6320 RP
+
+no premium: 5th september 2026
+
+Victory in the [Tank Assault] Maginot Line mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           21:16                3776 RP    
+    KPz-70    21:16    3776 RP
+
+Reward for winning             33782 SL               
+
+Earned: 33782 SL, 3776 CRP
+Activity: 91%
+Respawns in battle: -16457 SL
+
+Researched unit: 
+T-72M1(Germany): 4909 RP
+
+Researching progress: 
+KPz-70 - Engine: 3776 RP
+
+Session: 73060d50015df60
+Total: 17325 SL, 3776 CRP, 8685 RP
+
+Victory in the [Tank Assault] Kursk mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           15:53                3283 RP    
+    KPz-70    15:53    3283 RP
+
+Reward for winning             29376 SL               
+
+Earned: 29376 SL, 3283 CRP
+Activity: 80%
+Respawns in battle: -18056 SL
+
+Researched unit: 
+T-72M1(Germany): 4268 RP
+
+Researching progress: 
+KPz-70 - Transmission: 2666 RP
+
+Session: 73050d40015140c
+Total: 11320 SL, 3283 CRP, 6934 RP
+
+
+
+premium:
+
+Victory in the [Tank Assault] Japan mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           12:56                6484 RP    
+    KPz-70    12:56    3242 + (PA)3242 = 6484 RP
+
+Reward for winning             43514 SL               
+
+Earned: 43514 SL, 6484 CRP
+Activity: 77%
+Respawns in battle: -17888 SL
+
+Researched unit: 
+T-72M1(Germany): 8429 RP
+
+Researching progress: 
+KPz-70 - Suspension: 6484 RP
+
+Session: 7282c2e000a1d2a
+Total: 25626 SL, 6484 CRP, 14913 RP
+
+Victory in the [Tank Assault] Maginot Line mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+
+Time Played           19:29                6812 RP    
+    KPz-70    19:29    3406 + (PA)3406 = 6812 RP
+
+Reward for winning             45717 SL               
+
+Earned: 45717 SL, 6812 CRP
+Activity: 83%
+Respawns in battle: -4416 SL
+
+Researched unit: 
+T-72M1(Germany): 8856 RP
+
+Researching progress: 
+KPz-70 - Tracks: 6786 RP
+
+Session: 7282718000a06a4
+Total: 41301 SL, 6812 CRP, 15642 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           26:16                7306 RP    
+    KPz-70    26:16    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 90%
+Respawns in battle: -8720 SL
+
+Researched unit: 
+Begleitpanzer 57: 7306 RP
+
+Researching progress: 
+KPz-70 - Horizontal Drive: 5692 RP
+
+Session: 7281e7b0009e281
+Total: 40302 SL, 7306 CRP, 12998 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           21:54                7470 RP    
+    KPz-70    21:54    3735 + (PA)3735 = 7470 RP
+
+Reward for winning             50123 SL               
+
+Earned: 50123 SL, 7470 CRP
+Activity: 90%
+Respawns in battle: -17088 SL
+
+Researched unit: 
+Begleitpanzer 57: 7470 RP
+
+Researching progress: 
+KPz-70 - Adjustment of Fire: 4762 RP
+
+Session: 72815b20009be99
+Total: 33035 SL, 7470 CRP, 12232 RP
+
+Victory in the [Tank Assault] Japan mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           12:38                6402 RP    
+    KPz-70    12:38    3201 + (PA)3201 = 6402 RP
+
+Reward for winning             42963 SL               
+
+Earned: 42963 SL, 6402 CRP
+Activity: 76%
+Respawns in battle: -27222 SL
+
+Researched unit: 
+Begleitpanzer 57: 6402 RP
+
+Researching progress: 
+KPz-70 - Laser rangefinder: 3564 RP
+
+Session: 727f1d300092f97
+Total: 15741 SL, 6402 CRP, 9966 RP
+
+
+Defeat in the [Tank Assault] Japan mission!
+
+Activity Time                                                              
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played                                11:58                1662 RP    
+    KPz-70    11:58    831 + (PA)831 = 1662 RP
+
+Reward for participating in the mission             13013 SL               
+
+Earned: 13013 SL, 1662 CRP
+Activity: 77%
+Respawns in battle: -12564 SL
+
+Researched unit: 
+Begleitpanzer 57: 1662 RP
+
+Researching progress: 
+KPz-70 - Laser rangefinder: 1662 RP
+
+Session: 727ee030009212d
+Total: 449 SL, 1662 CRP, 3324 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    KPz-70     
+    KPz-70     
+    KPz-70     
+    KPz-70     
+    KPz-70     
+    KPz-70     
+    Leopard 1A5
+
+Time Played           20:59                6530 RP    
+    KPz-70         20:28    3242 + (PA)3242 = 6484 RP
+    Leopard 1A5    0:31     23 + (PA)23 = 46 RP      
+
+Reward for winning             43820 SL               
+
+Earned: 43820 SL, 6530 CRP
+Activity: 82%
+Respawns in battle: -15142 SL
+
+Researched unit: 
+Begleitpanzer 57: 6530 RP
+
+Researching progress: 
+KPz-70 - Laser rangefinder: 6484 RP
+
+Session: 727e7b400090a23
+Total: 28678 SL, 6530 CRP, 13014 RP
+
+Victory in the [Tank Assault] Japan mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           18:21                7388 RP    
+    KPz-70    18:21    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 89%
+Respawns in battle: -10150 SL
+
+Researched unit: 
+Begleitpanzer 57: 7388 RP
+
+Researching progress: 
+KPz-70 - Elevation Mechanism: 5098 RP
+
+Session: 727de780008e9e8
+Total: 39422 SL, 7388 CRP, 12486 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           15:25                6566 RP    
+    KPz-70    15:25    3283 + (PA)3283 = 6566 RP
+
+Reward for winning             44064 SL               
+
+Earned: 44064 SL, 6566 CRP
+Activity: 79%
+Respawns in battle: -18270 SL
+
+Researched unit: 
+Begleitpanzer 57: 6566 RP
+
+Researching progress: 
+KPz-70 - Crew Replenishment: 664 RP
+
+Session: 727d9ad0008d99f
+Total: 25794 SL, 6566 CRP, 7230 RP
+
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           15:32                6976 RP    
+    KPz-70    15:32    3488 + (PA)3488 = 6976 RP
+
+Reward for winning             46818 SL               
+
+Earned: 46818 SL, 6976 CRP
+Activity: 83%
+Respawns in battle: -12180 SL
+
+Researched unit: 
+Begleitpanzer 57: 6976 RP
+
+Researching progress: 
+KPz-70 - Crew Replenishment: 6976 RP
+
+Session: 7278f3b0007783d
+Total: 34638 SL, 6976 CRP, 13952 RP
+
+Defeat in the [Tank Assault] Fulda mission!
+
+Activity Time                                                              
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played                                20:44                2436 RP    
+    KPz-70    20:44    1218 + (PA)1218 = 2436 RP
+
+Reward for participating in the mission             19064 SL               
+
+Earned: 19064 SL, 2436 CRP
+Activity: 89%
+Respawns in battle: -16240 SL
+
+Researched unit: 
+Begleitpanzer 57: 2436 RP
+
+Researching progress: 
+KPz-70 - Crew Replenishment: 2436 RP
+
+Session: 72789c7000755ad
+Total: 2824 SL, 2436 CRP, 4872 RP
+
+Victory in the [Tank Assault] Maginot Line mission!
+
+Activity Time                                         
+    KPz-70    
+    KPz-70    
+    KPz-70    
+    KPz-70    
+    KPz-70    
+    F-104S.ASA
+    KPz-70    
+
+Time Played           25:28                6156 RP    
+    KPz-70    25:28    3078 + (PA)3078 = 6156 RP
+
+Reward for winning             41310 SL               
+
+Earned: 41310 SL, 6156 CRP
+Activity: 77%
+Respawns in battle: -12180 SL
+
+Researched unit: 
+Begleitpanzer 57: 6156 RP
+
+Researching progress: 
+KPz-70 - XM578E1: 5232 RP
+
+Session: 727828100072671
+Total: 29130 SL, 6156 CRP, 11388 RP
+
+Defeat in the [Tank Assault] Japan mission!
+
+Activity Time                                                           
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played                                8:30               930 RP    
+    KPz-70    8:30    465 + (PA)465 = 930 RP
+
+Reward for participating in the mission            7283 SL              
+
+Earned: 7283 SL, 930 CRP
+Activity: 64%
+Respawns in battle: -20300 SL
+Expenses compensation: 13017 SL
+
+Researched unit: 
+Begleitpanzer 57: 930 RP
+
+Researching progress: 
+KPz-70 - XM578E1: 930 RP
+
+Session: 7277f9d0007136b
+Total: 0 SL, 930 CRP, 1860 RP
+
+Victory in the [Tank Assault] Kursk mission!
+
+Activity Time                                         
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+    KPz-70
+
+Time Played           16:46                6238 RP    
+    KPz-70    16:46    3119 + (PA)3119 = 6238 RP
+
+Reward for winning             41861 SL               
+
+Earned: 41861 SL, 6238 CRP
+Activity: 77%
+Respawns in battle: -11946 SL
+
+Researched unit: 
+Begleitpanzer 57: 6238 RP
+
+Researching progress: 
+KPz-70 - Improved Parts: 2500 RP
+
+Session: 7277aef0006f426
+Total: 29915 SL, 6238 CRP, 8738 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    Leopard 1A5
+    Leopard 1A5
+    Leopard 1A5
+    Leopard 1A5
+    Leopard 1A5
+    Leopard 1A5
+
+Time Played           24:48                3776 RP    
+    Leopard 1A5    24:48    3776 RP
+
+Reward for winning             33782 SL               
+
+Earned: 33782 SL, 3776 CRP
+Activity: 92%
+Respawns in battle: -15468 SL
+
+Researched unit: 
+Begleitpanzer 57: 3776 RP
+
+Session: 7266166000113db
+Total: 18314 SL, 3776 CRP, 3776 RP
+
+Defeat in the [Tank Assault] Kursk mission!
+
+Activity Time                                                              
+    SPz BMP-1
+    Leopard I
+    Leopard I
+    SPz BMP-1
+    SPz BMP-1
+    SPz BMP-1
+    SPz BMP-1
+    Leopard I
+
+Time Played                                22:00                2016 RP    
+    SPz BMP-1    8:20     313 + (PA)313 = 626 RP 
+    Leopard I    13:40    695 + (PA)695 = 1390 RP
+
+Reward for participating in the mission             15731 SL               
+
+Earned: 15731 SL, 2016 CRP
+Activity: 91%
+Respawns in battle: -15177 SL
+
+Researched unit: 
+Begleitpanzer 57: 2016 RP
+
+Researching progress: 
+SPz BMP-1 - Suspension: 626 RP
+
+Session: 725997100069ab3
+Total: 554 SL, 2016 CRP, 2642 RP
+
+Defeat in the [Domination] Carpathians mission!
+
+Assistance in destroying the enemy             2    3411 SL     222 RP    
+    3:40    T-72M1(Germany)    API-T (12.7mm)    Alpha Jet A()      118 mission points    1364 + (PA)682 = 2046 SL    68 + (PA)68 = 136 RP
+    5:11    T-72M1(Germany)    3BM22             Chieftain Mk 3     113 mission points    909 + (PA)456 = 1365 SL     43 + (PA)43 = 86 RP 
+
+Critical damage to the enemy                   1     303 SL      20 RP    
+    3:58    T-72M1(Germany)    3BM22    Chieftain Mk 3     57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                            3     608 SL      42 RP    
+    3:38    T-72M1(Germany)    IAI (12.7mm)      Alpha Jet A()      20 mission points    152 + (PA)76 = 228 SL    8 + (PA)8 = 16 RP
+    3:40    T-72M1(Germany)    API-T (12.7mm)    Alpha Jet A()      20 mission points    152 + (PA)76 = 228 SL    8 + (PA)8 = 16 RP
+    3:58    T-72M1(Germany)    3BM22             Chieftain Mk 3     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+
+Scouting of the enemy                          2     240 SL               
+    6:16    TAM    M60A3 TTS()     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    6:39    TAM    Stingray        5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Destruction by allies of scouted enemies       1     120 SL               
+    6:37    TAM    M60A3 TTS()     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL
+
+Awards                                         1     450 SL               
+    4:41    Adamant    300 + (PA)150 = 450 SL
+
+Activity Time                                       2324 SL     214 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                192 + (PA)192 = 384 SL     17 + (PA)17 = 34 RP 
+
+Time Played                                 6:20               1236 RP    
+    T-72M1(Germany)    86%    4:41    516 + (PA)516 = 1032 RP
+    TAM                51%    1:39    102 + (PA)102 = 204 RP 
+
+Reward for participating in the mission             1402 SL               
+
+Earned: 8858 SL, 1734 CRP
+Activity: 73%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -6337 SL
+Automatic purchasing of ammo and "Crew Replenishment": -460 SL
+
+Researched unit: 
+Radkampfwagen 90: 1734 RP
+
+Session: 73c8667001c3b57
+Total: 2061 SL, 1734 CRP, 1734 RP
+
+Defeat in the [Conquest #3] Port Novorossiysk mission!
+
+Destruction of ground targets                   5    13890 SL     942 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          99 mission points     2020 + (PA)1010 = 3030 SL    77 + (PA)77 = 154 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    4:50     T-72M1(Germany)    3BM22    ZA-35            189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    10:40    TAM                DM23     T-64A (1971)     200 mission points    1600 + (PA)800 = 2400 SL     106 + (PA)106 = 212 RP
+    12:00    TAM                DM23     XM246            197 mission points    1600 + (PA)800 = 2400 SL     96 + (PA)96 = 192 RP  
+
+Assistance in destroying the enemy              2     2445 SL     154 RP    
+    3:38     T-72M1(Germany)    3BM22    T95E1     105 mission points    909 + (PA)456 = 1365 SL    41 + (PA)41 = 82 RP
+    10:51    TAM                DM23     M163      78 mission points     720 + (PA)360 = 1080 SL    36 + (PA)36 = 72 RP
+
+Critical damage to the enemy                    5     1452 SL      96 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          30 mission points    202 + (PA)101 = 303 SL    8 + (PA)8 = 16 RP  
+    3:34     T-72M1(Germany)    3BM22    T95E1            52 mission points    202 + (PA)101 = 303 SL    9 + (PA)9 = 18 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    4:50     T-72M1(Germany)    3BM22    ZA-35            57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    10:40    TAM                DM23     T-64A (1971)     60 mission points    160 + (PA)80 = 240 SL     11 + (PA)11 = 22 RP
+
+Damage to the enemy                             9     1208 SL      86 RP    
+    3:20     T-72M1(Germany)    3BM22               Type 99          20 mission points    101 + (PA)51 = 152 SL    4 + (PA)4 = 8 RP 
+    3:34     T-72M1(Germany)    3BM22               T95E1            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:09     T-72M1(Germany)    3BM22               T58              20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:50     T-72M1(Germany)    3BM22               ZA-35            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    10:00    TAM                DM23                Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:05    TAM                Default (7.62mm)    Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:40    TAM                DM23                T-64A (1971)     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:50    TAM                DM23                M163             20 mission points    80 + (PA)40 = 120 SL     4 + (PA)4 = 8 RP 
+    12:00    TAM                DM23                XM246            20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                           4      480 SL               
+    9:52     TAM    Magach 7C        5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:25    TAM    T-64A (1971)     5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:48    TAM    M163             5 mission points    without UAV    80 + (PA)40 = 120 SL
+    11:53    TAM    XM246            5 mission points    without UAV    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                 1      240 SL               
+    10:51    TAM    M163     20 mission points    without UAV    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies        1     1200 SL      50 RP    
+    10:51    TAM    M163     60 mission points    without UAV    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+
+Awards                                          6     1800 SL               
+    4:09     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Adamant                300 + (PA)150 = 450 SL
+    9:29     Teamwork               600 + (PA)300 = 900 SL
+    10:52    Intelligence           100 + (PA)50 = 150 SL 
+    12:21    Help with Repairing    100 + (PA)50 = 150 SL 
+
+Activity Time                                         3760 SL     344 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                 11:50                2710 RP    
+    T-72M1(Germany)    93%    4:28    532 + (PA)532 = 1064 RP
+    TAM                92%    7:22    823 + (PA)823 = 1646 RP
+
+Reward for participating in the mission               4935 SL               
+
+Skill Bonus                                                       330 RP    
+    T-72M1(Germany)    I    149 RP
+    TAM                I    181 RP
+
+Earned: 31410 SL, 4712 CRP
+Activity: 92%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -9897 SL
+Automatic purchasing of ammo and "Crew Replenishment": -2600 SL
+
+Researched unit: 
+Radkampfwagen 90: 4712 RP
+
+Session: 73c8ac8001c5831
+Total: 18913 SL, 4712 CRP, 4712 RP
+
+Victory in the [Domination #2] North Holland mission!
+
+Destruction of ground targets                  1    2400 SL     223 RP    
+    2:25    TAM    DM23    Centauro I 105     200 mission points    1600 + (PA)800 = 2400 SL    106 + (PA)106 + (Booster)11 = 223 RP
+
+Critical damage to the enemy                   1     240 SL      24 RP    
+    2:25    TAM    DM23    Centauro I 105     60 mission points    160 + (PA)80 = 240 SL    11 + (PA)11 + (Booster)2 = 24 RP
+
+Damage to the enemy                            1     120 SL      11 RP    
+    2:25    TAM    DM23    Centauro I 105     20 mission points    80 + (PA)40 = 120 SL    5 + (PA)5 + (Booster)1 = 11 RP
+
+Scouting of the enemy                          6     720 SL               
+    3:56    TAM    T-72A            5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    4:53    TAM    OF-40 Mk.2A      5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    6:41    TAM    MBT-70           5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    7:32    TAM    T-72B (1989)     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:00    TAM    T-62M-1          5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:18    TAM    ZSU-23-4M4       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                3     720 SL               
+    4:59    TAM    OF-40 Mk.2A     20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    6:53    TAM    MBT-70          20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    8:28    TAM    T-62M-1         20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies       4    3720 SL     159 RP    
+    4:59    TAM    OF-40 Mk.2A      60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:07    TAM    MBT-70           60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:46    TAM    T-72B (1989)     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL       0 RP                            
+    8:28    TAM    T-62M-1          60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+
+Awards                                         5    2850 SL     210 RP    
+    4:59    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:08    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:47    Teamwork          600 + (PA)300 = 900 SL      0 RP                                
+    8:29    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    9:12    The Best Squad    1000 + (PA)500 = 1500 SL    100 + (PA)100 + (Booster)10 = 210 RP
+
+Activity Time                                        812 SL      76 RP    
+    JaPz.K A2      0 SL                      0 RP                            
+    TAM            406 + (PA)406 = 812 SL    36 + (PA)36 + (Booster)4 = 76 RP
+    Recon Micro    0 SL                      0 RP                            
+
+Time Played                                 8:20               2422 RP    
+    TAM    76%    8:20    1153 + (PA)1153 + (Booster)116 = 2422 RP
+
+Reward for winning                                  4078 SL               
+
+Earned: 15660 SL, 3125 CRP
+Activity: 69%
+Damaged Vehicles: TAM
+Automatic repair of all vehicles: -212 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Radkampfwagen 90: 2915 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 73c8dfe001c6d63
+Total: 15268 SL, 3125 CRP, 2915 RP
+
+Defeat in the [Conquest #3] Port Novorossiysk mission!
+
+Destruction of ground targets                   5    13890 SL     942 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          99 mission points     2020 + (PA)1010 = 3030 SL    77 + (PA)77 = 154 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    4:50     T-72M1(Germany)    3BM22    ZA-35            189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    10:40    TAM                DM23     T-64A (1971)     200 mission points    1600 + (PA)800 = 2400 SL     106 + (PA)106 = 212 RP
+    12:00    TAM                DM23     XM246            197 mission points    1600 + (PA)800 = 2400 SL     96 + (PA)96 = 192 RP  
+
+Assistance in destroying the enemy              2     2445 SL     154 RP    
+    3:38     T-72M1(Germany)    3BM22    T95E1     105 mission points    909 + (PA)456 = 1365 SL    41 + (PA)41 = 82 RP
+    10:51    TAM                DM23     M163      78 mission points     720 + (PA)360 = 1080 SL    36 + (PA)36 = 72 RP
+
+Critical damage to the enemy                    5     1452 SL      96 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          30 mission points    202 + (PA)101 = 303 SL    8 + (PA)8 = 16 RP  
+    3:34     T-72M1(Germany)    3BM22    T95E1            52 mission points    202 + (PA)101 = 303 SL    9 + (PA)9 = 18 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    4:50     T-72M1(Germany)    3BM22    ZA-35            57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    10:40    TAM                DM23     T-64A (1971)     60 mission points    160 + (PA)80 = 240 SL     11 + (PA)11 = 22 RP
+
+Damage to the enemy                             9     1208 SL      86 RP    
+    3:20     T-72M1(Germany)    3BM22               Type 99          20 mission points    101 + (PA)51 = 152 SL    4 + (PA)4 = 8 RP 
+    3:34     T-72M1(Germany)    3BM22               T95E1            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:09     T-72M1(Germany)    3BM22               T58              20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:50     T-72M1(Germany)    3BM22               ZA-35            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    10:00    TAM                DM23                Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:05    TAM                Default (7.62mm)    Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:40    TAM                DM23                T-64A (1971)     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:50    TAM                DM23                M163             20 mission points    80 + (PA)40 = 120 SL     4 + (PA)4 = 8 RP 
+    12:00    TAM                DM23                XM246            20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                           4      480 SL               
+    9:52     TAM    Magach 7C        5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:25    TAM    T-64A (1971)     5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:48    TAM    M163             5 mission points    without UAV    80 + (PA)40 = 120 SL
+    11:53    TAM    XM246            5 mission points    without UAV    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                 1      240 SL               
+    10:51    TAM    M163     20 mission points    without UAV    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies        1     1200 SL      50 RP    
+    10:51    TAM    M163     60 mission points    without UAV    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+
+Awards                                          6     1800 SL               
+    4:09     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Adamant                300 + (PA)150 = 450 SL
+    9:29     Teamwork               600 + (PA)300 = 900 SL
+    10:52    Intelligence           100 + (PA)50 = 150 SL 
+    12:21    Help with Repairing    100 + (PA)50 = 150 SL 
+
+Activity Time                                         3760 SL     344 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                 11:50                2710 RP    
+    T-72M1(Germany)    93%    4:28    532 + (PA)532 = 1064 RP
+    TAM                92%    7:22    823 + (PA)823 = 1646 RP
+
+Reward for participating in the mission               4935 SL               
+
+Skill Bonus                                                       330 RP    
+    T-72M1(Germany)    I    149 RP
+    TAM                I    181 RP
+
+Earned: 31410 SL, 4712 CRP
+Activity: 92%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -9897 SL
+Automatic purchasing of ammo and "Crew Replenishment": -2600 SL
+
+Researched unit: 
+Radkampfwagen 90: 4712 RP
+
+Session: 73c8ac8001c5831
+Total: 18913 SL, 4712 CRP, 4712 RP
+
+Victory in the [Domination #2] North Holland mission!
+
+Destruction of ground targets                  1    2400 SL     223 RP    
+    2:25    TAM    DM23    Centauro I 105     200 mission points    1600 + (PA)800 = 2400 SL    106 + (PA)106 + (Booster)11 = 223 RP
+
+Critical damage to the enemy                   1     240 SL      24 RP    
+    2:25    TAM    DM23    Centauro I 105     60 mission points    160 + (PA)80 = 240 SL    11 + (PA)11 + (Booster)2 = 24 RP
+
+Damage to the enemy                            1     120 SL      11 RP    
+    2:25    TAM    DM23    Centauro I 105     20 mission points    80 + (PA)40 = 120 SL    5 + (PA)5 + (Booster)1 = 11 RP
+
+Scouting of the enemy                          6     720 SL               
+    3:56    TAM    T-72A            5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    4:53    TAM    OF-40 Mk.2A      5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    6:41    TAM    MBT-70           5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    7:32    TAM    T-72B (1989)     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:00    TAM    T-62M-1          5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:18    TAM    ZSU-23-4M4       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                3     720 SL               
+    4:59    TAM    OF-40 Mk.2A     20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    6:53    TAM    MBT-70          20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    8:28    TAM    T-62M-1         20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies       4    3720 SL     159 RP    
+    4:59    TAM    OF-40 Mk.2A      60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:07    TAM    MBT-70           60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:46    TAM    T-72B (1989)     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL       0 RP                            
+    8:28    TAM    T-62M-1          60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+
+Awards                                         5    2850 SL     210 RP    
+    4:59    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:08    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:47    Teamwork          600 + (PA)300 = 900 SL      0 RP                                
+    8:29    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    9:12    The Best Squad    1000 + (PA)500 = 1500 SL    100 + (PA)100 + (Booster)10 = 210 RP
+
+Activity Time                                        812 SL      76 RP    
+    JaPz.K A2      0 SL                      0 RP                            
+    TAM            406 + (PA)406 = 812 SL    36 + (PA)36 + (Booster)4 = 76 RP
+    Recon Micro    0 SL                      0 RP                            
+
+Time Played                                 8:20               2422 RP    
+    TAM    76%    8:20    1153 + (PA)1153 + (Booster)116 = 2422 RP
+
+Reward for winning                                  4078 SL               
+
+Earned: 15660 SL, 3125 CRP
+Activity: 69%
+Damaged Vehicles: TAM
+Automatic repair of all vehicles: -212 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Radkampfwagen 90: 2915 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 73c8dfe001c6d63
+Total: 15268 SL, 3125 CRP, 2915 RP
+
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           20:10                6402 RP    
+    Leopard 2K    20:10    3201 + (PA)3201 = 6402 RP
+
+Reward for winning             42963 SL               
+
+Earned: 42963 SL, 6402 CRP
+Activity: 79%
+Respawns in battle: -10835 SL
+
+Researched unit: 
+Radkampfwagen 90: 6402 RP
+
+Researching progress: 
+Leopard 2K - DM13: 6402 RP
+
+Session: 73cac97001d326a
+Total: 32128 SL, 6402 CRP, 12804 RP
+
+
+Victory in the [Tank Assault] Kursk mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           16:07                5992 RP    
+    Leopard 2K    16:07    2996 + (PA)2996 = 5992 RP
+
+Reward for winning             40209 SL               
+
+Earned: 40209 SL, 5992 CRP
+Activity: 74%
+Respawns in battle: -17336 SL
+
+Researched unit: 
+Radkampfwagen 90: 5992 RP
+
+Researching progress: 
+Leopard 2K - DM13: 1086 RP
+
+Session: 73cb27c001d53b7
+Total: 22873 SL, 5992 CRP, 7078 RP
+
+
+Defeat in the [Domination] Sinai mission!
+
+Destruction of ground targets                 3    9041 SL     676 RP    
+    2:02    Leopard 2K         DM13     Merkava Mk.1B     197 mission points    2030 + (PA)1015 + (Booster)203 = 3248 SL    104 + (PA)104 = 208 RP
+    5:44    TAM                DM23     Type 74 (G)       200 mission points    1600 + (PA)800 + (Booster)161 = 2561 SL     106 + (PA)106 = 212 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        200 mission points    2020 + (PA)1010 + (Booster)202 = 3232 SL    128 + (PA)128 = 256 RP
+
+Critical damage to the enemy                  3     908 SL      68 RP    
+    1:54    Leopard 2K         DM13     Merkava Mk.1B     59 mission points    203 + (PA)102 + (Booster)21 = 326 SL    10 + (PA)10 = 20 RP
+    5:44    TAM                DM23     Type 74 (G)       60 mission points    160 + (PA)80 + (Booster)17 = 257 SL     11 + (PA)11 = 22 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        60 mission points    202 + (PA)101 + (Booster)22 = 325 SL    13 + (PA)13 = 26 RP
+
+Damage to the enemy                           6     913 SL      64 RP    
+    1:54    Leopard 2K         DM13     Merkava Mk.1B     20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    2:02    Leopard 2K         DM13     Merkava Mk.1B     20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    2:40    Leopard 2K         DM13     Khalid            20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    5:44    TAM                DM23     Type 74 (G)       20 mission points    80 + (PA)40 + (Booster)9 = 129 SL      5 + (PA)5 = 10 RP
+    5:44    TAM                DM23     120S              20 mission points    80 + (PA)40 + (Booster)9 = 129 SL      6 + (PA)6 = 12 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        20 mission points    101 + (PA)51 + (Booster)11 = 163 SL    6 + (PA)6 = 12 RP
+
+Scouting of the enemy                         2     258 SL               
+    4:54    TAM    120S           5 mission points    UAV in the air    80 + (PA)40 + (Booster)9 = 129 SL
+    5:53    TAM    Hunter AFV     5 mission points    without UAV       80 + (PA)40 + (Booster)9 = 129 SL
+
+Damage taken by scouted enemies               1     257 SL               
+    5:20    TAM    120S     20 mission points    UAV in the air    160 + (PA)80 + (Booster)17 = 257 SL
+
+Awards                                        9    3200 SL               
+    2:02    Tank Rescuer                 50 + (PA)25 + (Booster)5 = 80 SL    
+    2:02    According to Intelligence    100 + (PA)50 + (Booster)10 = 160 SL 
+    7:02    Help with Repairing          100 + (PA)50 + (Booster)10 = 160 SL 
+    7:52    Help with Repairing          100 + (PA)50 + (Booster)10 = 160 SL 
+    8:28    Tank Rescuer                 50 + (PA)25 + (Booster)5 = 80 SL    
+    8:28    Eye for Eye                  300 + (PA)150 + (Booster)30 = 480 SL
+    8:28    Rank does not matter         500 + (PA)250 + (Booster)50 = 800 SL
+    8:28    Without a miss               200 + (PA)100 + (Booster)20 = 320 SL
+    9:37    Teamwork                     600 + (PA)300 + (Booster)60 = 960 SL
+
+Activity Time                                      5749 SL     512 RP    
+    T-72M1(Germany)    965 + (PA)965 + (Booster)97 = 2027 SL    90 + (PA)90 = 180 RP
+    Leopard 1A5        600 + (PA)600 + (Booster)60 = 1260 SL    55 + (PA)55 = 110 RP
+    Leopard 2K         980 + (PA)980 + (Booster)98 = 2058 SL    94 + (PA)94 = 188 RP
+    TAM                192 + (PA)192 + (Booster)20 = 404 SL     17 + (PA)17 = 34 RP 
+    Recon Micro        0 SL                                     0 RP                
+
+Time Played                                7:25               1260 RP    
+    T-72M1(Germany)    76%    2:09    210 + (PA)210 = 420 RP
+    Leopard 1A5        0%     0:56    0 RP                  
+    Leopard 2K         80%    2:47    294 + (PA)294 = 588 RP
+    TAM                67%    1:33    126 + (PA)126 = 252 RP
+
+Reward for participating in the mission            3430 SL               
+
+Skill Bonus                                                    196 RP    
+    T-72M1(Germany)    I    68 RP
+    Leopard 1A5        I    9 RP 
+    Leopard 2K         I    78 RP
+    TAM                I    41 RP
+
+Earned: 23756 SL, 2776 CRP
+Activity: 84%
+Damaged Vehicles: Leopard 2K, TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -3666 SL
+Automatic purchasing of ammo and "Crew Replenishment": -870 SL
+
+Researched unit: 
+Radkampfwagen 90: 2776 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 1112 RP
+
+Used items: 
+Active boosters SL: 
+Common: +10%SL
+* Public booster
++10%SL (all allies), gives (+10%SL).
+
+Session: 73cb809001d704c
+Total: 19220 SL, 2776 CRP, 3888 RP
+
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:30                7388 RP    
+    Leopard 2K    18:30    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 88%
+Respawns in battle: -24079 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 7388 RP
+
+Session: 73cba8e001d7c28
+Total: 25493 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:43                7306 RP    
+    Leopard 2K    18:43    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 88%
+Respawns in battle: -15323 SL
+
+Researched unit: 
+Radkampfwagen 90: 7306 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 3494 RP
+
+Session: 73cc13d001d99dd
+Total: 33699 SL, 7306 CRP, 10800 RP
+
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:30                7388 RP    
+    Leopard 2K    18:30    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 88%
+Respawns in battle: -24079 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 7388 RP
+
+Session: 73cba8e001d7c28
+Total: 25493 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:43                7306 RP    
+    Leopard 2K    18:43    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 88%
+Respawns in battle: -15323 SL
+
+Researched unit: 
+Radkampfwagen 90: 7306 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 3494 RP
+
+Session: 73cc13d001d99dd
+Total: 33699 SL, 7306 CRP, 10800 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           21:19                7388 RP    
+    Leopard 2K    21:19    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 90%
+Respawns in battle: -11180 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Filters: 7388 RP
+
+Session: 73cc980001dba0c
+Total: 38392 SL, 7388 CRP, 14776 RP
+
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           14:23                6320 RP    
+    T-72M1(Germany)    14:23    3160 + (PA)3160 = 6320 RP
+
+Reward for winning             42411 SL               
+
+Earned: 42411 SL, 6320 CRP
+Activity: 77%
+Respawns in battle: -8193 SL
+
+Researched unit: 
+Radkampfwagen 90: 6320 RP
+
+Session: 73c5e28001b1f46
+Total: 34218 SL, 6320 CRP, 6320 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           20:27                7140 RP    
+    T-72M1(Germany)    20:27    3570 + (PA)3570 = 7140 RP
+
+Reward for winning             47919 SL               
+
+Earned: 47919 SL, 7140 CRP
+Activity: 87%
+Respawns in battle: -10924 SL
+
+Researched unit: 
+Radkampfwagen 90: 7140 RP
+
+Session: 73c63fd001b49ac
+Total: 36995 SL, 7140 CRP, 7140 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           17:23                6238 RP    
+    T-72M1(Germany)    17:23    3119 + (PA)3119 = 6238 RP
+
+Reward for winning             41861 SL               
+
+Earned: 41861 SL, 6238 CRP
+Activity: 77%
+Respawns in battle: -8193 SL
+
+Researched unit: 
+Radkampfwagen 90: 6238 RP
+
+Session: 73c69bd001b73ef
+Total: 33668 SL, 6238 CRP, 6238 RP
+
+Defeat in the [Tank Assault] Ardennes mission!
+
+Activity Time                                                              
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played                                30:10                3146 RP    
+    T-72M1(Germany)    30:10    1573 + (PA)1573 = 3146 RP
+
+Reward for participating in the mission             24633 SL               
+
+Earned: 24633 SL, 3146 CRP
+Activity: 92%
+Respawns in battle: -10924 SL
+
+Researched unit: 
+Radkampfwagen 90: 3146 RP
+
+Session: 73c7c03001bf5e7
+Total: 13709 SL, 3146 CRP, 3146 RP
+
+Defeat in the [Domination] Carpathians mission!
+
+Assistance in destroying the enemy             2    3411 SL     222 RP    
+    3:40    T-72M1(Germany)    API-T (12.7mm)    Alpha Jet A()      118 mission points    1364 + (PA)682 = 2046 SL    68 + (PA)68 = 136 RP
+    5:11    T-72M1(Germany)    3BM22             Chieftain Mk 3     113 mission points    909 + (PA)456 = 1365 SL     43 + (PA)43 = 86 RP 
+
+Critical damage to the enemy                   1     303 SL      20 RP    
+    3:58    T-72M1(Germany)    3BM22    Chieftain Mk 3     57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                            3     608 SL      42 RP    
+    3:38    T-72M1(Germany)    IAI (12.7mm)      Alpha Jet A()      20 mission points    152 + (PA)76 = 228 SL    8 + (PA)8 = 16 RP
+    3:40    T-72M1(Germany)    API-T (12.7mm)    Alpha Jet A()      20 mission points    152 + (PA)76 = 228 SL    8 + (PA)8 = 16 RP
+    3:58    T-72M1(Germany)    3BM22             Chieftain Mk 3     20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+
+Scouting of the enemy                          2     240 SL               
+    6:16    TAM    M60A3 TTS()     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    6:39    TAM    Stingray        5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Destruction by allies of scouted enemies       1     120 SL               
+    6:37    TAM    M60A3 TTS()     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL
+
+Awards                                         1     450 SL               
+    4:41    Adamant    300 + (PA)150 = 450 SL
+
+Activity Time                                       2324 SL     214 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                192 + (PA)192 = 384 SL     17 + (PA)17 = 34 RP 
+
+Time Played                                 6:20               1236 RP    
+    T-72M1(Germany)    86%    4:41    516 + (PA)516 = 1032 RP
+    TAM                51%    1:39    102 + (PA)102 = 204 RP 
+
+Reward for participating in the mission             1402 SL               
+
+Earned: 8858 SL, 1734 CRP
+Activity: 73%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -6337 SL
+Automatic purchasing of ammo and "Crew Replenishment": -460 SL
+
+Researched unit: 
+Radkampfwagen 90: 1734 RP
+
+Session: 73c8667001c3b57
+Total: 2061 SL, 1734 CRP, 1734 RP
+
+Defeat in the [Conquest #3] Port Novorossiysk mission!
+
+Destruction of ground targets                   5    13890 SL     942 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          99 mission points     2020 + (PA)1010 = 3030 SL    77 + (PA)77 = 154 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    4:50     T-72M1(Germany)    3BM22    ZA-35            189 mission points    2020 + (PA)1010 = 3030 SL    96 + (PA)96 = 192 RP  
+    10:40    TAM                DM23     T-64A (1971)     200 mission points    1600 + (PA)800 = 2400 SL     106 + (PA)106 = 212 RP
+    12:00    TAM                DM23     XM246            197 mission points    1600 + (PA)800 = 2400 SL     96 + (PA)96 = 192 RP  
+
+Assistance in destroying the enemy              2     2445 SL     154 RP    
+    3:38     T-72M1(Germany)    3BM22    T95E1     105 mission points    909 + (PA)456 = 1365 SL    41 + (PA)41 = 82 RP
+    10:51    TAM                DM23     M163      78 mission points     720 + (PA)360 = 1080 SL    36 + (PA)36 = 72 RP
+
+Critical damage to the enemy                    5     1452 SL      96 RP    
+    3:20     T-72M1(Germany)    3BM22    Type 99          30 mission points    202 + (PA)101 = 303 SL    8 + (PA)8 = 16 RP  
+    3:34     T-72M1(Germany)    3BM22    T95E1            52 mission points    202 + (PA)101 = 303 SL    9 + (PA)9 = 18 RP  
+    4:09     T-72M1(Germany)    3BM22    T58              57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    4:50     T-72M1(Germany)    3BM22    ZA-35            57 mission points    202 + (PA)101 = 303 SL    10 + (PA)10 = 20 RP
+    10:40    TAM                DM23     T-64A (1971)     60 mission points    160 + (PA)80 = 240 SL     11 + (PA)11 = 22 RP
+
+Damage to the enemy                             9     1208 SL      86 RP    
+    3:20     T-72M1(Germany)    3BM22               Type 99          20 mission points    101 + (PA)51 = 152 SL    4 + (PA)4 = 8 RP 
+    3:34     T-72M1(Germany)    3BM22               T95E1            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:09     T-72M1(Germany)    3BM22               T58              20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    4:50     T-72M1(Germany)    3BM22               ZA-35            20 mission points    101 + (PA)51 = 152 SL    5 + (PA)5 = 10 RP
+    10:00    TAM                DM23                Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:05    TAM                Default (7.62mm)    Magach 7C        20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:40    TAM                DM23                T-64A (1971)     20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+    10:50    TAM                DM23                M163             20 mission points    80 + (PA)40 = 120 SL     4 + (PA)4 = 8 RP 
+    12:00    TAM                DM23                XM246            20 mission points    80 + (PA)40 = 120 SL     5 + (PA)5 = 10 RP
+
+Scouting of the enemy                           4      480 SL               
+    9:52     TAM    Magach 7C        5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:25    TAM    T-64A (1971)     5 mission points    without UAV    80 + (PA)40 = 120 SL
+    10:48    TAM    M163             5 mission points    without UAV    80 + (PA)40 = 120 SL
+    11:53    TAM    XM246            5 mission points    without UAV    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                 1      240 SL               
+    10:51    TAM    M163     20 mission points    without UAV    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies        1     1200 SL      50 RP    
+    10:51    TAM    M163     60 mission points    without UAV    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 = 50 RP
+
+Awards                                          6     1800 SL               
+    4:09     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Tank Rescuer           50 + (PA)25 = 75 SL   
+    4:50     Adamant                300 + (PA)150 = 450 SL
+    9:29     Teamwork               600 + (PA)300 = 900 SL
+    10:52    Intelligence           100 + (PA)50 = 150 SL 
+    12:21    Help with Repairing    100 + (PA)50 = 150 SL 
+
+Activity Time                                         3760 SL     344 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    TAM                910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                 11:50                2710 RP    
+    T-72M1(Germany)    93%    4:28    532 + (PA)532 = 1064 RP
+    TAM                92%    7:22    823 + (PA)823 = 1646 RP
+
+Reward for participating in the mission               4935 SL               
+
+Skill Bonus                                                       330 RP    
+    T-72M1(Germany)    I    149 RP
+    TAM                I    181 RP
+
+Earned: 31410 SL, 4712 CRP
+Activity: 92%
+Damaged Vehicles: TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -9897 SL
+Automatic purchasing of ammo and "Crew Replenishment": -2600 SL
+
+Researched unit: 
+Radkampfwagen 90: 4712 RP
+
+Session: 73c8ac8001c5831
+Total: 18913 SL, 4712 CRP, 4712 RP
+
+Victory in the [Domination #2] North Holland mission!
+
+Destruction of ground targets                  1    2400 SL     223 RP    
+    2:25    TAM    DM23    Centauro I 105     200 mission points    1600 + (PA)800 = 2400 SL    106 + (PA)106 + (Booster)11 = 223 RP
+
+Critical damage to the enemy                   1     240 SL      24 RP    
+    2:25    TAM    DM23    Centauro I 105     60 mission points    160 + (PA)80 = 240 SL    11 + (PA)11 + (Booster)2 = 24 RP
+
+Damage to the enemy                            1     120 SL      11 RP    
+    2:25    TAM    DM23    Centauro I 105     20 mission points    80 + (PA)40 = 120 SL    5 + (PA)5 + (Booster)1 = 11 RP
+
+Scouting of the enemy                          6     720 SL               
+    3:56    TAM    T-72A            5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    4:53    TAM    OF-40 Mk.2A      5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    6:41    TAM    MBT-70           5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    7:32    TAM    T-72B (1989)     5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:00    TAM    T-62M-1          5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+    8:18    TAM    ZSU-23-4M4       5 mission points    UAV in the air    80 + (PA)40 = 120 SL
+
+Damage taken by scouted enemies                3     720 SL               
+    4:59    TAM    OF-40 Mk.2A     20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    6:53    TAM    MBT-70          20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+    8:28    TAM    T-62M-1         20 mission points    UAV in the air    160 + (PA)80 = 240 SL
+
+Destruction by allies of scouted enemies       4    3720 SL     159 RP    
+    4:59    TAM    OF-40 Mk.2A      60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:07    TAM    MBT-70           60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+    7:46    TAM    T-72B (1989)     15 mission points    UAV in the air    ×    80 + (PA)40 = 120 SL       0 RP                            
+    8:28    TAM    T-62M-1          60 mission points    UAV in the air    ×    800 + (PA)400 = 1200 SL    25 + (PA)25 + (Booster)3 = 53 RP
+
+Awards                                         5    2850 SL     210 RP    
+    4:59    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:08    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    7:47    Teamwork          600 + (PA)300 = 900 SL      0 RP                                
+    8:29    Intelligence      100 + (PA)50 = 150 SL       0 RP                                
+    9:12    The Best Squad    1000 + (PA)500 = 1500 SL    100 + (PA)100 + (Booster)10 = 210 RP
+
+Activity Time                                        812 SL      76 RP    
+    JaPz.K A2      0 SL                      0 RP                            
+    TAM            406 + (PA)406 = 812 SL    36 + (PA)36 + (Booster)4 = 76 RP
+    Recon Micro    0 SL                      0 RP                            
+
+Time Played                                 8:20               2422 RP    
+    TAM    76%    8:20    1153 + (PA)1153 + (Booster)116 = 2422 RP
+
+Reward for winning                                  4078 SL               
+
+Earned: 15660 SL, 3125 CRP
+Activity: 69%
+Damaged Vehicles: TAM
+Automatic repair of all vehicles: -212 SL
+Automatic purchasing of ammo and "Crew Replenishment": -180 SL
+
+Researched unit: 
+Radkampfwagen 90: 2915 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 73c8dfe001c6d63
+Total: 15268 SL, 3125 CRP, 2915 RP
+
+Defeat in the [Battle] European Province mission!
+
+Scouting of the enemy                          6     756 SL              
+    3:22    JaPz.K A2    Olifant Mk.1A       5 mission points    without UAV       84 + (PA)42 = 126 SL
+    6:25    JaPz.K A2    Centurion Mk 10     5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    6:53    JaPz.K A2    Vickers Mk.3        5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    7:25    JaPz.K A2    T-55A               5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    7:46    JaPz.K A2    ◔T-72M1             5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+    8:17    JaPz.K A2    T-55A               5 mission points    UAV in the air    84 + (PA)42 = 126 SL
+
+Damage taken by scouted enemies                3     756 SL              
+    3:49    JaPz.K A2    Olifant Mk.1A       20 mission points    without UAV       168 + (PA)84 = 252 SL
+    6:33    JaPz.K A2    Centurion Mk 10     20 mission points    UAV in the air    168 + (PA)84 = 252 SL
+    6:37    JaPz.K A2    Centurion Mk 10     20 mission points    UAV in the air    168 + (PA)84 = 252 SL
+
+Destruction by allies of scouted enemies       1    1260 SL     52 RP    
+    6:37    JaPz.K A2    Centurion Mk 10     60 mission points    UAV in the air    ×    840 + (PA)420 = 1260 SL    26 + (PA)26 = 52 RP
+
+Awards                                         1     150 SL              
+    6:37    Intelligence    100 + (PA)50 = 150 SL
+
+Activity Time                                       2222 SL    206 RP    
+    Leopard 1A5    181 + (PA)181 = 362 SL     17 + (PA)17 = 34 RP 
+    JaPz.K A2      930 + (PA)930 = 1860 SL    86 + (PA)86 = 172 RP
+
+Time Played                                 8:26               958 RP    
+    Leopard 1A5    39%    0:32    26 + (PA)26 = 52 RP   
+    JaPz.K A2      46%    7:54    453 + (PA)453 = 906 RP
+
+Reward for participating in the mission             1000 SL              
+
+Earned: 6144 SL, 1216 CRP
+Activity: 48%
+Damaged Vehicles: JaPz.K A2, Leopard 1A5
+Automatic repair of all vehicles: -5203 SL
+Automatic purchasing of ammo and "Crew Replenishment": -185 SL
+
+Researched unit: 
+Radkampfwagen 90: 1216 RP
+
+Researching progress: 
+JaPz.K A2 - Horizontal Drive: 1130 RP
+
+Session: 73c914d001c8362
+
+Total: 756 SL, 1216 CRP, 2346 RP
+
+Defeat in the [Domination] Abandoned Town mission!
+
+Destruction of aircraft                        1    2367 SL     189 RP    
+    6:43    Leopard 1A5    — (crashed without damage)    Su-25K     100 mission points    –    1478 + (PA)740 + (Booster)149 = 2367 SL    90 + (PA)90 + (Booster)9 = 189 RP
+
+Destruction of ground targets                  3    9538 SL     652 RP    
+    2:38    T-72M1(Germany)    3BM22    Challenger DS     200 mission points    2020 + (PA)1010 + (Booster)202 = 3232 SL    128 + (PA)128 + (Booster)13 = 269 RP
+    4:50    Leopard 1A5        DM33     BMD-4M2           200 mission points    1970 + (PA)985 + (Booster)198 = 3153 SL     109 + (PA)109 + (Booster)11 = 229 RP
+    8:39    Leopard 1A5        DM33     Object 268        63 mission points     1970 + (PA)985 + (Booster)198 = 3153 SL     73 + (PA)73 + (Booster)8 = 154 RP   
+
+Critical damage to the enemy                   3     957 SL      67 RP    
+    2:38    T-72M1(Germany)    3BM22    Challenger DS     60 mission points    202 + (PA)101 + (Booster)22 = 325 SL    13 + (PA)13 + (Booster)2 = 28 RP
+    4:50    Leopard 1A5        DM33     BMD-4M2           60 mission points    197 + (PA)99 + (Booster)20 = 316 SL     11 + (PA)11 + (Booster)2 = 24 RP
+    8:39    Leopard 1A5        DM33     Object 268        19 mission points    197 + (PA)99 + (Booster)20 = 316 SL     7 + (PA)7 + (Booster)1 = 15 RP  
+
+Damage to the enemy                            4     644 SL      46 RP    
+    2:38    T-72M1(Germany)    3BM22    Challenger DS     20 mission points    101 + (PA)51 + (Booster)11 = 163 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    3:21    T-72M1(Germany)    3BM22    T-64B             20 mission points    101 + (PA)51 + (Booster)11 = 163 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    4:50    Leopard 1A5        DM33     BMD-4M2           20 mission points    99 + (PA)50 + (Booster)10 = 159 SL     5 + (PA)5 + (Booster)1 = 11 RP
+    8:39    Leopard 1A5        DM33     Object 268        20 mission points    99 + (PA)50 + (Booster)10 = 159 SL     4 + (PA)4 + (Booster)1 = 9 RP 
+
+Awards                                         6    3600 SL     200 RP    
+    2:39     Rank does not matter    500 + (PA)250 + (Booster)50 = 800 SL    0 RP                  
+    4:50     Tank Rescuer            50 + (PA)25 + (Booster)5 = 80 SL        0 RP                  
+    6:43     Tank Rescuer            50 + (PA)25 + (Booster)5 = 80 SL        0 RP                  
+    6:43     Avenger                 150 + (PA)75 + (Booster)15 = 240 SL     0 RP                  
+    13:36    Teamwork                600 + (PA)300 = 900 SL                  0 RP                  
+    13:50    The Best Squad          1000 + (PA)500 = 1500 SL                100 + (PA)100 = 200 RP
+
+Activity Time                                       5740 SL     526 RP    
+    T-72M1(Germany)    970 + (PA)970 = 1940 SL    90 + (PA)90 = 180 RP
+    Leopard 1A5        990 + (PA)990 = 1980 SL    91 + (PA)91 = 182 RP
+    TAM                910 + (PA)910 = 1820 SL    82 + (PA)82 = 164 RP
+    Recon Micro        0 SL                       0 RP                
+
+Time Played                                12:39               1792 RP    
+    T-72M1(Germany)    80%    2:55    299 + (PA)299 = 598 RP 
+    Leopard 1A5        87%    5:05    552 + (PA)552 = 1104 RP
+    TAM                8%     4:39    45 + (PA)45 = 90 RP    
+
+Reward for participating in the mission             3851 SL               
+
+Skill Bonus                                                     244 RP    
+    T-72M1(Germany)    I    82 RP 
+    Leopard 1A5        I    142 RP
+    TAM                I    20 RP 
+
+Earned: 26697 SL, 3716 CRP
+Activity: 78%
+Damaged Vehicles: Leopard 1A5, T-72M1(Germany)
+Automatic repair of all vehicles: -7861 SL
+Automatic purchasing of ammo and "Crew Replenishment": -900 SL
+
+Researched unit: 
+Radkampfwagen 90: 3516 RP
+
+Used items: 
+Active boosters SL: 
+Common: +10%SL
+* Public booster
++10%SL (all allies), gives (+10%SL).
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 73c9463001c97cd
+Total: 17936 SL, 3716 CRP, 3516 RP
+
+Victory in the [Domination] Carpathians mission!
+
+Destruction of ground targets                  5    9185 SL    1052 RP    
+    1:31    Pz.IV F2    PzGr 39    Pz.IV G          200 mission points    408 + (PA)204 + (Booster)1225 = 1837 SL    56 + (PA)112 + (Talismans)56 = 224 RP
+    5:40    Pz.IV F2    PzGr 39    StuH 42 G        200 mission points    408 + (PA)204 + (Booster)1225 = 1837 SL    53 + (PA)106 + (Talismans)53 = 212 RP
+    6:14    Pz.IV F2    PzGr 39    Pz.III M         200 mission points    408 + (PA)204 + (Booster)1225 = 1837 SL    53 + (PA)106 + (Talismans)53 = 212 RP
+    7:31    Pz.IV F2    PzGr 39    Sd.Kfz.234/2     200 mission points    408 + (PA)204 + (Booster)1225 = 1837 SL    53 + (PA)106 + (Talismans)53 = 212 RP
+    9:26    Pz.IV F2    PzGr 39    Pz.III J1        189 mission points    408 + (PA)204 + (Booster)1225 = 1837 SL    48 + (PA)96 + (Talismans)48 = 192 RP 
+
+Critical damage to the enemy                   5     930 SL     107 RP    
+    1:31    Pz.IV F2    PzGr 39    Pz.IV G          60 mission points    41 + (PA)21 + (Booster)124 = 186 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    5:40    Pz.IV F2    PzGr 39    StuH 42 G        60 mission points    41 + (PA)21 + (Booster)124 = 186 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    6:14    Pz.IV F2    PzGr 39    Pz.III M         60 mission points    41 + (PA)21 + (Booster)124 = 186 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    7:31    Pz.IV F2    PzGr 39    Sd.Kfz.234/2     60 mission points    41 + (PA)21 + (Booster)124 = 186 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    9:26    Pz.IV F2    PzGr 39    Pz.III J1        57 mission points    41 + (PA)21 + (Booster)124 = 186 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+
+Damage to the enemy                           12    1092 SL     141 RP    
+    1:31    Pz.IV F2    PzGr 39      Pz.IV G          20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    3:41    Pz.IV F2    PzGr 39      Pz.IV F2         20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    5:35    Pz.IV F2    PzGr 39      StuH 42 G        20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    5:40    Pz.IV F2    PzGr 39      StuH 42 G        20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:09    Pz.IV F2    PzGr 39      Pz.III M         20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:14    Pz.IV F2    PzGr 39      Pz.III M         20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    7:15    Pz.IV F2    Artillery    Pz.IV H          20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    7:20    Pz.IV F2    Artillery    Pz.IV H          20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    7:31    Pz.IV F2    PzGr 39      Sd.Kfz.234/2     20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    8:23    Pz.IV F2    Artillery    M24              20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    8:29    Pz.IV F2    Artillery    M24              20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    9:26    Pz.IV F2    PzGr 39      Pz.III J1        20 mission points    20 + (PA)10 + (Booster)61 = 91 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+
+Scouting of the enemy                          2     198 SL               
+    10:49    Sd.Kfz.234/2    M4          5 mission points    without UAV    22 + (PA)11 + (Booster)66 = 99 SL
+    10:58    Sd.Kfz.234/2    Pz.IV H     5 mission points    without UAV    22 + (PA)11 + (Booster)66 = 99 SL
+
+Destruction by allies of scouted enemies       1      99 SL               
+    10:59    Sd.Kfz.234/2    M4     15 mission points    without UAV    ×    22 + (PA)11 + (Booster)66 = 99 SL
+
+Awards                                         8    5175 SL               
+    1:31    Tank Rescuer             50 + (PA)25 + (Booster)150 = 225 SL   
+    1:31    First strike!            250 + (PA)125 + (Booster)750 = 1125 SL
+    1:31    Base defender!           300 + (PA)150 + (Booster)900 = 1350 SL
+    6:15    Tank Rescuer             50 + (PA)25 + (Booster)150 = 225 SL   
+    7:32    Tank Rescuer             50 + (PA)25 + (Booster)150 = 225 SL   
+    7:32    Shadow strike streak!    100 + (PA)50 + (Booster)300 = 450 SL  
+    9:23    Adamant                  300 + (PA)150 + (Booster)900 = 1350 SL
+    9:26    Tank Rescuer             50 + (PA)25 + (Booster)150 = 225 SL   
+
+Activity Time                                       2016 SL     170 RP    
+    Pz.IV F2        340 + (PA)340 + (Booster)1020 = 1700 SL    39 + (PA)78 + (Talismans)39 = 156 RP
+    Sd.Kfz.234/2    63 + (PA)63 + (Booster)190 = 316 SL        7 + (PA)7 = 14 RP                   
+
+Time Played                                 9:20               2670 RP    
+    Pz.IV F2        95%    8:43    662 + (PA)1324 + (Talismans)662 = 2648 RP
+    Sd.Kfz.234/2    20%    0:37    11 + (PA)11 = 22 RP                      
+
+Reward for winning                                  6314 SL               
+
+Skill Bonus                                                     157 RP    
+    Pz.IV F2        I    154 RP
+    Sd.Kfz.234/2    I    3 RP  
+
+Earned: 25009 SL, 4297 CRP
+Activity: 89%
+Damaged Vehicles: Pz.IV F2
+Backup vehicles spent: Pz.IV F2
+Automatic repair of all vehicles: -710 SL
+
+Researched unit: 
+Radkampfwagen 90: 860 RP
+
+Used items: 
+Active boosters SL: 
+Common: +300%SL
+* Personal booster
++300%SL, gives (+300%SL).
+
+Session: 73ca28f001cf480
+Total: 24299 SL, 4297 CRP, 860 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           16:15                6812 RP    
+    Leopard 2K    16:15    3406 + (PA)3406 = 6812 RP
+
+Reward for winning             45717 SL               
+
+Earned: 45717 SL, 6812 CRP
+Activity: 82%
+Respawns in battle: -21460 SL
+
+Researched unit: 
+Radkampfwagen 90: 6812 RP
+
+Researching progress: 
+Leopard 2K - Improved Parts: 3300 RP
+
+Session: 73ca7cd001d15ad
+Total: 24257 SL, 6812 CRP, 10112 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           20:10                6402 RP    
+    Leopard 2K    20:10    3201 + (PA)3201 = 6402 RP
+
+Reward for winning             42963 SL               
+
+Earned: 42963 SL, 6402 CRP
+Activity: 79%
+Respawns in battle: -10835 SL
+
+Researched unit: 
+Radkampfwagen 90: 6402 RP
+
+Researching progress: 
+Leopard 2K - DM13: 6402 RP
+
+Session: 73cac97001d326a
+Total: 32128 SL, 6402 CRP, 12804 RP
+
+Victory in the [Tank Assault] Kursk mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           16:07                5992 RP    
+    Leopard 2K    16:07    2996 + (PA)2996 = 5992 RP
+
+Reward for winning             40209 SL               
+
+Earned: 40209 SL, 5992 CRP
+Activity: 74%
+Respawns in battle: -17336 SL
+
+Researched unit: 
+Radkampfwagen 90: 5992 RP
+
+Researching progress: 
+Leopard 2K - DM13: 1086 RP
+
+Session: 73cb27c001d53b7
+Total: 22873 SL, 5992 CRP, 7078 RP
+
+Defeat in the [Domination] Sinai mission!
+
+Destruction of ground targets                 3    9041 SL     676 RP    
+    2:02    Leopard 2K         DM13     Merkava Mk.1B     197 mission points    2030 + (PA)1015 + (Booster)203 = 3248 SL    104 + (PA)104 = 208 RP
+    5:44    TAM                DM23     Type 74 (G)       200 mission points    1600 + (PA)800 + (Booster)161 = 2561 SL     106 + (PA)106 = 212 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        200 mission points    2020 + (PA)1010 + (Booster)202 = 3232 SL    128 + (PA)128 = 256 RP
+
+Critical damage to the enemy                  3     908 SL      68 RP    
+    1:54    Leopard 2K         DM13     Merkava Mk.1B     59 mission points    203 + (PA)102 + (Booster)21 = 326 SL    10 + (PA)10 = 20 RP
+    5:44    TAM                DM23     Type 74 (G)       60 mission points    160 + (PA)80 + (Booster)17 = 257 SL     11 + (PA)11 = 22 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        60 mission points    202 + (PA)101 + (Booster)22 = 325 SL    13 + (PA)13 = 26 RP
+
+Damage to the enemy                           6     913 SL      64 RP    
+    1:54    Leopard 2K         DM13     Merkava Mk.1B     20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    2:02    Leopard 2K         DM13     Merkava Mk.1B     20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    2:40    Leopard 2K         DM13     Khalid            20 mission points    102 + (PA)51 + (Booster)11 = 164 SL    5 + (PA)5 = 10 RP
+    5:44    TAM                DM23     Type 74 (G)       20 mission points    80 + (PA)40 + (Booster)9 = 129 SL      5 + (PA)5 = 10 RP
+    5:44    TAM                DM23     120S              20 mission points    80 + (PA)40 + (Booster)9 = 129 SL      6 + (PA)6 = 12 RP
+    8:28    T-72M1(Germany)    3BM22    Hunter AFV        20 mission points    101 + (PA)51 + (Booster)11 = 163 SL    6 + (PA)6 = 12 RP
+
+Scouting of the enemy                         2     258 SL               
+    4:54    TAM    120S           5 mission points    UAV in the air    80 + (PA)40 + (Booster)9 = 129 SL
+    5:53    TAM    Hunter AFV     5 mission points    without UAV       80 + (PA)40 + (Booster)9 = 129 SL
+
+Damage taken by scouted enemies               1     257 SL               
+    5:20    TAM    120S     20 mission points    UAV in the air    160 + (PA)80 + (Booster)17 = 257 SL
+
+Awards                                        9    3200 SL               
+    2:02    Tank Rescuer                 50 + (PA)25 + (Booster)5 = 80 SL    
+    2:02    According to Intelligence    100 + (PA)50 + (Booster)10 = 160 SL 
+    7:02    Help with Repairing          100 + (PA)50 + (Booster)10 = 160 SL 
+    7:52    Help with Repairing          100 + (PA)50 + (Booster)10 = 160 SL 
+    8:28    Tank Rescuer                 50 + (PA)25 + (Booster)5 = 80 SL    
+    8:28    Eye for Eye                  300 + (PA)150 + (Booster)30 = 480 SL
+    8:28    Rank does not matter         500 + (PA)250 + (Booster)50 = 800 SL
+    8:28    Without a miss               200 + (PA)100 + (Booster)20 = 320 SL
+    9:37    Teamwork                     600 + (PA)300 + (Booster)60 = 960 SL
+
+Activity Time                                      5749 SL     512 RP    
+    T-72M1(Germany)    965 + (PA)965 + (Booster)97 = 2027 SL    90 + (PA)90 = 180 RP
+    Leopard 1A5        600 + (PA)600 + (Booster)60 = 1260 SL    55 + (PA)55 = 110 RP
+    Leopard 2K         980 + (PA)980 + (Booster)98 = 2058 SL    94 + (PA)94 = 188 RP
+    TAM                192 + (PA)192 + (Booster)20 = 404 SL     17 + (PA)17 = 34 RP 
+    Recon Micro        0 SL                                     0 RP                
+
+Time Played                                7:25               1260 RP    
+    T-72M1(Germany)    76%    2:09    210 + (PA)210 = 420 RP
+    Leopard 1A5        0%     0:56    0 RP                  
+    Leopard 2K         80%    2:47    294 + (PA)294 = 588 RP
+    TAM                67%    1:33    126 + (PA)126 = 252 RP
+
+Reward for participating in the mission            3430 SL               
+
+Skill Bonus                                                    196 RP    
+    T-72M1(Germany)    I    68 RP
+    Leopard 1A5        I    9 RP 
+    Leopard 2K         I    78 RP
+    TAM                I    41 RP
+
+Earned: 23756 SL, 2776 CRP
+Activity: 84%
+Damaged Vehicles: Leopard 2K, TAM, T-72M1(Germany)
+Automatic repair of all vehicles: -3666 SL
+Automatic purchasing of ammo and "Crew Replenishment": -870 SL
+
+Researched unit: 
+Radkampfwagen 90: 2776 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 1112 RP
+
+Used items: 
+Active boosters SL: 
+Common: +10%SL
+* Public booster
++10%SL (all allies), gives (+10%SL).
+
+Session: 73cb809001d704c
+Total: 19220 SL, 2776 CRP, 3888 RP
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:30                7388 RP    
+    Leopard 2K    18:30    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 88%
+Respawns in battle: -24079 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 7388 RP
+
+Session: 73cba8e001d7c28
+Total: 25493 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:43                7306 RP    
+    Leopard 2K    18:43    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 88%
+Respawns in battle: -15323 SL
+
+Researched unit: 
+Radkampfwagen 90: 7306 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 3494 RP
+
+Session: 73cc13d001d99dd
+Total: 33699 SL, 7306 CRP, 10800 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           21:19                7388 RP    
+    Leopard 2K    21:19    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 90%
+Respawns in battle: -11180 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Filters: 7388 RP
+
+Session: 73cc980001dba0c
+Total: 38392 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:30                7388 RP    
+    Leopard 2K    18:30    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 88%
+Respawns in battle: -24079 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 7388 RP
+
+Session: 73cba8e001d7c28
+Total: 25493 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           18:43                7306 RP    
+    Leopard 2K    18:43    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 88%
+Respawns in battle: -15323 SL
+
+Researched unit: 
+Radkampfwagen 90: 7306 RP
+
+Researching progress: 
+Leopard 2K - Adjustment of Fire: 3494 RP
+
+Session: 73cc13d001d99dd
+Total: 33699 SL, 7306 CRP, 10800 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+    Leopard 2K
+
+Time Played           21:19                7388 RP    
+    Leopard 2K    21:19    3694 + (PA)3694 = 7388 RP
+
+Reward for winning             49572 SL               
+
+Earned: 49572 SL, 7388 CRP
+Activity: 90%
+Respawns in battle: -11180 SL
+
+Researched unit: 
+Radkampfwagen 90: 7388 RP
+
+Researching progress: 
+Leopard 2K - Filters: 7388 RP
+
+Session: 73cc980001dba0c
+Total: 38392 SL, 7388 CRP, 14776 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           19:06                6894 RP    
+    T-72M1(Germany)    19:06    3447 + (PA)3447 = 6894 RP
+
+Reward for winning             46268 SL               
+
+Earned: 46268 SL, 6894 CRP
+Activity: 84%
+Respawns in battle: -13655 SL
+
+Researched unit: 
+Radkampfwagen 90: 6894 RP
+
+Session: 73cfaf7001e4cb1
+Total: 32613 SL, 6894 CRP, 6894 RP
+
+Victory in the [Tank Assault] Kursk mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           18:11                6484 RP    
+    T-72M1(Germany)    18:11    3242 + (PA)3242 = 6484 RP
+
+Reward for winning             43514 SL               
+
+Earned: 43514 SL, 6484 CRP
+Activity: 80%
+Respawns in battle: -16386 SL
+
+Researched unit: 
+Radkampfwagen 90: 6484 RP
+
+Session: 73cffd5001e5ac5
+Total: 27128 SL, 6484 CRP, 6484 RP
+
+Victory in the [Tank Assault] Ardennes mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           23:58                7306 RP    
+    T-72M1(Germany)    23:58    3653 + (PA)3653 = 7306 RP
+
+Reward for winning             49022 SL               
+
+Earned: 49022 SL, 7306 CRP
+Activity: 89%
+Respawns in battle: -16386 SL
+
+Researched unit: 
+Radkampfwagen 90: 7306 RP
+
+Session: 73d052f001e6a74
+Total: 32636 SL, 7306 CRP, 7306 RP
+
+Victory in the [Tank Assault] Fulda mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           22:19                7552 RP    
+    T-72M1(Germany)    22:19    3776 + (PA)3776 = 7552 RP
+
+Reward for winning             50673 SL               
+
+Earned: 50673 SL, 7552 CRP
+Activity: 92%
+Respawns in battle: -5462 SL
+
+Researched unit: 
+Radkampfwagen 90: 7552 RP
+
+Session: 73d1455001e9629
+Total: 45211 SL, 7552 CRP, 7552 RP
+
+Victory in the [Tank Assault] Maginot Line mission!
+
+Activity Time                                         
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+    T-72M1(Germany)
+
+Time Played           16:09                5746 RP    
+    T-72M1(Germany)    16:09    2873 + (PA)2873 = 5746 RP
+
+Reward for winning             38556 SL               
+
+Earned: 38556 SL, 5746 CRP
+Activity: 71%
+Respawns in battle: -13655 SL
+
+Researched unit: 
+Radkampfwagen 90: 5746 RP
+
+Session: 73d2466001ec18d
+Total: 24901 SL, 5746 CRP, 5746 RP
