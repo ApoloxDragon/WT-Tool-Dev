@@ -377,9 +377,13 @@
     <button class="secondary" id="clearBtn">Clear</button>
     <button class="secondary" id="printBtn">Print / Save PDF</button>
     <button class="secondary" id="exportBtn">Export HTML</button>
+    <button type="button" id="minimalToggle" class="toggle-btn" style="padding:10px 14px;">Minimal export</button>
+    <button class="secondary" id="importBtn">Import Report</button>
+    <input type="file" id="importFile" accept=".html,.json" style="display:none;">
     <span class="note" id="fileNote"></span>
   </div>
   <div class="warn" id="dupeWarn"></div>
+  <div class="note" id="importNote" style="margin-top:6px;"></div>
 
   <div class="section">
     <details class="rules-toggle">
@@ -627,11 +631,13 @@ function parseLog(text) {
 
 let lastMatches = null; // cache for export
 let lastCategoryStats = null; // cache for goal calculator
+let importedMatches = []; // matches loaded from a previously exported report
 
 /* ---------- Analyze ---------- */
 function analyze() {
   const raw = document.getElementById('input').value;
-  const all = parseLog(raw);
+  const freshlyParsed = parseLog(raw);
+  const all = [...importedMatches, ...freshlyParsed];
   const emptyState = document.getElementById('emptyState');
   const results = document.getElementById('results');
   const dupeWarn = document.getElementById('dupeWarn');
@@ -845,6 +851,91 @@ document.getElementById('boosterToggle').addEventListener('click', (e) => {
   document.getElementById(id).addEventListener('input', computeGoalOutputs);
 });
 
+document.getElementById('importBtn').addEventListener('click', () => {
+  document.getElementById('importFile').click();
+});
+
+document.getElementById('importFile').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  const importNote = document.getElementById('importNote');
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const raw = ev.target.result;
+    const existingIds = new Set(importedMatches.map(m => m.sessionId));
+    let added = 0, skipped = 0;
+    const addMatch = (match) => {
+      if (existingIds.has(match.sessionId)) { skipped++; return; }
+      importedMatches.push(match);
+      existingIds.add(match.sessionId);
+      added++;
+    };
+
+    // Try the minimal JSON format first (short keys: id, r, c, m, sl, rp, t, tg).
+    let handledAsJson = false;
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        handledAsJson = true;
+        parsed.forEach(entry => {
+          if (!entry || !entry.id) return;
+          addMatch({
+            sessionId: entry.id,
+            result: entry.r === 'W' ? 'Victory' : 'Defeat',
+            category: entry.c || 'Random Battles',
+            mode: entry.c || 'Random Battles',
+            mission: entry.m || '',
+            netSL: entry.sl || 0,
+            totalRP: entry.rp || 0,
+            timeSec: entry.t || 0,
+            researched: (entry.tg || []).map(x => ({ name: x.n, rp: x.v }))
+          });
+        });
+      }
+    } catch (err) { /* not JSON — fall through to HTML parsing below */ }
+
+    if (!handledAsJson) {
+      try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(raw, 'text/html');
+        const rows = doc.querySelectorAll('tr[data-session]');
+        if (rows.length === 0) {
+          importNote.textContent = 'No importable match data found — is that a report or data file exported from this tool?';
+          return;
+        }
+        rows.forEach(row => {
+          const sessionId = row.dataset.session;
+          const timeSec = parseInt(row.dataset.time) || 0;
+          const cells = row.querySelectorAll('td');
+          const result = cells[0].textContent.trim();
+          const category = cells[1].textContent.trim();
+          const modeCell = cells[2].textContent.trim();
+          const mode = modeCell || category;
+          const mission = cells[3].textContent.trim();
+          const netSL = parseInt(cells[4].textContent.replace(/,/g, '')) || 0;
+          const totalRP = parseInt(cells[5].textContent.replace(/,/g, '')) || 0;
+          const targetText = cells[6] ? cells[6].textContent.trim() : '';
+          const researched = [];
+          if (targetText) {
+            targetText.split(/,\s+(?=[^()]+\(\+)/).forEach(part => {
+              const mm = part.trim().match(/^(.*)\s\(\+([\d,]+)\)$/);
+              if (mm) researched.push({ name: mm[1].trim(), rp: parseInt(mm[2].replace(/,/g, '')) });
+            });
+          }
+          addMatch({ result, mode, category, mission, sessionId, netSL, totalRP, researched, timeSec });
+        });
+      } catch (err) {
+        importNote.textContent = 'Could not read that file as a valid report or data export.';
+        return;
+      }
+    }
+
+    importNote.textContent = `Imported ${added} match(es)` + (skipped ? ` — ${skipped} already loaded, skipped.` : '.') + ' Click Analyze to include them.';
+    e.target.value = '';
+  };
+  reader.readAsText(file);
+});
+
 document.getElementById('analyzeBtn').addEventListener('click', analyze);
 document.getElementById('clearBtn').addEventListener('click', () => {
   document.getElementById('input').value = '';
@@ -852,6 +943,8 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   document.getElementById('dupeWarn').style.display = 'none';
   lastMatches = null;
   lastCategoryStats = null;
+  importedMatches = [];
+  document.getElementById('importNote').textContent = '';
   boosterActive = false;
   document.getElementById('boosterToggle').classList.remove('active');
   ['goalWinRate','goalAvgWinRP','goalAvgLossRP','goalAvgWinSL','goalAvgLossSL','goalRpTarget','goalSlTarget'].forEach(id => {
@@ -869,10 +962,63 @@ document.getElementById('printBtn').addEventListener('click', () => {
   window.print();
 });
 
+let minimalExport = false;
+document.getElementById('minimalToggle').addEventListener('click', (e) => {
+  minimalExport = !minimalExport;
+  e.target.classList.toggle('active', minimalExport);
+  document.getElementById('exportBtn').textContent = minimalExport ? 'Export Data (minimal)' : 'Export HTML';
+});
+
 document.getElementById('exportBtn').addEventListener('click', () => {
   if (!lastMatches) { alert('Run Analyze first.'); return; }
+
+  if (minimalExport) {
+    // Compact, short-key JSON — no styling, no boilerplate, minimum tokens for pasting/re-uploading.
+    const data = lastMatches.matches.map(m => ({
+      id: m.sessionId,
+      r: m.result === 'Victory' ? 'W' : 'L',
+      c: m.category,
+      m: m.mission,
+      sl: m.netSL,
+      rp: m.totalRP,
+      t: m.timeSec || 0,
+      tg: m.researched.map(x => ({ n: x.name, v: x.rp }))
+    }));
+    const json = JSON.stringify(data);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'wt-session-data.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    return;
+  }
+
   const now = new Date().toLocaleString();
   const themesJson = JSON.stringify(THEMES);
+
+  // Export only the deduped match list — duplicates are fully omitted, not just struck through.
+  const exportMatchRows = lastMatches.matches.map(m => {
+    const target = m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
+    const resultClass = m.result === 'Victory' ? 'win' : 'loss';
+    return `<tr class="${resultClass}" data-session="${m.sessionId}" data-time="${m.timeSec || 0}">
+      <td class="result">${m.result}</td>
+      <td>${m.category}</td>
+      <td>${m.mode !== m.category ? m.mode : ''}</td>
+      <td>${m.mission}</td>
+      <td class="num">${m.netSL.toLocaleString()}</td>
+      <td class="num">${m.totalRP.toLocaleString()}</td>
+      <td>${target}</td>
+    </tr>`;
+  }).join('');
+  const exportMatchTable = `
+    <tr><th>Result</th><th>Category</th><th>Sub-mode</th><th>Mission</th>
+        <th class="num">Net SL</th><th class="num">RP</th><th>Target(s)</th></tr>
+    ${exportMatchRows}`;
+
   const html = `<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>WT Session Report — ${now}</title>
 <style>
@@ -929,7 +1075,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   <h2>RP by Research Target</h2>
   <table>${document.getElementById('targetTable').innerHTML}</table>
   <h2>Per-Match Detail</h2>
-  <table>${document.getElementById('matchTable').innerHTML}</table>
+  <table>${exportMatchTable}</table>
 </div>
 <script>
   const THEMES = ${themesJson};
