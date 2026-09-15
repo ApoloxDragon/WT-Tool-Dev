@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WT Session Readout</title>
+<style>
+  :root {
+    --bg: #0d1420;
+    --panel: #131b2b;
+    --panel-2: #182338;
+    --border: #26344d;
+    --accent: #4d9fe8;
+    --text: #dbe6f2;
+    --dim: #6f8299;
+    --win: #7fbf6a;
+    --loss: #d16158;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', Consolas, Menlo, 'Courier New', monospace;
+    margin: 0;
+    padding: 24px 16px 60px;
+    line-height: 1.5;
+    transition: background 0.15s, color 0.15s;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brief {
+    border-left: 3px solid var(--accent);
+    padding: 10px 16px;
+    margin-bottom: 22px;
+    flex: 1 1 320px;
+  }
+  .brief h1 {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    margin: 0 0 4px 0;
+    color: var(--text);
+    font-weight: 700;
+  }
+  .brief p {
+    margin: 0;
+    color: var(--dim);
+    font-size: 12.5px;
+  }
+
+  .theme-picker {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding-top: 10px;
+  }
+  .theme-picker label { font-size: 11px; color: var(--dim); margin-right: 4px; }
+  .swatch {
+    width: 20px; height: 20px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    padding: 0;
+  }
+  .swatch.active { outline: 2px solid var(--text); outline-offset: 2px; }
+
+  textarea {
+    width: 100%;
+    height: 220px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12.5px;
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+  }
+  textarea:focus { border-color: var(--accent); }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  button {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--accent);
+    color: #08101c;
+    border: none;
+    padding: 10px 18px;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+  button:hover { filter: brightness(1.12); }
+  button.secondary {
+    background: transparent;
+    color: var(--dim);
+    border: 1px solid var(--border);
+  }
+  button.secondary:hover { color: var(--text); border-color: var(--accent); }
+
+  .note { color: var(--dim); font-size: 12px; }
+  .warn {
+    border: 1px solid var(--loss);
+    color: var(--loss);
+    padding: 8px 12px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    display: none;
+  }
+
+  .section { margin-top: 30px; }
+  .section-title {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stat-cell {
+    background: var(--panel);
+    padding: 14px 12px;
+  }
+  .stat-cell .num {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .stat-cell .lbl {
+    font-size: 11px;
+    color: var(--dim);
+    margin-top: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  th {
+    color: var(--dim);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.dupe td { color: var(--dim); text-decoration: line-through; }
+  tr.win td.result { color: var(--win); }
+  tr.loss td.result { color: var(--loss); }
+
+  .scroll-x { overflow-x: auto; }
+  .match-table-wrap { max-height: 420px; overflow-y: auto; border: 1px solid var(--border); }
+  .match-table-wrap table { font-size: 11.5px; }
+  .match-table-wrap th { position: sticky; top: 0; background: var(--panel-2); }
+
+  .empty {
+    color: var(--dim);
+    font-size: 12.5px;
+    padding: 30px 0;
+    text-align: center;
+    border: 1px dashed var(--border);
+  }
+
+  /* Category rules editor */
+  .rules-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 12px;
+    font-size: 12px;
+  }
+  .rule-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .rule-row input {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 12px;
+    padding: 6px 8px;
+    flex: 1;
+  }
+  .rule-row .fallback-lbl {
+    flex: 1;
+    color: var(--dim);
+    font-style: italic;
+  }
+  .rule-row button.remove {
+    background: transparent;
+    color: var(--loss);
+    border: 1px solid var(--border);
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+  details.rules-toggle summary {
+    cursor: pointer;
+    color: var(--dim);
+    font-size: 11.5px;
+    margin-bottom: 8px;
+  }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--panel); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  @media print {
+    body { background: #fff; color: #111; padding: 0; }
+    .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle { display: none !important; }
+    .brief { border-left-color: #333; }
+    .brief p, .section-title, th, .dim, .stat-cell .lbl { color: #555 !important; }
+    .stat-cell .num, .section-title { color: #111 !important; }
+    .stat-row, .stat-cell, table, th, td { border-color: #ccc !important; background: #fff !important; }
+    tr.win td.result { color: #2a7a2a !important; }
+    tr.loss td.result { color: #a12f2f !important; }
+    .match-table-wrap { max-height: none; overflow: visible; border-color: #ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brief">
+      <h1>Session Readout</h1>
+      <p>Paste raw War Thunder match logs below. Splits by battle type, dedupes repeats, tallies RP by research target.</p>
+    </div>
+    <div class="theme-picker" id="themePicker">
+      <label>Theme</label>
+    </div>
+  </div>
+
+  <textarea id="input" placeholder="Paste one or more match logs here (Victory/Defeat in the [Mode] ... through the Session: line)..."></textarea>
+  <div class="controls">
+    <button id="analyzeBtn">Analyze</button>
+    <button class="secondary" id="clearBtn">Clear</button>
+    <button class="secondary" id="printBtn">Print / Save PDF</button>
+    <button class="secondary" id="exportBtn">Export HTML</button>
+    <span class="note" id="fileNote"></span>
+  </div>
+  <div class="warn" id="dupeWarn"></div>
+
+  <div class="section">
+    <details class="rules-toggle">
+      <summary>Battle-type categories (click to edit — add a rule once you have Arcade match text to match against)</summary>
+      <div class="rules-box">
+        <div id="rulesList"></div>
+        <div class="rule-row">
+          <input type="text" id="newKeyword" placeholder="mode keyword, e.g. Arcade">
+          <input type="text" id="newLabel" placeholder="category label, e.g. Arcade Battles">
+          <button class="secondary" id="addRuleBtn">Add rule</button>
+        </div>
+        <div class="rule-row"><span class="fallback-lbl">Anything not matched above falls into: "Random Battles"</span></div>
+      </div>
+    </details>
+  </div>
+
+  <div id="results" style="display:none;">
+
+    <div class="section">
+      <div class="section-title">OVERALL</div>
+      <div class="stat-row" id="overallStats"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">BATTLE TYPE SPLIT</div>
+      <div class="scroll-x">
+        <table id="splitTable"></table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">RP BY RESEARCH TARGET</div>
+      <div class="scroll-x">
+        <table id="targetTable"></table>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">PER-MATCH DETAIL</div>
+      <div class="match-table-wrap">
+        <table id="matchTable"></table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="empty" id="emptyState">No data yet — paste a log and hit Analyze.</div>
+
+</div>
+
+<script>
+/* ---------- Theme system ---------- */
+const THEMES = {
+  blue:   { bg:'#0d1420', panel:'#131b2b', panel2:'#182338', border:'#26344d', accent:'#4d9fe8', text:'#dbe6f2', dim:'#6f8299' },
+  amber:  { bg:'#12130d', panel:'#1a1c14', panel2:'#21231a', border:'#3a3c2c', accent:'#d9a441', text:'#e8e4d5', dim:'#8b8d78' },
+  slate:  { bg:'#16181c', panel:'#1e2126', panel2:'#262a30', border:'#383d44', accent:'#c9ced6', text:'#e4e7ea', dim:'#7d848d' },
+  forest: { bg:'#0f1712', panel:'#16211a', panel2:'#1c2921', border:'#2e402f', accent:'#6bbf7a', text:'#dcead9', dim:'#7b9a80' }
+};
+let currentTheme = 'blue';
+
+function applyTheme(name) {
+  const t = THEMES[name];
+  if (!t) return;
+  const root = document.documentElement.style;
+  root.setProperty('--bg', t.bg);
+  root.setProperty('--panel', t.panel);
+  root.setProperty('--panel-2', t.panel2);
+  root.setProperty('--border', t.border);
+  root.setProperty('--accent', t.accent);
+  root.setProperty('--text', t.text);
+  root.setProperty('--dim', t.dim);
+  currentTheme = name;
+  document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
+}
+
+function buildThemePicker() {
+  const picker = document.getElementById('themePicker');
+  Object.entries(THEMES).forEach(([name, t]) => {
+    const btn = document.createElement('button');
+    btn.className = 'swatch' + (name === currentTheme ? ' active' : '');
+    btn.style.background = t.accent;
+    btn.dataset.theme = name;
+    btn.title = name;
+    btn.addEventListener('click', () => applyTheme(name));
+    picker.appendChild(btn);
+  });
+}
+buildThemePicker();
+
+/* ---------- Category rules ---------- */
+// Each rule: { keyword, label }. First match (case-insensitive substring) wins.
+// Anything unmatched falls back to "Random Battles".
+let categoryRules = [
+  { keyword: 'Tank Assault', label: 'Tank Assault' }
+];
+
+function classify(modeBase) {
+  for (const rule of categoryRules) {
+    if (modeBase.toLowerCase().includes(rule.keyword.toLowerCase())) return rule.label;
+  }
+  return 'Random Battles';
+}
+
+function renderRules() {
+  const list = document.getElementById('rulesList');
+  list.innerHTML = '';
+  categoryRules.forEach((rule, idx) => {
+    const row = document.createElement('div');
+    row.className = 'rule-row';
+    row.innerHTML = `
+      <input type="text" value="${rule.keyword}" data-idx="${idx}" data-field="keyword">
+      <input type="text" value="${rule.label}" data-idx="${idx}" data-field="label">
+      <button class="remove" data-idx="${idx}">Remove</button>
+    `;
+    list.appendChild(row);
+  });
+  list.querySelectorAll('input').forEach(inp => {
+    inp.addEventListener('input', e => {
+      const idx = +e.target.dataset.idx;
+      categoryRules[idx][e.target.dataset.field] = e.target.value;
+    });
+  });
+  list.querySelectorAll('button.remove').forEach(btn => {
+    btn.addEventListener('click', e => {
+      categoryRules.splice(+e.target.dataset.idx, 1);
+      renderRules();
+    });
+  });
+}
+renderRules();
+
+document.getElementById('addRuleBtn').addEventListener('click', () => {
+  const kw = document.getElementById('newKeyword').value.trim();
+  const lbl = document.getElementById('newLabel').value.trim();
+  if (!kw || !lbl) return;
+  categoryRules.push({ keyword: kw, label: lbl });
+  document.getElementById('newKeyword').value = '';
+  document.getElementById('newLabel').value = '';
+  renderRules();
+});
+
+/* ---------- Parsing ---------- */
+function parseLog(text) {
+  text = text.replace(/\r\n/g, '\n');
+  const headerRegex = /(Victory|Defeat) in the \[([^\]]+)\]\s+(.+?)\s+mission!/g;
+  const headers = [];
+  let m;
+  while ((m = headerRegex.exec(text)) !== null) {
+    headers.push({ index: m.index, result: m[1], modeRaw: m[2].trim(), mission: m[3].trim() });
+  }
+
+  const matches = [];
+  for (let i = 0; i < headers.length; i++) {
+    const start = headers[i].index;
+    const end = i + 1 < headers.length ? headers[i + 1].index : text.length;
+    const block = text.slice(start, end);
+
+    const sessionMatch = block.match(/Session:\s*([a-f0-9]+)/i);
+    const sessionId = sessionMatch ? sessionMatch[1] : ('noid-' + i);
+
+    const totalRegex = /Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP,\s*([\d,]+)\s*RP/g;
+    let tm, lastTotal = null;
+    while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
+    const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
+    const totalRP = lastTotal ? parseInt(lastTotal[3].replace(/,/g, '')) : 0;
+
+    const researched = [];
+    const ruIdx = block.indexOf('Researched unit:');
+    if (ruIdx !== -1) {
+      const after = block.slice(ruIdx + 'Researched unit:'.length);
+      const stopWords = ['Researching progress:', 'Used items:', 'Session:'];
+      let stop = after.length;
+      stopWords.forEach(w => {
+        const idx = after.indexOf(w);
+        if (idx !== -1 && idx < stop) stop = idx;
+      });
+      const section = after.slice(0, stop);
+      const lineRe = /([A-Za-z0-9À-ÿ'".\-() ]+?):\s*([\d,]+)\s*RP/g;
+      let lm;
+      while ((lm = lineRe.exec(section)) !== null) {
+        const name = lm[1].trim();
+        const rp = parseInt(lm[2].replace(/,/g, ''));
+        if (name && rp) researched.push({ name, rp });
+      }
+    }
+
+    const modeBase = headers[i].modeRaw.replace(/\s*#\d+$/, '').trim();
+    const category = classify(modeBase);
+
+    matches.push({
+      result: headers[i].result, mode: modeBase, category,
+      mission: headers[i].mission, sessionId, netSL, totalRP, researched
+    });
+  }
+  return matches;
+}
+
+let lastMatches = null; // cache for export
+
+/* ---------- Analyze ---------- */
+function analyze() {
+  const raw = document.getElementById('input').value;
+  const all = parseLog(raw);
+  const emptyState = document.getElementById('emptyState');
+  const results = document.getElementById('results');
+  const dupeWarn = document.getElementById('dupeWarn');
+
+  if (all.length === 0) {
+    emptyState.style.display = 'block';
+    emptyState.textContent = 'No matches recognized in that text — check the log includes "Victory/Defeat in the [...] mission!" lines.';
+    results.style.display = 'none';
+    dupeWarn.style.display = 'none';
+    lastMatches = null;
+    return;
+  }
+
+  const seen = new Set();
+  let dupeCount = 0;
+  const matches = all.filter(m => {
+    if (m.sessionId.startsWith('noid-')) return true;
+    if (seen.has(m.sessionId)) { dupeCount++; return false; }
+    seen.add(m.sessionId);
+    return true;
+  });
+
+  if (dupeCount > 0) {
+    dupeWarn.style.display = 'block';
+    dupeWarn.textContent = `⚠ ${dupeCount} duplicate match(es) detected by Session ID and excluded from totals.`;
+  } else {
+    dupeWarn.style.display = 'none';
+  }
+
+  emptyState.style.display = 'none';
+  results.style.display = 'block';
+  lastMatches = { all, matches };
+
+  const wins = matches.filter(m => m.result === 'Victory');
+  const totalSL = matches.reduce((a, m) => a + m.netSL, 0);
+  const totalRP = matches.reduce((a, m) => a + m.totalRP, 0);
+  const winRate = matches.length ? (wins.length / matches.length * 100) : 0;
+
+  document.getElementById('overallStats').innerHTML = [
+    ['MATCHES', matches.length],
+    ['WIN RATE', winRate.toFixed(1) + '%'],
+    ['TOTAL NET SL', totalSL.toLocaleString()],
+    ['TOTAL RP', totalRP.toLocaleString()]
+  ].map(([lbl, num]) => `<div class="stat-cell"><div class="num">${num}</div><div class="lbl">${lbl}</div></div>`).join('');
+
+  const categories = [...new Set(matches.map(m => m.category))];
+  function catStats(cat) {
+    const ms = matches.filter(m => m.category === cat);
+    const w = ms.filter(m => m.result === 'Victory');
+    const l = ms.filter(m => m.result === 'Defeat');
+    const sl = ms.reduce((a, m) => a + m.netSL, 0);
+    const rp = ms.reduce((a, m) => a + m.totalRP, 0);
+    const avgWin = w.length ? (w.reduce((a, m) => a + m.netSL, 0) / w.length) : 0;
+    const avgLoss = l.length ? (l.reduce((a, m) => a + m.netSL, 0) / l.length) : 0;
+    return { count: ms.length, w: w.length, l: l.length, wr: ms.length ? (w.length/ms.length*100) : 0, sl, rp, avgWin, avgLoss };
+  }
+
+  const splitRows = categories.map(cat => {
+    const s = catStats(cat);
+    return `<tr>
+      <td>${cat}</td>
+      <td class="num">${s.count}</td>
+      <td class="num">${s.w}/${s.l}</td>
+      <td class="num">${s.wr.toFixed(1)}%</td>
+      <td class="num">${s.sl.toLocaleString()}</td>
+      <td class="num">${Math.round(s.avgWin).toLocaleString()}</td>
+      <td class="num">${Math.round(s.avgLoss).toLocaleString()}</td>
+      <td class="num">${s.rp.toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('splitTable').innerHTML = `
+    <tr><th>Battle Type</th><th class="num">Matches</th><th class="num">W/L</th><th class="num">Win%</th>
+        <th class="num">Total Net SL</th><th class="num">Avg Win SL</th><th class="num">Avg Loss SL</th><th class="num">Total RP</th></tr>
+    ${splitRows}`;
+
+  const targetMap = {};
+  matches.forEach(m => m.researched.forEach(r => {
+    targetMap[r.name] = (targetMap[r.name] || 0) + r.rp;
+  }));
+  const targetRows = Object.entries(targetMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, rp]) => `<tr><td>${name}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
+  document.getElementById('targetTable').innerHTML = `
+    <tr><th>Target</th><th class="num">RP Earned</th></tr>
+    ${targetRows || '<tr><td colspan="2" class="note">No research targets found</td></tr>'}`;
+
+  const matchRows = all.map(m => {
+    const isDupe = matches.indexOf(m) === -1;
+    const target = m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
+    const resultClass = m.result === 'Victory' ? 'win' : 'loss';
+    return `<tr class="${resultClass}${isDupe ? ' dupe' : ''}">
+      <td class="result">${m.result}</td>
+      <td>${m.category}</td>
+      <td>${m.mode !== m.category ? m.mode : ''}</td>
+      <td>${m.mission}</td>
+      <td class="num">${m.netSL.toLocaleString()}</td>
+      <td class="num">${m.totalRP.toLocaleString()}</td>
+      <td>${target}</td>
+      <td>${isDupe ? 'DUPLICATE' : ''}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('matchTable').innerHTML = `
+    <tr><th>Result</th><th>Category</th><th>Sub-mode</th><th>Mission</th>
+        <th class="num">Net SL</th><th class="num">RP</th><th>Target(s)</th><th></th></tr>
+    ${matchRows}`;
+}
+
+document.getElementById('analyzeBtn').addEventListener('click', analyze);
+document.getElementById('clearBtn').addEventListener('click', () => {
+  document.getElementById('input').value = '';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('dupeWarn').style.display = 'none';
+  lastMatches = null;
+  const emptyState = document.getElementById('emptyState');
+  emptyState.style.display = 'block';
+  emptyState.textContent = 'No data yet — paste a log and hit Analyze.';
+});
+
+/* ---------- Export ---------- */
+document.getElementById('printBtn').addEventListener('click', () => {
+  window.print();
+});
+
+document.getElementById('exportBtn').addEventListener('click', () => {
+  if (!lastMatches) { alert('Run Analyze first.'); return; }
+  const now = new Date().toLocaleString();
+  const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>WT Session Report — ${now}</title>
+<style>
+  body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:#fff; color:#111; padding:30px; max-width:900px; margin:0 auto; }
+  h1 { font-size: 20px; margin-bottom: 2px; }
+  .meta { color:#666; font-size:12px; margin-bottom:24px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing:0.04em; color:#444; border-bottom:1px solid #ccc; padding-bottom:6px; margin-top:28px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #ddd; }
+  th { color:#666; font-weight:400; font-size:11px; }
+  td.num, th.num { text-align:right; }
+  tr.win td.result { color:#2a7a2a; }
+  tr.loss td.result { color:#a12f2f; }
+  .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#ddd; border:1px solid #ddd; margin-top:8px; }
+  .stat-cell { background:#fff; padding:12px 10px; }
+  .stat-cell .num { font-size:18px; font-weight:700; }
+  .stat-cell .lbl { font-size:10.5px; color:#777; }
+</style></head>
+<body>
+  <h1>War Thunder Session Report</h1>
+  <div class="meta">Generated ${now}</div>
+  <h2>Overall</h2>
+  <div class="stat-row">${document.getElementById('overallStats').innerHTML}</div>
+  <h2>Battle Type Split</h2>
+  <table>${document.getElementById('splitTable').innerHTML}</table>
+  <h2>RP by Research Target</h2>
+  <table>${document.getElementById('targetTable').innerHTML}</table>
+  <h2>Per-Match Detail</h2>
+  <table>${document.getElementById('matchTable').innerHTML}</table>
+</body></html>`;
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'wt-session-report.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>
