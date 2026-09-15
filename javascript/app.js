@@ -501,6 +501,23 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   emptyState.textContent = 'No data yet — paste a log and hit Analyze.';
 });
 
+document.getElementById('loadExampleBtn').addEventListener('click', () => {
+  const importNote = document.getElementById('importNote');
+  fetch('example%20data/matches.txt')
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(text => {
+      document.getElementById('input').value = text;
+      importNote.textContent = '';
+      analyze();
+    })
+    .catch(() => {
+      importNote.textContent = 'Could not load example data — if you opened this file directly from disk (file://), browsers block that fetch; open the hosted version or run a local server instead.';
+    });
+});
+
 /* ---------- Export ---------- */
 document.getElementById('printBtn').addEventListener('click', () => {
   window.print();
