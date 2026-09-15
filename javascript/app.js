@@ -114,7 +114,11 @@ function parseLog(text) {
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
-    const totalRP = lastTotal ? parseInt(lastTotal[3].replace(/,/g, '')) : 0;
+    // The trailing "RP" figure on the Total: line is CRP + Researching progress
+    // added together — the same battle RP counted a second time toward whatever
+    // module is being researched on another vehicle. CRP alone is what the match
+    // actually earned, so that's what "Total RP" means everywhere in this tool.
+    const totalRP = lastTotal ? parseInt(lastTotal[2].replace(/,/g, '')) : 0;
 
     // "Researched unit" is RP that went toward unlocking a whole new vehicle —
     // that's the only thing shown by default. "Researching progress" is RP toward
