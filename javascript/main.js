@@ -1,7 +1,7 @@
 /* ---------- App state ---------- */
 let lastMatches = null; // cache for export
 let lastCategoryStats = null; // cache for goal calculator
-let importedMatches = []; // matches loaded from a previously exported report
+let importedMatches = loadState('importedMatches', []); // matches loaded from a previously exported report
 
 /* ---------- Analyze ---------- */
 // Depends on: parseLog (parser.js), computeCategoryStats (math.js),
@@ -141,6 +141,8 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   lastMatches = null;
   lastCategoryStats = null;
   importedMatches = [];
+  clearState('importedMatches');
+  clearState('inputText');
   document.getElementById('importNote').textContent = '';
   boosterActive = false;
   document.getElementById('boosterToggle').classList.remove('active');
@@ -163,6 +165,7 @@ document.getElementById('loadExampleBtn').addEventListener('click', () => {
     })
     .then(text => {
       document.getElementById('input').value = text;
+      saveState('inputText', text);
       importNote.textContent = '';
       analyze();
     })
@@ -170,3 +173,16 @@ document.getElementById('loadExampleBtn').addEventListener('click', () => {
       importNote.textContent = 'Could not load example data — if you opened this file directly from disk (file://), browsers block that fetch; open the hosted version or run a local server instead.';
     });
 });
+
+/* ---------- Session persistence ---------- */
+// Restore whatever was pasted last time, debounced so we're not writing to
+// localStorage on every keystroke of a multi-thousand-line paste.
+let inputSaveTimer = null;
+document.getElementById('input').addEventListener('input', (e) => {
+  clearTimeout(inputSaveTimer);
+  inputSaveTimer = setTimeout(() => saveState('inputText', e.target.value), 300);
+});
+
+const savedInput = loadState('inputText', '');
+if (savedInput) document.getElementById('input').value = savedInput;
+if (savedInput || importedMatches.length > 0) analyze();
