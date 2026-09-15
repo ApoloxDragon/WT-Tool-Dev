@@ -467,6 +467,15 @@
     </div>
 
     <div class="section">
+      <details class="rules-toggle">
+        <summary>OTHER RP — module &amp; research progress (not counted toward a new vehicle) — click to expand</summary>
+        <div class="scroll-x">
+          <table id="progressTable"></table>
+        </div>
+      </details>
+    </div>
+
+    <div class="section">
       <div class="section-title">PER-MATCH DETAIL</div>
       <div class="match-table-wrap">
         <table id="matchTable"></table>
@@ -598,32 +607,40 @@ function parseLog(text) {
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
     const totalRP = lastTotal ? parseInt(lastTotal[3].replace(/,/g, '')) : 0;
 
-    const researched = [];
-    const ruIdx = block.indexOf('Researched unit:');
-    if (ruIdx !== -1) {
-      const after = block.slice(ruIdx + 'Researched unit:'.length);
-      const stopWords = ['Researching progress:', 'Used items:', 'Session:'];
+    // "Researched unit" is RP that went toward unlocking a whole new vehicle —
+    // that's the only thing shown by default. "Researching progress" is RP toward
+    // a module/modification on a vehicle already owned; it's real RP (it's part of
+    // Total RP) but isn't "vehicle RP", so it's kept separate for the toggle-able
+    // Other RP table instead of being mixed into the main target breakdown.
+    function extractTargets(marker, stopWords) {
+      const idx = block.indexOf(marker);
+      if (idx === -1) return [];
+      const after = block.slice(idx + marker.length);
       let stop = after.length;
       stopWords.forEach(w => {
-        const idx = after.indexOf(w);
-        if (idx !== -1 && idx < stop) stop = idx;
+        const wIdx = after.indexOf(w);
+        if (wIdx !== -1 && wIdx < stop) stop = wIdx;
       });
       const section = after.slice(0, stop);
       const lineRe = /([A-Za-z0-9À-ÿ'".\-() ]+?):\s*([\d,]+)\s*RP/g;
+      const out = [];
       let lm;
       while ((lm = lineRe.exec(section)) !== null) {
         const name = lm[1].trim();
         const rp = parseInt(lm[2].replace(/,/g, ''));
-        if (name && rp) researched.push({ name, rp });
+        if (name && rp) out.push({ name, rp });
       }
+      return out;
     }
+    const researched = extractTargets('Researched unit:', ['Researching progress:', 'Used items:', 'Session:']);
+    const researching = extractTargets('Researching progress:', ['Used items:', 'Session:']);
 
     const modeBase = headers[i].modeRaw.replace(/\s*#\d+$/, '').trim();
     const category = classify(modeBase);
 
     matches.push({
       result: headers[i].result, mode: modeBase, category,
-      mission: headers[i].mission, sessionId, netSL, totalRP, researched, timeSec
+      mission: headers[i].mission, sessionId, netSL, totalRP, researched, researching, timeSec
     });
   }
   return matches;
@@ -742,6 +759,17 @@ function analyze() {
   document.getElementById('targetTable').innerHTML = `
     <tr><th>Target</th><th class="num">RP Earned</th></tr>
     ${targetRows || '<tr><td colspan="2" class="note">No research targets found</td></tr>'}`;
+
+  const progressMap = {};
+  matches.forEach(m => (m.researching || []).forEach(r => {
+    progressMap[r.name] = (progressMap[r.name] || 0) + r.rp;
+  }));
+  const progressRows = Object.entries(progressMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, rp]) => `<tr><td>${name}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
+  document.getElementById('progressTable').innerHTML = `
+    <tr><th>Module / progress</th><th class="num">RP Earned</th></tr>
+    ${progressRows || '<tr><td colspan="2" class="note">No research progress entries found</td></tr>'}`;
 
   const matchRows = all.map(m => {
     const isDupe = matches.indexOf(m) === -1;
