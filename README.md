@@ -1,14 +1,49 @@
 # WT Session Readout
 
-A single-page, client-side tool for analyzing pasted War Thunder match-log text: it splits matches by battle type, dedupes repeated match reports (by Session ID), tallies RP by research target, and includes a goal calculator for estimating matches needed to hit an RP/SL target.
+## AI disclosure
 
-Everything runs locally in the browser — no server, no build step, no data leaves your machine.
+This project was built with the assistance of Claude (Anthropic). Code changes — including the parsing logic, bug fixes, and this README — were written collaboratively with Claude rather than entirely by hand.
+
+## What it is
+
+A single-page, client-side tool for analyzing pasted War Thunder match-log text. Paste one or more match reports and it will:
+
+- Split matches by battle type (Random Battles, Tank Assault, or custom rules you define)
+- Dedupe repeated match reports by Session ID, so pasting overlapping log ranges never double-counts a match
+- Tally RP earned toward new vehicles ("RP by Research Target"), with module/modification RP kept in a separate, collapsed "Other RP" table so the two are never mixed together
+- Run a goal calculator estimating how many matches you need to hit an RP or SL target, based on your actual win/loss averages
+- Import/export session data so you can carry progress across multiple paste sessions
+
+Everything runs locally in the browser — no server, no build step, no account, no data leaves your machine (except when you explicitly export a file).
+
+**Live demo:** https://apoloxdragon.github.io/WarThunder-Tool/
 
 ## Usage
 
-Open `wt-log-analyzer.html` in a browser. Keep it in the same folder as `css/` and `javascript/` — it loads `css/styles.css` and `javascript/app.js` as relative paths.
+Open `wt-log-analyzer.html` in a browser (or use the live demo above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads `css/styles.css` and `javascript/app.js` as relative paths.
 
-Paste one or more match reports (the "Victory/Defeat in the [Mode] ... mission!" through the "Session:" line) into the text box and click Analyze.
+Paste one or more match reports — from "Victory/Defeat in the [Mode] ... mission!" through the "Session:" and "Total:" lines — into the text box and click **Analyze**. No local data? Click **Load Example Data** to try it with the sample log in `example data/` (this only works on a server/hosted page, not when the file is opened directly from disk, since browsers block that fetch over `file://`).
+
+### Where the RP numbers come from
+
+Each match report ends with a line like:
+
+```
+Session: 73cba8e001d7c28
+Total: 25493 SL, 7388 CRP, 14776 RP
+```
+
+The tool uses the **CRP** figure as "Total RP" for the match, not the trailing "RP" figure. That third field is CRP plus whatever "Researching progress" (a module on a *different* vehicle) earned in the same match added together — the same battle performance credited toward two research targets at once, not two separate payouts. Using it as-is would inflate every average and every "expected RP per match" figure in the goal calculator.
+
+### Battle-type categories
+
+By default, anything with "Tank Assault" in its mode name is split into its own category; everything else falls into "Random Battles". Add your own keyword → label rules (e.g. for Arcade or event modes) via the "Battle-type categories" section.
+
+### Import / Export
+
+- **Export HTML** produces a themed, printable standalone report (only unique, deduped matches — no struck-through duplicate rows).
+- **Export Data (minimal)** (toggle next to Export) produces a compact JSON file with short keys, meant for re-uploading later to continue a session.
+- **Import Report** accepts either of the above file types and merges them into the current session, skipping anything already loaded (matched by Session ID).
 
 ## Project structure
 
@@ -17,11 +52,12 @@ wt-log-analyzer.html   Markup only
 css/styles.css         Styling
 javascript/app.js      Parsing, analysis, goal calculator, import/export logic
 example data/          Sample match-log text and exported session data for testing
+index.html             Redirects to wt-log-analyzer.html (for GitHub Pages' root URL)
 ```
 
-## AI disclosure
+## Development
 
-This project was built with the assistance of Claude (Anthropic). Code changes, including bug fixes and the parsing logic, were written collaboratively with Claude rather than entirely by hand.
+No build step. Edit the files directly and reload the page — there's no bundler, no dependencies, no package.json. The whole thing is vanilla HTML/CSS/JS.
 
 ## License
 
