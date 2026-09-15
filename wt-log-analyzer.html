@@ -745,17 +745,20 @@ function analyze() {
 
   const matchRows = all.map(m => {
     const isDupe = matches.indexOf(m) === -1;
-    const target = m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
+    // Duplicates are excluded from every total, so their SL/RP/target figures are
+    // blanked out here too — showing the real numbers next to a struck-through row
+    // reads as double-counted RP even though it isn't included anywhere.
+    const target = isDupe ? '—' : m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
     const resultClass = m.result === 'Victory' ? 'win' : 'loss';
     return `<tr class="${resultClass}${isDupe ? ' dupe' : ''}">
       <td class="result">${m.result}</td>
       <td>${m.category}</td>
       <td>${m.mode !== m.category ? m.mode : ''}</td>
       <td>${m.mission}</td>
-      <td class="num">${m.netSL.toLocaleString()}</td>
-      <td class="num">${m.totalRP.toLocaleString()}</td>
+      <td class="num">${isDupe ? '—' : m.netSL.toLocaleString()}</td>
+      <td class="num">${isDupe ? '—' : m.totalRP.toLocaleString()}</td>
       <td>${target}</td>
-      <td>${isDupe ? 'DUPLICATE' : ''}</td>
+      <td>${isDupe ? 'DUPLICATE — excluded' : ''}</td>
     </tr>`;
   }).join('');
   document.getElementById('matchTable').innerHTML = `
