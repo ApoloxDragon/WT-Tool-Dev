@@ -98,6 +98,7 @@ function localTimestampForFilename(date) {
 }
 
 document.getElementById('printBtn').addEventListener('click', () => {
+  if (!lastMatches) { alert('Run Analyze first.'); return; }
   window.print();
 });
 

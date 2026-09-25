@@ -341,12 +341,18 @@ details.rules-toggle summary {
 
 @media print {
   body { background: #fff; color: #111; padding: 0; }
-  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle { display: none !important; }
+  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle, #goalCalcSection { display: none !important; }
+  /* Every color/background in this app is normally a CSS custom property tuned
+     for the dark theme (light text, dark panels). None of that is safe to print
+     as-is — light-on-white is invisible. Force everything in .wrap to safe
+     dark-on-white first (zero-specificity :where() so it loses to the more
+     specific rules below), then re-apply the few colors print should keep. */
+  :where(.wrap) * { color: #111 !important; background-color: transparent !important; border-color: #ccc !important; }
   .brief { border-left-color: #333; }
   .brief p, .section-title, th, .dim, .stat-cell .lbl { color: #555 !important; }
   .stat-cell .num, .section-title { color: #111 !important; }
-  .stat-row, .stat-cell, table, th, td { border-color: #ccc !important; background: #fff !important; }
+  .stat-row, .stat-cell, table, th, td { background-color: #fff !important; }
   tr.win td.result { color: #2a7a2a !important; }
   tr.loss td.result { color: #a12f2f !important; }
-  .match-table-wrap { max-height: none; overflow: visible; border-color: #ccc; }
+  .match-table-wrap { max-height: none; overflow: visible; }
 }
