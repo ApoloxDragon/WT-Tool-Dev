@@ -1,9 +1,15 @@
 /* ---------- Category rules ---------- */
 // Each rule: { keyword, label }. First match (case-insensitive substring) wins.
 // Anything unmatched falls back to "Random Battles".
+function sanitizeRules(v) {
+  if (!Array.isArray(v)) return undefined;
+  return v.slice(0, 100)
+    .filter(r => r && typeof r.keyword === 'string' && typeof r.label === 'string')
+    .map(r => ({ keyword: r.keyword.slice(0, 100), label: r.label.slice(0, 100) }));
+}
 let categoryRules = loadState('categoryRules', [
   { keyword: 'Tank Assault', label: 'Tank Assault' }
-]);
+], sanitizeRules);
 
 function classify(modeBase) {
   for (const rule of categoryRules) {
@@ -15,30 +21,31 @@ function classify(modeBase) {
 function renderRules() {
   const list = document.getElementById('rulesList');
   if (!list) return; // page has no rules editor (e.g. the Advanced view)
-  list.innerHTML = '';
+  list.textContent = '';
   categoryRules.forEach((rule, idx) => {
+    // Values are set as properties (never spliced into HTML), so any text is safe.
     const row = document.createElement('div');
     row.className = 'rule-row';
-    row.innerHTML = `
-      <input type="text" value="${rule.keyword}" data-idx="${idx}" data-field="keyword">
-      <input type="text" value="${rule.label}" data-idx="${idx}" data-field="label">
-      <button class="remove" data-idx="${idx}">Remove</button>
-    `;
-    list.appendChild(row);
-  });
-  list.querySelectorAll('input').forEach(inp => {
-    inp.addEventListener('input', e => {
-      const idx = +e.target.dataset.idx;
-      categoryRules[idx][e.target.dataset.field] = e.target.value;
-      saveState('categoryRules', categoryRules);
+    [['keyword', rule.keyword], ['label', rule.label]].forEach(([field, value]) => {
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.value = value;
+      inp.addEventListener('input', () => {
+        categoryRules[idx][field] = inp.value;
+        saveState('categoryRules', categoryRules);
+      });
+      row.appendChild(inp);
     });
-  });
-  list.querySelectorAll('button.remove').forEach(btn => {
-    btn.addEventListener('click', e => {
-      categoryRules.splice(+e.target.dataset.idx, 1);
+    const rm = document.createElement('button');
+    rm.className = 'remove';
+    rm.textContent = 'Remove';
+    rm.addEventListener('click', () => {
+      categoryRules.splice(idx, 1);
       saveState('categoryRules', categoryRules);
       renderRules();
     });
+    row.appendChild(rm);
+    list.appendChild(row);
   });
 }
 renderRules();

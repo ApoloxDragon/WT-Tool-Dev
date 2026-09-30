@@ -1,8 +1,42 @@
 /* ---------- Parsing ---------- */
-// Depends on classify() from categories.js.
+// Depends on classify() from categories.js and capLines()/LIMITS from util.js.
+// Every pattern here is either anchored to a single (length-capped) line or
+// bounded, so input can't make it run away — see tests/suites/parser.js.
+
+// The small summary stored beside each archived match so lists can be built without
+// decompressing or re-parsing it. Bump SUMMARY_VERSION whenever parseLog's summary
+// fields change meaning — stored summaries with an older version are rebuilt from the raw text.
+const SUMMARY_VERSION = 1;
+function summaryOf(m) {
+  return { pv: SUMMARY_VERSION, result: m.result, mode: m.mode, mission: m.mission, netSL: m.netSL,
+    totalRP: m.totalRP, timeSec: m.timeSec, researched: m.researched, researching: m.researching };
+}
+
+const RP_NAME_CHAR = /[A-Za-z0-9À-ÿ'".\-() ]/;
+
+// Lines like "Leopard 2K: 5163 RP". The name is the run of allowed characters
+// directly before the colon.
+function parseRpLines(section) {
+  const out = [];
+  section.split('\n').forEach(line => {
+    const re = /:\s*([\d,]{1,15})\s*RP/g;
+    let lastEnd = 0, lm;
+    while ((lm = re.exec(line)) !== null) {
+      let i = lm.index;
+      while (i > lastEnd && RP_NAME_CHAR.test(line[i - 1])) i--;
+      const name = line.slice(i, lm.index).trim();
+      const rp = parseInt(lm[1].replace(/,/g, ''));
+      if (name && rp) out.push({ name, rp });
+      lastEnd = re.lastIndex;
+    }
+  });
+  return out;
+}
+
 function parseLog(text) {
-  text = text.replace(/\r\n/g, '\n');
-  const headerRegex = /(Victory|Defeat) in the \[([^\]]+)\]\s+(.+?)\s+mission!/g;
+  text = capLines(text.replace(/\r\n/g, '\n'));
+  // [^\S\n] = any whitespace except a newline, so a header never spans lines.
+  const headerRegex = /(Victory|Defeat) in the \[([^\]\n]{1,200})\][^\S\n]+(.+?)[^\S\n]+mission!/g;
   const headers = [];
   let m;
   while ((m = headerRegex.exec(text)) !== null) {
@@ -15,13 +49,13 @@ function parseLog(text) {
     const end = i + 1 < headers.length ? headers[i + 1].index : text.length;
     const block = text.slice(start, end);
 
-    const sessionMatch = block.match(/Session:\s*([a-f0-9]+)/i);
+    const sessionMatch = block.match(/Session:\s*([a-f0-9]{1,64})/i);
     const sessionId = sessionMatch ? sessionMatch[1] : ('noid-' + i);
 
-    const timeMatch = block.match(/Time Played\s+(\d+):(\d+)/);
+    const timeMatch = block.match(/Time Played\s+(\d{1,6}):(\d{1,2})/);
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
-    const totalRegex = /Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP,\s*([\d,]+)\s*RP/g;
+    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP,\s*([\d,]{1,15})\s*RP/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
@@ -45,28 +79,21 @@ function parseLog(text) {
         const wIdx = after.indexOf(w);
         if (wIdx !== -1 && wIdx < stop) stop = wIdx;
       });
-      const section = after.slice(0, stop);
-      const lineRe = /([A-Za-z0-9À-ÿ'".\-() ]+?):\s*([\d,]+)\s*RP/g;
-      const out = [];
-      let lm;
-      while ((lm = lineRe.exec(section)) !== null) {
-        const name = lm[1].trim();
-        const rp = parseInt(lm[2].replace(/,/g, ''));
-        if (name && rp) out.push({ name, rp });
-      }
-      return out;
+      return parseRpLines(after.slice(0, stop));
     }
     const researched = extractTargets('Researched unit:', ['Researching progress:', 'Used items:', 'Session:']);
     const researching = extractTargets('Researching progress:', ['Used items:', 'Session:']);
 
     // The raw block is the source of truth for the detail view and the archive.
     // Trim anything after the Total: line so stray pasted text isn't archived.
+    // A block over MAX_BLOCK isn't a real match: it is still analysed, but not kept.
     let rawEnd = block.length;
     if (lastTotal) {
       const nl = block.indexOf('\n', lastTotal.index);
       rawEnd = nl === -1 ? block.length : nl;
     }
-    const raw = block.slice(0, rawEnd).replace(/\s+$/, '');
+    const rawText = block.slice(0, rawEnd).replace(/\s+$/, '');
+    const raw = rawText.length <= LIMITS.MAX_BLOCK ? rawText : '';
 
     const modeBase = headers[i].modeRaw.replace(/\s*#\d+$/, '').trim();
     const category = classify(modeBase);

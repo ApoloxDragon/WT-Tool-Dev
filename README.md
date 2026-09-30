@@ -59,9 +59,26 @@ Open it with **Advanced view →** in the top bar (`advanced.html`); **← Basic
 
 ### Local storage
 
-Each match's raw text is gzip-compressed (native `CompressionStream`, no library) and stored in IndexedDB under its Session ID. If IndexedDB is unavailable a small `localStorage` fallback (about 5 MB) is used, and if neither works the tool still runs — it just can't save detail. The **Clear** button only resets the current session; the archive is managed from the Advanced view's storage panel.
+Each match's raw text is gzip-compressed (native `CompressionStream`, no library) and stored in IndexedDB under its Session ID, together with a small summary. Because of that summary the Advanced view lists your whole library without unpacking a single match; a match is only decompressed when you open it, and the vehicle / event-type insights read the archive only when you open those sections. If IndexedDB is unavailable a small `localStorage` fallback (about 5 MB) is used, and if neither works the tool still runs — it just can't save detail. The **Clear** button only resets the current session; the archive is managed from the Advanced view's storage panel.
 
 The archive exists only in your browser on this device: clearing site data deletes it and it doesn't sync. **Export Raw regularly as your backup.** The dev build uses its own database name, so it can't touch the stable site's data.
+
+## Security and robustness
+
+The tool reads text you paste or import, so nothing from a log or file is trusted:
+
+- **Escaping.** Every value taken from a log, an import or saved settings is HTML-escaped before it is shown; the category editor and exported reports included.
+- **Content-Security-Policy.** Both pages declare a policy that blocks inline scripts, plugins, `<base>` tags and form posts, and only allows this site's own files — so even a missed escape could not run code. Exported HTML reports carry their own policy with a fresh random nonce per export.
+- **Imports are rebuilt, not trusted.** Every imported match is re-created from validated fields (real Session ID, clipped text, finite bounded numbers); malformed entries are skipped and counted rather than aborting the import.
+- **Limits.** Lines are cut at 2,000 characters, one archived match at 256 KB, an imported file at 150 MB, and a `.gz` import may unpack to at most 128 MB (a tiny "gzip bomb" is refused while unpacking, without being expanded). Real logs are far below all of these (longest line 175 characters, largest match 8.5 KB).
+- **Linear-time parsing.** Patterns are bounded so crafted input can't make the parser stall.
+- **Tamper-tolerant settings.** Saved settings are validated when loaded; corrupted or hand-edited values fall back to defaults instead of breaking the page.
+- **Names that look like code.** Lookups keyed by names from logs use prototype-free maps, so a map or vehicle called `constructor` is just a name.
+- **Nothing leaves your device.** The pages make no network requests beyond loading their own files (and the optional example data).
+
+## Tests
+
+`tests/` holds a Playwright-based suite (parser, Basic view, Advanced view, storage, security, performance) plus a **pre-change baseline** recorded before the security and performance work, and a comparison report of the current code against it. See [tests/README.md](tests/README.md). The app itself stays dependency-free.
 
 ## Project structure
 
@@ -69,7 +86,8 @@ The archive exists only in your browser on this device: clearing site data delet
 wt-log-analyzer.html          Basic view markup
 advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
-javascript/storage.js          localStorage persistence helpers (loaded first)
+javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
+javascript/storage.js          localStorage persistence helpers
 javascript/themes.js           Theme system + picker
 javascript/categories.js       Battle-type category rules editor
 javascript/detail-parser.js    Per-match detail parsing (parseDetail), no DOM access
@@ -82,6 +100,8 @@ javascript/import-export.js    File import + HTML/JSON export (Basic view)
 javascript/main.js             App state, analyze() orchestration (Basic view)
 javascript/advanced.js         Library, match detail, insights, storage panel (Advanced view)
 javascript/tutorial.js         Step-by-step tutorial for both views
+tests/                         Test suite, pre-change baseline and comparison reports (dev only)
+docs/                          Design notes (e.g. the colour-customisation draft)
 example data/                  Sample logs and exports for testing:
                                  matches.txt                    raw match-log text (84 matches)
                                  wt-session-data.json           minimal export (summaries only)

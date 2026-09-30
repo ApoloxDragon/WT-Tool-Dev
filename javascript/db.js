@@ -27,9 +27,24 @@ const WtDB = (() => {
     const stream = new Blob([text]).stream().pipeThrough(new CompressionStream('gzip'));
     return new Uint8Array(await new Response(stream).arrayBuffer());
   }
-  async function gunzip(bytes) {
-    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
-    return await new Response(stream).text();
+  // Streams the output and stops as soon as it would exceed `maxBytes`, so a tiny
+  // "bomb" file can never be expanded into memory.
+  async function gunzip(bytes, maxBytes) {
+    const limit = maxBytes || LIMITS.MAX_UNPACKED;
+    const reader = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip')).getReader();
+    const chunks = [];
+    let total = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.length;
+      if (total > limit) {
+        await reader.cancel();
+        throw new WtLimitError(`That file is too large once unpacked (limit ${fmtMB(limit)}) — it was not opened.`);
+      }
+      chunks.push(value);
+    }
+    return await new Blob(chunks).text();
   }
   function bytesToB64(bytes) {
     let s = '';
@@ -50,9 +65,15 @@ const WtDB = (() => {
     }
     return { enc: 'none', data: text, size };
   }
+  // Stored records take the fast path (no size limit while unpacking): putMany() refuses
+  // any text over MAX_BLOCK before it is compressed, so what is stored cannot expand
+  // beyond that. Files chosen by the user are different — they use the bounded gunzip().
   async function unpack(rec) {
-    if (rec.enc === 'gzip') return gunzip(rec.data instanceof Uint8Array ? rec.data : new Uint8Array(rec.data));
-    return rec.data;
+    if (rec.enc !== 'gzip') return rec.data;
+    const bytes = rec.data instanceof Uint8Array ? rec.data : new Uint8Array(rec.data);
+    const text = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    if (text.length > LIMITS.MAX_BLOCK) throw new Error('stored match is larger than allowed');
+    return text;
   }
   const storedBytes = rec => (rec.enc === 'gzip' ? rec.data.length : rec.data.length * 2);
 
@@ -108,22 +129,39 @@ const WtDB = (() => {
   }
 
   /* ----- public API ----- */
-  async function put(id, text) {
-    if (!id || !text) return false;
+  // Stores many matches in ONE transaction (one round trip instead of one per match).
+  // entries: [{ id, text, sum }] — `sum` is an optional small summary kept beside the
+  // compressed text so lists can be shown without decompressing anything.
+  // Resolves to how many were stored. Over-long or empty entries are skipped.
+  async function putMany(entries) {
+    const good = entries.filter(e => e && e.id && e.text && e.text.length <= LIMITS.MAX_BLOCK); // a real match is a few KB
+    if (!good.length) return 0;
     const db = await open();
-    const rec = await pack(text);
+    const packed = [];
+    for (let i = 0; i < good.length; i += 32) {     // compress 32 at a time, in parallel
+      packed.push(...await Promise.all(good.slice(i, i + 32).map(async e => ({ e, rec: await pack(e.text) }))));
+    }
     if (backend === 'idb') {
-      const ok = await tx(db, 'readwrite', s => { s.put({ id, enc: rec.enc, data: rec.data, size: rec.size, saved: Date.now() }); return { result: true }; });
-      return !!ok;
+      const stored = await tx(db, 'readwrite', s => {
+        const now = Date.now();
+        packed.forEach(({ e, rec }) => s.put({ id: e.id, enc: rec.enc, data: rec.data, size: rec.size, saved: now, sum: e.sum }));
+        return { result: packed.length };
+      });
+      return stored || 0; // undefined = the transaction failed or aborted (e.g. quota)
     }
     if (backend === 'ls') {
-      try {
-        const payload = rec.enc === 'gzip' ? 'g:' + bytesToB64(rec.data) : 'p:' + rec.data;
-        localStorage.setItem(LS_PREFIX + id, payload);
-        return true;
-      } catch (e) { return false; } // quota exceeded
+      let n = 0;
+      for (const { e, rec } of packed) {
+        try { localStorage.setItem(LS_PREFIX + e.id, rec.enc === 'gzip' ? 'g:' + bytesToB64(rec.data) : 'p:' + rec.data); n++; }
+        catch (err) { break; } // quota exceeded
+      }
+      return n;
     }
-    return false;
+    return 0;
+  }
+
+  async function put(id, text) {
+    return (await putMany([{ id, text }])) === 1;
   }
 
   async function get(id) {
@@ -150,22 +188,75 @@ const WtDB = (() => {
     return [];
   }
 
-  // Every stored block as { id, text }. Used to rebuild the library.
+  // Decompresses records in parallel batches. A damaged record is skipped, not fatal.
+  async function unpackAll(recs) {
+    const out = [];
+    for (let i = 0; i < recs.length; i += 32) { // 16-64 at once measured fastest
+      const batch = await Promise.all(recs.slice(i, i + 32).map(async rec => {
+        try { return { id: rec.id, text: await unpack(rec) }; } catch (e) { return null; }
+      }));
+      batch.forEach(b => { if (b) out.push(b); });
+    }
+    return out;
+  }
+
+  // Every stored block as { id, text }.
   async function all() {
     const db = await open();
-    const out = [];
     try {
-      if (backend === 'idb') {
-        const recs = (await tx(db, 'readonly', s => s.getAll())) || [];
-        for (const rec of recs) out.push({ id: rec.id, text: await unpack(rec) });
-      } else if (backend === 'ls') {
+      if (backend === 'idb') return await unpackAll((await tx(db, 'readonly', s => s.getAll())) || []);
+      if (backend === 'ls') {
+        const out = [];
         for (const k of lsKeys()) {
           const text = await get(k.slice(LS_PREFIX.length));
           if (text !== null) out.push({ id: k.slice(LS_PREFIX.length), text });
         }
+        return out;
       }
-    } catch (e) { /* return what we have */ }
-    return out;
+    } catch (e) { /* fall through */ }
+    return [];
+  }
+
+  // The blocks for just these ids, as { id, text } (missing or damaged ones left out).
+  async function getMany(ids) {
+    const db = await open();
+    try {
+      if (backend === 'idb') {
+        const reqs = await tx(db, 'readonly', s => ids.map(id => s.get(id)));
+        return await unpackAll((reqs || []).map(r => r.result).filter(Boolean));
+      }
+      if (backend === 'ls') {
+        const out = [];
+        for (const id of ids) { const text = await get(id); if (text !== null) out.push({ id, text }); }
+        return out;
+      }
+    } catch (e) { /* fall through */ }
+    return [];
+  }
+
+  // { id, size, sum } for every record WITHOUT decompressing anything. `sum` is null for
+  // records stored without a summary (older builds, or the localStorage fallback).
+  async function meta() {
+    const db = await open();
+    if (backend === 'idb') {
+      const recs = (await tx(db, 'readonly', s => s.getAll())) || [];
+      return recs.map(r => ({ id: r.id, size: r.size || 0, sum: r.sum || null }));
+    }
+    if (backend === 'ls') return lsKeys().map(k => ({ id: k.slice(LS_PREFIX.length), size: 0, sum: null }));
+    return [];
+  }
+
+  // pairs: [[id, sum], …] — attaches a summary to records that already exist.
+  async function setSummaries(pairs) {
+    const db = await open();
+    if (backend !== 'idb' || !pairs.length) return 0;
+    return (await tx(db, 'readwrite', s => {
+      pairs.forEach(([id, sum]) => {
+        const g = s.get(id);
+        g.onsuccess = () => { if (g.result) { g.result.sum = sum; s.put(g.result); } };
+      });
+      return { result: pairs.length };
+    })) || 0;
   }
 
   async function remove(id) {
@@ -209,7 +300,7 @@ const WtDB = (() => {
   }
 
   return {
-    put, get, ids, all, remove, clear, stats, requestPersistence,
+    put, putMany, get, getMany, ids, all, meta, setSummaries, remove, clear, stats, requestPersistence,
     backendName: async () => { await open(); return backend; },
     codec: { canCompress, gzip, gunzip } // shared with raw export/import
   };
