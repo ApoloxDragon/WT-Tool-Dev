@@ -7,24 +7,19 @@ let importedMatches = loadState('importedMatches', []); // matches loaded from a
 // Every pasted match's raw text is kept (compressed) in the browser so the
 // Advanced view can show per-match detail later. Clear only resets the current
 // session — the archive is managed from the Advanced view's storage panel.
-// Depends on: WtDB (db.js).
+// Depends on: WtDB (db.js), archiveParsedMatches (raw-export.js).
 async function archiveMatches(matches) {
   const note = document.getElementById('archiveNote');
   const fresh = matches.filter(m => m.raw && !m.sessionId.startsWith('noid-'));
   if (fresh.length === 0) return;
-  const have = new Set(await WtDB.ids());
-  let added = 0;
-  for (const m of fresh) {
-    if (have.has(m.sessionId)) continue;
-    if (await WtDB.put(m.sessionId, m.raw)) { added++; have.add(m.sessionId); }
-  }
-  const total = have.size;
+  const { added } = await archiveParsedMatches(fresh);
   if (await WtDB.backendName() === 'none') {
     note.textContent = 'Local archive unavailable in this browser — Advanced view detail won\'t be saved.';
-  } else {
-    note.textContent = `Local archive: ${total} match(es) stored` + (added ? ` (${added} new).` : '.');
-    WtDB.requestPersistence();
+    return;
   }
+  const total = (await WtDB.ids()).length;
+  note.textContent = `Local archive: ${total} match(es) stored` + (added ? ` (${added} new).` : '.');
+  WtDB.requestPersistence();
 }
 
 /* ---------- Analyze ---------- */

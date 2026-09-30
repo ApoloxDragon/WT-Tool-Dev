@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WT Session Readout — Advanced</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="dev-banner">⚠ Development build — testing in progress, not guaranteed stable. <a href="https://apoloxdragon.github.io/WarThunder-Tool/">Use the stable version</a> for reliable results.</div>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brief">
+      <h1>Session Readout <span class="badge">Advanced</span></h1>
+      <p>Per-match detail, cross-match stats and local storage tools, built from the match archive saved in this browser.</p>
+    </div>
+    <div class="theme-picker" id="themePicker">
+      <a class="view-link" id="basicLink" href="wt-log-analyzer.html" title="Go back to the regular view">← Basic view</a>
+      <a class="github-link" href="https://github.com/ApoloxDragon/WT-Tool-Dev" target="_blank" rel="noopener" title="View source on GitHub" aria-label="View source on GitHub">
+        <span class="github-logo-mask"></span>
+      </a>
+      <label>Theme</label>
+    </div>
+  </div>
+
+  <div class="empty" id="libEmpty" style="display:none;">
+    The local archive is empty. Paste match logs in the <a href="wt-log-analyzer.html">Basic view</a> and click Analyze —
+    every match is saved here automatically — or import a raw export below.
+  </div>
+
+  <div id="libMain" style="display:none;">
+
+    <div class="section" id="librarySection">
+      <div class="section-title">LIBRARY</div>
+      <div class="filter-bar">
+        <input type="text" id="fSearch" placeholder="Search mission, category, target…">
+        <select id="fCategory"></select>
+        <select id="fResult">
+          <option value="">Win + loss</option>
+          <option value="Victory">Victories</option>
+          <option value="Defeat">Defeats</option>
+        </select>
+        <select id="fSort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="sl">Most SL</option>
+          <option value="rp">Most RP</option>
+          <option value="time">Longest</option>
+        </select>
+        <label class="check"><input type="checkbox" id="fDetailOnly"> Detail only</label>
+      </div>
+      <div class="stat-row" id="libStats"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span>MATCHES <span class="dim" id="matchCountNote"></span></span></div>
+      <div class="match-table-wrap tall">
+        <table id="libTable"></table>
+      </div>
+      <div class="note" style="margin-top:6px;" id="libTableNote"></div>
+    </div>
+
+    <div class="section" id="detailSection" style="display:none;">
+      <div class="section-title"><span>MATCH DETAIL</span><button class="secondary small" id="detailClose">Close ✕</button></div>
+      <div id="detailBody"></div>
+    </div>
+
+    <div class="section" id="insightsSection">
+      <div class="section-title"><span>INSIGHTS <span class="dim" id="insightScope"></span></span></div>
+      <details class="rules-toggle" open>
+        <summary>By map</summary>
+        <div class="scroll-x"><table id="mapTable"></table></div>
+      </details>
+      <details class="rules-toggle">
+        <summary>By vehicle (matches with stored detail)</summary>
+        <div class="scroll-x"><table id="vehicleTable"></table></div>
+      </details>
+      <details class="rules-toggle">
+        <summary>Earnings by event type (matches with stored detail)</summary>
+        <div class="scroll-x"><table id="eventTable"></table></div>
+      </details>
+    </div>
+
+  </div>
+
+  <div class="section" id="storageSection">
+    <div class="section-title">STORAGE</div>
+    <div class="storage-panel">
+      <div class="stat-row" id="storageStats"></div>
+      <div class="note" id="storageNote" style="margin-top:10px;"></div>
+      <div class="controls">
+        <button id="exportRawGz">Export raw (.json.gz)</button>
+        <button class="secondary" id="exportRawJson">Export raw (.json)</button>
+        <button class="secondary" id="importRawBtn">Import raw / log file</button>
+        <input type="file" id="importRawFile" accept=".json,.gz,.txt" style="display:none;">
+        <button class="secondary danger" id="deleteArchiveBtn">Delete entire archive</button>
+      </div>
+      <div class="note" id="storageMsg" style="margin-top:8px;"></div>
+      <div class="note" style="margin-top:10px;">
+        The archive lives only in this browser on this device — clearing site data deletes it, and it doesn't sync anywhere.
+        Export raw data regularly as your backup. Raw exports can be re-imported here or in the Basic view.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="javascript/storage.js"></script>
+<script src="javascript/themes.js"></script>
+<script src="javascript/categories.js"></script>
+<script src="javascript/detail-parser.js"></script>
+<script src="javascript/db.js"></script>
+<script src="javascript/raw-export.js"></script>
+<script src="javascript/parser.js"></script>
+<script src="javascript/math.js"></script>
+<script src="javascript/advanced.js"></script>
+</body>
+</html>

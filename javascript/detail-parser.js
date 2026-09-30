@@ -67,9 +67,13 @@ function parseSectionEvent(sectionName, line) {
   } else if (/^Activity Time$/i.test(sectionName)) {
     ev.vehicle = cols[0] || '';
   } else if (/^Time Played$/i.test(sectionName)) {
+    // Columns are "vehicle  [NN%]  m:ss" — the percentage is absent in some logs
+    // (e.g. single-vehicle Tank Assault), so identify them by shape, not position.
     ev.vehicle = cols[0] || '';
-    ev.activityPct = cols[1] ? detailNum(cols[1]) : 0;
-    ev.time = cols[2] || '';
+    cols.slice(1).forEach(c => {
+      if (/^\d+%$/.test(c)) ev.activityPct = detailNum(c);
+      else if (/^\d+:\d+$/.test(c)) ev.time = c;
+    });
   } else if (/^Skill Bonus$/i.test(sectionName)) {
     ev.vehicle = cols[0] || '';
     ev.level = cols[1] || '';
