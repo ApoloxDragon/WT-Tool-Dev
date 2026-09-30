@@ -72,6 +72,7 @@ exports.run = async ({ browser, base, t }) => {
   /* ---- exports ---- */
   t.scope('basic › exports');
   page = await newPage(browser); await loadExample(page, base);
+  await page.waitForFunction(() => /67 match/.test(document.getElementById('archiveNote').textContent));
   await page.click('#minimalToggle');
   const min = await download(page, '#exportBtn');
   const minJson = JSON.parse(min.buf.toString('utf8'));
@@ -83,13 +84,30 @@ exports.run = async ({ browser, base, t }) => {
   const htmlText = html.buf.toString('utf8');
   t.check('HTML export filename is wt-session-report-<local time>.html', /^wt-session-report-\d{4}-\d\d-\d\d_\d\d-\d\d-\d\d\.html$/.test(html.name), html.name);
   t.check('HTML report has 67 match rows and only unique matches', (htmlText.match(/data-session=/g) || []).length === 67 && !/class="[^"]*dupe/.test(htmlText));
-  t.snapshot('HTML report body (generated-time stripped)', htmlText.replace(/Generated [^<]+/, 'Generated X').replace(/<title>[^<]+/, '<title>X'));
+  // Normalise what legitimately varies per export: the time stamp and the random CSP nonce.
+  const stable = htmlText.replace(/Generated [^<]+/, 'Generated X').replace(/<title>[^<]+/, '<title>X').replace(/nonce[-=]["']?[A-Za-z0-9]+/g, 'nonce=N');
+  t.snapshot('HTML report body (time stamp and nonce normalised)', stable);
+  // The part that holds the user's data: everything between <body> and the inline script.
+  const dataPart = htmlText.slice(htmlText.indexOf('<body>'), htmlText.indexOf('<script')).replace(/Generated [^<]+/, 'Generated X');
+  t.snapshot('HTML report data sections (tables and stats only)', dataPart);
   const rawExp = await download(page, '#rawExportBtn');
   const rawJson = JSON.parse(zlib.gunzipSync(rawExp.buf).toString('utf8'));
   t.check('raw export is gzip JSON with all 67 archived matches and original text', rawJson.format === 'wt-raw-export' && rawJson.count === 67 && rawJson.matches.every(m => /^(Victory|Defeat) in the /.test(m.raw)));
   t.snapshot('raw export matches', rawJson.matches.map(m => m.raw), Object.fromEntries(rawJson.matches.map(m => [m.id, m.raw])));
   fs.writeFileSync(require('path').join(__dirname, '..', 'results', '.tmp-report.html'), htmlText);
   await page.ctx.close();
+
+  t.scope('basic › export right after Analyze');
+  { const p = await newPage(browser); await p.goto(base + 'wt-log-analyzer.html');
+    const log = exampleLog();
+    // Analyze archives in the background; clicking Export Raw in the same instant must still include everything.
+    // (If the export finds nothing yet it downloads nothing at all — recorded as a failure, not a crash.)
+    const dlPromise = p.waitForEvent('download', { timeout: 6000 }).catch(() => null);
+    await p.evaluate(v => { document.getElementById('input').value = v; document.getElementById('analyzeBtn').click(); document.getElementById('rawExportBtn').click(); }, log);
+    const dl = await dlPromise;
+    const exp = dl ? JSON.parse(zlib.gunzipSync(fs.readFileSync(await dl.path())).toString()) : { count: 0 };
+    t.check('a raw export requested the instant Analyze runs still contains all 67 matches', exp.count === 67, exp.count + ' of 67' + (dl ? '' : ' (no download at all)'));
+    await p.ctx.close(); }
 
   /* ---- imports ---- */
   t.scope('basic › imports');

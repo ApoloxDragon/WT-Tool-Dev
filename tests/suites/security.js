@@ -8,7 +8,8 @@ const { EX, exampleLog, splitBlocks, PAYLOADS, PWN, hostileBlock, gz, rawExportO
 async function inert(page, scope = '#results', allowScripts = false) {
   return page.evaluate(({ sel, allowScripts }) => {
     const root = document.querySelector(sel) || document.body;
-    const q = 'img, svg, iframe, [onerror], [onload], [onclick], [onmouseover]' + (allowScripts ? '' : ', script');
+    // only INLINE scripts count: the pages' own <script src=…> tags are legitimate
+    const q = 'img, svg, iframe, [onerror], [onload], [onclick], [onmouseover]' + (allowScripts ? '' : ', script:not([src])');
     return { pwn: window.__pwn || 0, injected: root.querySelectorAll(q).length };
   }, { sel: scope, allowScripts });
 }
@@ -130,12 +131,13 @@ exports.run = async ({ browser, base, t }) => {
     const p = await openBasic(browser, base);
     await p.evaluate(v => { document.getElementById('input').value = v; }, block);
     await p.click('#analyzeBtn'); await p.waitForTimeout(300);
-    const tt = norm(await p.textContent('#targetTable'));
+    const tt = norm(await p.innerText('#targetTable'));
     t.check('research targets called "constructor"/"toString" are summed as numbers (no NaN / function text)', /constructor 500/.test(tt) && /toString 7/.test(tt) && !/NaN|function/.test(tt), tt.slice(0, 200));
     t.check('no uncaught errors in Basic with property-name data', p.errs.length === 0, p.errs.join(' | '));
     await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
     await p.evaluate(() => document.querySelectorAll('#insightsSection details').forEach(d => d.open = true));
-    const mt = norm(await p.textContent('#mapTable')), vt = norm(await p.textContent('#vehicleTable'));
+    await p.waitForFunction(() => document.querySelectorAll('#vehicleTable tr').length > 1);
+    const mt = norm(await p.innerText('#mapTable')), vt = norm(await p.innerText('#vehicleTable'));
     t.check('a map named "constructor" gets a proper row in the Advanced by-map table', /constructor 1 \d+%/.test(mt) && !/NaN|function/.test(mt), mt.slice(0, 200));
     t.check('a vehicle named "constructor" gets a proper row in the by-vehicle table', /constructor 1 /.test(vt) && !/NaN|function/.test(vt), vt.slice(0, 240));
     t.check('no uncaught errors in Advanced with property-name data', p.errs.length === 0, p.errs.join(' | '));

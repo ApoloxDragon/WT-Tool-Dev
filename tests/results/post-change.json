@@ -1,7 +1,7 @@
 {
- "label": "pre-change",
- "date": "2026-09-30T20:25:42.754Z",
- "commit": "e0bba8c",
+ "label": "post-change",
+ "date": "2026-09-30T20:28:34.810Z",
+ "commit": "2acb8bc",
  "checks": [
   {
    "name": "parser › real data › finds 84 match blocks in the example log",
@@ -100,23 +100,23 @@
   },
   {
    "name": "parser › pathological input › finishes in under 1 second: one 120 KB line of repeated \"Victory in the [\" (no closing bracket)",
-   "pass": false,
-   "detail": "1327 ms"
+   "pass": true,
+   "detail": "1 ms"
   },
   {
    "name": "parser › pathological input › finishes in under 1 second: 12,000 short lines of \"Victory in the [x\" (no closing bracket)",
-   "pass": false,
-   "detail": "3880 ms"
+   "pass": true,
+   "detail": "3 ms"
   },
   {
    "name": "parser › pathological input › finishes in under 1 second: \"Researched unit:\" followed by a 40 KB line with no colon",
-   "pass": false,
-   "detail": "2318 ms"
+   "pass": true,
+   "detail": "2 ms"
   },
   {
    "name": "parser › pathological input › finishes in under 1 second: an event line that is 40,000 digits long",
-   "pass": false,
-   "detail": "deadline 25000ms exceeded"
+   "pass": true,
+   "detail": "3 ms"
   },
   {
    "name": "parser › pathological input › finishes in under 1 second: a 200 KB single line of plain text",
@@ -171,7 +171,7 @@
   {
    "name": "basic › exports › minimal export filename is wt-session-data-<local time>.json",
    "pass": true,
-   "detail": "wt-session-data-2026-09-30_20-26-17.json"
+   "detail": "wt-session-data-2026-09-30_20-28-37.json"
   },
   {
    "name": "basic › exports › minimal export has 67 deduped matches with short keys",
@@ -181,7 +181,7 @@
   {
    "name": "basic › exports › HTML export filename is wt-session-report-<local time>.html",
    "pass": true,
-   "detail": "wt-session-report-2026-09-30_20-26-18.html"
+   "detail": "wt-session-report-2026-09-30_20-28-37.html"
   },
   {
    "name": "basic › exports › HTML report has 67 match rows and only unique matches",
@@ -195,8 +195,8 @@
   },
   {
    "name": "basic › export right after Analyze › a raw export requested the instant Analyze runs still contains all 67 matches",
-   "pass": false,
-   "detail": "0 of 67 (no download at all)"
+   "pass": true,
+   "detail": "67 of 67"
   },
   {
    "name": "basic › imports › minimal JSON import: 67 matches",
@@ -315,13 +315,13 @@
   },
   {
    "name": "advanced › older archive records › …and their summaries are saved, so the next visit needn't read the raw text",
-   "pass": false,
+   "pass": true,
    "detail": ""
   },
   {
    "name": "advanced › opening does not unpack the archive › opening the library (67 matches) decompresses nothing",
-   "pass": false,
-   "detail": "67"
+   "pass": true,
+   "detail": "0"
   },
   {
    "name": "advanced › summary-only matches › summary-only matches are listed and flagged as having no detail",
@@ -390,8 +390,8 @@
   },
   {
    "name": "storage › corrupt data › all() skips a damaged record and still returns the good ones after it",
-   "pass": false,
-   "detail": "a1"
+   "pass": true,
+   "detail": "a1,c3"
   },
   {
    "name": "storage › corrupt data › stats() still works with a damaged record present",
@@ -415,18 +415,18 @@
   },
   {
    "name": "security › page structure › wt-log-analyzer.html: has a Content-Security-Policy that blocks inline scripts",
-   "pass": false,
-   "detail": "no CSP meta tag"
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
   },
   {
    "name": "security › page structure › wt-log-analyzer.html: CSP forbids plugins, base-tag and form hijacking",
-   "pass": false,
-   "detail": "no CSP meta tag"
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
   },
   {
    "name": "security › page structure › wt-log-analyzer.html: no inline <script> or inline on* handlers",
    "pass": true,
-   "detail": "{\"csp\":\"\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
+   "detail": "{\"csp\":\"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
   },
   {
    "name": "security › page structure › wt-log-analyzer.html: every target=_blank link has rel=noopener",
@@ -435,18 +435,18 @@
   },
   {
    "name": "security › page structure › advanced.html: has a Content-Security-Policy that blocks inline scripts",
-   "pass": false,
-   "detail": "no CSP meta tag"
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
   },
   {
    "name": "security › page structure › advanced.html: CSP forbids plugins, base-tag and form hijacking",
-   "pass": false,
-   "detail": "no CSP meta tag"
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
   },
   {
    "name": "security › page structure › advanced.html: no inline <script> or inline on* handlers",
    "pass": true,
-   "detail": "{\"csp\":\"\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
+   "detail": "{\"csp\":\"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
   },
   {
    "name": "security › page structure › advanced.html: every target=_blank link has rel=noopener",
@@ -465,47 +465,47 @@
   },
   {
    "name": "security › injection via pasted log (Basic) › mission + mode containing img payload renders as text",
-   "pass": false,
-   "detail": "executed=2 injectedElements=2"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via pasted log (Basic) › the hostile text is still visible (shown literally, not dropped)",
-   "pass": false,
+   "pass": true,
    "detail": ""
   },
   {
    "name": "security › injection via pasted log (Basic) › mission + mode containing svg payload renders as text",
-   "pass": false,
-   "detail": "executed=0 injectedElements=2"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via pasted log (Basic) › mission + mode containing script payload renders as text",
-   "pass": false,
-   "detail": "executed=0 injectedElements=2"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via pasted log (Basic) › mission + mode containing attr payload renders as text",
-   "pass": false,
-   "detail": "executed=2 injectedElements=2"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via imported files (Basic) › minimal JSON with hostile category/mission/target/id renders as text",
-   "pass": false,
-   "detail": "executed=13 injectedElements=25"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via imported files (Basic) › goal-category dropdown options stay plain text",
-   "pass": false,
+   "pass": true,
    "detail": ""
   },
   {
    "name": "security › injection via imported files (Basic) › the exported HTML report made from hostile data is inert when opened",
-   "pass": false,
-   "detail": "executed=21 injectedElements=16"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via imported files (Basic) › the exported report declares its own Content-Security-Policy",
-   "pass": false,
+   "pass": true,
    "detail": ""
   },
   {
@@ -515,13 +515,13 @@
   },
   {
    "name": "security › injection via imported files (Basic) › HTML report with hostile category and session-id cells is inert",
-   "pass": false,
-   "detail": "executed=3 injectedElements=3"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via imported files (Basic) › raw export with hostile mission/mode is inert in Basic",
-   "pass": false,
-   "detail": "executed=1 injectedElements=2"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via imported files (Basic) › the same hostile match is inert in the Advanced view (library + detail)",
@@ -530,23 +530,23 @@
   },
   {
    "name": "security › injection via category rules › a label containing quotes and tags is stored and shown exactly as typed",
-   "pass": false,
-   "detail": "[\"Tank Assault\",\"Tank Assault\",\"Domination\",\"Evil\"]"
+   "pass": true,
+   "detail": "[\"Tank Assault\",\"Tank Assault\",\"Domination\",\"Evil\\\"><img src=x onerror=window.__pwn=(window.__pwn||0)+1>\"]"
   },
   {
    "name": "security › injection via category rules › such a label is inert in the rules editor, tables and dropdown",
-   "pass": false,
-   "detail": "executed=5 injectedElements=5"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › injection via category rules › and still inert after reload (it is persisted)",
-   "pass": false,
-   "detail": "executed=1 injectedElements=1"
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
   },
   {
    "name": "security › property-name collisions › research targets called \"constructor\"/\"toString\" are summed as numbers (no NaN / function text)",
-   "pass": false,
-   "detail": "Target RP Earned constructor function Object() { [native code] }500 toString function toString() { [native code] }7"
+   "pass": true,
+   "detail": "Target RP Earned constructor 500 toString 7"
   },
   {
    "name": "security › property-name collisions › no uncaught errors in Basic with property-name data",
@@ -555,13 +555,13 @@
   },
   {
    "name": "security › property-name collisions › a map named \"constructor\" gets a proper row in the Advanced by-map table",
-   "pass": false,
-   "detail": "Map Matches Win% Avg SL Avg RP constructor NaN NaN% 0 0"
+   "pass": true,
+   "detail": "Map Matches Win% Avg SL Avg RP constructor 1 100% 22,571 4,825"
   },
   {
    "name": "security › property-name collisions › a vehicle named \"constructor\" gets a proper row in the by-vehicle table",
-   "pass": false,
-   "detail": "Vehicle Matches Time played Avg activity Play RP Kills KPz-70 1 3:06 82% 952 1 JaPz.K A2 1 0:40 0% 0 0"
+   "pass": true,
+   "detail": "Vehicle Matches Time played Avg activity Play RP Kills constructor 1 5:38 95% 2,060 0 KPz-70 1 3:06 82% 952 1 JaPz.K A2 1 0:40 0% 0 0"
   },
   {
    "name": "security › property-name collisions › no uncaught errors in Advanced with property-name data",
@@ -575,13 +575,13 @@
   },
   {
    "name": "security › malformed imports › the valid entry is still analysed and the stats contain no NaN/Infinity",
-   "pass": false,
-   "detail": ""
+   "pass": true,
+   "detail": "3MATCHES66.7%WIN RATE1,000,000,100TOTAL NET SL50TOTAL RP"
   },
   {
    "name": "security › malformed imports › absurdly long strings are clipped, not rendered in full",
    "pass": true,
-   "detail": "0 chars in one cell"
+   "detail": "398 chars in one cell"
   },
   {
    "name": "security › malformed imports › invalid JSON is rejected with a message and no uncaught error",
@@ -590,18 +590,18 @@
   },
   {
    "name": "security › tampered browser storage › Basic still loads when saved settings are the wrong type (no uncaught error)",
-   "pass": false,
-   "detail": "categoryRules.forEach is not a function | Cannot read properties of undefined (reading 'startsWith')"
+   "pass": true,
+   "detail": ""
   },
   {
    "name": "security › tampered browser storage › …and can still analyze the example log afterwards",
-   "pass": false,
-   "detail": "categoryRules.forEach is not a function | Cannot read properties of undefined (reading 'startsWith')"
+   "pass": true,
+   "detail": ""
   },
   {
    "name": "security › tampered browser storage › …and can still export an HTML report with a corrupted theme setting",
-   "pass": false,
-   "detail": "categoryRules.forEach is not a function | Cannot read properties of undefined (reading 'startsWith')"
+   "pass": true,
+   "detail": ""
   },
   {
    "name": "security › tampered browser storage › …and that report does not execute the tampered theme string",
@@ -610,28 +610,28 @@
   },
   {
    "name": "security › tampered browser storage › Advanced also loads with tampered settings (no uncaught error)",
-   "pass": false,
-   "detail": "categoryRules.forEach is not a function | Cannot read properties of undefined (reading 'startsWith') | loadState(...).forEach is not a function"
+   "pass": true,
+   "detail": ""
   },
   {
    "name": "security › resource limits › basic: a 160 KB → 160 MB gzip bomb is refused quickly with a clear message",
-   "pass": false,
-   "detail": "No importable match data found — is that a report or data file exported from this tool? (1308 ms)"
+   "pass": true,
+   "detail": "Could not read that file: That file is too large once unpacked (limit 128 MB) — it was not opened. (716 ms)"
   },
   {
    "name": "security › resource limits › advanced: a 160 KB → 160 MB gzip bomb is refused quickly with a clear message",
-   "pass": false,
-   "detail": "That file has no raw match data. Summary-only files (minimal export, HTML report) can be imported fr (1265 ms)"
+   "pass": true,
+   "detail": "Could not read that file: That file is too large once unpacked (limit 128 MB) — it was not opened. (353 ms)"
   },
   {
    "name": "security › resource limits › a single 400 KB \"match\" is analysed but not written to the archive",
-   "pass": false,
+   "pass": true,
    "detail": "392678 chars"
   },
   {
    "name": "perf › 200 matches › synthetic log parses to 200 unique matches",
    "pass": true,
-   "detail": "{\"ms\":7,\"n\":200,\"unique\":200}"
+   "detail": "{\"ms\":8.100000000093132,\"n\":200,\"unique\":200}"
   },
   {
    "name": "perf › 200 matches › archive write stores every match",
@@ -651,7 +651,7 @@
   {
    "name": "perf › 2000 matches › synthetic log parses to 2000 unique matches",
    "pass": true,
-   "detail": "{\"ms\":56.700000000186265,\"n\":2000,\"unique\":2000}"
+   "detail": "{\"ms\":65.10000000009313,\"n\":2000,\"unique\":2000}"
   },
   {
    "name": "perf › 2000 matches › archive write stores every match",
@@ -671,7 +671,7 @@
   {
    "name": "perf › 6000 matches › synthetic log parses to 6000 unique matches",
    "pass": true,
-   "detail": "{\"ms\":163.39999999990687,\"n\":6000,\"unique\":6000}"
+   "detail": "{\"ms\":178.89999999990687,\"n\":6000,\"unique\":6000}"
   },
   {
    "name": "perf › 6000 matches › archive write stores every match",
@@ -1078,7 +1078,7 @@
    "count": 67
   },
   "basic › exports › HTML report body (time stamp and nonce normalised)": {
-   "hash": "e784e1d825a7ddc5"
+   "hash": "a2f70f28c395bc62"
   },
   "basic › exports › HTML report data sections (tables and stats only)": {
    "hash": "e5ecb7d430a0a234"
@@ -1360,43 +1360,43 @@
   }
  },
  "metrics": {
-  "parser › pathological input › parse time — one 120 KB line of repeated \"Victory in the [\" (no closing bracket)": 1327.2,
-  "parser › pathological input › parse time — 12,000 short lines of \"Victory in the [x\" (no closing bracket)": 3879.5,
-  "parser › pathological input › parse time — \"Researched unit:\" followed by a 40 KB line with no colon": 2318.3,
-  "parser › pathological input › parse time — an event line that is 40,000 digits long": 25000,
-  "parser › pathological input › parse time — a 200 KB single line of plain text": 0.9,
-  "security › resource limits › decompression bomb handling time — basic": 1308,
-  "security › resource limits › decompression bomb handling time — advanced": 1265,
-  "perf › 200 matches › parse the pasted log": 7,
-  "perf › 200 matches › parse per-match detail for all matches": 29.7,
-  "perf › 200 matches › write all matches to the archive": 385.7,
-  "perf › 200 matches › read + decompress the whole archive": 229.2,
-  "perf › 200 matches › archive stats()": 4.1,
-  "perf › 200 matches › Analyze click (stats + every table)": 18.7,
-  "perf › 200 matches › Advanced: open page until first library row shows": 366,
-  "perf › 200 matches › Advanced: open page and have every insight table filled": 376,
-  "perf › 200 matches › Advanced: re-render library after a filter change": 5.2,
-  "perf › 200 matches › Advanced: open one match detail": 28.2,
-  "perf › 2000 matches › parse the pasted log": 56.7,
-  "perf › 2000 matches › parse per-match detail for all matches": 207.8,
-  "perf › 2000 matches › write all matches to the archive": 3816.4,
-  "perf › 2000 matches › read + decompress the whole archive": 2115.2,
-  "perf › 2000 matches › archive stats()": 25.6,
-  "perf › 2000 matches › Analyze click (stats + every table)": 104.4,
-  "perf › 2000 matches › Advanced: open page until first library row shows": 3007,
-  "perf › 2000 matches › Advanced: open page and have every insight table filled": 3030,
-  "perf › 2000 matches › Advanced: re-render library after a filter change": 13.6,
-  "perf › 2000 matches › Advanced: open one match detail": 14.1,
-  "perf › 6000 matches › parse the pasted log": 163.4,
-  "perf › 6000 matches › parse per-match detail for all matches": 561.5,
-  "perf › 6000 matches › write all matches to the archive": 10151.7,
-  "perf › 6000 matches › read + decompress the whole archive": 6380.7,
-  "perf › 6000 matches › archive stats()": 57.7,
-  "perf › 6000 matches › Analyze click (stats + every table)": 293.4,
-  "perf › 6000 matches › Advanced: open page until first library row shows": 8877,
-  "perf › 6000 matches › Advanced: open page and have every insight table filled": 8897,
-  "perf › 6000 matches › Advanced: re-render library after a filter change": 16.4,
-  "perf › 6000 matches › Advanced: open one match detail": 7.2
+  "parser › pathological input › parse time — one 120 KB line of repeated \"Victory in the [\" (no closing bracket)": 0.7,
+  "parser › pathological input › parse time — 12,000 short lines of \"Victory in the [x\" (no closing bracket)": 3.2,
+  "parser › pathological input › parse time — \"Researched unit:\" followed by a 40 KB line with no colon": 1.6,
+  "parser › pathological input › parse time — an event line that is 40,000 digits long": 2.9,
+  "parser › pathological input › parse time — a 200 KB single line of plain text": 0.6,
+  "security › resource limits › decompression bomb handling time — basic": 716,
+  "security › resource limits › decompression bomb handling time — advanced": 353,
+  "perf › 200 matches › parse the pasted log": 8.1,
+  "perf › 200 matches › parse per-match detail for all matches": 28.7,
+  "perf › 200 matches › write all matches to the archive": 217.2,
+  "perf › 200 matches › read + decompress the whole archive": 163.2,
+  "perf › 200 matches › archive stats()": 4.9,
+  "perf › 200 matches › Analyze click (stats + every table)": 22.5,
+  "perf › 200 matches › Advanced: open page until first library row shows": 133,
+  "perf › 200 matches › Advanced: open page and have every insight table filled": 332,
+  "perf › 200 matches › Advanced: re-render library after a filter change": 5.3,
+  "perf › 200 matches › Advanced: open one match detail": 17.3,
+  "perf › 2000 matches › parse the pasted log": 65.1,
+  "perf › 2000 matches › parse per-match detail for all matches": 251.4,
+  "perf › 2000 matches › write all matches to the archive": 2410.6,
+  "perf › 2000 matches › read + decompress the whole archive": 1707.8,
+  "perf › 2000 matches › archive stats()": 37.7,
+  "perf › 2000 matches › Analyze click (stats + every table)": 114.5,
+  "perf › 2000 matches › Advanced: open page until first library row shows": 408,
+  "perf › 2000 matches › Advanced: open page and have every insight table filled": 2483,
+  "perf › 2000 matches › Advanced: re-render library after a filter change": 15.3,
+  "perf › 2000 matches › Advanced: open one match detail": 13.4,
+  "perf › 6000 matches › parse the pasted log": 178.9,
+  "perf › 6000 matches › parse per-match detail for all matches": 671.5,
+  "perf › 6000 matches › write all matches to the archive": 6996.9,
+  "perf › 6000 matches › read + decompress the whole archive": 4931.6,
+  "perf › 6000 matches › archive stats()": 130.1,
+  "perf › 6000 matches › Analyze click (stats + every table)": 325.5,
+  "perf › 6000 matches › Advanced: open page until first library row shows": 963,
+  "perf › 6000 matches › Advanced: open page and have every insight table filled": 6927,
+  "perf › 6000 matches › Advanced: re-render library after a filter change": 15.1,
+  "perf › 6000 matches › Advanced: open one match detail": 15.2
  },
  "suites": [
   "parser",

@@ -1,0 +1,3 @@
+{
+ "basic › exports › HTML report body (time stamp and nonce normalised)": "The exported report now carries its own Content-Security-Policy meta tag, a per-export script nonce, and escaped data. With no special characters in the example data, the data sections are unchanged (see the 'data sections' snapshot)."
+}

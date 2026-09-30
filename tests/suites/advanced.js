@@ -43,6 +43,7 @@ exports.run = async ({ browser, base, t }) => {
   const details = {};
   for (const id of pick) {
     await page.click(`#libTable tr.pick[data-id="${id}"]`);
+    await page.waitForFunction(id => { const h = document.querySelector('#detailBody .detail-head'); return h && h.textContent.includes(id); }, id);
     await page.waitForSelector('#detailBody .stat-row');
     await page.evaluate(() => document.querySelectorAll('#detailBody details').forEach(d => d.open = true));
     details[id] = norm(await page.textContent('#detailBody'));
@@ -55,6 +56,7 @@ exports.run = async ({ browser, base, t }) => {
   t.scope('advanced › insights');
   t.snapshot('by-map table', await T('#mapTable'));
   await page.evaluate(() => document.querySelectorAll('#insightsSection details').forEach(d => d.open = true));
+  await page.waitForFunction(() => document.querySelectorAll('#vehicleTable tr').length > 1 && document.querySelectorAll('#eventTable tr').length > 1);
   t.snapshot('by-vehicle table', await T('#vehicleTable'));
   t.snapshot('earnings-by-event-type table', await T('#eventTable'));
 
@@ -84,6 +86,30 @@ exports.run = async ({ browser, base, t }) => {
   await page.waitForFunction(() => document.querySelectorAll('#libTable tr.pick').length === 66);
   t.check('deleting a single match leaves 66', (await count()) === 66);
   t.check('no uncaught errors during the advanced-view session', page.errs.length === 0, page.errs.join(' | '));
+
+  t.scope('advanced › older archive records');
+  { const p = await newPage(browser); await p.goto(base + 'wt-log-analyzer.html');
+    const blocks = splitBlocks(exampleLog()).slice(0, 5);
+    // put() with no summary = the shape of a record written by an older build
+    await p.evaluate(async b => { await WtDB.clear(); for (let i = 0; i < b.length; i++) { const id = (b[i].match(/Session:\s*([a-f0-9]+)/) || [])[1]; await WtDB.put(id, b[i]); } }, blocks);
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    t.check('records stored without a summary are still listed, with full detail', (await p.$$('#libTable tr.pick')).length === 5 && (await p.$$('#libTable tr.nodetail')).length === 0);
+    await p.click('#libTable tr.pick >> nth=0'); await p.waitForSelector('#detailBody .stat-row');
+    t.check('…and open in detail', /Vehicles/.test(await p.textContent('#detailBody')));
+    await p.waitForTimeout(500);
+    const upgraded = await p.evaluate(async () => { try { return (await WtDB.meta()).every(m => m.sum && m.sum.pv >= 1); } catch (e) { return false; } });
+    t.check('…and their summaries are saved, so the next visit needn\'t read the raw text', upgraded);
+    await p.ctx.close(); }
+
+  t.scope('advanced › opening does not unpack the archive');
+  { const q = await newPage(browser, { init: { fn: () => { window.__unpacks = 0; const Orig = window.DecompressionStream; window.DecompressionStream = function (f) { window.__unpacks++; return new Orig(f); }; } } });
+    // fill the archive the normal way (Analyze writes each record WITH its summary), then count gunzip calls
+    await q.goto(base + 'wt-log-analyzer.html'); await q.click('#loadExampleBtn');
+    await q.waitForFunction(() => /67 match/.test(document.getElementById('archiveNote').textContent));
+    await q.evaluate(() => { window.__unpacks = 0; });
+    await q.goto(base + 'advanced.html'); await q.waitForSelector('#libTable tr.pick');
+    t.check('opening the library (67 matches) decompresses nothing', (await q.evaluate(() => window.__unpacks)) === 0, String(await q.evaluate(() => window.__unpacks)));
+    await q.ctx.close(); }
 
   t.scope('advanced › summary-only matches');
   const s = await newPage(browser); await s.goto(base + 'wt-log-analyzer.html');
