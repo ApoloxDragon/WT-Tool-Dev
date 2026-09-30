@@ -42,4 +42,6 @@ context, so storage always starts empty.
    fixed, what regressed, which snapshots changed and how timings moved. Snapshots of the example data should stay identical unless a
    change is *meant* to alter output.
 
-`tests/baseline/pre-change.json` was taken on commit `e0bba8c`, before the security / performance work, and is committed so the comparison stays reproducible.
+A snapshot that is *supposed* to change is listed in `tests/expected-changes.json` with the reason, so the report shows it as "changed on purpose" instead of a regression.
+
+`tests/baseline/pre-change.json` was taken on commit `e0bba8c`, before the security / performance work, and is committed so the comparison stays reproducible. (It was re-recorded on that same unmodified code whenever a test itself was corrected — never on changed app code.) The latest comparison is `tests/results/post-change.comparison.md`.

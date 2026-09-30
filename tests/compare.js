@@ -1,5 +1,19 @@
 /* Compares two result files (baseline vs current) and renders a markdown report. */
+const fs = require('fs'), path = require('path');
+// Snapshots that are SUPPOSED to change, with the reason — see tests/expected-changes.json.
+function loadExpected() {
+  try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'expected-changes.json'), 'utf8')); } catch (e) { return {}; }
+}
+
 function compare(base, cur) {
+  // Only compare the suites that were actually run this time.
+  if (cur.suites) {
+    const keep = n => cur.suites.includes(n.split(' › ')[0]);
+    base = { ...base, checks: base.checks.filter(c => keep(c.name)),
+      snapshots: Object.fromEntries(Object.entries(base.snapshots).filter(([n]) => keep(n))),
+      metrics: Object.fromEntries(Object.entries(base.metrics).filter(([n]) => keep(n))) };
+  }
+  const expected = loadExpected();
   const lines = [];
   const L = s => lines.push(s);
   const regress = [];
@@ -28,7 +42,7 @@ function compare(base, cur) {
   if (removed.length) { L(`### Checks no longer run: ${removed.length}`); removed.forEach(c => L(`- ${c.name}`)); L(''); }
 
   L(`## Snapshots (behaviour on the example data)`);
-  const sameSnap = [], diffSnap = [];
+  const sameSnap = [], diffSnap = [], intended = [];
   Object.keys(base.snapshots).forEach(n => {
     const a = base.snapshots[n], b = cur.snapshots[n];
     if (!b) { diffSnap.push(`- ❌ ${n}: missing in current run`); regress.push('snapshot missing: ' + n); return; }
@@ -38,9 +52,11 @@ function compare(base, cur) {
       const changed = Object.keys({ ...a.items, ...b.items }).filter(k => a.items[k] !== b.items[k]);
       detail += ` — ${changed.length} item(s) differ: ${changed.slice(0, 6).join(', ')}${changed.length > 6 ? '…' : ''}`;
     } else if (a.preview !== undefined) detail += ` — "${a.preview}" → "${b.preview}"`;
+    if (expected[n]) { intended.push(`- 🔧 ${n}: ${detail}\n  - *intended:* ${expected[n]}`); return; }
     diffSnap.push(`- ❌ ${n}: ${detail}`); regress.push('snapshot: ' + n);
   });
-  L(`${sameSnap.length} identical, ${diffSnap.length} changed.\n`);
+  L(`${sameSnap.length} identical, ${intended.length} changed on purpose, ${diffSnap.length} changed unexpectedly.\n`);
+  intended.forEach(s => L(s));
   diffSnap.forEach(s => L(s));
   const newSnaps = Object.keys(cur.snapshots).filter(n => !base.snapshots[n]);
   if (newSnaps.length) L(`\n${newSnaps.length} new snapshot(s) not in the baseline.`);

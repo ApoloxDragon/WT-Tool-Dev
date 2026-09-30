@@ -39,7 +39,7 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.metric('Advanced: open page and have every insight table filled', Date.now() - t1);
 
     t.metric('Advanced: re-render library after a filter change', await page.evaluate(() => { const t0 = performance.now(); renderLibrary(); return performance.now() - t0; }));
-    t.metric('Advanced: open one match detail', await page.evaluate(() => { const id = library[Math.floor(library.length / 2)].m.sessionId; const t0 = performance.now(); selectMatch(id); return performance.now() - t0; }));
+    t.metric('Advanced: open one match detail', await page.evaluate(async () => { const id = library[Math.floor(library.length / 2)].m.sessionId; const t0 = performance.now(); await selectMatch(id); return performance.now() - t0; }));
     t.check('no uncaught errors at this size', page.errs.length === 0, page.errs.join(' | '));
     await page.ctx.close();
   }
