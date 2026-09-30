@@ -59,12 +59,21 @@ function parseLog(text) {
     const researched = extractTargets('Researched unit:', ['Researching progress:', 'Used items:', 'Session:']);
     const researching = extractTargets('Researching progress:', ['Used items:', 'Session:']);
 
+    // The raw block is the source of truth for the detail view and the archive.
+    // Trim anything after the Total: line so stray pasted text isn't archived.
+    let rawEnd = block.length;
+    if (lastTotal) {
+      const nl = block.indexOf('\n', lastTotal.index);
+      rawEnd = nl === -1 ? block.length : nl;
+    }
+    const raw = block.slice(0, rawEnd).replace(/\s+$/, '');
+
     const modeBase = headers[i].modeRaw.replace(/\s*#\d+$/, '').trim();
     const category = classify(modeBase);
 
     matches.push({
       result: headers[i].result, mode: modeBase, category,
-      mission: headers[i].mission, sessionId, netSL, totalRP, researched, researching, timeSec
+      mission: headers[i].mission, sessionId, netSL, totalRP, researched, researching, timeSec, raw
     });
   }
   return matches;
