@@ -468,3 +468,41 @@ details.event-sec .scroll-x { padding: 0 6px 6px; }
 @media print {
   .view-link, .filter-bar, .storage-panel, #storageSection { display: none !important; }
 }
+
+/* Tutorial */
+.tut-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.tut-btn:hover { border-color: var(--accent); }
+.tut-backdrop { position: fixed; inset: 0; z-index: 1000; background: transparent; }
+.tut-spot {
+  position: fixed;
+  z-index: 1001;
+  pointer-events: none;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 9999px rgba(3, 7, 14, 0.72);
+  transition: top 0.15s, left 0.15s, width 0.15s, height 0.15s;
+}
+.tut-card {
+  position: fixed;
+  z-index: 1002;
+  width: min(380px, calc(100vw - 24px));
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 16px 18px 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+.tut-step { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dim); }
+.tut-title { font-size: 14.5px; margin: 6px 0 8px; color: var(--accent); }
+.tut-text { font-size: 12.5px; line-height: 1.6; margin: 0 0 14px; }
+.tut-actions { display: flex; gap: 8px; align-items: center; }
+.tut-spacer { flex: 1; }
+@media (prefers-reduced-motion: reduce) { .tut-spot { transition: none; } }
+@media print { .tut-btn, .tut-backdrop, .tut-spot, .tut-card { display: none !important; } }

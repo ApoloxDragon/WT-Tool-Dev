@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>WT Session Report — 25/09/2026, 17:31:12</title>
+<style>
+  :root {
+    --bg: #0d1420; --panel: #131b2b; --panel-2: #182338;
+    --border: #26344d; --accent: #4d9fe8;
+    --text: #dbe6f2; --dim: #6f8299;
+    --win: #7fbf6a; --loss: #d16158;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:var(--bg); color:var(--text); padding:30px 16px 60px; margin:0; transition: background 0.15s, color 0.15s; }
+  .wrap { max-width:900px; margin:0 auto; }
+  .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  h1 { font-size: 20px; margin: 0 0 2px 0; }
+  .meta { color:var(--dim); font-size:12px; margin-bottom:24px; }
+  .theme-picker { display:flex; gap:6px; align-items:center; padding-top:2px; }
+  .theme-picker label { font-size:11px; color:var(--dim); margin-right:4px; }
+  .swatch { width:20px; height:20px; border:1px solid var(--border); cursor:pointer; padding:0; }
+  .swatch.active { outline:2px solid var(--text); outline-offset:2px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing:0.04em; color:var(--accent); border-bottom:1px solid var(--border); padding-bottom:6px; margin-top:28px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:8px; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--border); }
+  th { color:var(--dim); font-weight:400; font-size:11px; }
+  td.num, th.num { text-align:right; font-variant-numeric: tabular-nums; }
+  tr.win td.result { color:var(--win); }
+  tr.loss td.result { color:var(--loss); }
+  .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:8px; }
+  .stat-cell { background:var(--panel); padding:12px 10px; }
+  .stat-cell .num { font-size:18px; font-weight:700; color:var(--accent); }
+  .stat-cell .lbl { font-size:10.5px; color:var(--dim); }
+  @media print {
+    body { background:#fff !important; color:#111 !important; }
+    .theme-picker { display:none !important; }
+    .stat-cell, table, th, td { background:#fff !important; border-color:#ccc !important; }
+    .stat-cell .num, h1, h2 { color:#111 !important; }
+    .meta, th, .dim, .stat-cell .lbl { color:#555 !important; }
+    tr.win td.result { color:#2a7a2a !important; }
+    tr.loss td.result { color:#a12f2f !important; }
+  }
+</style></head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>War Thunder Session Report</h1>
+      <div class="meta">Generated 25/09/2026, 17:31:12</div>
+    </div>
+    <div class="theme-picker" id="themePicker"><label>Theme</label></div>
+  </div>
+  <h2>Overall</h2>
+  <div class="stat-row"><div class="stat-cell"><div class="num">201</div><div class="lbl">MATCHES</div></div><div class="stat-cell"><div class="num">60.7%</div><div class="lbl">WIN RATE</div></div><div class="stat-cell"><div class="num">3,671,555</div><div class="lbl">TOTAL NET SL</div></div><div class="stat-cell"><div class="num">849,360</div><div class="lbl">TOTAL RP</div></div></div>
+  <h2>Battle Type Split</h2>
+  <table>
+    <tbody><tr><th>Battle Type</th><th class="num">Matches</th><th class="num">W/L</th><th class="num">Win%</th>
+        <th class="num">Total Net SL</th><th class="num">Avg Win SL</th><th class="num">Avg Loss SL</th><th class="num">Total RP</th></tr>
+    <tr>
+      <td>Random Battles</td>
+      <td class="num">124</td>
+      <td class="num">60/64</td>
+      <td class="num">48.4%</td>
+      <td class="num">1,708,099</td>
+      <td class="num">16,640</td>
+      <td class="num">11,089</td>
+      <td class="num">414,351</td>
+    </tr><tr>
+      <td>Tank Assault</td>
+      <td class="num">77</td>
+      <td class="num">62/15</td>
+      <td class="num">80.5%</td>
+      <td class="num">1,963,456</td>
+      <td class="num">31,214</td>
+      <td class="num">1,878</td>
+      <td class="num">435,009</td>
+    </tr></tbody></table>
+  <h2>RP by Research Target</h2>
+  <table>
+    <tbody><tr><th>Target</th><th class="num">RP Earned</th></tr>
+    <tr><td>Radkampfwagen 90</td><td class="num">231,031</td></tr><tr><td>Puma</td><td class="num">180,410</td></tr><tr><td>TAM 2C</td><td class="num">96,080</td></tr><tr><td>Begleitpanzer 57</td><td class="num">71,852</td></tr><tr><td>Leopard 2K</td><td class="num">70,652</td></tr><tr><td>Leopard 2A4</td><td class="num">55,004</td></tr><tr><td>Luchs A2</td><td class="num">43,841</td></tr><tr><td>T-72M1(Germany)</td><td class="num">26,462</td></tr><tr><td>Wiesel 1A4</td><td class="num">6,287</td></tr><tr><td>Ju 87 B-2</td><td class="num">15</td></tr></tbody></table>
+  <h2>Per-Match Detail</h2>
+  <table>
+    <tr><th>Result</th><th>Category</th><th>Sub-mode</th><th>Mission</th>
+        <th class="num">Net SL</th><th class="num">RP</th><th>Target(s)</th></tr>
+    <tr class="win" data-session="73876ab00050b31" data-time="564">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Sweden</td>
+      <td class="num">22,571</td>
+      <td class="num">4,825</td>
+      <td>Leopard 2K (+5,163)</td>
+    </tr><tr class="loss" data-session="7387a0300052799" data-time="703">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Sun City</td>
+      <td class="num">5,312</td>
+      <td class="num">1,736</td>
+      <td>Leopard 2K (+1,770)</td>
+    </tr><tr class="loss" data-session="7387dfb000548e6" data-time="828">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Cargo port</td>
+      <td class="num">3,068</td>
+      <td class="num">2,646</td>
+      <td>Leopard 2K (+2,843)</td>
+    </tr><tr class="loss" data-session="738be9f00071f37" data-time="263">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">2,680</td>
+      <td class="num">1,032</td>
+      <td>Leopard 2K (+1,071)</td>
+    </tr><tr class="loss" data-session="738c0160007282e" data-time="256">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Tunisia</td>
+      <td class="num">635</td>
+      <td class="num">612</td>
+      <td>Leopard 2K (+662)</td>
+    </tr><tr class="win" data-session="738c8c200075cfa" data-time="832">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">32,719</td>
+      <td class="num">7,140</td>
+      <td>Leopard 2K (+7,140)</td>
+    </tr><tr class="loss" data-session="738db0a0007ba75" data-time="215">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Eastern Europe</td>
+      <td class="num">2,732</td>
+      <td class="num">724</td>
+      <td>Leopard 2K (+724)</td>
+    </tr><tr class="win" data-session="738dc9c0007c175" data-time="484">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Normandy</td>
+      <td class="num">3,563</td>
+      <td class="num">2,204</td>
+      <td>Leopard 2K (+2,204)</td>
+    </tr><tr class="loss" data-session="738def10007cb2e" data-time="299">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Ardennes (winter)</td>
+      <td class="num">435</td>
+      <td class="num">822</td>
+      <td>Leopard 2K (+822)</td>
+    </tr><tr class="win" data-session="738e0900007d1c7" data-time="449">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Port Novorossiysk</td>
+      <td class="num">17,391</td>
+      <td class="num">2,764</td>
+      <td>Leopard 2K (+2,977)</td>
+    </tr><tr class="loss" data-session="738e5d30007e651" data-time="482">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Alaska</td>
+      <td class="num">21,583</td>
+      <td class="num">3,689</td>
+      <td>Leopard 2K (+3,866)</td>
+    </tr><tr class="loss" data-session="738e3c60007de66" data-time="403">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Carpathians</td>
+      <td class="num">3,667</td>
+      <td class="num">1,310</td>
+      <td>Leopard 2K (+1,310)</td>
+    </tr><tr class="loss" data-session="739f39e000e28bc" data-time="957">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Test Site-2271</td>
+      <td class="num">14,886</td>
+      <td class="num">4,148</td>
+      <td>Leopard 2K (+4,148)</td>
+    </tr><tr class="loss" data-session="739ff0b000e7d34" data-time="391">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">0</td>
+      <td class="num">408</td>
+      <td>Leopard 2K (+527)</td>
+    </tr><tr class="win" data-session="73a0103000e8b84" data-time="1072">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">26,215</td>
+      <td class="num">5,480</td>
+      <td>Leopard 2K (+7,063)</td>
+    </tr><tr class="win" data-session="73a4c0000101f89" data-time="1582">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">42,165</td>
+      <td class="num">7,058</td>
+      <td>Leopard 2K (+9,175)</td>
+    </tr><tr class="loss" data-session="73b04bc00143930" data-time="479">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">78,903</td>
+      <td class="num">7,957</td>
+      <td>Leopard 2K (+8,469)</td>
+    </tr><tr class="win" data-session="73b084900145ca3" data-time="546">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Sweden</td>
+      <td class="num">14,975</td>
+      <td class="num">3,492</td>
+      <td>Leopard 2K (+3,566)</td>
+    </tr><tr class="loss" data-session="73b0b120014789b" data-time="510">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">0</td>
+      <td class="num">958</td>
+      <td>Leopard 2K (+1,035)</td>
+    </tr><tr class="loss" data-session="73b0e1d001496fd" data-time="374">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Golden Quarry</td>
+      <td class="num">14,384</td>
+      <td class="num">2,849</td>
+      <td>Leopard 2K (+2,853)</td>
+    </tr><tr class="loss" data-session="73b10300014ab8a" data-time="662">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Port Novorossiysk</td>
+      <td class="num">12,693</td>
+      <td class="num">3,148</td>
+      <td>Leopard 2K (+3,264)</td>
+    </tr><tr class="win" data-session="73b6f4900179ccc" data-time="510">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Cargo port</td>
+      <td class="num">0</td>
+      <td class="num">1,816</td>
+      <td>Radkampfwagen 90 (+1,816)</td>
+    </tr><tr class="win" data-session="73b71ac0017a8a8" data-time="737">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Attica</td>
+      <td class="num">7,499</td>
+      <td class="num">3,296</td>
+      <td>Radkampfwagen 90 (+3,296)</td>
+    </tr><tr class="win" data-session="73b769b0017bf99" data-time="440">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Arctic. Polar Base</td>
+      <td class="num">9,731</td>
+      <td class="num">2,154</td>
+      <td>Radkampfwagen 90 (+2,154)</td>
+    </tr><tr class="win" data-session="73b79020017ca30" data-time="1256">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">37,734</td>
+      <td class="num">7,388</td>
+      <td>Radkampfwagen 90 (+7,388)</td>
+    </tr><tr class="win" data-session="73b859d0017fc84" data-time="1022">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">26,071</td>
+      <td class="num">7,140</td>
+      <td>Radkampfwagen 90 (+7,140)</td>
+    </tr><tr class="loss" data-session="73b92170018264d" data-time="392">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">13,422</td>
+      <td class="num">5,329</td>
+      <td>Radkampfwagen 90 (+1,066)</td>
+    </tr><tr class="win" data-session="73c5e28001b1f46" data-time="863">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">34,218</td>
+      <td class="num">6,320</td>
+      <td>Radkampfwagen 90 (+6,320)</td>
+    </tr><tr class="win" data-session="73060d50015df60" data-time="1276">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">17,325</td>
+      <td class="num">3,776</td>
+      <td>T-72M1(Germany) (+4,909)</td>
+    </tr><tr class="win" data-session="73050d40015140c" data-time="953">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">11,320</td>
+      <td class="num">3,283</td>
+      <td>T-72M1(Germany) (+4,268)</td>
+    </tr><tr class="win" data-session="7282c2e000a1d2a" data-time="776">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">25,626</td>
+      <td class="num">6,484</td>
+      <td>T-72M1(Germany) (+8,429)</td>
+    </tr><tr class="win" data-session="7282718000a06a4" data-time="1169">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">41,301</td>
+      <td class="num">6,812</td>
+      <td>T-72M1(Germany) (+8,856)</td>
+    </tr><tr class="win" data-session="7281e7b0009e281" data-time="1576">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">40,302</td>
+      <td class="num">7,306</td>
+      <td>Begleitpanzer 57 (+7,306)</td>
+    </tr><tr class="win" data-session="72815b20009be99" data-time="1314">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">33,035</td>
+      <td class="num">7,470</td>
+      <td>Begleitpanzer 57 (+7,470)</td>
+    </tr><tr class="win" data-session="727f1d300092f97" data-time="758">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">15,741</td>
+      <td class="num">6,402</td>
+      <td>Begleitpanzer 57 (+6,402)</td>
+    </tr><tr class="loss" data-session="727ee030009212d" data-time="718">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">449</td>
+      <td class="num">1,662</td>
+      <td>Begleitpanzer 57 (+1,662)</td>
+    </tr><tr class="win" data-session="727e7b400090a23" data-time="1259">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">28,678</td>
+      <td class="num">6,530</td>
+      <td>Begleitpanzer 57 (+6,530)</td>
+    </tr><tr class="win" data-session="727de780008e9e8" data-time="1101">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">39,422</td>
+      <td class="num">7,388</td>
+      <td>Begleitpanzer 57 (+7,388)</td>
+    </tr><tr class="win" data-session="727d9ad0008d99f" data-time="925">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">25,794</td>
+      <td class="num">6,566</td>
+      <td>Begleitpanzer 57 (+6,566)</td>
+    </tr><tr class="win" data-session="7278f3b0007783d" data-time="932">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">34,638</td>
+      <td class="num">6,976</td>
+      <td>Begleitpanzer 57 (+6,976)</td>
+    </tr><tr class="loss" data-session="72789c7000755ad" data-time="1244">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">2,824</td>
+      <td class="num">2,436</td>
+      <td>Begleitpanzer 57 (+2,436)</td>
+    </tr><tr class="win" data-session="727828100072671" data-time="1528">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">29,130</td>
+      <td class="num">6,156</td>
+      <td>Begleitpanzer 57 (+6,156)</td>
+    </tr><tr class="loss" data-session="7277f9d0007136b" data-time="510">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">0</td>
+      <td class="num">930</td>
+      <td>Begleitpanzer 57 (+930)</td>
+    </tr><tr class="win" data-session="7277aef0006f426" data-time="1006">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">29,915</td>
+      <td class="num">6,238</td>
+      <td>Begleitpanzer 57 (+6,238)</td>
+    </tr><tr class="win" data-session="7266166000113db" data-time="1488">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">18,314</td>
+      <td class="num">3,776</td>
+      <td>Begleitpanzer 57 (+3,776)</td>
+    </tr><tr class="loss" data-session="725997100069ab3" data-time="1320">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">554</td>
+      <td class="num">2,016</td>
+      <td>Begleitpanzer 57 (+2,016)</td>
+    </tr><tr class="loss" data-session="73c8667001c3b57" data-time="380">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Carpathians</td>
+      <td class="num">2,061</td>
+      <td class="num">1,734</td>
+      <td>Radkampfwagen 90 (+1,734)</td>
+    </tr><tr class="loss" data-session="73c8ac8001c5831" data-time="710">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Port Novorossiysk</td>
+      <td class="num">18,913</td>
+      <td class="num">4,712</td>
+      <td>Radkampfwagen 90 (+4,712)</td>
+    </tr><tr class="win" data-session="73c8dfe001c6d63" data-time="500">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>North Holland</td>
+      <td class="num">15,268</td>
+      <td class="num">3,125</td>
+      <td>Radkampfwagen 90 (+2,915)</td>
+    </tr><tr class="win" data-session="73cac97001d326a" data-time="1210">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">32,128</td>
+      <td class="num">6,402</td>
+      <td>Radkampfwagen 90 (+6,402)</td>
+    </tr><tr class="win" data-session="73cb27c001d53b7" data-time="967">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">22,873</td>
+      <td class="num">5,992</td>
+      <td>Radkampfwagen 90 (+5,992)</td>
+    </tr><tr class="loss" data-session="73cb809001d704c" data-time="445">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">19,220</td>
+      <td class="num">2,776</td>
+      <td>Radkampfwagen 90 (+2,776)</td>
+    </tr><tr class="win" data-session="73cba8e001d7c28" data-time="1110">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">25,493</td>
+      <td class="num">7,388</td>
+      <td>Radkampfwagen 90 (+7,388)</td>
+    </tr><tr class="win" data-session="73cc13d001d99dd" data-time="1123">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">33,699</td>
+      <td class="num">7,306</td>
+      <td>Radkampfwagen 90 (+7,306)</td>
+    </tr><tr class="win" data-session="73cc980001dba0c" data-time="1279">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">38,392</td>
+      <td class="num">7,388</td>
+      <td>Radkampfwagen 90 (+7,388)</td>
+    </tr><tr class="win" data-session="73c63fd001b49ac" data-time="1227">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">36,995</td>
+      <td class="num">7,140</td>
+      <td>Radkampfwagen 90 (+7,140)</td>
+    </tr><tr class="win" data-session="73c69bd001b73ef" data-time="1043">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">33,668</td>
+      <td class="num">6,238</td>
+      <td>Radkampfwagen 90 (+6,238)</td>
+    </tr><tr class="loss" data-session="73c7c03001bf5e7" data-time="1810">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">13,709</td>
+      <td class="num">3,146</td>
+      <td>Radkampfwagen 90 (+3,146)</td>
+    </tr><tr class="loss" data-session="73c914d001c8362" data-time="506">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>European Province</td>
+      <td class="num">756</td>
+      <td class="num">1,216</td>
+      <td>Radkampfwagen 90 (+1,216)</td>
+    </tr><tr class="loss" data-session="73c9463001c97cd" data-time="759">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Abandoned Town</td>
+      <td class="num">17,936</td>
+      <td class="num">3,716</td>
+      <td>Radkampfwagen 90 (+3,516)</td>
+    </tr><tr class="win" data-session="73ca28f001cf480" data-time="560">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Carpathians</td>
+      <td class="num">24,299</td>
+      <td class="num">4,297</td>
+      <td>Radkampfwagen 90 (+860)</td>
+    </tr><tr class="win" data-session="73ca7cd001d15ad" data-time="975">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">24,257</td>
+      <td class="num">6,812</td>
+      <td>Radkampfwagen 90 (+6,812)</td>
+    </tr><tr class="win" data-session="73cfaf7001e4cb1" data-time="1146">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">32,613</td>
+      <td class="num">6,894</td>
+      <td>Radkampfwagen 90 (+6,894)</td>
+    </tr><tr class="win" data-session="73cffd5001e5ac5" data-time="1091">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">27,128</td>
+      <td class="num">6,484</td>
+      <td>Radkampfwagen 90 (+6,484)</td>
+    </tr><tr class="win" data-session="73d052f001e6a74" data-time="1438">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">32,636</td>
+      <td class="num">7,306</td>
+      <td>Radkampfwagen 90 (+7,306)</td>
+    </tr><tr class="win" data-session="73d1455001e9629" data-time="1339">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">45,211</td>
+      <td class="num">7,552</td>
+      <td>Radkampfwagen 90 (+7,552)</td>
+    </tr><tr class="win" data-session="73d2466001ec18d" data-time="969">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">24,901</td>
+      <td class="num">5,746</td>
+      <td>Radkampfwagen 90 (+5,746)</td>
+    </tr><tr class="win" data-session="73d1a62001ea72b" data-time="1234">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">31,533</td>
+      <td class="num">7,140</td>
+      <td>Radkampfwagen 90 (+7,140)</td>
+    </tr><tr class="win" data-session="73d1fcf001eb5c7" data-time="894">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">32,039</td>
+      <td class="num">6,402</td>
+      <td>Radkampfwagen 90 (+6,402)</td>
+    </tr><tr class="loss" data-session="73d3704001ef507" data-time="941">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">0</td>
+      <td class="num">1,724</td>
+      <td>Radkampfwagen 90 (+1,724)</td>
+    </tr><tr class="win" data-session="73d3b56001f0132" data-time="1548">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">33,163</td>
+      <td class="num">6,976</td>
+      <td>Radkampfwagen 90 (+6,976)</td>
+    </tr><tr class="win" data-session="73dd571002225cb" data-time="1174">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">32,137</td>
+      <td class="num">5,696</td>
+      <td>Radkampfwagen 90 (+5,338)</td>
+    </tr><tr class="win" data-session="73ddb5d00224ea8" data-time="1493">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">35,917</td>
+      <td class="num">7,388</td>
+      <td>Radkampfwagen 90 (+7,388)</td>
+    </tr><tr class="loss" data-session="73de3350022841c" data-time="334">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Cargo port</td>
+      <td class="num">17,224</td>
+      <td class="num">2,789</td>
+      <td>Radkampfwagen 90 (+2,530)</td>
+    </tr><tr class="win" data-session="73deb7d0022bd82" data-time="635">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Battle of Hürtgen Forest</td>
+      <td class="num">36,699</td>
+      <td class="num">6,116</td>
+      <td>Radkampfwagen 90 (+6,116)</td>
+    </tr><tr class="win" data-session="73deef10022d4d1" data-time="574">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Middle East</td>
+      <td class="num">13,684</td>
+      <td class="num">3,379</td>
+      <td>Radkampfwagen 90 (+3,379)</td>
+    </tr><tr class="win" data-session="73df40c0022f720" data-time="993">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">30,432</td>
+      <td class="num">6,976</td>
+      <td>Radkampfwagen 90 (+6,976)</td>
+    </tr><tr class="win" data-session="73dfce100232f58" data-time="897">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">26,600</td>
+      <td class="num">6,812</td>
+      <td>Radkampfwagen 90 (+6,812)</td>
+    </tr><tr class="win" data-session="73e06b600236728" data-time="822">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Breslau</td>
+      <td class="num">8,491</td>
+      <td class="num">3,593</td>
+      <td>Radkampfwagen 90 (+3,593)</td>
+    </tr><tr class="loss" data-session="73e0b0800237cce" data-time="814">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>European Province</td>
+      <td class="num">9,263</td>
+      <td class="num">3,052</td>
+      <td>Radkampfwagen 90 (+3,052)</td>
+    </tr><tr class="win" data-session="73e0f0400238f53" data-time="623">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Attica</td>
+      <td class="num">10,198</td>
+      <td class="num">9,508</td>
+      <td>Radkampfwagen 90 (+9,508)</td>
+    </tr><tr class="win" data-session="73e127400239e43" data-time="1293">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">44,661</td>
+      <td class="num">7,470</td>
+      <td>Radkampfwagen 90 (+7,470)</td>
+    </tr><tr class="loss" data-session="73e2be60023f69c" data-time="933">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">1</td>
+      <td class="num">1,744</td>
+      <td>Radkampfwagen 90 (+1,744)</td>
+    </tr><tr class="win" data-session="73e30aa0024048c" data-time="873">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">24,970</td>
+      <td class="num">6,976</td>
+      <td>Radkampfwagen 90 (+6,180)</td>
+    </tr><tr class="loss" data-session="73e386300241a9a" data-time="413">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">0</td>
+      <td class="num">834</td>
+      <td>TAM 2C (+834)</td>
+    </tr><tr class="win" data-session="73e3ee900242d4e" data-time="1167">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">22,744</td>
+      <td class="num">6,238</td>
+      <td>TAM 2C (+6,238)</td>
+    </tr><tr class="win" data-session="73e43ba00243b2c" data-time="806">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">37,137</td>
+      <td class="num">6,566</td>
+      <td>TAM 2C (+6,566)</td>
+    </tr><tr class="win" data-session="73e478900244600" data-time="1161">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">29,892</td>
+      <td class="num">7,552</td>
+      <td>TAM 2C (+7,552)</td>
+    </tr><tr class="win" data-session="73e4e030024595e" data-time="996">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">29,087</td>
+      <td class="num">7,224</td>
+      <td>TAM 2C (+7,224)</td>
+    </tr><tr class="win" data-session="73e5323002468d0" data-time="927">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">30,408</td>
+      <td class="num">7,058</td>
+      <td>TAM 2C (+7,058)</td>
+    </tr><tr class="win" data-session="73e5ad600247fe0" data-time="1303">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">32,952</td>
+      <td class="num">7,470</td>
+      <td>TAM 2C (+7,470)</td>
+    </tr><tr class="win" data-session="73e611d00249271" data-time="804">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">30,698</td>
+      <td class="num">6,402</td>
+      <td>TAM 2C (+6,402)</td>
+    </tr><tr class="win" data-session="73e64e800249dbf" data-time="1257">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">24,616</td>
+      <td class="num">7,366</td>
+      <td>TAM 2C (+7,366)</td>
+    </tr><tr class="win" data-session="73e6b0f0024af92" data-time="1284">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">42,463</td>
+      <td class="num">7,058</td>
+      <td>TAM 2C (+7,058)</td>
+    </tr><tr class="win" data-session="73e70450024be31" data-time="1132">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">32,350</td>
+      <td class="num">6,648</td>
+      <td>TAM 2C (+6,648)</td>
+    </tr><tr class="win" data-session="73f510e00296bfc" data-time="1035">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>Test Site-2271</td>
+      <td class="num">13,472</td>
+      <td class="num">5,906</td>
+      <td>TAM 2C (+5,906)</td>
+    </tr><tr class="win" data-session="73f56a800298e9e" data-time="867">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td></td>
+      <td>European Province</td>
+      <td class="num">9,454</td>
+      <td class="num">3,290</td>
+      <td>TAM 2C (+3,290)</td>
+    </tr><tr class="loss" data-session="73f5f600029be73" data-time="796">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">3,524</td>
+      <td class="num">2,352</td>
+      <td>TAM 2C (+2,352)</td>
+    </tr><tr class="win" data-session="73f9ece002aa613" data-time="903">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">27,505</td>
+      <td class="num">7,058</td>
+      <td>TAM 2C (+7,058)</td>
+    </tr><tr class="win" data-session="73fa339002ab506" data-time="1036">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">42,403</td>
+      <td class="num">7,058</td>
+      <td>TAM 2C (+7,058)</td>
+    </tr><tr class="loss" data-session="740e6a500319f36" data-time="603">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Maginot Line</td>
+      <td class="num">0</td>
+      <td class="num">930</td>
+      <td>Wiesel 1A4 (+279)</td>
+    </tr><tr class="win" data-session="740eaea0031ad8b" data-time="527">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Ardennes</td>
+      <td class="num">11,666</td>
+      <td class="num">3,171</td>
+      <td>Wiesel 1A4 (+951)</td>
+    </tr><tr class="win" data-session="740edb30031b715" data-time="427">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>North Holland</td>
+      <td class="num">10,659</td>
+      <td class="num">5,851</td>
+      <td>Wiesel 1A4 (+1,755)</td>
+    </tr><tr class="win" data-session="740f0400031bfa4" data-time="1113">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">41,417</td>
+      <td class="num">6,894</td>
+      <td>Wiesel 1A4 (+2,068)</td>
+    </tr><tr class="loss" data-session="74102f6003201ee" data-time="430">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Jungle</td>
+      <td class="num">3,272</td>
+      <td class="num">1,350</td>
+      <td>Wiesel 1A4 (+460)</td>
+    </tr><tr class="win" data-session="741054c00320a42" data-time="1196">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">38,989</td>
+      <td class="num">7,058</td>
+      <td>Wiesel 1A4 (+774)</td>
+    </tr><tr class="loss" data-session="7410a4800321c35" data-time="673">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Arctic. Polar Base</td>
+      <td class="num">21,063</td>
+      <td class="num">5,072</td>
+      <td>Luchs A2 (+2,412)</td>
+    </tr><tr class="loss" data-session="7410e12003229c4" data-time="459">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Alaska</td>
+      <td class="num">12,682</td>
+      <td class="num">2,867</td>
+      <td>Luchs A2 (+797)</td>
+    </tr><tr class="win" data-session="74110340032312a" data-time="717">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Campania</td>
+      <td class="num">10,870</td>
+      <td class="num">2,186</td>
+      <td>Luchs A2 (+1,334)</td>
+    </tr><tr class="win" data-session="74113ae00323d16" data-time="925">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">40,560</td>
+      <td class="num">6,812</td>
+      <td>Luchs A2 (+2,044)</td>
+    </tr><tr class="loss" data-session="74117bf00324ada" data-time="1094">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Ardennes</td>
+      <td class="num">4,102</td>
+      <td class="num">2,188</td>
+      <td>Luchs A2 (+656)</td>
+    </tr><tr class="loss" data-session="7411fe8003266d6" data-time="382">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Normandy</td>
+      <td class="num">14,987</td>
+      <td class="num">2,887</td>
+      <td>Luchs A2 (+923)</td>
+    </tr><tr class="loss" data-session="741217f00326ca5" data-time="550">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Darwin Hill</td>
+      <td class="num">10,665</td>
+      <td class="num">2,460</td>
+      <td>Luchs A2 (+750)</td>
+    </tr><tr class="win" data-session="7412439003276d3" data-time="534">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Port Novorossiysk</td>
+      <td class="num">17,885</td>
+      <td class="num">3,417</td>
+      <td>Luchs A2 (+2,186)</td>
+    </tr><tr class="win" data-session="741269100327f6c" data-time="1131">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Tunisia</td>
+      <td class="num">23,279</td>
+      <td class="num">7,646</td>
+      <td>Luchs A2 (+2,293)</td>
+    </tr><tr class="loss" data-session="7412cd9003296a9" data-time="984">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Campania</td>
+      <td class="num">16,187</td>
+      <td class="num">3,893</td>
+      <td>Luchs A2 (+2,073)</td>
+    </tr><tr class="win" data-session="74131e50032a951" data-time="1183">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Sinai</td>
+      <td class="num">27,774</td>
+      <td class="num">7,218</td>
+      <td>Luchs A2 (+2,173)</td>
+    </tr><tr class="loss" data-session="741dead0036e99e" data-time="684">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Arctic. Pier</td>
+      <td class="num">13,366</td>
+      <td class="num">3,254</td>
+      <td>Luchs A2 (+2,215)</td>
+    </tr><tr class="loss" data-session="741e21c003703aa" data-time="1017">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Campania</td>
+      <td class="num">24,229</td>
+      <td class="num">5,570</td>
+      <td>Luchs A2 (+1,671)</td>
+    </tr><tr class="win" data-session="741e6ca0037270e" data-time="634">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Middle East</td>
+      <td class="num">23,557</td>
+      <td class="num">5,205</td>
+      <td>Luchs A2 (+1,561)</td>
+    </tr><tr class="win" data-session="741eaa40037448d" data-time="587">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Spaceport</td>
+      <td class="num">15,147</td>
+      <td class="num">2,152</td>
+      <td>Puma (+1,942)</td>
+    </tr><tr class="loss" data-session="741ed81003759d0" data-time="558">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fields of Normandy</td>
+      <td class="num">1,859</td>
+      <td class="num">1,800</td>
+      <td>Puma (+1,800)</td>
+    </tr><tr class="win" data-session="741f0fa00377332" data-time="601">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Finland</td>
+      <td class="num">11,620</td>
+      <td class="num">2,874</td>
+      <td>Puma (+2,874)</td>
+    </tr><tr class="loss" data-session="741f3b2003786c7" data-time="260">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Golden Quarry</td>
+      <td class="num">168</td>
+      <td class="num">777</td>
+      <td>Puma (+777)</td>
+    </tr><tr class="win" data-session="7436c02000105c8" data-time="658">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Golden Quarry</td>
+      <td class="num">6,892</td>
+      <td class="num">1,674</td>
+      <td>Puma (+1,674)</td>
+    </tr><tr class="loss" data-session="7436f1e000114ea" data-time="512">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Red Desert</td>
+      <td class="num">7,166</td>
+      <td class="num">2,558</td>
+      <td>Puma (+2,558)</td>
+    </tr><tr class="win" data-session="74371f0000121e9" data-time="513">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Eastern Europe</td>
+      <td class="num">19,861</td>
+      <td class="num">3,450</td>
+      <td>Puma (+3,450)</td>
+    </tr><tr class="win" data-session="743747c00012d79" data-time="827">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Finland</td>
+      <td class="num">29,448</td>
+      <td class="num">6,580</td>
+      <td>Puma (+6,380)</td>
+    </tr><tr class="win" data-session="74378ad00013f1a" data-time="482">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Ardennes</td>
+      <td class="num">23,093</td>
+      <td class="num">3,698</td>
+      <td>Puma (+3,698)</td>
+    </tr><tr class="loss" data-session="744f38a0009ef82" data-time="558">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Poland (winter)</td>
+      <td class="num">9,484</td>
+      <td class="num">1,532</td>
+      <td>Puma (+613)</td>
+    </tr><tr class="win" data-session="744f69f0009f9e0" data-time="746">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Test Site-2271</td>
+      <td class="num">16,672</td>
+      <td class="num">3,660</td>
+      <td>Puma (+1,464)</td>
+    </tr><tr class="win" data-session="744fa89000a0753" data-time="489">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Alaska</td>
+      <td class="num">1,793</td>
+      <td class="num">1,712</td>
+      <td>Puma (+685)</td>
+    </tr><tr class="loss" data-session="744fdb4000a11c6" data-time="548">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Normandy</td>
+      <td class="num">10,346</td>
+      <td class="num">2,708</td>
+      <td>Puma (+1,083)</td>
+    </tr><tr class="loss" data-session="7450169000a1df2" data-time="427">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Tunisia</td>
+      <td class="num">9,843</td>
+      <td class="num">2,526</td>
+      <td>Puma (+2,526)</td>
+    </tr><tr class="loss" data-session="74503dc000a25c8" data-time="785">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>European Province</td>
+      <td class="num">19,576</td>
+      <td class="num">4,090</td>
+      <td>Puma (+4,090)</td>
+    </tr><tr class="win" data-session="745070b000a2f80" data-time="421">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fields of Poland (winter)</td>
+      <td class="num">11,865</td>
+      <td class="num">2,384</td>
+      <td>Puma (+2,384)</td>
+    </tr><tr class="win" data-session="7450909000a3589" data-time="714">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Battle of Hürtgen Forest</td>
+      <td class="num">13,663</td>
+      <td class="num">3,716</td>
+      <td>Puma (+3,716)</td>
+    </tr><tr class="win" data-session="7450e5a000a4580" data-time="556">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Darwin Hill</td>
+      <td class="num">23,780</td>
+      <td class="num">5,064</td>
+      <td>Puma (+5,064)</td>
+    </tr><tr class="win" data-session="7451557000a5ae1" data-time="672">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Cargo port</td>
+      <td class="num">56,140</td>
+      <td class="num">7,855</td>
+      <td>Puma (+7,855)</td>
+    </tr><tr class="loss" data-session="745125b000a5186" data-time="646">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fields of Normandy</td>
+      <td class="num">796</td>
+      <td class="num">2,124</td>
+      <td>Puma (+2,124)</td>
+    </tr><tr class="win" data-session="745cd3a000ddce7" data-time="491">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Red Desert</td>
+      <td class="num">0</td>
+      <td class="num">1,382</td>
+      <td>Puma (+1,382)</td>
+    </tr><tr class="win" data-session="745cf86000dec77" data-time="475">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>American Desert</td>
+      <td class="num">14,967</td>
+      <td class="num">3,304</td>
+      <td>Puma (+3,304)</td>
+    </tr><tr class="loss" data-session="745d1dc000dfc10" data-time="533">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Aral Sea</td>
+      <td class="num">0</td>
+      <td class="num">1,374</td>
+      <td>Puma (+1,374)</td>
+    </tr><tr class="win" data-session="745d445000e0c30" data-time="740">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Red Desert</td>
+      <td class="num">7,209</td>
+      <td class="num">3,795</td>
+      <td>Puma (+3,795)</td>
+    </tr><tr class="win" data-session="745d771000e211a" data-time="695">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Sun City</td>
+      <td class="num">2,435</td>
+      <td class="num">3,368</td>
+      <td>Puma (+3,368)</td>
+    </tr><tr class="win" data-session="745daab000e36bb" data-time="977">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Kursk</td>
+      <td class="num">38,553</td>
+      <td class="num">6,730</td>
+      <td>Puma (+6,730)</td>
+    </tr><tr class="win" data-session="745e747000e85fb" data-time="457">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fulda</td>
+      <td class="num">3,846</td>
+      <td class="num">2,618</td>
+      <td>Puma (+2,618)</td>
+    </tr><tr class="loss" data-session="745e9ac000e93ee" data-time="495">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Port Novorossiysk</td>
+      <td class="num">12,322</td>
+      <td class="num">2,676</td>
+      <td>Puma (+2,676)</td>
+    </tr><tr class="loss" data-session="745ef36000eb2bd" data-time="401">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Second battle of El Alamein</td>
+      <td class="num">6,332</td>
+      <td class="num">1,566</td>
+      <td>Puma (+1,566)</td>
+    </tr><tr class="win" data-session="745f151000ebd9b" data-time="981">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Cargo port</td>
+      <td class="num">34,654</td>
+      <td class="num">7,552</td>
+      <td>Puma (+7,552)</td>
+    </tr><tr class="loss" data-session="745f8f5000ee186" data-time="616">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">0</td>
+      <td class="num">756</td>
+      <td>Puma (+756)</td>
+    </tr><tr class="loss" data-session="745fbec000eee29" data-time="1009">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">0</td>
+      <td class="num">1,988</td>
+      <td>Puma (+1,988)</td>
+    </tr><tr class="win" data-session="746043b000f0e8a" data-time="546">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>American Desert</td>
+      <td class="num">0</td>
+      <td class="num">1,610</td>
+      <td>Puma (+1,304)</td>
+    </tr><tr class="loss" data-session="74608e8000f1f03" data-time="803">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Darwin Hill</td>
+      <td class="num">4,344</td>
+      <td class="num">3,440</td>
+      <td>Puma (+3,440)</td>
+    </tr><tr class="loss" data-session="7460c9e000f2b4f" data-time="581">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Vietnam</td>
+      <td class="num">3,070</td>
+      <td class="num">1,873</td>
+      <td>Puma (+1,873)</td>
+    </tr><tr class="loss" data-session="7460f4d000f33e7" data-time="497">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>North Holland</td>
+      <td class="num">39,132</td>
+      <td class="num">2,684</td>
+      <td>Puma (+1,898)</td>
+    </tr><tr class="loss" data-session="74611e7000f3c16" data-time="504">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fields of Normandy</td>
+      <td class="num">11,662</td>
+      <td class="num">2,330</td>
+      <td>Puma (+2,130)</td>
+    </tr><tr class="loss" data-session="7461545000f4679" data-time="167">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Iberian Castle</td>
+      <td class="num">1,202</td>
+      <td class="num">538</td>
+      <td>Puma (+498)</td>
+    </tr><tr class="loss" data-session="746169e000f4a75" data-time="210">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Alaska</td>
+      <td class="num">0</td>
+      <td class="num">546</td>
+      <td>Puma (+546)</td>
+    </tr><tr class="win" data-session="746179a000f4d7e" data-time="924">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Second battle of El Alamein</td>
+      <td class="num">15,189</td>
+      <td class="num">6,571</td>
+      <td>Puma (+6,571)</td>
+    </tr><tr class="loss" data-session="74623f1000f714a" data-time="821">
+      <td class="result">Defeat</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">3,012</td>
+      <td class="num">670</td>
+      <td>Puma (+133)</td>
+    </tr><tr class="win" data-session="7461f7b000f645f" data-time="1014">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Middle East</td>
+      <td class="num">19,196</td>
+      <td class="num">5,717</td>
+      <td>Puma (+5,717)</td>
+    </tr><tr class="win" data-session="74736a10014150c" data-time="873">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Japan</td>
+      <td class="num">13,922</td>
+      <td class="num">4,340</td>
+      <td>Puma (+2,094)</td>
+    </tr><tr class="win" data-session="7473b6c00142f8f" data-time="1342">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Fulda</td>
+      <td class="num">27,198</td>
+      <td class="num">5,818</td>
+      <td>Puma (+5,818)</td>
+    </tr><tr class="win" data-session="747497d0014746c" data-time="382">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Iberian Castle</td>
+      <td class="num">21,411</td>
+      <td class="num">2,302</td>
+      <td>Puma (+2,102)</td>
+    </tr><tr class="win" data-session="7474b8300147d30" data-time="430">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Sweden</td>
+      <td class="num">16,095</td>
+      <td class="num">2,638</td>
+      <td>Puma (+2,638)</td>
+    </tr><tr class="loss" data-session="7475d3e0014bdc7" data-time="689">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Normandy</td>
+      <td class="num">12,450</td>
+      <td class="num">3,714</td>
+      <td>Puma (+3,714)</td>
+    </tr><tr class="loss" data-session="74760ec0014c91b" data-time="623">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Sinai</td>
+      <td class="num">11,049</td>
+      <td class="num">3,020</td>
+      <td>Puma (+3,020)</td>
+    </tr><tr class="loss" data-session="74763db0014d217" data-time="508">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Poland (winter)</td>
+      <td class="num">0</td>
+      <td class="num">1,012</td>
+      <td>Puma (+1,012)</td>
+    </tr><tr class="win" data-session="74766280014d8ab" data-time="510">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Sands of Sinai</td>
+      <td class="num">17,132</td>
+      <td class="num">3,836</td>
+      <td>Puma (+3,836)</td>
+    </tr><tr class="win" data-session="747687b0014df58" data-time="381">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Port Novorossiysk</td>
+      <td class="num">9,052</td>
+      <td class="num">2,254</td>
+      <td>Puma (+2,254)</td>
+    </tr><tr class="win" data-session="7476a5b0014e4b2" data-time="580">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Breslau</td>
+      <td class="num">32,729</td>
+      <td class="num">5,532</td>
+      <td>Puma (+5,332)</td>
+    </tr><tr class="loss" data-session="7478c990015469a" data-time="638">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Surroundings of Volokolamsk</td>
+      <td class="num">8,453</td>
+      <td class="num">1,524</td>
+      <td>Puma (+1,524)</td>
+    </tr><tr class="win" data-session="7478f4200154e1e" data-time="723">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Sun City</td>
+      <td class="num">13,753</td>
+      <td class="num">4,662</td>
+      <td>Puma (+4,662)</td>
+    </tr><tr class="loss" data-session="747937300155a61" data-time="461">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Middle East</td>
+      <td class="num">7,580</td>
+      <td class="num">2,368</td>
+      <td>Puma (+2,368)</td>
+    </tr><tr class="loss" data-session="74795d30015615a" data-time="609">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Cargo port</td>
+      <td class="num">4,114</td>
+      <td class="num">2,980</td>
+      <td>Puma (+2,980)</td>
+    </tr><tr class="loss" data-session="74798470015685d" data-time="227">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Surroundings of Volokolamsk</td>
+      <td class="num">5,164</td>
+      <td class="num">1,196</td>
+      <td>Puma (+1,196)</td>
+    </tr><tr class="win" data-session="74799c900156cc6" data-time="577">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Abandoned Town</td>
+      <td class="num">17,869</td>
+      <td class="num">3,650</td>
+      <td>Puma (+3,650)</td>
+    </tr><tr class="win" data-session="7479e7900157a2b" data-time="663">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Vietnam</td>
+      <td class="num">23,582</td>
+      <td class="num">5,174</td>
+      <td>Puma (+5,174)</td>
+    </tr><tr class="win" data-session="747a16800158298" data-time="1221">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Port Novorossiysk</td>
+      <td class="num">40,547</td>
+      <td class="num">9,260</td>
+      <td>Puma (+9,060)</td>
+    </tr><tr class="loss" data-session="749d310001f186f" data-time="558">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Finland</td>
+      <td class="num">14,152</td>
+      <td class="num">2,635</td>
+      <td>Luchs A2 (+2,635)</td>
+    </tr><tr class="win" data-session="749d617001f2b0c" data-time="544">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Breslau</td>
+      <td class="num">12,193</td>
+      <td class="num">2,974</td>
+      <td>Luchs A2 (+2,974)</td>
+    </tr><tr class="loss" data-session="749d8d3001f3b41" data-time="913">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Cargo port</td>
+      <td class="num">7,364</td>
+      <td class="num">3,086</td>
+      <td>Luchs A2 (+2,882)</td>
+    </tr><tr class="loss" data-session="749dd0d001f535c" data-time="513">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Aral Sea</td>
+      <td class="num">6,451</td>
+      <td class="num">1,970</td>
+      <td>Luchs A2 (+1,770)</td>
+    </tr><tr class="loss" data-session="749e010001f63f7" data-time="733">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Battle</td>
+      <td>Middle East</td>
+      <td class="num">23,646</td>
+      <td class="num">4,714</td>
+      <td>Luchs A2 (+4,040)</td>
+    </tr><tr class="loss" data-session="749e3e9001f7833" data-time="485">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Sinai</td>
+      <td class="num">16,161</td>
+      <td class="num">3,239</td>
+      <td>Luchs A2 (+2,983)</td>
+    </tr><tr class="loss" data-session="749e689001f850a" data-time="600">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Mozdok</td>
+      <td class="num">25,437</td>
+      <td class="num">4,055</td>
+      <td>Luchs A2 (+3,469)</td>
+    </tr><tr class="loss" data-session="749ea14001f95ec" data-time="411">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Fields of Poland</td>
+      <td class="num">0</td>
+      <td class="num">1,014</td>
+      <td>Leopard 2A4 (+913)</td>
+    </tr><tr class="loss" data-session="749fa9c001fd77e" data-time="840">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Flanders</td>
+      <td class="num">11,888</td>
+      <td class="num">2,640</td>
+      <td>Leopard 2A4 (+2,640)</td>
+    </tr><tr class="win" data-session="749fec7001fe588" data-time="722">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Port Novorossiysk</td>
+      <td class="num">29,196</td>
+      <td class="num">5,870</td>
+      <td>Leopard 2A4 (+5,670)</td>
+    </tr><tr class="win" data-session="74a021b001ff020" data-time="694">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Middle East</td>
+      <td class="num">28,983</td>
+      <td class="num">6,030</td>
+      <td>Leopard 2A4 (+6,030)</td>
+    </tr><tr class="win" data-session="74a05de001ffbdc" data-time="433">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Abandoned Factory</td>
+      <td class="num">8,155</td>
+      <td class="num">2,538</td>
+      <td>Leopard 2A4 (+2,538)</td>
+    </tr><tr class="win" data-session="74a3b620020a363" data-time="557">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Tunisia</td>
+      <td class="num">40,401</td>
+      <td class="num">6,418</td>
+      <td>Leopard 2A4 (+6,418)</td>
+    </tr><tr class="win" data-session="74a40c40020b712" data-time="663">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Maginot Line</td>
+      <td class="num">7,186</td>
+      <td class="num">2,980</td>
+      <td>Leopard 2A4 (+2,980)</td>
+    </tr><tr class="win" data-session="74a43a70020c1b7" data-time="756">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Middle East</td>
+      <td class="num">18,970</td>
+      <td class="num">4,774</td>
+      <td>Leopard 2A4 (+4,774)</td>
+    </tr><tr class="win" data-session="74a46d80020cd2b" data-time="530">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Spaceport</td>
+      <td class="num">13,529</td>
+      <td class="num">3,918</td>
+      <td>Leopard 2A4 (+3,918)</td>
+    </tr><tr class="loss" data-session="74a490c0020d516" data-time="438">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Second battle of El Alamein</td>
+      <td class="num">16,551</td>
+      <td class="num">3,175</td>
+      <td>Leopard 2A4 (+3,175)</td>
+    </tr><tr class="loss" data-session="74a4b540020dd50" data-time="342">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Test Site-2271</td>
+      <td class="num">9,495</td>
+      <td class="num">2,128</td>
+      <td>Leopard 2A4 (+2,128)</td>
+    </tr><tr class="win" data-session="74a4cfd0020e302" data-time="359">
+      <td class="result">Victory</td>
+      <td>Random Battles</td>
+      <td>Conquest</td>
+      <td>Abandoned Town</td>
+      <td class="num">14,919</td>
+      <td class="num">2,884</td>
+      <td>Leopard 2A4 (+2,884)</td>
+    </tr><tr class="loss" data-session="74a4ee20020e9ad" data-time="989">
+      <td class="result">Defeat</td>
+      <td>Random Battles</td>
+      <td>Domination</td>
+      <td>Attica</td>
+      <td class="num">16,235</td>
+      <td class="num">4,760</td>
+      <td>Ju 87 B-2 (+15), Leopard 2A4 (+4,452)</td>
+    </tr><tr class="win" data-session="74a543f0020fba1" data-time="1062">
+      <td class="result">Victory</td>
+      <td>Tank Assault</td>
+      <td></td>
+      <td>Mozdok</td>
+      <td class="num">33,504</td>
+      <td class="num">6,484</td>
+      <td>Leopard 2A4 (+6,484)</td>
+    </tr></table>
+</div>
+<script>
+  const THEMES = {"blue":{"bg":"#0d1420","panel":"#131b2b","panel2":"#182338","border":"#26344d","accent":"#4d9fe8","text":"#dbe6f2","dim":"#6f8299"},"amber":{"bg":"#12130d","panel":"#1a1c14","panel2":"#21231a","border":"#3a3c2c","accent":"#d9a441","text":"#e8e4d5","dim":"#8b8d78"},"slate":{"bg":"#16181c","panel":"#1e2126","panel2":"#262a30","border":"#383d44","accent":"#c9ced6","text":"#e4e7ea","dim":"#7d848d"},"forest":{"bg":"#0f1712","panel":"#16211a","panel2":"#1c2921","border":"#2e402f","accent":"#6bbf7a","text":"#dcead9","dim":"#7b9a80"}};
+  let currentTheme = 'blue';
+  function applyTheme(name) {
+    const t = THEMES[name]; if (!t) return;
+    const root = document.documentElement.style;
+    root.setProperty('--bg', t.bg); root.setProperty('--panel', t.panel);
+    root.setProperty('--panel-2', t.panel2); root.setProperty('--border', t.border);
+    root.setProperty('--accent', t.accent); root.setProperty('--text', t.text); root.setProperty('--dim', t.dim);
+    currentTheme = name;
+    document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
+  }
+  const picker = document.getElementById('themePicker');
+  Object.entries(THEMES).forEach(([name, t]) => {
+    const btn = document.createElement('button');
+    btn.className = 'swatch' + (name === currentTheme ? ' active' : '');
+    btn.style.background = t.accent;
+    btn.dataset.theme = name;
+    btn.title = name;
+    btn.addEventListener('click', () => applyTheme(name));
+    picker.appendChild(btn);
+  });
+</script>
+</body></html>
