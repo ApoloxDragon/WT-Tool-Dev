@@ -1,45 +1,64 @@
 /* ---------- Advanced view ---------- */
 // Everything here is rebuilt from the raw archive (WtDB): the library is the
 // archive re-parsed, the detail panel re-derives events from the raw block.
-// Depends on: WtDB (db.js), parseLog (parser.js), parseDetail (detail-parser.js),
-// computeCategoryStats/formatTime (math.js), raw-export.js helpers.
+// Depends on: WtDB (db.js), parseLog/summaryOf/SUMMARY_VERSION (parser.js), classify (categories.js), parseDetail (detail-parser.js),
+// computeCategoryStats/formatTime (math.js), raw-export.js helpers, esc (util.js).
 
-let library = [];                 // [{ m: match summary, hasRaw }]
-const detailCache = new Map();    // sessionId -> parseDetail() result
+let library = [];                 // [{ m: match summary, hasRaw }] — built from stored summaries, no raw text
+const detailCache = new Map();    // sessionId -> { raw, detail } (raw text is fetched only when a match is opened)
+let detailInsights = null;        // memoised promise of the vehicle / event-type totals
 let selectedId = null;
 const ROW_CAP = 500;
 let showAllRows = false;
 
-const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g,
-  c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = n => (Number(n) || 0).toLocaleString();
 const el = id => document.getElementById(id);
 // Session IDs are fixed-width hex that grows with time, so they sort chronologically.
 const cmpId = (a, b) => (a.length - b.length) || (a < b ? -1 : a > b ? 1 : 0);
 
-function getDetail(entry) {
+// Raw text and parsed detail for one archived match, fetched on demand.
+async function getRawAndDetail(entry) {
   if (!entry.hasRaw) return null;
   const id = entry.m.sessionId;
-  if (!detailCache.has(id)) detailCache.set(id, parseDetail(entry.m.raw));
+  if (!detailCache.has(id)) {
+    const raw = await WtDB.get(id);
+    detailCache.set(id, raw == null ? null : { raw, detail: parseDetail(raw) });
+  }
   return detailCache.get(id);
 }
 
 /* ---------- Library ---------- */
+// The list is built from the small summary stored with every archived match, so
+// opening this page never decompresses the archive. Matches archived without a
+// current summary (older builds, the localStorage fallback) are read and parsed
+// once, and the summary is saved for next time.
 async function loadLibrary() {
-  const blocks = await WtDB.all();
-  const parsed = blocks.length ? parseLog(blocks.map(b => b.text).join('\n\n')) : [];
+  const metas = await WtDB.meta();
   const byId = new Map();
-  parsed.forEach(m => {
-    if (!m.sessionId.startsWith('noid-') && !byId.has(m.sessionId)) byId.set(m.sessionId, { m, hasRaw: true });
+  const stale = [];
+  metas.forEach(meta => {
+    const s = meta.sum;
+    // category is derived now, so edits to the category rules apply to old matches too
+    const m = (s && s.pv === SUMMARY_VERSION && typeof s.mode === 'string') ? sanitizeMatch({ ...s, sessionId: meta.id, category: classify(s.mode) }) : null;
+    if (m) byId.set(meta.id, { m, hasRaw: true }); else stale.push(meta.id);
   });
+  if (stale.length) {
+    const blocks = await WtDB.getMany(stale);
+    const parsed = blocks.length ? parseLog(blocks.map(b => b.text).join('\n\n')) : [];
+    const pairs = [];
+    parsed.forEach(pm => {
+      const m = sanitizeMatch(pm);
+      if (m && !byId.has(m.sessionId)) { byId.set(m.sessionId, { m, hasRaw: true }); pairs.push([m.sessionId, summaryOf(pm)]); }
+    });
+    WtDB.setSummaries(pairs); // saved in the background
+  }
   // Summary-only matches from older minimal exports / HTML reports: listed, but no detail.
-  loadState('importedMatches', []).forEach(m => {
-    if (m && m.sessionId && !byId.has(m.sessionId)) {
-      byId.set(m.sessionId, { m: Object.assign({ researched: [], researching: [], timeSec: 0 }, m), hasRaw: false });
-    }
+  loadState('importedMatches', [], sanitizeMatchList).forEach(m => {
+    if (m && m.sessionId && !byId.has(m.sessionId)) byId.set(m.sessionId, { m, hasRaw: false });
   });
   library = [...byId.values()];
   detailCache.clear();
+  detailInsights = null;
 }
 
 function filteredLibrary() {
@@ -152,7 +171,7 @@ function renderEventSection(sec) {
   </details>`;
 }
 
-function renderDetail(entry) {
+async function renderDetail(entry) {
   const { m } = entry;
   const body = el('detailBody');
   const head = `<div class="detail-head ${m.result === 'Victory' ? 'win' : 'loss'}">
@@ -166,7 +185,13 @@ function renderDetail(entry) {
     return;
   }
 
-  const d = getDetail(entry);
+  const loaded = await getRawAndDetail(entry);
+  if (selectedId !== m.sessionId) return; // another match was opened while this one loaded
+  if (!loaded) {
+    body.innerHTML = head + '<div class="empty" style="margin-top:12px;">This match\'s stored text could not be read. Delete it from the archive and re-import it.</div>';
+    return;
+  }
+  const { raw, detail: d } = loaded;
   const f = d.footer;
   const costs = (f.repairSL || 0) + (f.ammoSL || 0) + (f.respawnSL || 0);
   const tile = (num, lbl) => `<div class="stat-cell"><div class="num">${num}</div><div class="lbl">${lbl}</div></div>`;
@@ -231,7 +256,7 @@ function renderDetail(entry) {
 
     ${d.unparsed.length ? `<div class="warn" style="display:block;">${d.unparsed.length} line(s) in this log weren't recognised — see the raw text below.</div>` : ''}
 
-    <details class="event-sec"><summary>Raw log text</summary><pre class="raw-pre">${esc(m.raw)}</pre></details>
+    <details class="event-sec"><summary>Raw log text</summary><pre class="raw-pre">${esc(raw)}</pre></details>
     <div class="controls">
       <button class="secondary" id="copyRawBtn">Copy raw text</button>
       <button class="secondary" id="exportOneBtn">Export this match (raw)</button>
@@ -239,7 +264,7 @@ function renderDetail(entry) {
     </div>`;
 
   el('copyRawBtn').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(m.raw); el('copyRawBtn').textContent = 'Copied ✓'; }
+    try { await navigator.clipboard.writeText(raw); el('copyRawBtn').textContent = 'Copied ✓'; }
     catch (e) { el('copyRawBtn').textContent = 'Copy failed — select the raw text manually'; }
   });
   el('exportOneBtn').addEventListener('click', () => downloadRawExport({ gzip: false, ids: [m.sessionId] }));
@@ -251,14 +276,16 @@ function renderDetail(entry) {
   });
 }
 
-function selectMatch(id) {
+async function selectMatch(id) {
   const entry = library.find(e => e.m.sessionId === id);
   if (!entry) return;
   selectedId = id;
-  renderDetail(entry);
+  // Never leave the previous match's panel under the new selection while this one loads.
+  el('detailBody').innerHTML = '<div class="note" style="padding:12px 0;">Loading…</div>';
   el('detailSection').style.display = 'block';
   document.querySelectorAll('#libTable tr.pick').forEach(r => r.classList.toggle('selected', r.dataset.id === id));
   el('detailSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  await renderDetail(entry);
 }
 
 function closeDetail() {
@@ -274,7 +301,7 @@ function renderInsights() {
   el('insightScope').textContent = `— ${all.length} matches, ${withDetail.length} with stored detail`;
 
   // By map (every match, summary data only)
-  const maps = {};
+  const maps = Object.create(null); // keyed by names from the logs: no inherited keys like "constructor"
   all.forEach(m => {
     const r = maps[m.mission] = maps[m.mission] || { n: 0, w: 0, sl: 0, rp: 0 };
     r.n++; if (m.result === 'Victory') r.w++; r.sl += m.netSL; r.rp += m.totalRP;
@@ -284,26 +311,49 @@ function renderInsights() {
       <td class="num">${fmt(Math.round(r.sl / r.n))}</td><td class="num">${fmt(Math.round(r.rp / r.n))}</td></tr>`).join('');
   el('mapTable').innerHTML = `<tr><th>Map</th><th class="num">Matches</th><th class="num">Win%</th><th class="num">Avg SL</th><th class="num">Avg RP</th></tr>${mapRows}`;
 
-  // By vehicle + by event type (needs stored detail)
-  const vehicles = {}, events = {};
-  withDetail.forEach(entry => {
-    const d = getDetail(entry);
-    d.vehicles.forEach(v => {
-      const t = vehicles[v.name] = vehicles[v.name] || { n: 0, sec: 0, rp: 0, act: 0, actN: 0, kills: 0 };
-      const sec = v.time ? v.time.split(':').reduce((a, x) => a * 60 + (parseInt(x) || 0), 0) : 0;
-      if (!sec) return; // spawned but never played
-      t.n++; t.sec += sec; t.rp += v.rp ? v.rp.total : 0;
-      if (v.activityPct != null) { t.act += v.activityPct; t.actN++; }
-    });
-    d.sections.forEach(sec => {
-      sec.events.forEach(ev => {
-        if (/^Destruction of /i.test(sec.name) && ev.vehicle && vehicles[ev.vehicle]) vehicles[ev.vehicle].kills++;
-      });
-      if (!sec.events.length || /^(Activity Time|Time Played|Skill Bonus)$/i.test(sec.name)) return;
-      const t = events[sec.name] = events[sec.name] || { n: 0, sl: 0, rp: 0 };
-      sec.events.forEach(ev => { t.n++; t.sl += ev.sl ? ev.sl.total : 0; t.rp += ev.rp ? ev.rp.total : 0; });
-    });
+  // By vehicle / event type need every match's detail, i.e. reading the whole archive —
+  // so that only happens when one of those two sections is opened.
+  ['vehicleTable', 'eventTable'].forEach(id => {
+    el(id).innerHTML = '<tr><td class="note">Open this section to load it — it reads every stored match.</td></tr>';
   });
+  if (detailInsightsWanted()) renderDetailInsights();
+}
+
+const detailInsightsWanted = () => ['vehicleTable', 'eventTable'].some(id => el(id).closest('details').open);
+
+async function computeDetailInsights() {
+  const ids = library.filter(e => e.hasRaw).map(e => e.m.sessionId);
+  const vehicles = Object.create(null), events = Object.create(null);
+  for (let i = 0; i < ids.length; i += 200) {
+    const blocks = await WtDB.getMany(ids.slice(i, i + 200));
+    blocks.forEach(b => {
+      const d = parseDetail(b.text);
+      d.vehicles.forEach(v => {
+        const t = vehicles[v.name] = vehicles[v.name] || { n: 0, sec: 0, rp: 0, act: 0, actN: 0, kills: 0 };
+        const sec = v.time ? v.time.split(':').reduce((a, x) => a * 60 + (parseInt(x) || 0), 0) : 0;
+        if (!sec) return; // spawned but never played
+        t.n++; t.sec += sec; t.rp += v.rp ? v.rp.total : 0;
+        if (v.activityPct != null) { t.act += v.activityPct; t.actN++; }
+      });
+      d.sections.forEach(sec => {
+        sec.events.forEach(ev => {
+          if (/^Destruction of /i.test(sec.name) && ev.vehicle && vehicles[ev.vehicle]) vehicles[ev.vehicle].kills++;
+        });
+        if (!sec.events.length || /^(Activity Time|Time Played|Skill Bonus)$/i.test(sec.name)) return;
+        const t = events[sec.name] = events[sec.name] || { n: 0, sl: 0, rp: 0 };
+        sec.events.forEach(ev => { t.n++; t.sl += ev.sl ? ev.sl.total : 0; t.rp += ev.rp ? ev.rp.total : 0; });
+      });
+    });
+  }
+  return { vehicles, events };
+}
+
+async function renderDetailInsights() {
+  ['vehicleTable', 'eventTable'].forEach(id => { el(id).innerHTML = '<tr><td class="note">Reading stored matches…</td></tr>'; });
+  if (!detailInsights) detailInsights = computeDetailInsights();
+  const mine = detailInsights;
+  const { vehicles, events } = await mine;
+  if (mine !== detailInsights) return; // the library was reloaded meanwhile
   const vehRows = Object.entries(vehicles).filter(([, t]) => t.n).sort((a, b) => b[1].sec - a[1].sec).map(([name, t]) => `<tr>
       <td>${esc(name)}</td><td class="num">${t.n}</td><td class="num">${esc(formatTime(t.sec))}</td>
       <td class="num">${t.actN ? Math.round(t.act / t.actN) + '%' : '—'}</td><td class="num">${fmt(t.rp)}</td><td class="num">${t.kills}</td></tr>`).join('');
@@ -403,8 +453,17 @@ async function refreshAll() {
   await renderStorage();
 }
 
-['fSearch', 'fCategory', 'fResult', 'fSort', 'fDetailOnly'].forEach(id => {
-  el(id).addEventListener(id === 'fSearch' ? 'input' : 'change', () => { showAllRows = false; renderLibrary(); });
+['fCategory', 'fResult', 'fSort', 'fDetailOnly'].forEach(id => {
+  el(id).addEventListener('change', () => { showAllRows = false; renderLibrary(); });
+});
+// Typing re-filters after a short pause instead of on every keystroke.
+let searchTimer = null;
+el('fSearch').addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { showAllRows = false; renderLibrary(); }, 150);
+});
+['vehicleTable', 'eventTable'].forEach(id => {
+  el(id).closest('details').addEventListener('toggle', (e) => { if (e.target.open && library.length) renderDetailInsights(); });
 });
 el('detailClose').addEventListener('click', closeDetail);
 el('libTable').addEventListener('click', (e) => {

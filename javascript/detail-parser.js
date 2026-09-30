@@ -1,5 +1,5 @@
 /* ---------- Detail parsing ---------- */
-// Pure (no DOM access). Turns the raw text block of ONE match into its
+// Pure apart from using capLines() from util.js. Turns the raw text block of ONE match into its
 // per-section / per-event breakdown. The raw block is the source of truth — the
 // detail is always re-derived from it, so improving this parser later improves
 // every match already stored, with nothing lost.
@@ -13,12 +13,14 @@ function detailNum(s) {
   return parseInt(String(s).replace(/,/g, ''), 10) || 0;
 }
 
+// Digit runs are capped at 15 characters so matching stays linear on any line.
 // Matches "2020 + (PA)1010 + (Booster)404 = 3434 SL" or a bare "0 SL". `unit` is
 // "SL" or "RP". Returns { value, text } where value is { base, pa, booster, total }.
 function extractAmount(text, unit) {
+  const N = '(\\d[\\d,]{0,14})';
   const re = new RegExp(
-    '(\\d[\\d,]*)(?:\\s*\\+\\s*\\(PA\\)\\s*(\\d[\\d,]*))?(?:\\s*\\+\\s*\\(Booster\\)\\s*(\\d[\\d,]*))?\\s*=\\s*(\\d[\\d,]*)\\s*' + unit + '\\b' +
-    '|(\\d[\\d,]*)\\s*' + unit + '\\b');
+    N + '(?:\\s*\\+\\s*\\(PA\\)\\s*' + N + ')?(?:\\s*\\+\\s*\\(Booster\\)\\s*' + N + ')?\\s*=\\s*' + N + '\\s*' + unit + '\\b' +
+    '|' + N + '\\s*' + unit + '\\b');
   const m = re.exec(text);
   if (!m) return { value: null, text };
   const value = m[4] !== undefined
@@ -54,7 +56,7 @@ function parseSectionEvent(sectionName, line) {
   const ev = {};
   const timeM = text.match(/^(\d+:\d+)\s+/);
   if (timeM) { ev.time = timeM[1]; text = text.slice(timeM[0].length); }
-  const ptsM = text.match(/(\d[\d,]*)\s+mission points/);
+  const ptsM = text.match(/(\d[\d,]{0,14})\s+mission points/);
   if (ptsM) { ev.points = detailNum(ptsM[1]); text = text.replace(ptsM[0], '  '); }
   const sl = extractAmount(text, 'SL'); text = sl.text;
   const rp = extractAmount(text, 'RP'); text = rp.text;
@@ -84,7 +86,7 @@ function parseSectionEvent(sectionName, line) {
 }
 
 function parseDetail(block) {
-  const lines = String(block || '').replace(/\r\n/g, '\n').split('\n');
+  const lines = capLines(String(block || '').replace(/\r\n/g, '\n')).split('\n');
   const detail = {
     version: DETAIL_PARSER_VERSION,
     sections: [], footer: {}, researched: [], researching: [], usedItems: [], unparsed: []
@@ -93,16 +95,13 @@ function parseDetail(block) {
   let listKey = null;       // 'researched' | 'researching' while inside those lists
   let inUsedItems = false;
 
-  // Figures after the name are optional: e.g. a bare \"Activity Time\" header.
-  const headerRe = /^([A-Z][^:\n]*?)(?:\s{2,}(\S.*))?$/;
-
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].replace(/\s+$/, '');
     if (i === 0 && /^(Victory|Defeat) in the /.test(line)) continue;
 
     const sess = line.match(/^Session:\s*(\S+)/);
     if (sess) { detail.sessionId = sess[1]; inUsedItems = false; listKey = null; section = null; continue; }
-    const tot = line.match(/^Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP,\s*([\d,]+)\s*RP/);
+    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP,\s*([\d,]{1,15})\s*RP/);
     if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: detailNum(tot[3]) }; continue; }
 
     if (!line) { section = null; listKey = null; continue; }
@@ -119,23 +118,27 @@ function parseDetail(block) {
     if (/^Researched unit:/.test(line)) { listKey = 'researched'; section = null; continue; }
     if (/^Researching progress:/.test(line)) { listKey = 'researching'; section = null; continue; }
     if (listKey) {
-      const lm = line.match(/^(.+?):\s*([\d,]+)\s*RP/);
+      const lm = line.match(/^(.+?):\s*([\d,]{1,15})\s*RP/);
       if (lm) detail[listKey].push({ name: lm[1].trim(), rp: detailNum(lm[2]) });
       else detail.unparsed.push(line);
       continue;
     }
 
-    const hm = headerRe.exec(line);
-    if (hm) {
-      const rest = hm[2] || '';
-      const sec = { name: hm[1].trim(), events: [] };
-      const timeM = rest.match(/(?:^|\s)(\d+:\d+)(?:\s|$)/);
+    // Section header: "Name   [count]  [SL]  [RP]" — the name runs to the first gap
+    // of two or more spaces (or the end of the line), starts with a capital and
+    // holds no colon; the figures after it are optional (e.g. a bare "Activity Time").
+    const gap = line.search(/\s{2,}/);
+    const headName = gap === -1 ? line : line.slice(0, gap);
+    if (/^[A-Z]/.test(headName) && headName.indexOf(':') === -1) {
+      const rest = gap === -1 ? '' : line.slice(gap).trim();
+      const sec = { name: headName.trim(), events: [] };
+      const timeM = rest.match(/(?:^|\s)(\d{1,4}:\d{1,2})(?:\s|$)/);
       if (timeM) sec.time = timeM[1];
-      const slM = rest.match(/(-?\d[\d,]*)\s*SL\b/);
-      const rpM = rest.match(/(-?\d[\d,]*)\s*RP\b/);
+      const slM = rest.match(/(-?\d[\d,]{0,14})\s*SL\b/);
+      const rpM = rest.match(/(-?\d[\d,]{0,14})\s*RP\b/);
       if (slM) sec.sl = detailNum(slM[1]);
       if (rpM) sec.rp = detailNum(rpM[1]);
-      const countM = rest.match(/^(\d+)(?=\s|$)/);
+      const countM = rest.match(/^(\d{1,9})(?=\s|$)/);
       if (countM) sec.count = parseInt(countM[1], 10);
       detail.sections.push(sec);
       section = sec;
@@ -146,7 +149,7 @@ function parseDetail(block) {
     if (fm) {
       const key = fm[1].trim(), val = fm[2].trim();
       if (key === 'Earned') {
-        const e = val.match(/([\d,]+)\s*SL,\s*([\d,]+)\s*CRP/);
+        const e = val.match(/([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP/);
         if (e) { detail.footer.earnedSL = detailNum(e[1]); detail.footer.earnedCRP = detailNum(e[2]); }
       } else if (key === 'Activity') {
         detail.footer.activityPct = detailNum(val);
@@ -161,7 +164,7 @@ function parseDetail(block) {
       } else if (key === 'Respawns in battle') {
         detail.footer.respawnSL = detailNum(val);
       } else {
-        (detail.footer.other = detail.footer.other || {})[key] = val;
+        (detail.footer.other = detail.footer.other || Object.create(null))[key] = val;
       }
       continue;
     }
@@ -169,7 +172,7 @@ function parseDetail(block) {
   }
 
   // Vehicle roster: merge the per-vehicle sections so the UI can show one row each.
-  const byVehicle = {};
+  const byVehicle = Object.create(null); // names come from the log: no inherited keys like "constructor"
   const vehicleOf = name => byVehicle[name] || (byVehicle[name] = { name });
   detail.sections.forEach(sec => {
     if (/^Time Played$/i.test(sec.name)) {
