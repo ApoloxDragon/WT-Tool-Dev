@@ -14,6 +14,7 @@ function classify(modeBase) {
 
 function renderRules() {
   const list = document.getElementById('rulesList');
+  if (!list) return; // page has no rules editor (e.g. the Advanced view)
   list.innerHTML = '';
   categoryRules.forEach((rule, idx) => {
     const row = document.createElement('div');
@@ -42,7 +43,8 @@ function renderRules() {
 }
 renderRules();
 
-document.getElementById('addRuleBtn').addEventListener('click', () => {
+const addRuleBtn = document.getElementById('addRuleBtn');
+if (addRuleBtn) addRuleBtn.addEventListener('click', () => {
   const kw = document.getElementById('newKeyword').value.trim();
   const lbl = document.getElementById('newLabel').value.trim();
   if (!kw || !lbl) return;

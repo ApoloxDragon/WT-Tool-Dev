@@ -1,13 +1,53 @@
 /* ---------- Import ---------- */
-// Depends on: importedMatches (main.js).
+// Depends on: importedMatches (main.js), readRawFile/archiveParsedMatches (raw-export.js).
 document.getElementById('importBtn').addEventListener('click', () => {
   document.getElementById('importFile').click();
 });
 
-document.getElementById('importFile').addEventListener('change', (e) => {
+// Persist imported matches without their raw text — that lives in the archive
+// (IndexedDB), and would blow through localStorage's quota here.
+function withoutRaw(m) {
+  const { raw, ...rest } = m;
+  return rest;
+}
+
+// Raw exports (.json / .json.gz) and plain .txt logs: archive the raw blocks, and
+// add their summaries to the current session.
+async function importRawMatches(parsedMatches, importNote) {
+  const { added, skipped, failed } = await archiveParsedMatches(parsedMatches);
+  const existingIds = new Set(importedMatches.map(m => m.sessionId));
+  let inSession = 0;
+  parsedMatches.forEach(m => {
+    if (existingIds.has(m.sessionId)) return;
+    importedMatches.push(withoutRaw(m));
+    existingIds.add(m.sessionId);
+    inSession++;
+  });
+  saveState('importedMatches', importedMatches);
+  importNote.textContent = `Imported ${parsedMatches.length} match(es) from raw data: ${added} new to the local archive`
+    + (skipped ? `, ${skipped} already archived` : '')
+    + (failed ? `, ${failed} could not be stored (archive unavailable or full)` : '')
+    + `. ${inSession} added to this session — click Analyze to include them.`;
+}
+
+document.getElementById('importFile').addEventListener('change', async (e) => {
   const file = e.target.files[0];
   const importNote = document.getElementById('importNote');
   if (!file) return;
+
+  try {
+    const rawMatches = await readRawFile(file);
+    if (rawMatches) {
+      await importRawMatches(rawMatches, importNote);
+      e.target.value = '';
+      return;
+    }
+  } catch (err) {
+    importNote.textContent = 'Could not read that file: ' + err.message;
+    e.target.value = '';
+    return;
+  }
+
   const reader = new FileReader();
   reader.onload = (ev) => {
     const raw = ev.target.result;
@@ -89,13 +129,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
 /* ---------- Export ---------- */
 // Depends on: lastMatches (main.js), THEMES/currentTheme (themes.js).
 
-// Filename-safe local-time stamp (no ":" or "/", which are invalid in
-// Windows filenames) so repeated exports don't overwrite each other.
-function localTimestampForFilename(date) {
-  const pad = n => String(n).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
-    + `_${pad(date.getHours())}-${pad(date.getMinutes())}-${pad(date.getSeconds())}`;
-}
+// localTimestampForFilename() and downloadBlob() live in raw-export.js.
 
 document.getElementById('printBtn').addEventListener('click', () => {
   if (!lastMatches) { alert('Run Analyze first.'); return; }
@@ -127,16 +161,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
       t: m.timeSec || 0,
       tg: m.researched.map(x => ({ n: x.name, v: x.rp }))
     }));
-    const json = JSON.stringify(data);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `wt-session-data-${fileStamp}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    downloadBlob(new Blob([JSON.stringify(data)], { type: 'application/json' }), `wt-session-data-${fileStamp}.json`);
     return;
   }
 
@@ -244,13 +269,14 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   });
 <\/script>
 </body></html>`;
-  const blob = new Blob([html], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `wt-session-report-${fileStamp}.html`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  downloadBlob(new Blob([html], { type: 'text/html' }), `wt-session-report-${fileStamp}.html`);
+});
+
+// Raw export: the original match text for everything in the local archive.
+document.getElementById('rawExportBtn').addEventListener('click', async () => {
+  const note = document.getElementById('importNote');
+  const count = await downloadRawExport({ gzip: true });
+  note.textContent = count
+    ? `Exported ${count} archived match(es) as raw data (.json.gz). Import it here or in the Advanced view to restore everything.`
+    : 'Nothing to export yet — the local archive is empty. Analyze some matches first.';
 });

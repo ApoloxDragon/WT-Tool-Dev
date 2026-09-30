@@ -208,5 +208,9 @@ const WtDB = (() => {
     catch (e) { return false; }
   }
 
-  return { put, get, ids, all, remove, clear, stats, requestPersistence, backendName: async () => { await open(); return backend; } };
+  return {
+    put, get, ids, all, remove, clear, stats, requestPersistence,
+    backendName: async () => { await open(); return backend; },
+    codec: { canCompress, gzip, gunzip } // shared with raw export/import
+  };
 })();

@@ -15,6 +15,7 @@
       <p>Paste raw War Thunder match logs below. Splits by battle type, dedupes repeats, tallies RP by research target.</p>
     </div>
     <div class="theme-picker" id="themePicker">
+      <a class="view-link" href="advanced.html" title="Per-match detail, stats and storage tools">Advanced view →</a>
       <a class="github-link" href="https://github.com/ApoloxDragon/WT-Tool-Dev" target="_blank" rel="noopener" title="View source on GitHub" aria-label="View source on GitHub">
         <span class="github-logo-mask"></span>
       </a>
@@ -30,8 +31,9 @@
     <button class="secondary" id="printBtn">Print / Save PDF</button>
     <button class="secondary" id="exportBtn">Export HTML</button>
     <button type="button" id="minimalToggle" class="toggle-btn" style="padding:10px 14px;">Minimal export</button>
+    <button class="secondary" id="rawExportBtn" title="Export the original match text from your local archive (.json.gz)">Export Raw</button>
     <button class="secondary" id="importBtn">Import Report</button>
-    <input type="file" id="importFile" accept=".html,.json" style="display:none;">
+    <input type="file" id="importFile" accept=".html,.json,.gz,.txt" style="display:none;">
     <span class="note" id="fileNote"></span>
   </div>
   <div class="warn" id="dupeWarn"></div>
@@ -146,6 +148,7 @@
 <script src="javascript/categories.js"></script>
 <script src="javascript/detail-parser.js"></script>
 <script src="javascript/db.js"></script>
+<script src="javascript/raw-export.js"></script>
 <script src="javascript/parser.js"></script>
 <script src="javascript/math.js"></script>
 <script src="javascript/goal-calculator.js"></script>
