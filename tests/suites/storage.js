@@ -74,4 +74,63 @@ exports.run = async ({ browser, base, t }) => {
   t.check('with no storage at all it reports "none" and never throws', n.be === 'none' && n.put === false && n.get === null && !n.threw, JSON.stringify(n));
   t.check('the page still loads and analyzes with no storage available', await (async () => { try { await p.click('#loadExampleBtn'); await p.waitForFunction(() => document.querySelectorAll('#matchTable tr').length > 1, null, { timeout: 8000 }); return true; } catch (e) { return false; } })(), p.errs.join(' | '));
   await p.ctx.close();
+
+  /* ---------------- the compression worker and its fallbacks ---------------- */
+  const countOps = () => { window.__ops = []; window.__gunzips = 0;
+  const post = Worker.prototype.postMessage; Worker.prototype.postMessage = function (m, t) { if (m && m.op) window.__ops.push(m.op); return post.call(this, m, t); };
+  const OD = window.DecompressionStream; window.DecompressionStream = function (f) { window.__gunzips++; return new OD(f); }; };
+  const many = splitBlocks(exampleLog()).map((b, i) => ({ id: 'w' + String(i).padStart(4, '0'), text: b }));
+  const roundTrip = async p => p.evaluate(async items => {
+    const stored = await WtDB.putMany(items.map(i => ({ id: i.id, text: i.text })));
+    const back = await WtDB.all();
+    const one = await WtDB.get(items[3].id);
+    const ins = await WtDB.insightsFromTexts(items.slice(0, 5).map(i => i.text));
+    return { stored, same: back.length === items.length && items.every(i => back.find(b => b.id === i.id).text === i.text), one: one === items[3].text, ins: ins.length === 5 && ins.every(x => x && x.v === 1 && Array.isArray(x.veh)), ops: window.__ops ? window.__ops.slice() : [], worker: WtWorker.available() };
+  }, many);
+
+  t.scope('storage › worker');
+  let wp = await newPage(browser, { init: { fn: countOps } }); await wp.goto(base + 'wt-log-analyzer.html');
+  const w1 = await roundTrip(wp);
+  t.check('with the worker: 84 matches are stored, read back exactly, and rollups are produced', w1.stored === 84 && w1.same && w1.one && w1.ins, JSON.stringify({ stored: w1.stored, same: w1.same, one: w1.one, ins: w1.ins }));
+  t.check('…and the heavy work really ran in the worker (pack, unpack and insights messages)', ['pack', 'unpack', 'insights'].every(o => w1.ops.includes(o)), w1.ops.join());
+  t.check('…and the main thread decompressed only the one match fetched singly with get() (bulk reads all went through the worker)', (await wp.evaluate(() => window.__gunzips)) === 1, String(await wp.evaluate(() => window.__gunzips)));
+  await wp.ctx.close();
+
+  t.scope('storage › worker unavailable (fallbacks)');
+  const fallbacks = {
+    'the browser has no Worker': { init: { fn: () => { window.Worker = undefined; } } },
+    'the worker file fails to load': { route: r => r.abort() },
+    'the worker file never arrives (stalled; call gives up after 1.5 s)': { route: async r => { await new Promise(res => setTimeout(res, 7000)); try { await r.abort(); } catch (e) { /* closed */ } }, timeout: 1500 },
+    'the worker file is broken (syntax error)': { route: r => r.fulfill({ status: 200, contentType: 'text/javascript', body: 'importScripts(' }) }
+  };
+  for (const [why, f] of Object.entries(fallbacks)) {
+    const p = await newPage(browser, f.init ? { init: f.init } : {});
+    if (f.route) await p.route('**/javascript/archive-worker.js', f.route);
+    await p.goto(base + 'wt-log-analyzer.html');
+    if (f.timeout) await p.evaluate(ms => { WtWorker.timeoutMs = ms; }, f.timeout);
+    const t0 = Date.now(), r = await roundTrip(p), took = Date.now() - t0;
+    t.check(`${why}: saving, reading and rollups still work and are exact`, r.stored === 84 && r.same && r.one && r.ins, JSON.stringify({ stored: r.stored, same: r.same, one: r.one, ins: r.ins }));
+    if (f.timeout) t.check(`${why}: …without waiting around (done in ${Math.round(took / 1000)} s, well before the 7 s stall ends)`, took < 6500, took + ' ms');
+    t.check(`${why}: …and no uncaught errors`, p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close();
+  }
+
+  t.scope('storage › insight rollups');
+  const q = await newPage(browser); await q.goto(base + 'wt-log-analyzer.html');
+  const chk = await q.evaluate(async items => {
+    const texts = items.map(i => i.text);
+    const rolled = await WtDB.insightsFromTexts(texts);
+    const clean = rolled.map(cleanInsights);
+    const same = rolled.every((r, i) => JSON.stringify(clean[i]) === JSON.stringify(r));
+    const direct = texts.map(t => insightsOf(parseDetail(t)));
+    const bad = [null, undefined, 5, 'x', [], {}, { v: 2 }, { v: 1 }, { v: 1, veh: 'x', kills: [], ev: [] }, { v: 1, veh: [['a', 'x', 1, 1]], kills: [], ev: [] },
+      { v: 1, veh: [], kills: [], ev: [['a', 1, 1]] }, { v: 1, veh: new Array(500).fill(['a', 1, 1, 1]), kills: [], ev: [] }, { v: 1, veh: [[{}, 1, 1, 1]], kills: [], ev: [] },
+      { v: 1, veh: [['a', NaN, 1, 1]], kills: [], ev: [] }, { v: 1, veh: [['a', Infinity, 1, 1]], kills: [], ev: [] }];
+    return { same, equalsWorker: JSON.stringify(direct) === JSON.stringify(rolled), rejected: bad.map(cleanInsights).every(x => x === null), longName: cleanInsights({ v: 1, veh: [['x'.repeat(500), 1, 1, 1]], kills: [], ev: [] }).veh[0][0].length };
+  }, many);
+  t.check('a rollup computed in the worker equals one computed on the main thread', chk.equalsWorker);
+  t.check('a well-formed rollup passes the validator unchanged', chk.same);
+  t.check('malformed rollups (wrong types, NaN/Infinity, oversized lists, wrong version) are all rejected', chk.rejected);
+  t.check('over-long names in a rollup are clipped, not trusted', chk.longName <= 120, String(chk.longName));
+  await q.ctx.close();
 };

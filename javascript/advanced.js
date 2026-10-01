@@ -40,7 +40,8 @@ async function loadLibrary() {
     const s = meta.sum;
     // category is derived now, so edits to the category rules apply to old matches too
     const m = (s && s.pv === SUMMARY_VERSION && typeof s.mode === 'string') ? sanitizeMatch({ ...s, sessionId: meta.id, category: classify(s.mode) }) : null;
-    if (m) byId.set(meta.id, { m, hasRaw: true }); else stale.push(meta.id);
+    // `sum` and `ins` are kept so Insights can be built from them (ins is checked; null = to be computed)
+    if (m) byId.set(meta.id, { m, hasRaw: true, sum: s, ins: cleanInsights(s.ins) }); else stale.push(meta.id);
   });
   if (stale.length) {
     const blocks = await WtDB.getMany(stale);
@@ -48,7 +49,7 @@ async function loadLibrary() {
     const pairs = [];
     parsed.forEach(pm => {
       const m = sanitizeMatch(pm);
-      if (m && !byId.has(m.sessionId)) { byId.set(m.sessionId, { m, hasRaw: true }); pairs.push([m.sessionId, summaryOf(pm)]); }
+      if (m && !byId.has(m.sessionId)) { const sum = summaryOf(pm); byId.set(m.sessionId, { m, hasRaw: true, sum, ins: null }); pairs.push([m.sessionId, sum]); }
     });
     WtDB.setSummaries(pairs); // saved in the background
   }
@@ -321,36 +322,44 @@ function renderInsights() {
 
 const detailInsightsWanted = () => ['vehicleTable', 'eventTable'].some(id => el(id).closest('details').open);
 
-async function computeDetailInsights() {
-  const ids = library.filter(e => e.hasRaw).map(e => e.m.sessionId);
-  const vehicles = Object.create(null), events = Object.create(null);
-  for (let i = 0; i < ids.length; i += 200) {
-    const blocks = await WtDB.getMany(ids.slice(i, i + 200));
-    blocks.forEach(b => {
-      const d = parseDetail(b.text);
-      d.vehicles.forEach(v => {
-        const t = vehicles[v.name] = vehicles[v.name] || { n: 0, sec: 0, rp: 0, act: 0, actN: 0, kills: 0 };
-        const sec = v.time ? v.time.split(':').reduce((a, x) => a * 60 + (parseInt(x) || 0), 0) : 0;
-        if (!sec) return; // spawned but never played
-        t.n++; t.sec += sec; t.rp += v.rp ? v.rp.total : 0;
-        if (v.activityPct != null) { t.act += v.activityPct; t.actN++; }
-      });
-      d.sections.forEach(sec => {
-        sec.events.forEach(ev => {
-          if (/^Destruction of /i.test(sec.name) && ev.vehicle && vehicles[ev.vehicle]) vehicles[ev.vehicle].kills++;
-        });
-        if (!sec.events.length || /^(Activity Time|Time Played|Skill Bonus)$/i.test(sec.name)) return;
-        const t = events[sec.name] = events[sec.name] || { n: 0, sl: 0, rp: 0 };
-        sec.events.forEach(ev => { t.n++; t.sl += ev.sl ? ev.sl.total : 0; t.rp += ev.rp ? ev.rp.total : 0; });
-      });
+// Builds the totals from per-match rollups (see insightsOf in detail-parser.js), in library order.
+function aggregateInsights(entries) {
+  const vehicles = Object.create(null), events = Object.create(null); // keyed by names from the logs: no inherited keys
+  entries.forEach(({ ins }) => {
+    ins.veh.forEach(([name, sec, rp, act]) => {
+      const t = vehicles[name] = vehicles[name] || { n: 0, sec: 0, rp: 0, act: 0, actN: 0, kills: 0 };
+      if (!sec) return; // spawned but never played
+      t.n++; t.sec += sec; t.rp += rp;
+      if (act >= 0) { t.act += act; t.actN++; }
     });
-  }
+    ins.kills.forEach(([name, count]) => { if (vehicles[name]) vehicles[name].kills += count; });
+    ins.ev.forEach(([name, count, sl, rp]) => {
+      const t = events[name] = events[name] || { n: 0, sl: 0, rp: 0 };
+      t.n += count; t.sl += sl; t.rp += rp;
+    });
+  });
   return { vehicles, events };
 }
 
+// Matches saved by this version already carry their rollup, so this is just addition. Older ones are
+// read once (in the worker), their rollup is saved back, and the next visit is instant too.
+async function computeDetailInsights(onProgress) {
+  const withDetail = library.filter(e => e.hasRaw);
+  const missing = withDetail.filter(e => !e.ins);
+  for (let i = 0; i < missing.length; i += 200) {
+    if (onProgress) onProgress(i, missing.length);
+    const chunk = missing.slice(i, i + 200);
+    const rolled = await WtDB.insightsForIds(chunk.map(e => e.m.sessionId));
+    chunk.forEach((e, k) => { e.ins = cleanInsights(rolled[k]); });
+    WtDB.setSummaries(chunk.filter(e => e.ins).map(e => [e.m.sessionId, { ...(e.sum || summaryOf(e.m)), ins: e.ins }])); // saved in the background
+  }
+  return aggregateInsights(withDetail.filter(e => e.ins));
+}
+
 async function renderDetailInsights() {
-  ['vehicleTable', 'eventTable'].forEach(id => { el(id).innerHTML = '<tr><td class="note">Reading stored matches…</td></tr>'; });
-  if (!detailInsights) detailInsights = computeDetailInsights();
+  const waiting = text => ['vehicleTable', 'eventTable'].forEach(id => { el(id).innerHTML = `<tr><td class="note">${text}</td></tr>`; });
+  waiting('Adding up the matches…');
+  if (!detailInsights) detailInsights = computeDetailInsights((done, total) => waiting(`Preparing insights for ${total.toLocaleString()} older matches (one time only)… ${done.toLocaleString()} done`));
   const mine = detailInsights;
   const { vehicles, events } = await mine;
   if (mine !== detailInsights) return; // the library was reloaded meanwhile

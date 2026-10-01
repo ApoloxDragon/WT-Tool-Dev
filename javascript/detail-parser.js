@@ -191,3 +191,52 @@ function parseDetail(block) {
   detail.vehicles = Object.values(byVehicle);
   return detail;
 }
+
+/* ---------- Per-match insight rollup ---------- */
+// What the Insights tables need from ONE match, in a few hundred bytes. Stored beside each match's
+// summary, it lets the Advanced view build "by vehicle" and "by event type" from the summaries
+// alone, without unpacking and re-parsing the whole archive. INSIGHT_VERSION is bumped whenever
+// this shape or meaning changes; older rollups are then rebuilt lazily from the stored text.
+//   veh:   [[vehicle, seconds played, play RP, activity % or -1], …]   every vehicle in the roster, in order
+//   kills: [[vehicle, number of ground/aircraft kills], …]
+//   ev:    [[event type, events, SL, RP], …]                           in order of appearance
+const INSIGHT_VERSION = 1;
+const INSIGHT_LIMITS = { veh: 60, kills: 60, ev: 120, name: 120 };
+
+function insightsOf(d) {
+  const veh = d.vehicles.map(v => [
+    v.name,
+    v.time ? v.time.split(':').reduce((a, x) => a * 60 + (parseInt(x) || 0), 0) : 0,
+    v.rp ? v.rp.total : 0,
+    v.activityPct != null ? v.activityPct : -1
+  ]);
+  const kills = new Map(), ev = [];
+  d.sections.forEach(sec => {
+    if (/^Destruction of /i.test(sec.name)) {
+      sec.events.forEach(e => { if (e.vehicle) kills.set(e.vehicle, (kills.get(e.vehicle) || 0) + 1); });
+    }
+    if (!sec.events.length || /^(Activity Time|Time Played|Skill Bonus)$/i.test(sec.name)) return;
+    let sl = 0, rp = 0;
+    sec.events.forEach(e => { sl += e.sl ? e.sl.total : 0; rp += e.rp ? e.rp.total : 0; });
+    ev.push([sec.name, sec.events.length, sl, rp]);
+  });
+  return { v: INSIGHT_VERSION, veh, kills: [...kills], ev };
+}
+
+// A rollup read back from storage is untrusted data: rebuild it with checked types and bounded sizes,
+// or return null (and the caller recomputes it from the stored text).
+function cleanInsights(x) {
+  if (!x || typeof x !== 'object' || x.v !== INSIGHT_VERSION) return null;
+  const num = n => (typeof n === 'number' && isFinite(n) ? n : null);
+  const str = s => (typeof s === 'string' ? s.slice(0, INSIGHT_LIMITS.name) : null);
+  const list = (arr, max, map) => {
+    if (!Array.isArray(arr) || arr.length > max) return null;
+    const out = [];
+    for (const row of arr) { const r = Array.isArray(row) ? map(row) : null; if (!r) return null; out.push(r); }
+    return out;
+  };
+  const veh = list(x.veh, INSIGHT_LIMITS.veh, r => { const [n, s, p, a] = r; return str(n) !== null && num(s) !== null && num(p) !== null && num(a) !== null ? [str(n), s, p, a] : null; });
+  const kills = list(x.kills, INSIGHT_LIMITS.kills, r => { const [n, c] = r; return str(n) !== null && num(c) !== null ? [str(n), c] : null; });
+  const ev = list(x.ev, INSIGHT_LIMITS.ev, r => { const [n, c, s, p] = r; return str(n) !== null && num(c) !== null && num(s) !== null && num(p) !== null ? [str(n), c, s, p] : null; });
+  return veh && kills && ev ? { v: INSIGHT_VERSION, veh, kills, ev } : null;
+}
