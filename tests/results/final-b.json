@@ -1,0 +1,5122 @@
+{
+ "label": "final-b",
+ "date": "2026-10-01T18:43:59.096Z",
+ "commit": "3727790",
+ "checks": [
+  {
+   "name": "appearance › presets › there are exactly eight built-in presets, in this order",
+   "pass": true,
+   "detail": "Blue,Amber,Slate,Forest,Crimson,Violet,Teal,Daylight"
+  },
+  {
+   "name": "appearance › presets › the original four are unchanged (same colours as before)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › eight swatches sit in the top bar, each with a name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › no built-in preset has an unreadable colour pair (nothing under 3:1)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "appearance › presets › the four new presets are comfortable everywhere (every pair 4.5:1 or better)",
+   "pass": true,
+   "detail": "[[\"crimson\",\"5.53\"],[\"violet\",\"5.62\"],[\"teal\",\"6.04\"],[\"daylight\",\"4.93\"]]"
+  },
+  {
+   "name": "appearance › presets › Blue: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0d1420,#131b2b,#182338,#26344d,#4d9fe8,#dbe6f2,#6f8299,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Blue: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#12130d,#1a1c14,#21231a,#3a3c2c,#d9a441,#e8e4d5,#8b8d78,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Amber: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#16181c,#1e2126,#262a30,#383d44,#c9ced6,#e4e7ea,#7d848d,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Slate: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0f1712,#16211a,#1c2921,#2e402f,#6bbf7a,#dcead9,#7b9a80,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Forest: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#170e10,#211519,#2b1b20,#4a2a32,#ec6a80,#f3e3e6,#b58b93,#86c98d,#f0906c"
+  },
+  {
+   "name": "appearance › presets › Crimson: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#120f1c,#1a1527,#221c33,#3b3260,#a78bfa,#e6e0f7,#9a92bb,#82c98a,#e8847a"
+  },
+  {
+   "name": "appearance › presets › Violet: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0b1718,#112123,#172b2e,#26494d,#2dd4bf,#d8f1ee,#82aeab,#86c98d,#e8897a"
+  },
+  {
+   "name": "appearance › presets › Teal: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#f4f6f9,#ffffff,#e8edf3,#c4cdd9,#1d5fbf,#1b2430,#556171,#2b7a33,#b3261e"
+  },
+  {
+   "name": "appearance › presets › Daylight: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: native controls follow (light colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › an old saved \"theme\" setting is carried over (forest)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › choosing a new preset leaves the legacy \"theme\" setting alone",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the panel opens as a labelled dialog and the button reports it is expanded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › focus moves into the panel when it opens",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the preset list offers all eight built-in presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › nine colour rows, each with a picker, a hex box and a one-line explanation",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › every control has an accessible name and no id is duplicated",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › Esc closes the panel and returns focus to the Customise button",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the Close button closes it too",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: typing #101010 changes it on the page at once",
+   "pass": true,
+   "detail": "#101010"
+  },
+  {
+   "name": "appearance › panel › bg: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: typing #1a1a1a changes it on the page at once",
+   "pass": true,
+   "detail": "#1a1a1a"
+  },
+  {
+   "name": "appearance › panel › panel: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: typing #232323 changes it on the page at once",
+   "pass": true,
+   "detail": "#232323"
+  },
+  {
+   "name": "appearance › panel › panel2: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: typing #555555 changes it on the page at once",
+   "pass": true,
+   "detail": "#555555"
+  },
+  {
+   "name": "appearance › panel › border: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: typing #ffffff changes it on the page at once",
+   "pass": true,
+   "detail": "#ffffff"
+  },
+  {
+   "name": "appearance › panel › text: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: typing #b0b8c4 changes it on the page at once",
+   "pass": true,
+   "detail": "#b0b8c4"
+  },
+  {
+   "name": "appearance › panel › dim: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: typing #ffb000 changes it on the page at once",
+   "pass": true,
+   "detail": "#ffb000"
+  },
+  {
+   "name": "appearance › panel › accent: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: typing #66dd66 changes it on the page at once",
+   "pass": true,
+   "detail": "#66dd66"
+  },
+  {
+   "name": "appearance › panel › win: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: typing #ff7a7a changes it on the page at once",
+   "pass": true,
+   "detail": "#ff7a7a"
+  },
+  {
+   "name": "appearance › panel › loss: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › \"Reset to preset\" puts the preset’s colours back",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › picking a preset in the panel applies it and updates the boxes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a swatch clicked while the panel is open updates the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a half-typed \"#fff\" is not applied while typing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › …but shorthand is accepted on Enter (#fff → #ffffff)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"zzzzzz\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"red\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"#12\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"javascript:1\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"#ffffgg\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"<b>\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a pasted colour with extra CSS after it is cut to 7 characters, so nothing extra can reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #ffffff; --text: #"
+  },
+  {
+   "name": "appearance › panel › no uncaught errors while editing colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › unreadable text (same as the background) is refused: the page keeps its colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and the panel explains which pair is too low, in a visible alert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and the readability list marks it \"Too low\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and nothing unreadable was saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › fixing it applies the colours automatically and clears the alert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › turning a dark look into a light one works one colour at a time (unreadable steps wait, not block you)",
+   "pass": true,
+   "detail": "pending=true bg=#ffffff text=#111111"
+  },
+  {
+   "name": "appearance › readability › …and the result is saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › weak (3–4.5:1) colours are applied, with a warning note but no block",
+   "pass": true,
+   "detail": "AaText on background14.6:1GoodAaText on panels13.6:1GoodAaText on panel 212.4:1GoodAaDim text on background3.7:1WeakAaDim text on panels3.5:1WeakAaDim text on panel 23.2:1WeakAaAccent on background6.5:1GoodAaAccent on panels6.1:1GoodAaWin on background8.4:1GoodAaWin on panels7.8:1GoodAaLoss on backg"
+  },
+  {
+   "name": "appearance › readability › closing the panel drops an unapplied unreadable draft (boxes match the page again)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › the default font is monospace (as before)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Sans-serif applies to the page",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Serif applies to the page",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › buttons and inputs use the chosen font too",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › the font style is remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › at Medium the text is exactly its original size (12.5px subtitle)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Small makes text 10% smaller everywhere",
+   "pass": true,
+   "detail": "11.25 / 11.7"
+  },
+  {
+   "name": "appearance › font style and text size › Large makes text 15% bigger everywhere",
+   "pass": true,
+   "detail": "14.375"
+  },
+  {
+   "name": "appearance › font style and text size › the text size is remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a Spanish name with accents and ñ is accepted",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › \"Niño ¡Hola!\" (inverted punctuation) is accepted",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a name typed with a decomposed accent is stored in its normal form",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a name with Japanese letters is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with HTML is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with an emoji is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with nothing is refused with a message",
+   "pass": true,
+   "detail": "Give the preset a name."
+  },
+  {
+   "name": "appearance › my presets › a name with too long (31) is refused with a message",
+   "pass": true,
+   "detail": "Names can be up to 30 characters."
+  },
+  {
+   "name": "appearance › my presets › a name with a direction-override character is refused with a message",
+   "pass": true,
+   "detail": "Names can’t contain control or invisible characters."
+  },
+  {
+   "name": "appearance › my presets › a name with a duplicate (any case) is refused with a message",
+   "pass": true,
+   "detail": "You already have a preset with that name."
+  },
+  {
+   "name": "appearance › my presets › saved presets appear in the preset list under \"My presets\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › the new preset is now the base (\"Matches …\")",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › “Allow other characters” then accepts Japanese letters",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › …but never control or direction-changing characters",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › saved presets survive a reload, still selected as the base",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › \"Use\" applies a saved preset",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › renaming works",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › renaming to a disallowed name is refused with a message",
+   "pass": true,
+   "detail": "SaveCancelUse English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › delete asks for a second click first (nothing deleted yet)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › …the second click deletes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › deleting the active preset keeps the colours and shows them as custom",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › no uncaught errors while managing presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › the 21st preset is refused: the normal limit is 20",
+   "pass": true,
+   "detail": "You have 20 saved presets — the limit is 20."
+  },
+  {
+   "name": "appearance › my presets › ticking \"allow more\" shows the risk warning and changes nothing yet",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › cancelling keeps the limit at 20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › accepting the risk raises the limit to 100 and remembers it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a 21st preset can now be saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › even unlocked, 100 is the ceiling",
+   "pass": true,
+   "detail": "You have 100 saved presets — the limit is 100."
+  },
+  {
+   "name": "appearance › my presets › no uncaught errors with 100 presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › the export is a wt-colour-presets file with both presets and valid colours",
+   "pass": true,
+   "detail": "wt-colour-presets-2026-10-01_18-44-26.json"
+  },
+  {
+   "name": "appearance › preset files › importing that file into a fresh browser restores both presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › importing it again adds copies with \" 2\" appended, never overwriting",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a hostile preset file imports only the two valid presets",
+   "pass": true,
+   "detail": "Good,Also good"
+  },
+  {
+   "name": "appearance › preset files › no colour from the file reached the page’s styles",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #dbe6f2; --dim: #6f82"
+  },
+  {
+   "name": "appearance › preset files › the file’s own ids are ignored (ids are generated here)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › the import message says what was skipped and why",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › nothing executed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › not JSON is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a different JSON format is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a file over 1 MB is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: falls back to the defaults (Blue, monospace, medium)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: falls back to the defaults (Blue, monospace, medium)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #170e10; --panel: #211519; --panel-2: #2b1b20; --border: #4a2a32; --accent: #ec6a80; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: bad saved presets are dropped, good ones kept once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: valid parts of saved settings still apply (Crimson colours, serif, large)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › an exported report is styled with the colours you chose (all nine, incl. win and loss)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › opened, the report shows those colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › its own picker offers the eight presets plus \"Your colours\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › picking Daylight inside the report switches every colour, win and loss included",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the report still runs under its own strict policy (its script ran)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › an untouched preset exports with just its eight siblings (no \"Your colours\")",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the Advanced view shows the same look you set in Basic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the Advanced view has the same panel, showing the same state",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › \"Reset everything to default\" restores Blue, monospace, medium text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › no uncaught errors across both views",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › a colour changed a split second before leaving the page is still remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#170e10\""
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › and on every one of the 79 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #170e10"
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(23, 14, 16)"
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1\""
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › a built-in preset (Crimson) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#f4f6f9\""
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › and on every one of the 80 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #f4f6f9"
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(244, 246, 249)"
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1.15\""
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › the font style is in place from the start",
+   "pass": true,
+   "detail": "Georgia, Cambria, 'Times New Roman', Times, serif"
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › native controls and scrollbars already match a light look",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › custom colours + serif + large text (light) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#0f1712\""
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › and on every one of the 79 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #0f1712"
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(15, 23, 18)"
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1\""
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › an old-style saved \"theme\" only (Forest) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Basic › nothing saved › with nothing saved, the default Blue look is used throughout and never anything else",
+   "pass": true,
+   "detail": "#0d1420"
+  },
+  {
+   "name": "load › Basic › nothing saved › …and no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#170e10\""
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › and on every one of the 79 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #170e10"
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(23, 14, 16)"
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1\""
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › a built-in preset (Crimson) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#f4f6f9\""
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › and on every one of the 79 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #f4f6f9"
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(244, 246, 249)"
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1.15\""
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › the font style is in place from the start",
+   "pass": true,
+   "detail": "Georgia, Cambria, 'Times New Roman', Times, serif"
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › native controls and scrollbars already match a light look",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › custom colours + serif + large text (light) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › (setup) the page's main script really was held back, so this test means something",
+   "pass": true,
+   "detail": "1"
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › the saved colours are already in place the moment the page body appears",
+   "pass": true,
+   "detail": "\"#0f1712\""
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › and on every one of the 79 frames that follow (none shows the default Blue or an unstyled page)",
+   "pass": true,
+   "detail": "colours seen: #0f1712"
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › the painted page background is that colour on every frame — no fade from Blue",
+   "pass": true,
+   "detail": "backgrounds seen: rgb(15, 23, 18)"
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › text size is in place from the start",
+   "pass": true,
+   "detail": "\"1\""
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › and it is still that look after everything has loaded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › an old-style saved \"theme\" only (Forest) › no uncaught errors or console errors while loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › Advanced › nothing saved › with nothing saved, the default Blue look is used throughout and never anything else",
+   "pass": true,
+   "detail": "#0d1420"
+  },
+  {
+   "name": "load › Advanced › nothing saved › …and no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "load › redirect page (index.html) › the redirect page is still on screen for this check",
+   "pass": true,
+   "detail": "/index.html"
+  },
+  {
+   "name": "load › redirect page (index.html) › the redirect page already uses the saved colours (not a plain white page)",
+   "pass": true,
+   "detail": "[\"#170e10\",\"rgb(23, 14, 16)\"]"
+  },
+  {
+   "name": "load › redirect page (index.html) › …and its text is readable on that background",
+   "pass": true,
+   "detail": "rgb(243, 227, 230)"
+  },
+  {
+   "name": "offline › the worker file › it only touches GET requests, and only same-origin ones inside its own folder",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › the worker file › it can only delete caches carrying its own prefix",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › the worker file › a new version never takes over by itself: skipWaiting() is only called when the page asks (the Reload button)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › the worker file › what it caches is requested from the network, bypassing the HTTP cache (so no stale copy is frozen in)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › the worker file › everything the app needs offline is listed: pages, styles, logo, head scripts, the worker and its imports, all bundles",
+   "pass": true,
+   "detail": "index.html, wt-log-analyzer.html, advanced.html, css/styles.css, assets/github-logo.png, javascript/load-guard.js, javascript/appearance-core.js, javascript/archive-worker.js, javascript/util.js, javascript/detail-parser.js, dist/app-basic.js?v=4a8de076, dist/extras.js?v=22db7a78, dist/app-advanced."
+  },
+  {
+   "name": "offline › the worker file › every listed file exists",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › first visit installs it › exactly one app cache exists, named for the version in sw.js",
+   "pass": true,
+   "detail": "wt-tool-dev-shell-1c3e9004cb"
+  },
+  {
+   "name": "offline › first visit installs it › the cache holds exactly the listed files",
+   "pass": true,
+   "detail": "13 vs 13"
+  },
+  {
+   "name": "offline › first visit installs it › the very first page is already controlled (so offline works without a second visit)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › first visit installs it › no \"new version\" note on a first install, and no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › the page loads offline, with its saved look and its Customise button (from the deferred bundle)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › Analyze works offline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › …and the archive (compression worker included) works offline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › the Advanced view loads offline and lists the saved matches",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › …and its insights",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › the folder URL itself works offline (index.html → the app)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › a query string on the page URL does not break offline loading",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › the example button offline (never fetched before) explains itself instead of failing silently",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › something that was never cached just fails like any offline request",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › once the example has been fetched, it also loads offline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › with no network at all › no uncaught errors offline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › a return visit on a terrible connection › …the whole app is usable within 3 seconds (it took ~24 s without the service worker)",
+   "pass": true,
+   "detail": "927 ms"
+  },
+  {
+   "name": "offline › updates › changing a source and rebuilding gives a new service-worker version",
+   "pass": true,
+   "detail": "1c3e9004cb -> 5fd73929cf"
+  },
+  {
+   "name": "offline › updates › the running page is told a new version is ready (role=status, with Reload and Later)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › …while this page keeps running the old version (nothing changes under your feet)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › the new version is installed alongside the old one, waiting",
+   "pass": true,
+   "detail": "wt-tool-dev-shell-1c3e9004cb,someone-elses-cache,wt-tool-dev-shell-5fd73929cf"
+  },
+  {
+   "name": "offline › updates › \"Later\" dismisses the note",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › …and it is offered again on the next visit while the update is still waiting",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › Reload switches the page to the new version",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › the old version's cache is deleted, the new one kept",
+   "pass": true,
+   "detail": "someone-elses-cache,wt-tool-dev-shell-5fd73929cf"
+  },
+  {
+   "name": "offline › updates › a cache that is not ours was never touched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › the updated app still works offline",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › updates › no uncaught errors through the whole update",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › on localhost it is OFF by default, so edits are never hidden behind a cache",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › …and a flag turns it on",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › …and turning the flag off again removes the worker",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › if caching the app fails, the worker never takes over and the site keeps working from the network",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › …and no half-filled cache is left behind",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "offline › it stays out of the way › …and nothing is reported as an uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour opens by itself on the first visit",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 1 of 11: \"Welcome to Session Readout\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 2 of 11: \"1 · Paste your logs\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 2 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 3 of 11: \"2 · Analyze\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 3 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 4 of 11: \"3 · Battle-type categories\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 4 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 5 of 11: \"4 · Results\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 6 of 11: \"5 · Goal calculator\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 7 of 11: \"6 · Per-match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 8 of 11: \"7 · Export and import\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 8 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 9 of 11: \"8 · Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 9 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 10 of 11: \"9 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 10 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 11 of 11: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour closes after \"Done\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and does not open again by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: Esc closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: clicking outside closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: Tab stays inside the dialog",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: no uncaught errors in the Basic tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 1 of 9: \"Welcome to the Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 2 of 9: \"1 · Filter and sort\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 3 of 9: \"2 · Open a match\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 4 of 9: \"3 · Match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 5 of 9: \"4 · Insights\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 6 of 9: \"5 · Storage and backups\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 6 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 7 of 9: \"6 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 7 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 8 of 9: \"7 · Back to Basic\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 8 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 9 of 9: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Advanced tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Advanced tour doesn't reopen by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: opening the colour panel never starts a tour by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the colour tour explains what every one of the nine colours changes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and explains the readability rule (3:1 and 4.5:1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and the name, limit and export rules",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 1 of 10: \"Colours & text\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 2 of 10: \"1 · Start from a preset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 2 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 3 of 10: \"2 · Surfaces — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 3 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 4 of 10: \"3 · Text — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 4 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 5 of 10: \"4 · Accent and results — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 5 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 6 of 10: \"5 · Readability\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 6 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 7 of 10: \"6 · Font style and text size\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 7 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 8 of 10: \"7 · My presets\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 8 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 9 of 10: \"8 · Reset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 9 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 10 of 10: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: every colour-tour step that points at something really points at it (no missing targets)",
+   "pass": true,
+   "detail": "8 spotlit of 10 (2 are centred intro/outro)"
+  },
+  {
+   "name": "tutorial › desktop › desktop: the colour tour ends and the panel is still open",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: first Esc closes only the tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the next Esc closes the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: no uncaught errors in the colour tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour opens by itself on the first visit",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 1 of 11: \"Welcome to Session Readout\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 2 of 11: \"1 · Paste your logs\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 2 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 3 of 11: \"2 · Analyze\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 3 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 4 of 11: \"3 · Battle-type categories\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 4 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 5 of 11: \"4 · Results\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 6 of 11: \"5 · Goal calculator\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 7 of 11: \"6 · Per-match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 8 of 11: \"7 · Export and import\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 8 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 9 of 11: \"8 · Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 9 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 10 of 11: \"9 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 10 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 11 of 11: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour closes after \"Done\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and does not open again by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: Esc closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: clicking outside closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: Tab stays inside the dialog",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: no uncaught errors in the Basic tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 1 of 9: \"Welcome to the Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 2 of 9: \"1 · Filter and sort\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 3 of 9: \"2 · Open a match\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 4 of 9: \"3 · Match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 5 of 9: \"4 · Insights\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 6 of 9: \"5 · Storage and backups\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 6 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 7 of 9: \"6 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 7 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 8 of 9: \"7 · Back to Basic\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 8 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 9 of 9: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Advanced tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Advanced tour doesn't reopen by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: opening the colour panel never starts a tour by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the colour tour explains what every one of the nine colours changes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and explains the readability rule (3:1 and 4.5:1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and the name, limit and export rules",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 1 of 10: \"Colours & text\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 2 of 10: \"1 · Start from a preset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 2 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 3 of 10: \"2 · Surfaces — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 3 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 4 of 10: \"3 · Text — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 4 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 5 of 10: \"4 · Accent and results — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 5 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 6 of 10: \"5 · Readability\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 6 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 7 of 10: \"6 · Font style and text size\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 7 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 8 of 10: \"7 · My presets\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 8 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 9 of 10: \"8 · Reset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 9 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 10 of 10: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: every colour-tour step that points at something really points at it (no missing targets)",
+   "pass": true,
+   "detail": "8 spotlit of 10 (2 are centred intro/outro)"
+  },
+  {
+   "name": "tutorial › phone › phone: the colour tour ends and the panel is still open",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: first Esc closes only the tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the next Esc closes the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: no uncaught errors in the colour tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "84 vs 84"
+  },
+  {
+   "name": "invariants › parser › matches.txt › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › matches.txt › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › matches.txt › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › matches.txt › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "17 vs 17"
+  },
+  {
+   "name": "invariants › parser › matches.txt › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches.txt › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "1365776/304022 vs 1365776/304022"
+  },
+  {
+   "name": "invariants › parser › matches.txt › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "235 vs 235"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "29 vs 29"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "3992847/905498 vs 3992847/905498"
+  },
+  {
+   "name": "invariants › parser › matches-large.txt › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › parser › one match › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › one match › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › one match › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › one match › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › one match › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "22571/4825 vs 22571/4825"
+  },
+  {
+   "name": "invariants › parser › one match › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "2 vs 2"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "27883/6561 vs 27883/6561"
+  },
+  {
+   "name": "invariants › parser › 2 synthetic matches › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "663029/148170 vs 663029/148170"
+  },
+  {
+   "name": "invariants › parser › 37 synthetic matches › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "21353396/4772660 vs 21353396/4772660"
+  },
+  {
+   "name": "invariants › parser › 1,001 synthetic matches › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "50 vs 50"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "49 vs 49"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "22571/4825 vs 22571/4825"
+  },
+  {
+   "name": "invariants › parser › one match pasted 50 times › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "50 vs 50"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "375541/79656 vs 375541/79656"
+  },
+  {
+   "name": "invariants › parser › a log pasted twice (every match duplicated) › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "84 vs 84"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "17 vs 17"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "1365776/304022 vs 1365776/304022"
+  },
+  {
+   "name": "invariants › parser › blocks in reverse order › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "15 vs 15"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "157457/39540 vs 157457/39540"
+  },
+  {
+   "name": "invariants › parser › CRLF line endings › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › finds exactly as many matches as there are headers in the text",
+   "pass": true,
+   "detail": "5 vs 5"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › matches come back in the order they appear, with the right Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every result (Victory/Defeat) agrees",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every match's net SL and RP agree with its Total: line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every match's game mode and mission agree with its header",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every match's time played agrees with its Time Played line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every match's research targets (\"Researched unit\") agree, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › every match's module progress (\"Researching progress\") agrees, name by name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › the detail view lists the same research targets and module progress as the summary, match by match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › each match keeps its own raw text, and no text is invented",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › detail parsing leaves no line unrecognised",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › detail parsing finds one event per indented line, in every match",
+   "pass": true,
+   "detail": "0 differ"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › detail parsing reads the same Session ID and a total in every match",
+   "pass": true,
+   "detail": "0 bad, first: undefined"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › CRLF and LF versions of the log parse identically",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › dedupeLogText removes exactly the repeated matches",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › after dedupeLogText the log holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › dedupeLogText leaves the totals unchanged",
+   "pass": true,
+   "detail": "34266/10851 vs 34266/10851"
+  },
+  {
+   "name": "invariants › parser › junk before, between and after the matches › dedupeLogText is idempotent and keeps any text before the first match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › two figures: the match's net SL and RP are read in full",
+   "pass": true,
+   "detail": "{\"sl\":4570,\"rp\":1912,\"endsWithTotal\":true,\"dsl\":4570,\"dcrp\":1912,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › two figures: the detail view reads the same total, and the stored text ends at the Total line",
+   "pass": true,
+   "detail": "{\"sl\":4570,\"rp\":1912,\"endsWithTotal\":true,\"dsl\":4570,\"dcrp\":1912,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › three figures: the match's net SL and RP are read in full",
+   "pass": true,
+   "detail": "{\"sl\":4570,\"rp\":1912,\"endsWithTotal\":true,\"dsl\":4570,\"dcrp\":1912,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › three figures: the detail view reads the same total, and the stored text ends at the Total line",
+   "pass": true,
+   "detail": "{\"sl\":4570,\"rp\":1912,\"endsWithTotal\":true,\"dsl\":4570,\"dcrp\":1912,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › with thousands separators: the match's net SL and RP are read in full",
+   "pass": true,
+   "detail": "{\"sl\":1234567,\"rp\":89012,\"endsWithTotal\":true,\"dsl\":1234567,\"dcrp\":89012,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › Total: line without the trailing RP figure › with thousands separators: the detail view reads the same total, and the stored text ends at the Total line",
+   "pass": true,
+   "detail": "{\"sl\":1234567,\"rp\":89012,\"endsWithTotal\":true,\"dsl\":1234567,\"dcrp\":89012,\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › one vehicle, plus RP from earlier battles: one target row with the combined RP (no \"earned in the previous battles\" target)",
+   "pass": true,
+   "detail": "[{\"name\":\"EMBT(Germany)\",\"rp\":20490}]"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › one vehicle, plus RP from earlier battles: the detail view agrees, and leaves no line unrecognised",
+   "pass": true,
+   "detail": "{\"target\":[{\"name\":\"EMBT(Germany)\",\"rp\":20490}],\"detail\":[{\"name\":\"EMBT(Germany)\",\"rp\":20490}],\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › with thousands separators: one target row with the combined RP (no \"earned in the previous battles\" target)",
+   "pass": true,
+   "detail": "[{\"name\":\"EMBT(Germany)\",\"rp\":20490}]"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › with thousands separators: the detail view agrees, and leaves no line unrecognised",
+   "pass": true,
+   "detail": "{\"target\":[{\"name\":\"EMBT(Germany)\",\"rp\":20490}],\"detail\":[{\"name\":\"EMBT(Germany)\",\"rp\":20490}],\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › a plain line is unchanged: one target row with the combined RP (no \"earned in the previous battles\" target)",
+   "pass": true,
+   "detail": "[{\"name\":\"EMBT(Germany)\",\"rp\":5016}]"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › a plain line is unchanged: the detail view agrees, and leaves no line unrecognised",
+   "pass": true,
+   "detail": "{\"target\":[{\"name\":\"EMBT(Germany)\",\"rp\":5016}],\"detail\":[{\"name\":\"EMBT(Germany)\",\"rp\":5016}],\"unparsed\":0}"
+  },
+  {
+   "name": "invariants › parser › research line with \"earned in the previous battles\" › no uncaught errors while parsing every dataset",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › matches.txt › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "62.7% vs 62.7%"
+  },
+  {
+   "name": "invariants › basic › matches.txt › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "1,365,776 vs 1365776"
+  },
+  {
+   "name": "invariants › basic › matches.txt › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "304,022 vs 304022"
+  },
+  {
+   "name": "invariants › basic › matches.txt › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "84 rows"
+  },
+  {
+   "name": "invariants › basic › matches.txt › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "84 vs 84"
+  },
+  {
+   "name": "invariants › basic › matches.txt › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "17 vs 17"
+  },
+  {
+   "name": "invariants › basic › matches.txt › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":true,\"text\":\"⚠ 17 duplicate match(es) detected by Session ID and excluded from totals.\"}"
+  },
+  {
+   "name": "invariants › basic › matches.txt › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 67 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › matches.txt › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › matches.txt › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "67/67 vs 67"
+  },
+  {
+   "name": "invariants › basic › matches.txt › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › matches.txt › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › basic › matches.txt › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches.txt › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › basic › matches.txt › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches.txt › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › advanced › matches.txt › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches.txt › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › advanced › matches.txt › opening match 73d246… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches.txt › opening match 725997… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches.txt › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "Deleted 17 duplicate match(es): 17 from your saved session text. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 84 duplicate match(es): 17 from your saved session text and 67 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches.txt › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "206 vs 206"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "57.8% vs 57.8%"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "3,992,847 vs 3992847"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "905,498 vs 905498"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "200 rows"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "235 vs 235"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "29 vs 29"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":true,\"text\":\"⚠ 29 duplicate match(es) detected by Session ID and excluded from totals.\"}"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 206 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "206 vs 206"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "206/206 vs 206"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "206 vs 206"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"206\",\"WIN RATE\":\"57.8%\",\"TOTAL NET SL\":\"3,992,847\",\"TOTAL RP\":\"905,498\"}"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"206\",\"WIN RATE\":\"57.8%\",\"TOTAL NET SL\":\"3,992,847\",\"TOTAL RP\":\"905,498\"}"
+  },
+  {
+   "name": "invariants › basic › matches-large.txt › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "206 vs 206"
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"206\",\"WIN RATE\":\"57.8%\",\"TOTAL NET SL\":\"3,992,847\",\"TOTAL RP\":\"905,498\"}"
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › opening match 6e075b… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › opening match 725997… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › matches-large.txt › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "Deleted 29 duplicate match(es): 29 from your saved session text. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"206\",\"WIN RATE\":\"57.8%\",\"TOTAL NET SL\":\"3,992,847\",\"TOTAL RP\":\"905,498\"}"
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 235 duplicate match(es): 29 from your saved session text and 206 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"206\",\"WIN RATE\":\"57.8%\",\"TOTAL NET SL\":\"3,992,847\",\"TOTAL RP\":\"905,498\"}"
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › matches-large.txt › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "100.0% vs 100.0%"
+  },
+  {
+   "name": "invariants › basic › one match › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "22,571 vs 22571"
+  },
+  {
+   "name": "invariants › basic › one match › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "4,825 vs 4825"
+  },
+  {
+   "name": "invariants › basic › one match › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "1 rows"
+  },
+  {
+   "name": "invariants › basic › one match › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › basic › one match › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":false,\"text\":\"\"}"
+  },
+  {
+   "name": "invariants › basic › one match › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 1 match(es) stored (1 new)."
+  },
+  {
+   "name": "invariants › basic › one match › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "1/1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › basic › one match › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › basic › one match › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › advanced › one match › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › advanced › one match › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › one match › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 1 duplicate match(es): 1 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › one match › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "56.8% vs 56.8%"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "663,029 vs 663029"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "148,170 vs 148170"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "37 rows"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":false,\"text\":\"\"}"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 37 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "37/37 vs 37"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"37\",\"WIN RATE\":\"56.8%\",\"TOTAL NET SL\":\"663,029\",\"TOTAL RP\":\"148,170\"}"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"37\",\"WIN RATE\":\"56.8%\",\"TOTAL NET SL\":\"663,029\",\"TOTAL RP\":\"148,170\"}"
+  },
+  {
+   "name": "invariants › basic › 37 synthetic matches › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "37 vs 37"
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"37\",\"WIN RATE\":\"56.8%\",\"TOTAL NET SL\":\"663,029\",\"TOTAL RP\":\"148,170\"}"
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 37 synthetic matches › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"37\",\"WIN RATE\":\"56.8%\",\"TOTAL NET SL\":\"663,029\",\"TOTAL RP\":\"148,170\"}"
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 37 duplicate match(es): 37 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"37\",\"WIN RATE\":\"56.8%\",\"TOTAL NET SL\":\"663,029\",\"TOTAL RP\":\"148,170\"}"
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 37 synthetic matches › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "65.2% vs 65.2%"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "21,353,396 vs 21353396"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "4,772,660 vs 4772660"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "200 rows"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "0 vs 0"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":false,\"text\":\"\"}"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 1001 match(es) stored (1001 new)."
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "1001/1001 vs 1001"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1001\",\"WIN RATE\":\"65.2%\",\"TOTAL NET SL\":\"21,353,396\",\"TOTAL RP\":\"4,772,660\"}"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1001\",\"WIN RATE\":\"65.2%\",\"TOTAL NET SL\":\"21,353,396\",\"TOTAL RP\":\"4,772,660\"}"
+  },
+  {
+   "name": "invariants › basic › 1,001 synthetic matches › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › a capped library says how many it has: the unique match count",
+   "pass": true,
+   "detail": "Showing the first 500 of 1001"
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "1001 vs 1001"
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1001\",\"WIN RATE\":\"65.2%\",\"TOTAL NET SL\":\"21,353,396\",\"TOTAL RP\":\"4,772,660\"}"
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › 1,001 synthetic matches › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1001\",\"WIN RATE\":\"65.2%\",\"TOTAL NET SL\":\"21,353,396\",\"TOTAL RP\":\"4,772,660\"}"
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 1001 duplicate match(es): 1001 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1001\",\"WIN RATE\":\"65.2%\",\"TOTAL NET SL\":\"21,353,396\",\"TOTAL RP\":\"4,772,660\"}"
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › 1,001 synthetic matches › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "100.0% vs 100.0%"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "22,571 vs 22571"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "4,825 vs 4825"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "50 rows"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "50 vs 50"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "49 vs 49"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":true,\"text\":\"⚠ 49 duplicate match(es) detected by Session ID and excluded from totals.\"}"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 1 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "1/1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › basic › one match pasted 50 times › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "1 vs 1"
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › opening match 73876a… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › opening match 73876a… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › one match pasted 50 times › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "Deleted 49 duplicate match(es): 49 from your saved session text. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 50 duplicate match(es): 49 from your saved session text and 1 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"1\",\"WIN RATE\":\"100.0%\",\"TOTAL NET SL\":\"22,571\",\"TOTAL RP\":\"4,825\"}"
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › one match pasted 50 times › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "44.0% vs 44.0%"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "375,541 vs 375541"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "79,656 vs 79656"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "50 rows"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "50 vs 50"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":true,\"text\":\"⚠ 25 duplicate match(es) detected by Session ID and excluded from totals.\"}"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 25 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "25/25 vs 25"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"25\",\"WIN RATE\":\"44.0%\",\"TOTAL NET SL\":\"375,541\",\"TOTAL RP\":\"79,656\"}"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"25\",\"WIN RATE\":\"44.0%\",\"TOTAL NET SL\":\"375,541\",\"TOTAL RP\":\"79,656\"}"
+  },
+  {
+   "name": "invariants › basic › a log pasted twice (every match duplicated) › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "25 vs 25"
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"25\",\"WIN RATE\":\"44.0%\",\"TOTAL NET SL\":\"375,541\",\"TOTAL RP\":\"79,656\"}"
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › opening match 730000… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › a log pasted twice (every match duplicated) › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "Deleted 25 duplicate match(es): 25 from your saved session text. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"25\",\"WIN RATE\":\"44.0%\",\"TOTAL NET SL\":\"375,541\",\"TOTAL RP\":\"79,656\"}"
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 50 duplicate match(es): 25 from your saved session text and 25 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"25\",\"WIN RATE\":\"44.0%\",\"TOTAL NET SL\":\"375,541\",\"TOTAL RP\":\"79,656\"}"
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › a log pasted twice (every match duplicated) › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › MATCHES counts unique matches only",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › WIN RATE matches wins / unique matches",
+   "pass": true,
+   "detail": "62.7% vs 62.7%"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › TOTAL NET SL is the sum over unique matches",
+   "pass": true,
+   "detail": "1,365,776 vs 1365776"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › TOTAL RP is the sum over unique matches",
+   "pass": true,
+   "detail": "304,022 vs 304022"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the table starts with at most the first batch of rows, and says how many more there are",
+   "pass": true,
+   "detail": "84 rows"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the per-match table has one row per match pasted",
+   "pass": true,
+   "detail": "84 vs 84"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › exactly the repeated matches are struck through",
+   "pass": true,
+   "detail": "17 vs 17"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › struck-through rows are exactly the ones repeating an earlier Session ID",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the SL and RP of non-duplicate rows add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the duplicate warning shows (with the right number) exactly when there are duplicates",
+   "pass": true,
+   "detail": "{\"shown\":true,\"text\":\"⚠ 17 duplicate match(es) detected by Session ID and excluded from totals.\"}"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › battle-type split: match counts add up to the unique total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › battle-type split: wins + losses add up to the unique total, wins to the oracle's",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › battle-type split: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › analysing the same text again changes nothing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the archive note reports one stored match per unique Session ID",
+   "pass": true,
+   "detail": "Local archive: 67 match(es) stored."
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › the archive holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › raw export: count and list both equal the unique matches, each with its own text",
+   "pass": true,
+   "detail": "67/67 vs 67"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › raw export: holds exactly the unique Session IDs",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › minimal export: one entry per unique match, no repeats",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › minimal export: SL and RP add up to the totals",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › minimal JSON re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › minimal JSON import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › HTML report re-imports to the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › basic › blocks in reverse order › HTML report import raises no errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › the library lists exactly the unique matches (after \"Show all\" if it was capped)",
+   "pass": true,
+   "detail": "67 vs 67"
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › every library row has per-match detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › the library stats agree with the oracle (matches, win rate, SL, RP)",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › opening match 73d246… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › opening match 725997… shows its own detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › advanced › blocks in reverse order › no uncaught errors in either view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › the saved session: the button reports exactly the number of repeated matches (or none)",
+   "pass": true,
+   "detail": "Deleted 17 duplicate match(es): 17 from your saved session text. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › the saved session now holds exactly the unique matches, first copies, in order",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › each kept match is its original text, untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › the archive is untouched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › a second run finds nothing more",
+   "pass": true,
+   "detail": "No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)"
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning the saved session: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning the saved session: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning the saved session: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › with imported copies too: the button reports the repeats in the text plus every imported copy",
+   "pass": true,
+   "detail": "Deleted 84 duplicate match(es): 17 from your saved session text and 67 from your imported matches. The first copy of each was kept."
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › no imported copies are left, and the saved text holds each match once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning imported copies too: the Basic view shows the same matches, win rate and totals",
+   "pass": true,
+   "detail": "{\"MATCHES\":\"67\",\"WIN RATE\":\"62.7%\",\"TOTAL NET SL\":\"1,365,776\",\"TOTAL RP\":\"304,022\"}"
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning imported copies too: no duplicate warning and no struck-through rows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › after cleaning imported copies too: one row per unique match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › duplicates › blocks in reverse order › no uncaught errors (imported case)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › relationships › pasting a log twice doubles the matches pasted but not the unique ones",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › relationships › reversing the order of the blocks does not change any total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "invariants › relationships › one match pasted 50 times counts as one",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 200 matches › synthetic log parses to 200 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":8.299999999813735,\"n\":200,\"unique\":200}"
+  },
+  {
+   "name": "perf › 200 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":200,\"skipped\":0,\"failed\":0} stored=200"
+  },
+  {
+   "name": "perf › 200 matches › Analyze renders the first batch of rows (200, or all of them if fewer)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 200 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 2000 matches › synthetic log parses to 2000 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":65.8999999994412,\"n\":2000,\"unique\":2000}"
+  },
+  {
+   "name": "perf › 2000 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":2000,\"skipped\":0,\"failed\":0} stored=2000"
+  },
+  {
+   "name": "perf › 2000 matches › Analyze renders the first batch of rows (200, or all of them if fewer)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 2000 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 6000 matches › synthetic log parses to 6000 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":184.70000000018626,\"n\":6000,\"unique\":6000}"
+  },
+  {
+   "name": "perf › 6000 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":6000,\"skipped\":0,\"failed\":0} stored=6000"
+  },
+  {
+   "name": "perf › 6000 matches › Analyze renders the first batch of rows (200, or all of them if fewer)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 6000 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "snapshots": {
+  "appearance › presets › contrast of every built-in preset (lowest ratio, rounded)": {
+   "hash": "8734953f1e423e65",
+   "preview": "blue:4.0,amber:4.6,slate:3.8,forest:4.4,crimson:5.5,violet:5.6,teal:6.0,daylight:4.9"
+  },
+  "appearance › reports and views › report data sections are identical whatever the colours (tables only)": {
+   "hash": "e5ecb7d430a0a234"
+  }
+ },
+ "metrics": {
+  "offline › a return visit on a terrible connection › return visit on 100 kbit/s, 1.5 s latency, 20x slower CPU: until fully usable": 927,
+  "perf › 200 matches › parse the pasted log": 8.3,
+  "perf › 200 matches › parse per-match detail for all matches": 39.5,
+  "perf › 200 matches › write all matches to the archive": 132.8,
+  "perf › 200 matches › read + decompress the whole archive": 32.1,
+  "perf › 200 matches › archive stats()": 6.6,
+  "perf › 200 matches › Analyze click (stats + every table)": 20.1,
+  "perf › 200 matches › Advanced: open page until first library row shows": 132,
+  "perf › 200 matches › Advanced: open page and have every insight table filled": 148,
+  "perf › 200 matches › Advanced: re-render library after a filter change": 5,
+  "perf › 200 matches › Advanced: open one match detail": 29.3,
+  "perf › 2000 matches › parse the pasted log": 65.9,
+  "perf › 2000 matches › parse per-match detail for all matches": 223.5,
+  "perf › 2000 matches › write all matches to the archive": 1031.1,
+  "perf › 2000 matches › read + decompress the whole archive": 264,
+  "perf › 2000 matches › archive stats()": 55.4,
+  "perf › 2000 matches › Analyze click (stats + every table)": 84.3,
+  "perf › 2000 matches › Advanced: open page until first library row shows": 398,
+  "perf › 2000 matches › Advanced: open page and have every insight table filled": 416,
+  "perf › 2000 matches › Advanced: re-render library after a filter change": 14,
+  "perf › 2000 matches › Advanced: open one match detail": 17.6,
+  "perf › 6000 matches › parse the pasted log": 184.7,
+  "perf › 6000 matches › parse per-match detail for all matches": 637.2,
+  "perf › 6000 matches › write all matches to the archive": 3372.3,
+  "perf › 6000 matches › read + decompress the whole archive": 831.8,
+  "perf › 6000 matches › archive stats()": 107,
+  "perf › 6000 matches › Analyze click (stats + every table)": 207.1,
+  "perf › 6000 matches › Advanced: open page until first library row shows": 1233,
+  "perf › 6000 matches › Advanced: open page and have every insight table filled": 1287,
+  "perf › 6000 matches › Advanced: re-render library after a filter change": 14.1,
+  "perf › 6000 matches › Advanced: open one match detail": 16.9
+ },
+ "suites": [
+  "appearance",
+  "flash",
+  "offline",
+  "tutorial",
+  "invariants",
+  "perf"
+ ]
+}

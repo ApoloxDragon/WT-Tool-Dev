@@ -68,7 +68,7 @@ The old `raw-export.js` → Analyze coupling is gone (Analyze never waits on or 
 | 4 | compress off the main thread | ✅ `archive-worker.js`, with a main-thread fallback and timeout |
 | 5 | service worker | ✅ versioned cache, updates wait for "Reload", off on localhost unless flagged |
 | 6 | guard optional features + notice | ✅ `load-guard.js`; Analyze no longer depends on the archive script |
-| 7 | Blob-free decompress | ✅ done as part of the worker work |
+| 7 | Blob-free decompress | ✅ the worker decompresses straight from bytes (no Blob per record) |
 | 8 | fix the misleading `file://` message | ✅ |
 
 ---
