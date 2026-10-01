@@ -50,7 +50,28 @@ function oracle(text) {
     // the trailing ", N RP" is optional: the game leaves it off when there was no research progress
     const totals = [...b.matchAll(/^Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP(?:,\s*[\d,]+\s*RP)?/gm)].pop();
     const num = s => parseInt(String(s).replace(/,/g, ''), 10);
+    const head = b.match(/^(?:Victory|Defeat) in the \[([^\]\n]+)\][^\S\n]+(.+?)[^\S\n]+mission!/);
+    const time = b.match(/^Time Played\s+(\d+):(\d+)/m);
+    // "Name: 1,234 RP" lines in the list that follows a heading, up to the first blank line
+    const rpList = heading => {
+      const lines = b.split('\n'), at = lines.findIndex(l => l.trim() === heading);
+      const out = [];
+      for (let i = at + 1; at >= 0 && i < lines.length && lines[i].trim() !== ''; i++) {
+        // a line can hold several "Name: N RP" parts joined by " + "; a part
+        // "earned in the previous battles: N RP" is more progress on the vehicle named before it
+        const first = out.length;
+        lines[i].split(/\s+\+\s+/).forEach(part => {
+          const m = part.match(/^(.*\S)\s*:\s*([\d,]+)\s*RP\s*$/);
+          if (!m || !num(m[2])) return;
+          if (!/^earned in the previous battles$/i.test(m[1].trim())) out.push({ name: m[1].trim(), rp: num(m[2]) });
+          else if (out.length > first) out[out.length - 1].rp += num(m[2]);
+        });
+      }
+      return out;
+    };
     return { id, result: b.startsWith('Victory') ? 'Victory' : 'Defeat', sl: totals ? num(totals[1]) : 0, rp: totals ? num(totals[2]) : 0,
+      mode: head ? head[1].replace(/\s*#\d+$/, '').trim() : '', mission: head ? head[2].trim() : '',
+      timeSec: time ? +time[1] * 60 + +time[2] : 0, researched: rpList('Researched unit:'), researching: rpList('Researching progress:'),
       events: b.split('\n').filter(l => /^\s+\S/.test(l)).length, raw: b };
   });
   const seen = new Set();

@@ -14,19 +14,28 @@ function summaryOf(m) {
 
 const RP_NAME_CHAR = /[A-Za-z0-9À-ÿ'".\-() ]/;
 
+// A finished vehicle's line can read "EMBT(Germany): 5016 RP + earned in the previous battles: 15474 RP".
+// The second figure is RP banked toward that same vehicle in earlier battles. It is real progress on the
+// target, so it is added to the vehicle's own entry (20,490 here) rather than listed as a target of its own.
+const CARRIED_OVER = /^earned in the previous battles$/i;
+
 // Lines like "Leopard 2K: 5163 RP". The name is the run of allowed characters
 // directly before the colon.
 function parseRpLines(section) {
   const out = [];
   section.split('\n').forEach(line => {
     const re = /:\s*([\d,]{1,15})\s*RP/g;
+    const lineStart = out.length;
     let lastEnd = 0, lm;
     while ((lm = re.exec(line)) !== null) {
       let i = lm.index;
       while (i > lastEnd && RP_NAME_CHAR.test(line[i - 1])) i--;
       const name = line.slice(i, lm.index).trim();
       const rp = parseInt(lm[1].replace(/,/g, ''));
-      if (name && rp) out.push({ name, rp });
+      if (name && rp) {
+        if (!CARRIED_OVER.test(name)) out.push({ name, rp });
+        else if (out.length > lineStart) out[out.length - 1].rp += rp;   // belongs to the vehicle before it on this line
+      }
       lastEnd = re.lastIndex;
     }
   });
