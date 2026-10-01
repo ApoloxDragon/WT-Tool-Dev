@@ -6,21 +6,26 @@
  * Needs Playwright (local or global npm install) and Chromium. See tests/README.md. */
 const fs = require('fs'), path = require('path');
 const { startServer, launch, collector } = require('./harness');
+const { build } = require('../tools/build');
 const { compare } = require('./compare');
 
 const args = process.argv.slice(2);
 const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i === -1 ? dflt : args[i + 1]; };
 const label = opt('label', 'run');
 const only = opt('only', '') ? opt('only').split(',') : null;
-const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'flash', 'guard', 'tutorial', 'invariants', 'perf'];
+const SUITES = ['build', 'parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'flash', 'guard', 'tutorial', 'invariants', 'perf'];
 const OPT_IN = ['lowend']; // slow by design: only runs when named with --only
 
 (async () => {
+  // The pages load dist/, which is built from javascript/. Never test a stale bundle: rebuild first, but
+  // remember what was stale so the build suite can fail (the fix must be committed).
+  const distStale = build({ write: false }).stale;
+  if (distStale.length) { console.warn('dist/ was out of date — rebuilding for this run: ' + distStale.join(', ')); build({ write: true }); }
   const server = await startServer();
   const browser = await launch();
   const t = collector(label);
   t.out.suites = [];
-  const ctx = { browser, base: server.url, t, scale: opt('scale', 'full') };
+  const ctx = { browser, base: server.url, t, scale: opt('scale', 'full'), distStale };
   for (const name of [...SUITES, ...OPT_IN]) {
     if (only ? !only.includes(name) : OPT_IN.includes(name)) continue;
     console.log(`\n=== ${name} ===`);

@@ -3,10 +3,10 @@
 const fs = require('fs'), path = require('path');
 const { newPage, ROOT } = require('../harness');
 
-// The script each page needs in order to work, as a URL pattern. (Updated if the files are ever bundled.)
+// The script each page needs in order to work, as a URL pattern (the trailing * is the ?v=hash on the bundle URL).
 const PAGES = [
-  { name: 'Basic', url: 'wt-log-analyzer.html', core: '**/dist/app-basic.js', coreFallback: '**/javascript/main.js', button: '#analyzeBtn' },
-  { name: 'Advanced', url: 'advanced.html', core: '**/dist/app-advanced.js', coreFallback: '**/javascript/advanced.js', button: '#basicLink' }
+  { name: 'Basic', url: 'wt-log-analyzer.html', core: '**/dist/app-basic.js*', coreFallback: '**/javascript/main.js', button: '#analyzeBtn' },
+  { name: 'Advanced', url: 'advanced.html', core: '**/dist/app-advanced.js*', coreFallback: '**/javascript/advanced.js', button: '#basicLink' }
 ];
 
 // Records every time a load note appears or disappears, from before the page's own scripts run.
