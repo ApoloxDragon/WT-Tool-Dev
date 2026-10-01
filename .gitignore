@@ -1,3 +1,5 @@
 tests/results/*.log
 tests/results/.tmp-*
 tests/results/probe*
+tests/results/low-end-details.json
+tests/results/sanity*
