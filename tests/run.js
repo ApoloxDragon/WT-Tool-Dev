@@ -2,7 +2,7 @@
 /* Usage:
  *   node tests/run.js --label pre-change                 run everything, save tests/results/pre-change.json
  *   node tests/run.js --label post-change --compare tests/baseline/pre-change.json
- *   options: --only parser,basic,advanced,storage,security,perf   --scale small|full
+ *   options: --only parser,basic,advanced,storage,security,invariants,perf   --scale small|full
  * Needs Playwright (local or global npm install) and Chromium. See tests/README.md. */
 const fs = require('fs'), path = require('path');
 const { startServer, launch, collector } = require('./harness');
@@ -12,7 +12,7 @@ const args = process.argv.slice(2);
 const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i === -1 ? dflt : args[i + 1]; };
 const label = opt('label', 'run');
 const only = opt('only', '') ? opt('only').split(',') : null;
-const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'tutorial', 'perf'];
+const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'tutorial', 'invariants', 'perf'];
 
 (async () => {
   const server = await startServer();
