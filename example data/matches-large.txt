@@ -11385,3 +11385,1212 @@ Puma - Smoke grenade: 3425 RP
 Session: 6e075b99000327ab
 Total: 57979 SL, 14347 CRP, 28351 RP
 
+Defeat in the [Domination #2] Second battle of El Alamein mission!
+
+Destruction of aircraft                        1     3983 SL     354 RP    
+    4:49    Puma    PMC308    Recon Micro (AI)    200 mission points    — (full reward)    2655 + (PA)1328 = 3983 SL    177 + (PA)177 = 354 RP
+
+Destruction of ground targets                  3    11100 SL     888 RP    
+    2:38    Puma                     PMC287    BMP-2M     200 mission points    1770 + (PA)885 = 2655 SL     112 + (PA)112 + (Booster)12 = 236 RP   
+    6:20    Puma                     PMC287    T-80UD     200 mission points    1770 + (PA)885 = 2655 SL     118 + (PA)118 = 236 RP                 
+    8:19    Leopard 2 (PzBtl 123)    DM23      BMP-2M     197 mission points    3860 + (PA)1930 = 5790 SL    104 + (PA)208 + (Talismans)104 = 416 RP
+
+Critical damage to the enemy                   4     1511 SL     125 RP    
+    2:38    Puma                     PMC287    BMP-2M              60 mission points    177 + (PA)89 = 266 SL     11 + (PA)11 + (Booster)2 = 24 RP   
+    4:45    Puma                     PMC308    Recon Micro (AI)    60 mission points    266 + (PA)134 = 400 SL    18 + (PA)18 = 36 RP                
+    6:13    Puma                     PMC287    T-80UD              60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+    8:19    Leopard 2 (PzBtl 123)    DM23      BMP-2M              59 mission points    386 + (PA)193 = 579 SL    10 + (PA)21 + (Talismans)10 = 41 RP
+
+Damage to the enemy                            7     1160 SL     100 RP    
+    2:38    Puma                     PMC287    BMP-2M              20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 + (Booster)1 = 13 RP   
+    2:38    Puma                     PMC287    BMP-2M              20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 + (Booster)1 = 13 RP   
+    4:45    Puma                     PMC308    Recon Micro (AI)    20 mission points    133 + (PA)67 = 200 SL    9 + (PA)9 = 18 RP                
+    6:13    Puma                     PMC287    T-80UD              20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    6:17    Puma                     PMC287    T-80UD              20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    6:20    Puma                     PMC287    T-80UD              20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    8:19    Leopard 2 (PzBtl 123)    DM23      BMP-2M              20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+
+Scouting of the enemy                          7      938 SL               
+    1:23    Puma    M10 Booker     5 mission points    without UAV    89 + (PA)45 = 134 SL
+    2:37    Puma    BMP-2M         5 mission points    without UAV    89 + (PA)45 = 134 SL
+    3:18    Puma    T-80UD         5 mission points    without UAV    89 + (PA)45 = 134 SL
+    3:29    Puma    M1 Abrams      5 mission points    without UAV    89 + (PA)45 = 134 SL
+    4:11    Puma    T-80UD         5 mission points    without UAV    89 + (PA)45 = 134 SL
+    6:19    Puma    T-80UD         5 mission points    without UAV    89 + (PA)45 = 134 SL
+    6:33    Puma    LAV-AD         5 mission points    without UAV    89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                3      798 SL               
+    3:21    Puma    T-80UD        20 mission points    without UAV    177 + (PA)89 = 266 SL
+    3:45    Puma    M1 Abrams     20 mission points    without UAV    177 + (PA)89 = 266 SL
+    6:37    Puma    LAV-AD        20 mission points    without UAV    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies       3     3984 SL     168 RP    
+    3:21    Puma    T-80UD        60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+    3:45    Puma    M1 Abrams     60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+    6:37    Puma    LAV-AD        60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                        15     6825 SL     200 RP    
+    2:33    Help with Repairing    100 + (PA)50 = 150 SL       0 RP                  
+    2:47    Teamwork               600 + (PA)300 = 900 SL      0 RP                  
+    3:16    Help with Repairing    100 + (PA)50 = 150 SL       0 RP                  
+    3:22    Teamwork               600 + (PA)300 = 900 SL      0 RP                  
+    3:22    Intelligence           100 + (PA)50 = 150 SL       0 RP                  
+    3:45    Teamwork               600 + (PA)300 = 900 SL      0 RP                  
+    3:45    Intelligence           100 + (PA)50 = 150 SL       0 RP                  
+    4:05    Help with Repairing    100 + (PA)50 = 150 SL       0 RP                  
+    6:20    Tank Rescuer           50 + (PA)25 = 75 SL         0 RP                  
+    6:20    Avenger                150 + (PA)75 = 225 SL       0 RP                  
+    6:21    Teamwork               600 + (PA)300 = 900 SL      0 RP                  
+    6:25    Adamant                300 + (PA)150 = 450 SL      0 RP                  
+    6:37    Intelligence           100 + (PA)50 = 150 SL       0 RP                  
+    8:20    Tank Rescuer           50 + (PA)25 = 75 SL         0 RP                  
+    9:10    The Best Squad         1000 + (PA)500 = 1500 SL    100 + (PA)100 = 200 RP
+
+Activity Time                                        5186 SL     488 RP    
+    Leopard 2 (PzBtl 123)    1743 + (PA)1743 = 3486 SL    83 + (PA)166 + (Talismans)83 = 332 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+
+Time Played                                 7:56                2196 RP    
+    Leopard 2 (PzBtl 123)    65%    1:27    125 + (PA)250 + (Talismans)125 = 500 RP
+    Puma                     97%    6:29    848 + (PA)848 = 1696 RP                
+
+Reward for participating in the mission              5732 SL               
+
+Skill Bonus                                                      275 RP    
+    Leopard 2 (PzBtl 123)    I    50 RP 
+    Puma                     I    225 RP
+
+Earned: 41217 SL, 4794 CRP
+Activity: 87%
+Damaged Vehicles: Leopard 2 (PzBtl 123), Puma
+Automatic repair of all vehicles: -4436 SL
+Automatic purchasing of ammo and "Crew Replenishment": -710 SL
+
+Researched unit: 
+Gepard: 4270 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 1359 RP
+Puma - Tracks: 3235 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 6e075b9900026849
+Total: 36071 SL, 4794 CRP, 8864 RP
+
+Victory in the [Domination] Cargo port mission!
+
+Destruction of ground targets                   2     8445 SL     708 RP    
+    4:46    Puma                     PMC287    T-72B3 "Arena"     200 mission points    1770 + (PA)885 = 2655 SL     124 + (PA)124 = 248 RP                 
+    9:00    Leopard 2 (PzBtl 123)    DM23      T-80UD/BE          200 mission points    3860 + (PA)1930 = 5790 SL    115 + (PA)230 + (Talismans)115 = 460 RP
+
+Assistance in destroying the enemy              3     5001 SL     435 RP    
+    2:51     Puma                     PMC287              M1A1               120 mission points    797 + (PA)400 = 1197 SL     61 + (PA)61 = 122 RP                 
+    3:36     Puma                     PMC287              T-72B3 "Arena"     120 mission points    797 + (PA)400 = 1197 SL     56 + (PA)56 = 112 RP                 
+    14:41    Leopard 2 (PzBtl 123)    Default (7.62mm)    M10 Booker         120 mission points    1737 + (PA)870 = 2607 SL    50 + (PA)101 + (Talismans)50 = 201 RP
+
+Critical damage to the enemy                    5     1956 SL     168 RP    
+    2:32     Puma                     PMC287    M1A1               60 mission points    177 + (PA)89 = 266 SL     14 + (PA)14 = 28 RP                
+    3:34     Puma                     PMC287    T-72B3 "Arena"     60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+    4:40     Puma                     PMC287    T-72B3 "Arena"     60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+    8:38     Leopard 2 (PzBtl 123)    DM23      T-80UD/BE          60 mission points    386 + (PA)193 = 579 SL    12 + (PA)24 + (Talismans)12 = 48 RP
+    13:39    Leopard 2 (PzBtl 123)    DM23      M10 Booker         60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+
+Damage to the enemy                            20     4240 SL     348 RP    
+    2:32     Puma                     PMC287              M1A1               20 mission points    89 + (PA)45 = 134 SL     7 + (PA)7 = 14 RP                
+    2:33     Puma                     PMC287              Vickers Mk.7       20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    2:37     Puma                     PMC287              M1A1               20 mission points    89 + (PA)45 = 134 SL     7 + (PA)7 = 14 RP                
+    3:27     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    3:31     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    3:35     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    3:36     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    4:40     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    4:44     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    4:46     Puma                     PMC287              T-72B3 "Arena"     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    8:38     Leopard 2 (PzBtl 123)    DM23                T-80UD/BE          20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    8:45     Leopard 2 (PzBtl 123)    DM23                T-80UD/BE          20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    9:00     Leopard 2 (PzBtl 123)    DM23                T-80UD/BE          20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    9:51     Leopard 2 (PzBtl 123)    APFSDS Sabot        T-72B              20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    9:59     Leopard 2 (PzBtl 123)    DM23                T-72B              20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    10:08    Leopard 2 (PzBtl 123)    APFSDS Sabot        T-72B              20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    10:08    Leopard 2 (PzBtl 123)    APFSDS Sabot        T-72B              20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    13:39    Leopard 2 (PzBtl 123)    DM23                M10 Booker         20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    13:44    Leopard 2 (PzBtl 123)    Default (7.62mm)    M10 Booker         20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    13:49    Leopard 2 (PzBtl 123)    Default (7.62mm)    M10 Booker         20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+
+Scouting of the enemy                           3      402 SL               
+    2:08    Puma    T-72B3 "Arena"     5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    2:33    Puma    M1A1               5 mission points    without UAV       89 + (PA)45 = 134 SL
+    3:28    Puma    T-72B3 "Arena"     5 mission points    without UAV       89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                 1      266 SL               
+    3:36    Puma    T-72B3 "Arena"     20 mission points    without UAV    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies        2     1462 SL      56 RP    
+    2:51    Puma    M1A1               15 mission points    without UAV    ×    89 + (PA)45 = 134 SL       0 RP               
+    3:36    Puma    T-72B3 "Arena"     60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                         14    10200 SL     200 RP    
+    2:51     Supporting Fire              600 + (PA)300 = 900 SL      0 RP                  
+    2:51     Teamwork                     600 + (PA)300 = 900 SL      0 RP                  
+    2:59     Teamwork                     600 + (PA)300 = 900 SL      0 RP                  
+    3:23     Teamwork                     600 + (PA)300 = 900 SL      0 RP                  
+    3:27     Adamant                      300 + (PA)150 = 450 SL      0 RP                  
+    3:36     Supporting Fire              600 + (PA)300 = 900 SL      0 RP                  
+    3:36     Teamwork                     600 + (PA)300 = 900 SL      0 RP                  
+    3:36     Intelligence                 100 + (PA)50 = 150 SL       0 RP                  
+    4:46     Tank Rescuer                 50 + (PA)25 = 75 SL         0 RP                  
+    9:00     Tank Rescuer                 50 + (PA)25 = 75 SL         0 RP                  
+    9:00     According to Intelligence    100 + (PA)50 = 150 SL       0 RP                  
+    14:42    Supporting Fire              600 + (PA)300 = 900 SL      0 RP                  
+    16:02    The Best Squad               1000 + (PA)500 = 1500 SL    100 + (PA)100 = 200 RP
+    16:02    On Hand                      1000 + (PA)500 = 1500 SL    0 RP                  
+
+Activity Time                                         5700 SL     540 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+    Recon Micro              0 SL                         0 RP                                 
+
+Time Played                                 14:07                7942 RP    
+    Leopard 2 (PzBtl 123)    87%    8:20    1430 + (PA)2860 + (Talismans)1430 = 5720 RP
+    Puma                     95%    5:47    1111 + (PA)1111 = 2222 RP                  
+
+Reward for winning                                   12832 SL               
+
+Earned: 50504 SL, 10397 CRP
+Activity: 92%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123), Puma
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -2850 SL
+
+Researched unit: 
+Gepard: 9885 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 7081 RP
+Puma - Tracks: 1476 RP
+
+Session: 6e075b9900027693
+Total: 47654 SL, 10397 CRP, 18442 RP
+
+Defeat in the [Domination] Arctic. Pier mission!
+
+Destruction of ground targets                  2     8445 SL     688 RP    
+    3:31    Puma                     PMC287    T-90A          200 mission points    1770 + (PA)885 = 2655 SL     124 + (PA)124 = 248 RP                 
+    4:09    Leopard 2 (PzBtl 123)    DM23      Ariete (P)     200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Talismans)110 = 440 RP
+
+Assistance in destroying the enemy             1     2607 SL     201 RP    
+    7:02    Leopard 2 (PzBtl 123)    APFSDS Sabot    ◔Leopard 2A4     120 mission points    1737 + (PA)870 = 2607 SL    50 + (PA)101 + (Talismans)50 = 201 RP
+
+Critical damage to the enemy                   3     1424 SL     112 RP    
+    3:31    Puma                     PMC287    T-90A            60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+    4:09    Leopard 2 (PzBtl 123)    DM23      Ariete (P)       60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+    7:00    Leopard 2 (PzBtl 123)    DM23      ◔Leopard 2A4     60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+
+Damage to the enemy                            4      848 SL      72 RP    
+    3:29    Puma                     PMC287          T-90A            20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    3:31    Puma                     PMC287          T-90A            20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    4:09    Leopard 2 (PzBtl 123)    DM23            Ariete (P)       20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    7:00    Leopard 2 (PzBtl 123)    APFSDS Sabot    ◔Leopard 2A4     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+
+Capture of zones                               1    14385 SL    1360 RP    
+    7:56    Leopard 2 (PzBtl 123)    95%    300 mission points    9590 + (PA)4795 = 14385 SL    340 + (PA)680 + (Talismans)340 = 1360 RP
+
+Scouting of the enemy                          2      268 SL               
+    3:25    Puma      T-90A         5 mission points    without UAV    89 + (PA)45 = 134 SL
+    9:16    TAM 2C    VBC (PT2)     5 mission points    without UAV    89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                2      532 SL               
+    3:28    Puma      T-90A         20 mission points    without UAV    177 + (PA)89 = 266 SL
+    9:20    TAM 2C    VBC (PT2)     20 mission points    without UAV    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies       1     1328 SL      56 RP    
+    9:20    TAM 2C    VBC (PT2)     60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                         3      300 SL               
+    3:31    Tank Rescuer    50 + (PA)25 = 75 SL  
+    4:10    Tank Rescuer    50 + (PA)25 = 75 SL  
+    9:20    Intelligence    100 + (PA)50 = 150 SL
+
+Activity Time                                        6430 SL     606 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+    TAM 2C                   365 + (PA)365 = 730 SL       33 + (PA)33 = 66 RP                  
+
+Time Played                                 9:19                2890 RP    
+    Leopard 2 (PzBtl 123)    92%    4:17    520 + (PA)1040 + (Talismans)520 = 2080 RP
+    Puma                     78%    2:30    264 + (PA)264 = 528 RP                   
+    TAM 2C                   41%    2:32    141 + (PA)141 = 282 RP                   
+
+Reward for participating in the mission              7254 SL               
+
+Earned: 43821 SL, 5985 CRP
+Activity: 87%
+Damaged Vehicles: Leopard 2 (PzBtl 123), Puma
+Automatic repair of all vehicles: -2380 SL
+Automatic purchasing of ammo and "Crew Replenishment": -1105 SL
+
+Researched unit: 
+Gepard: 5847 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 4601 RP
+Puma - Smoke grenade: 980 RP
+TAM 2C - Brake System: 404 RP
+
+Session: 6e075b9900029f9c
+Total: 40336 SL, 5985 CRP, 11832 RP
+
+Victory in the [Domination] Darwin Hill mission!
+
+Destruction of aircraft                        1    3983 SL     354 RP    
+    1:50    Puma    PMC308    Recon Micro     200 mission points    — (full reward)    2655 + (PA)1328 = 3983 SL    177 + (PA)177 = 354 RP
+
+Assistance in destroying the enemy             2    2394 SL     198 RP    
+    8:09    Puma    PMC287    T-80B       120 mission points    797 + (PA)400 = 1197 SL    54 + (PA)54 = 108 RP
+    8:33    Puma    PMC287    BMD-4M2     113 mission points    797 + (PA)400 = 1197 SL    45 + (PA)45 = 90 RP 
+
+Critical damage to the enemy                   1     266 SL      20 RP    
+    7:09    Puma    PMC287    BMD-4M2     57 mission points    177 + (PA)89 = 266 SL    10 + (PA)10 = 20 RP
+
+Damage to the enemy                            8    1270 SL     112 RP    
+    1:42    Puma    PMC308    Recon Micro     20 mission points    133 + (PA)67 = 200 SL    9 + (PA)9 = 18 RP
+    1:47    Puma    PMC308    Recon Micro     20 mission points    133 + (PA)67 = 200 SL    9 + (PA)9 = 18 RP
+    1:50    Puma    PMC308    Recon Micro     20 mission points    133 + (PA)67 = 200 SL    9 + (PA)9 = 18 RP
+    6:55    Puma    PMC287    T-80B           20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP
+    7:00    Puma    PMC287    T-80B           20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP
+    7:09    Puma    PMC287    BMD-4M2         20 mission points    89 + (PA)45 = 134 SL     5 + (PA)5 = 10 RP
+    7:25    Puma    PMC287    T-80B           20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP
+    7:31    Puma    PMC287    T-80B           20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP
+
+Scouting of the enemy                          4     536 SL               
+    6:23    Puma    ZSU-23-4M2     5 mission points    without UAV    89 + (PA)45 = 134 SL
+    7:06    Puma    BMD-4M2        5 mission points    without UAV    89 + (PA)45 = 134 SL
+    7:21    Puma    T-80B          5 mission points    without UAV    89 + (PA)45 = 134 SL
+    8:05    Puma    BMD-4M2        5 mission points    without UAV    89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                3     798 SL               
+    6:44    Puma    ZSU-23-4M2     20 mission points    without UAV    177 + (PA)89 = 266 SL
+    7:47    Puma    T-80B          20 mission points    without UAV    177 + (PA)89 = 266 SL
+    8:33    Puma    BMD-4M2        20 mission points    without UAV    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies       2    2656 SL     112 RP    
+    6:44    Puma    ZSU-23-4M2     60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+    8:33    Puma    BMD-4M2        60 mission points    without UAV    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                         3    1200 SL               
+    6:44    Intelligence    100 + (PA)50 = 150 SL 
+    8:32    Teamwork        600 + (PA)300 = 900 SL
+    8:34    Intelligence    100 + (PA)50 = 150 SL 
+
+Activity Time                                       1700 SL     156 RP    
+    Puma    850 + (PA)850 = 1700 SL    78 + (PA)78 = 156 RP
+
+Time Played                                 8:21               3074 RP    
+    Puma    91%    8:21    1537 + (PA)1537 = 3074 RP
+
+Reward for winning                                  6353 SL               
+
+Earned: 21156 SL, 4026 CRP
+Activity: 82%
+Damaged Vehicles: Puma
+Backup vehicles spent: Puma
+Automatic repair of all vehicles: -152 SL
+Automatic purchasing of ammo and "Crew Replenishment": -960 SL
+
+Researched unit: 
+Gepard: 3623 RP
+
+Researching progress: 
+Puma - Smoke grenade: 4026 RP
+
+Session: 6e075b990002b15b
+Total: 20044 SL, 4026 CRP, 7649 RP
+
+Victory in the [Domination #2] Maginot Line (winter) mission!
+
+Destruction of ground targets        4    23160 SL    1621 RP    
+    2:47    Leopard 2 (PzBtl 123)    DM23    T-80UD           200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Booster)11 + (Talismans)110 = 451 RP
+    4:20    Leopard 2 (PzBtl 123)    DM23    T-72B (1989)     197 mission points    3860 + (PA)1930 = 5790 SL    104 + (PA)208 + (Booster)11 + (Talismans)104 = 427 RP
+    7:18    Leopard 2 (PzBtl 123)    DM23    XM1 (GM)         155 mission points    3860 + (PA)1930 = 5790 SL    88 + (PA)176 + (Booster)9 + (Talismans)88 = 361 RP   
+    8:06    Leopard 2 (PzBtl 123)    DM23    BMD-4M2          175 mission points    3860 + (PA)1930 = 5790 SL    93 + (PA)186 + (Booster)10 + (Talismans)93 = 382 RP  
+
+Critical damage to the enemy         4     2316 SL     164 RP    
+    2:47    Leopard 2 (PzBtl 123)    DM23    T-80UD           60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Booster)2 + (Talismans)11 = 46 RP
+    4:20    Leopard 2 (PzBtl 123)    DM23    T-72B (1989)     59 mission points    386 + (PA)193 = 579 SL    10 + (PA)21 + (Booster)2 + (Talismans)10 = 43 RP
+    7:18    Leopard 2 (PzBtl 123)    DM23    XM1 (GM)         47 mission points    386 + (PA)193 = 579 SL    9 + (PA)18 + (Booster)1 + (Talismans)9 = 37 RP  
+    8:06    Leopard 2 (PzBtl 123)    DM23    BMD-4M2          52 mission points    386 + (PA)193 = 579 SL    9 + (PA)19 + (Booster)1 + (Talismans)9 = 38 RP  
+
+Damage to the enemy                 10     2900 SL     231 RP    
+    2:10    Leopard 2 (PzBtl 123)    DM23    M1 KVT           20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+    2:41    Leopard 2 (PzBtl 123)    DM23    T-80UD           20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+    2:47    Leopard 2 (PzBtl 123)    DM23    T-80UD           20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+    4:03    Leopard 2 (PzBtl 123)    DM23    T-72B (1989)     20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Booster)1 + (Talismans)5 = 21 RP
+    4:20    Leopard 2 (PzBtl 123)    DM23    T-72B (1989)     20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Booster)1 + (Talismans)5 = 21 RP
+    6:52    Leopard 2 (PzBtl 123)    DM23    Vickers Mk.7     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+    7:02    Leopard 2 (PzBtl 123)    DM23    Vickers Mk.7     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+    7:18    Leopard 2 (PzBtl 123)    DM23    XM1 (GM)         20 mission points    193 + (PA)97 = 290 SL    4 + (PA)9 + (Booster)1 + (Talismans)4 = 18 RP 
+    8:06    Leopard 2 (PzBtl 123)    DM23    BMD-4M2          20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Booster)1 + (Talismans)5 = 21 RP
+    9:05    Leopard 2 (PzBtl 123)    DM23    Vickers Mk.7     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Booster)1 + (Talismans)6 = 25 RP
+
+Awards                               7     3375 SL     210 RP    
+    2:48     Tank Rescuer      50 + (PA)25 = 75 SL         0 RP                                
+    4:15     Teamwork          600 + (PA)300 = 900 SL      0 RP                                
+    4:20     Sniper            100 + (PA)50 = 150 SL       0 RP                                
+    7:18     Tank Rescuer      50 + (PA)25 = 75 SL         0 RP                                
+    7:18     Avenger           150 + (PA)75 = 225 SL       0 RP                                
+    8:07     Eye for Eye       300 + (PA)150 = 450 SL      0 RP                                
+    15:08    The Best Squad    1000 + (PA)500 = 1500 SL    100 + (PA)100 + (Booster)10 = 210 RP
+
+Activity Time                              5232 SL     510 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Booster)10 + (Talismans)96 = 394 RP
+    Puma                     0 SL                         0 RP                                               
+    TAM 2C                   616 + (PA)616 = 1232 SL      55 + (PA)55 + (Booster)6 = 116 RP                  
+
+Time Played                      12:15                7532 RP    
+    Leopard 2 (PzBtl 123)    95%    9:17    1739 + (PA)3478 + (Booster)174 + (Talismans)1739 = 7130 RP
+    Puma                     0%     0:12    0 RP                                                      
+    TAM 2C                   34%    2:46    191 + (PA)191 + (Booster)20 = 402 RP                      
+
+Reward for winning                        15696 SL               
+
+Skill Bonus                                            386 RP    
+    Leopard 2 (PzBtl 123)    I    349 RP
+    Puma                     I    0 RP  
+    TAM 2C                   I    37 RP 
+
+Earned: 52679 SL, 10654 CRP
+Activity: 88%
+Damaged Vehicles: TAM 2C, Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles: -2639 SL
+Automatic purchasing of ammo and "Crew Replenishment": -3520 SL
+
+Researched unit: 
+Gepard: 10389 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 9889 RP
+TAM 2C - Brake System: 555 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 6e075b990002bf2f
+Total: 46520 SL, 10654 CRP, 20833 RP
+
+Victory in the [Battle] Finland mission!
+
+Destruction of ground targets                   3    17370 SL     1184 RP    
+    4:08    Leopard 2 (PzBtl 123)    DM23    120S       197 mission points    3860 + (PA)1930 = 5790 SL    104 + (PA)208 + (Talismans)104 = 416 RP
+    7:03    Leopard 2 (PzBtl 123)    DM23    BMP-2M     197 mission points    3860 + (PA)1930 = 5790 SL    104 + (PA)208 + (Talismans)104 = 416 RP
+    9:53    Leopard 2 (PzBtl 123)    DM23    BMP-3      155 mission points    3860 + (PA)1930 = 5790 SL    88 + (PA)176 + (Talismans)88 = 352 RP  
+
+Assistance in destroying the enemy              1     2607 SL      208 RP    
+    3:18    Leopard 2 (PzBtl 123)    DM23    T-72B3 "Arena"     120 mission points    1737 + (PA)870 = 2607 SL    52 + (PA)104 + (Talismans)52 = 208 RP
+
+Critical damage to the enemy                    3     1737 SL      118 RP    
+    4:08    Leopard 2 (PzBtl 123)    DM23    120S       59 mission points    386 + (PA)193 = 579 SL    10 + (PA)21 + (Talismans)10 = 41 RP
+    6:56    Leopard 2 (PzBtl 123)    DM23    BMP-2M     59 mission points    386 + (PA)193 = 579 SL    10 + (PA)21 + (Talismans)10 = 41 RP
+    9:53    Leopard 2 (PzBtl 123)    DM23    BMP-3      47 mission points    386 + (PA)193 = 579 SL    9 + (PA)18 + (Talismans)9 = 36 RP  
+
+Damage to the enemy                             6     1740 SL      125 RP    
+    2:57    Leopard 2 (PzBtl 123)    DM23    T-72B3 "Arena"     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    3:04    Leopard 2 (PzBtl 123)    DM23    T-72B3 "Arena"     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    4:08    Leopard 2 (PzBtl 123)    DM23    120S               20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    6:56    Leopard 2 (PzBtl 123)    DM23    BMP-2M             20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    7:03    Leopard 2 (PzBtl 123)    DM23    BMP-2M             20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    9:53    Leopard 2 (PzBtl 123)    DM23    BMP-3              20 mission points    193 + (PA)97 = 290 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+
+Capture of zones                                1     6903 SL      730 RP    
+    20:49    Puma    100%    300 mission points    4602 + (PA)2301 = 6903 SL    365 + (PA)365 = 730 RP
+
+Scouting of the enemy                           3      402 SL                
+    13:58    Puma    ZBD04A     5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    14:30    Puma    Ajax       5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    15:26    Puma    Ajax       5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                 2      532 SL                
+    14:06    Puma    ZBD04A     20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+    15:30    Puma    Ajax       20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies        2     2656 SL      112 RP    
+    14:08    Puma    ZBD04A     60 mission points    UAV in the air    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+    15:30    Puma    Ajax       60 mission points    UAV in the air    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                          6     1425 SL                
+    4:08     Tank Rescuer                 50 + (PA)25 = 75 SL   
+    4:08     Eye for Eye                  300 + (PA)150 = 450 SL
+    9:14     Adamant                      300 + (PA)150 = 450 SL
+    9:53     According to Intelligence    100 + (PA)50 = 150 SL 
+    14:09    Intelligence                 100 + (PA)50 = 150 SL 
+    15:31    Intelligence                 100 + (PA)50 = 150 SL 
+
+Activity Time                                         5700 SL      540 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+    Recon Micro              0 SL                         0 RP                                 
+
+Time Played                                 19:42                10696 RP    
+    Leopard 2 (PzBtl 123)    87%    12:24    2127 + (PA)4254 + (Talismans)2127 = 8508 RP
+    Puma                     74%    7:18     1094 + (PA)1094 = 2188 RP                  
+
+Reward for winning                                   18517 SL                
+
+Skill Bonus                                                        634 RP    
+    Leopard 2 (PzBtl 123)    I    395 RP
+    Puma                     I    239 RP
+
+Earned: 59589 SL, 14347 CRP
+Activity: 84%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -1610 SL
+
+Researched unit: 
+Gepard: 14004 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 10922 RP
+Puma - Smoke grenade: 3425 RP
+
+Session: 6e075b99000327ab
+Total: 57979 SL, 14347 CRP, 28351 RP
+
+Victory in the [Tank Assault] Sinai mission!
+
+Activity Time                                         
+    Leopard 2 (PzBtl 123)
+    Leopard 2 (PzBtl 123)
+    Leopard 2 (PzBtl 123)
+    Puma                 
+    Puma                 
+    Leopard 2 (PzBtl 123)
+
+Time Played           19:56                6510 RP    
+    Leopard 2 (PzBtl 123)    17:25    3047 + (PA)3047 = 6094 RP
+    Puma                     2:31     208 + (PA)208 = 416 RP   
+
+Reward for winning             43681 SL               
+
+Earned: 43681 SL, 6510 CRP
+Activity: 88%
+Respawns in battle: -10324 SL
+
+Researched unit: 
+Gepard: 6468 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 6094 RP
+Puma - Smoke grenade: 416 RP
+
+Session: 6e075b99000371d4
+Total: 33357 SL, 6510 CRP, 12978 RP
+
+Victory in the [Conquest #2] Karelia mission!
+
+Destruction of ground targets            4    2448 SL     904 RP    
+    4:16    Pz.IV F2    PzGr 39    T-34()         200 mission points    408 + (PA)204 = 612 SL    59 + (PA)118 + (Talismans)59 = 236 RP
+    5:44    Pz.IV F2    PzGr 39    M4A3 (105)     200 mission points    408 + (PA)204 = 612 SL    53 + (PA)106 + (Talismans)53 = 212 RP
+    7:47    Pz.IV F2    PzGr 39    M4A3 (105)     200 mission points    408 + (PA)204 = 612 SL    53 + (PA)106 + (Talismans)53 = 212 RP
+    8:05    Pz.IV F2    PzGr 39    KV-1S          200 mission points    408 + (PA)204 = 612 SL    61 + (PA)122 + (Talismans)61 = 244 RP
+
+Assistance in destroying the enemy       4     980 SL     374 RP    
+    4:26    Pz.IV F2    PzGr 39    SU-85           120 mission points    163 + (PA)82 = 245 SL    24 + (PA)50 + (Talismans)24 = 98 RP
+    4:31    Pz.IV F2    PzGr 39    KV-1 (L-11)     120 mission points    163 + (PA)82 = 245 SL    22 + (PA)45 + (Talismans)22 = 89 RP
+    4:52    Pz.IV F2    PzGr 39    KV-1S           120 mission points    163 + (PA)82 = 245 SL    24 + (PA)50 + (Talismans)24 = 98 RP
+    5:09    Pz.IV F2    PzGr 39    M7              120 mission points    163 + (PA)82 = 245 SL    22 + (PA)45 + (Talismans)22 = 89 RP
+
+Critical damage to the enemy             8     496 SL     186 RP    
+    2:11    Pz.IV F2    PzGr 39    KV-1 (L-11)     60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    4:16    Pz.IV F2    PzGr 39    T-34()          60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    4:23    Pz.IV F2    PzGr 39    SU-85           60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    4:50    Pz.IV F2    PzGr 39    KV-1S           60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    5:05    Pz.IV F2    PzGr 39    M7              60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    5:44    Pz.IV F2    PzGr 39    M4A3 (105)      60 mission points    41 + (PA)21 = 62 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    7:47    Pz.IV F2    PzGr 39    M4A3 (105)      60 mission points    41 + (PA)21 = 62 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    8:05    Pz.IV F2    PzGr 39    KV-1S           60 mission points    41 + (PA)21 = 62 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+
+Damage to the enemy                     18     540 SL     210 RP    
+    2:11    Pz.IV F2    PzGr 39      KV-1 (L-11)     20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    2:57    Pz.IV F2    PzGr 39      Pz.IV H         20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:16    Pz.IV F2    PzGr 39      T-34()          20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:23    Pz.IV F2    PzGr 39      SU-85           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    4:50    Pz.IV F2    PzGr 39      KV-1S           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    5:05    Pz.IV F2    PzGr 39      M7              20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    5:44    Pz.IV F2    PzGr 39      M4A3 (105)      20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:01    Pz.IV F2    Artillery    T-50            20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    6:02    Pz.IV F2    Artillery    T-50            20 mission points    20 + (PA)10 = 30 SL    2 + (PA)5 + (Talismans)2 = 9 RP 
+    6:02    Pz.IV F2    Artillery    KV-1S           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:03    Pz.IV F2    Artillery    M24             20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:08    Pz.IV F2    Artillery    KV-1S           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:09    Pz.IV F2    Artillery    M24             20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:36    Pz.IV F2    Artillery    Pz.IV F2        20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:36    Pz.IV F2    Artillery    KV-1S           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    6:42    Pz.IV F2    Artillery    Pz.IV F2        20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    7:47    Pz.IV F2    PzGr 39      M4A3 (105)      20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+    8:05    Pz.IV F2    PzGr 39      KV-1S           20 mission points    20 + (PA)10 = 30 SL    3 + (PA)6 + (Talismans)3 = 12 RP
+
+Awards                                  11    5700 SL     200 RP    
+    3:40    Teamwork                 200 + (PA)100 = 300 SL      0 RP                  
+    4:05    Teamwork                 200 + (PA)100 = 300 SL      0 RP                  
+    4:16    Tank Rescuer             50 + (PA)25 = 75 SL         0 RP                  
+    4:53    Assists streak!          150 + (PA)75 = 225 SL       0 RP                  
+    5:10    Assists streak!          200 + (PA)100 = 300 SL      0 RP                  
+    6:24    Teamwork                 200 + (PA)100 = 300 SL      0 RP                  
+    7:40    Teamwork                 200 + (PA)100 = 300 SL      0 RP                  
+    8:05    Shadow strike streak!    100 + (PA)50 = 150 SL       0 RP                  
+    8:05    Rank does not matter     500 + (PA)250 = 750 SL      0 RP                  
+    9:10    The Best Squad           1000 + (PA)500 = 1500 SL    100 + (PA)100 = 200 RP
+    9:10    Balancer                 1000 + (PA)500 = 1500 SL    0 RP                  
+
+Activity Time                                  680 SL     156 RP    
+    Pz.IV F2        340 + (PA)340 = 680 SL    39 + (PA)78 + (Talismans)39 = 156 RP
+    Sd.Kfz.234/2    0 SL                      0 RP                                
+
+Time Played                           8:23               2509 RP    
+    Pz.IV F2        98%    8:00    627 + (PA)1255 + (Talismans)627 = 2509 RP
+    Sd.Kfz.234/2    0%     0:23    0 RP                                     
+
+Reward for winning                            2403 SL               
+
+Skill Bonus                                               163 RP    
+    Pz.IV F2        I    163 RP
+    Sd.Kfz.234/2    I    0 RP  
+
+Earned: 13247 SL, 4702 CRP
+Activity: 91%
+Damaged Vehicles: Sd.Kfz.234/2, Pz.IV F2
+Automatic repair of all vehicles: -712 SL
+
+Researched unit: 
+Gepard: 900 RP
+
+Session: 6e075b99000384fb
+Total: 12535 SL, 4702 CRP, 900 RP
+
+Victory in the [Domination] Aral Sea mission!
+
+Destruction of ground targets        2    11580 SL     880 RP    
+    8:56     Leopard 2 (PzBtl 123)    DM23    CRV Block 2      200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Talismans)110 = 440 RP
+    10:50    Leopard 2 (PzBtl 123)    DM23    Vickers Mk.7     200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Talismans)110 = 440 RP
+
+Critical damage to the enemy         2     1158 SL      88 RP    
+    8:56     Leopard 2 (PzBtl 123)    DM23    CRV Block 2      60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+    10:50    Leopard 2 (PzBtl 123)    DM23    Vickers Mk.7     60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+
+Damage to the enemy                  5     1450 SL     112 RP    
+    2:50     Leopard 2 (PzBtl 123)    DM23         Bhishma TWMP     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    3:07     Leopard 2 (PzBtl 123)    Artillery    Type 16          20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    3:13     Leopard 2 (PzBtl 123)    Artillery    Type 16          20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    8:56     Leopard 2 (PzBtl 123)    DM23         CRV Block 2      20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    10:50    Leopard 2 (PzBtl 123)    DM23         Vickers Mk.7     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+
+Awards                               3      375 SL               
+    6:48     Help with Repairing    100 + (PA)50 = 150 SL
+    10:30    Help with Repairing    100 + (PA)50 = 150 SL
+    10:51    Tank Rescuer           50 + (PA)25 = 75 SL  
+
+Activity Time                              4000 SL     384 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+
+Time Played                      12:30                7397 RP    
+    Leopard 2 (PzBtl 123)    75%    12:30    1849 + (PA)3699 + (Talismans)1849 = 7397 RP
+
+Reward for winning                         8494 SL               
+
+Earned: 27057 SL, 8861 CRP
+Activity: 73%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -1610 SL
+
+Researched unit: 
+Gepard: 8861 RP
+
+Researching progress: 
+Leopard 2 (PzBtl 123) - Mark of distinction: 6803 RP
+
+Session: 6e075b9900038ed9
+Total: 25447 SL, 8861 CRP, 15664 RP
+
+Victory in the [Domination #1] Tunisia mission!
+
+Destruction of ground targets                  3    17370 SL    1120 RP    
+    2:05    Leopard 2 (PzBtl 123)    DM23    Vextra 105        189 mission points    3860 + (PA)1930 = 5790 SL    99 + (PA)198 + (Talismans)99 = 396 RP
+    2:33    Leopard 2 (PzBtl 123)    DM12    Khrizantema-S     155 mission points    3860 + (PA)1930 = 5790 SL    88 + (PA)176 + (Talismans)88 = 352 RP
+    3:39    Leopard 2 (PzBtl 123)    DM23    BMD-4M2           175 mission points    3860 + (PA)1930 = 5790 SL    93 + (PA)186 + (Talismans)93 = 372 RP
+
+Critical damage to the enemy                   3     1737 SL     113 RP    
+    2:05    Leopard 2 (PzBtl 123)    DM23    Vextra 105        57 mission points    386 + (PA)193 = 579 SL    10 + (PA)20 + (Talismans)10 = 40 RP
+    2:33    Leopard 2 (PzBtl 123)    DM12    Khrizantema-S     47 mission points    386 + (PA)193 = 579 SL    9 + (PA)18 + (Talismans)9 = 36 RP  
+    3:39    Leopard 2 (PzBtl 123)    DM23    BMD-4M2           52 mission points    386 + (PA)193 = 579 SL    9 + (PA)19 + (Talismans)9 = 37 RP  
+
+Damage to the enemy                            5     1450 SL      91 RP    
+    2:05    Leopard 2 (PzBtl 123)    DM23    Vextra 105        20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    2:26    Leopard 2 (PzBtl 123)    DM23    Khrizantema-S     20 mission points    193 + (PA)97 = 290 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    2:33    Leopard 2 (PzBtl 123)    DM12    Khrizantema-S     20 mission points    193 + (PA)97 = 290 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    2:51    Leopard 2 (PzBtl 123)    DM23    T-72A             20 mission points    193 + (PA)97 = 290 SL    4 + (PA)9 + (Talismans)4 = 17 RP 
+    3:39    Leopard 2 (PzBtl 123)    DM23    BMD-4M2           20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+
+Scouting of the enemy                          1      134 SL               
+    10:31    Puma    SANTAL     5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                1      266 SL               
+    10:49    Puma    SANTAL     20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies       1     1328 SL      56 RP    
+    10:49    Puma    SANTAL     60 mission points    UAV in the air    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 = 56 RP
+
+Awards                                         4      525 SL               
+    2:34     Multi strike!            100 + (PA)50 = 150 SL
+    3:39     Tank Rescuer             50 + (PA)25 = 75 SL  
+    3:39     Shadow strike streak!    100 + (PA)50 = 150 SL
+    10:50    Intelligence             100 + (PA)50 = 150 SL
+
+Activity Time                                        4000 SL     384 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma                     0 SL                         0 RP                                 
+
+Time Played                                 9:33                5043 RP    
+    Leopard 2 (PzBtl 123)    94%    6:07    1135 + (PA)2271 + (Talismans)1135 = 4541 RP
+    Puma                     36%    3:26    251 + (PA)251 = 502 RP                     
+
+Reward for winning                                  12276 SL               
+
+Skill Bonus                                                      277 RP    
+    Leopard 2 (PzBtl 123)    I    235 RP
+    Puma                     I    42 RP 
+
+Earned: 39086 SL, 7084 CRP
+Activity: 83%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -1150 SL
+
+Researched unit: 
+Gepard: 7024 RP
+
+Researching progress: 
+Puma - Smoke grenade: 600 RP
+
+Session: 6e075b9900039bf2
+Total: 37936 SL, 7084 CRP, 7624 RP
+
+Victory in the [Domination #2] Battle of Hürtgen Forest mission!
+
+Destruction of ground targets            4    9504 SL     532 RP    
+    2:06    Tiger II (Nr.1-50)    PzGr 39/43    T-34-85 (D-5T)       175 mission points    1584 + (PA)792 = 2376 SL    66 + (PA)66 = 132 RP
+    5:32    Tiger II (Nr.1-50)    PzGr 39/43    Pvkv m/43 (1963)     130 mission points    1584 + (PA)792 = 2376 SL    60 + (PA)60 = 120 RP
+    6:15    Tiger II (Nr.1-50)    PzGr 39/43    M4A3E2               189 mission points    1584 + (PA)792 = 2376 SL    70 + (PA)70 = 140 RP
+    6:31    Tiger II (Nr.1-50)    PzGr 39/43    Panther D            189 mission points    1584 + (PA)792 = 2376 SL    70 + (PA)70 = 140 RP
+
+Assistance in destroying the enemy       2    1902 SL      96 RP    
+    4:18    Tiger II (Nr.1-50)    PzGr 39/43    KV-1 (ZiS-5)     78 mission points    634 + (PA)317 = 951 SL    24 + (PA)24 = 48 RP
+    7:40    Tiger II (Nr.1-50)    PzGr 39/43    T-34-57          78 mission points    634 + (PA)317 = 951 SL    24 + (PA)24 = 48 RP
+
+Critical damage to the enemy             5    1185 SL      66 RP    
+    2:06    Tiger II (Nr.1-50)    PzGr 39/43    T-34-85 (D-5T)       52 mission points    158 + (PA)79 = 237 SL    7 + (PA)7 = 14 RP
+    4:15    Tiger II (Nr.1-50)    PzGr 39/43    KV-1 (ZiS-5)         39 mission points    158 + (PA)79 = 237 SL    6 + (PA)6 = 12 RP
+    5:24    Tiger II (Nr.1-50)    PzGr 39/43    Pvkv m/43 (1963)     39 mission points    158 + (PA)79 = 237 SL    6 + (PA)6 = 12 RP
+    6:15    Tiger II (Nr.1-50)    PzGr 39/43    M4A3E2               57 mission points    158 + (PA)79 = 237 SL    7 + (PA)7 = 14 RP
+    6:31    Tiger II (Nr.1-50)    PzGr 39/43    Panther D            57 mission points    158 + (PA)79 = 237 SL    7 + (PA)7 = 14 RP
+
+Damage to the enemy                     10    1190 SL      66 RP    
+    2:06    Tiger II (Nr.1-50)    PzGr 39/43          T-34-85 (D-5T)       20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    4:15    Tiger II (Nr.1-50)    PzGr 39/43          KV-1 (ZiS-5)         20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    5:05    Tiger II (Nr.1-50)    Default (7.92mm)    M18 GMC              20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    5:11    Tiger II (Nr.1-50)    Default (7.92mm)    M18 GMC              20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    5:24    Tiger II (Nr.1-50)    PzGr 39/43          Pvkv m/43 (1963)     20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    5:32    Tiger II (Nr.1-50)    PzGr 39/43          Pvkv m/43 (1963)     20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+    6:15    Tiger II (Nr.1-50)    PzGr 39/43          M4A3E2               20 mission points    79 + (PA)40 = 119 SL    4 + (PA)4 = 8 RP
+    6:23    Tiger II (Nr.1-50)    PzGr 39/43          Panther D            20 mission points    79 + (PA)40 = 119 SL    4 + (PA)4 = 8 RP
+    6:31    Tiger II (Nr.1-50)    PzGr 39/43          Panther D            20 mission points    79 + (PA)40 = 119 SL    4 + (PA)4 = 8 RP
+    7:21    Tiger II (Nr.1-50)    PzGr 39/43          T-34-57              20 mission points    79 + (PA)40 = 119 SL    3 + (PA)3 = 6 RP
+
+Awards                                   3     675 SL               
+    4:19    Supporting Fire    200 + (PA)100 = 300 SL
+    6:31    Tank Rescuer       50 + (PA)25 = 75 SL   
+    7:41    Supporting Fire    200 + (PA)100 = 300 SL
+
+Activity Time                                 2200 SL     138 RP    
+    Tiger II (Nr.1-50)    1100 + (PA)1100 = 2200 SL    69 + (PA)69 = 138 RP
+
+Time Played                           7:00               1516 RP    
+    Tiger II (Nr.1-50)    93%    7:00    758 + (PA)758 = 1516 RP
+
+Reward for winning                            7464 SL               
+
+Skill Bonus                                               182 RP    
+    Tiger II (Nr.1-50)    I    182 RP
+
+Earned: 24120 SL, 2596 CRP
+Activity: 84%
+Damaged Vehicles: Tiger II (Nr.1-50)
+Automatic repair of all vehicles: -5445 SL
+
+Researched unit: 
+Gepard: 1038 RP
+
+Session: 6e075b99000409c9
+Total: 18675 SL, 2596 CRP, 1038 RP
+
+Defeat in the [Domination] Middle East mission!
+
+Assistance in destroying the enemy             1    2145 SL     185 RP    
+    6:54    Leopard 2 (PzBtl 123)    APFSDS Sabot    Merkava Mk.3B     120 mission points    1430 + (PA)715 = 2145 SL    46 + (PA)93 + (Talismans)46 = 185 RP
+
+Critical damage to the enemy                   1     537 SL      48 RP    
+    6:14    Leopard 2 (PzBtl 123)    DM23    Merkava Mk.3B     60 mission points    358 + (PA)179 = 537 SL    12 + (PA)24 + (Talismans)12 = 48 RP
+
+Damage to the enemy                           11    2395 SL     170 RP    
+    3:11    Leopard 2 (PzBtl 123)    DM23            Leopard 2A4       20 mission points    179 + (PA)90 = 269 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    3:11    Leopard 2 (PzBtl 123)    APFSDS Sabot    Leopard 2A4       20 mission points    179 + (PA)90 = 269 SL    5 + (PA)11 + (Talismans)5 = 21 RP
+    5:55    Leopard 2 (PzBtl 123)    Artillery       T-72A             20 mission points    179 + (PA)90 = 269 SL    4 + (PA)8 + (Talismans)4 = 16 RP 
+    5:56    Leopard 2 (PzBtl 123)    Artillery       T-72A             20 mission points    179 + (PA)90 = 269 SL    4 + (PA)8 + (Talismans)4 = 16 RP 
+    5:56    Leopard 2 (PzBtl 123)    Artillery       T-72A             20 mission points    179 + (PA)90 = 269 SL    4 + (PA)8 + (Talismans)4 = 16 RP 
+    6:02    Leopard 2 (PzBtl 123)    Artillery       T-72A             20 mission points    179 + (PA)90 = 269 SL    4 + (PA)8 + (Talismans)4 = 16 RP 
+    6:14    Leopard 2 (PzBtl 123)    APFSDS Sabot    Merkava Mk.3B     20 mission points    179 + (PA)90 = 269 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    7:10    Puma                     PMC287          M60A3 TTS         20 mission points    85 + (PA)43 = 128 SL     4 + (PA)4 = 8 RP                 
+    7:11    Puma                     PMC287          M60A3 TTS         20 mission points    85 + (PA)43 = 128 SL     4 + (PA)4 = 8 RP                 
+    7:54    Puma                     PMC287          Ra'am Sagol       20 mission points    85 + (PA)43 = 128 SL     6 + (PA)6 = 12 RP                
+    7:59    Puma                     PMC287          Ra'am Sagol       20 mission points    85 + (PA)43 = 128 SL     6 + (PA)6 = 12 RP                
+
+Scouting of the enemy                          1     107 SL               
+    7:07    Puma    M60A3 TTS     5 mission points    without UAV    71 + (PA)36 = 107 SL
+
+Destruction by allies of scouted enemies       1     107 SL               
+    7:11    Puma    M60A3 TTS     15 mission points    without UAV    ×    71 + (PA)36 = 107 SL
+
+Awards                                         1     450 SL               
+    6:17    Adamant    300 + (PA)150 = 450 SL
+
+Activity Time                                       4352 SL     349 RP    
+    Leopard 2 (PzBtl 123)    1900 + (PA)1900 = 3800 SL    77 + (PA)155 + (Talismans)77 = 309 RP
+    Puma                     276 + (PA)276 = 552 SL       20 + (PA)20 = 40 RP                  
+
+Time Played                                 7:08               1846 RP    
+    Leopard 2 (PzBtl 123)    68%    6:03    431 + (PA)862 + (Talismans)431 = 1724 RP
+    Puma                     52%    1:05    61 + (PA)61 = 122 RP                    
+
+Reward for participating in the mission             1930 SL               
+
+Earned: 12023 SL, 2598 CRP
+Activity: 67%
+Damaged Vehicles: Leopard 2 (PzBtl 123), Puma
+Automatic repair of all vehicles: -1034 SL
+Automatic purchasing of ammo and "Crew Replenishment": -1220 SL
+
+Researched unit: 
+Gepard: 2578 RP
+
+Researching progress: 
+Puma - Smoke grenade: 202 RP
+
+Session: 6e075b9900040f87
+Total: 9769 SL, 2598 CRP, 2780 RP
+
+Defeat in the [Domination] Carpathians mission!
+
+Destruction of ground targets                 3    17370 SL    1164 RP    
+    5:44    Leopard 2 (PzBtl 123)    DM23    T95E1           63 mission points     3860 + (PA)1930 = 5790 SL    77 + (PA)154 + (Talismans)77 = 308 RP  
+    6:36    Leopard 2 (PzBtl 123)    DM23    CV 90 Mk.IV     200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Talismans)110 = 440 RP
+    7:02    Leopard 2 (PzBtl 123)    DM23    CV 90105        197 mission points    3860 + (PA)1930 = 5790 SL    104 + (PA)208 + (Talismans)104 = 416 RP
+
+Critical damage to the enemy                  3     1737 SL     117 RP    
+    5:44    Leopard 2 (PzBtl 123)    DM23    T95E1           19 mission points    386 + (PA)193 = 579 SL    8 + (PA)16 + (Talismans)8 = 32 RP  
+    6:30    Leopard 2 (PzBtl 123)    DM23    CV 90 Mk.IV     60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+    7:02    Leopard 2 (PzBtl 123)    DM23    CV 90105        59 mission points    386 + (PA)193 = 579 SL    10 + (PA)21 + (Talismans)10 = 41 RP
+
+Damage to the enemy                           6     1418 SL     104 RP    
+    5:44    Leopard 2 (PzBtl 123)    DM23           T95E1            20 mission points    193 + (PA)97 = 290 SL    4 + (PA)8 + (Talismans)4 = 16 RP 
+    6:30    Leopard 2 (PzBtl 123)    DM23           CV 90 Mk.IV      20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    6:36    Leopard 2 (PzBtl 123)    DM23           CV 90 Mk.IV      20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    7:02    Leopard 2 (PzBtl 123)    DM23           CV 90105         20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    9:30    Puma VJTF                MK320          Christian II     20 mission points    86 + (PA)43 = 129 SL     5 + (PA)5 = 10 RP                
+    9:35    Puma VJTF                Spike-LR II    Christian II     20 mission points    86 + (PA)43 = 129 SL     5 + (PA)5 = 10 RP                
+
+Awards                                        2      225 SL               
+    7:03    Tank Rescuer     50 + (PA)25 = 75 SL  
+    7:03    Multi strike!    100 + (PA)50 = 150 SL
+
+Activity Time                                       5398 SL     516 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma VJTF                699 + (PA)699 = 1398 SL      66 + (PA)66 = 132 RP                 
+    TAM 2C                   0 SL                         0 RP                                 
+
+Time Played                                7:12                2877 RP    
+    Leopard 2 (PzBtl 123)    93%    5:29    670 + (PA)1341 + (Talismans)670 = 2681 RP
+    Puma VJTF                41%    1:43    98 + (PA)98 = 196 RP                     
+
+Reward for participating in the mission             5185 SL               
+
+Skill Bonus                                                     194 RP    
+    Leopard 2 (PzBtl 123)    I    167 RP
+    Puma VJTF                I    27 RP 
+    TAM 2C                   I    0 RP  
+
+Earned: 31333 SL, 4972 CRP
+Activity: 80%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -1150 SL
+
+Researched unit: 
+Gepard: 4934 RP
+
+Session: 6e075b9900041442
+Total: 30183 SL, 4972 CRP, 4934 RP
+
+Victory in the [Domination #1] Mozdok mission!
+
+Assistance in destroying the enemy             3    3591 SL     280 RP    
+    3:25    Puma    PMC287    T-72AV (TURMS-T)     120 mission points    797 + (PA)400 = 1197 SL    50 + (PA)50 + (Booster)6 = 106 RP
+    3:37    Puma    PMC287    BMD-4M               113 mission points    797 + (PA)400 = 1197 SL    45 + (PA)45 + (Booster)6 = 96 RP 
+    8:52    Puma    PMC287    M3 Bradley           60 mission points     797 + (PA)400 = 1197 SL    36 + (PA)36 + (Booster)6 = 78 RP 
+
+Critical damage to the enemy                   2     532 SL      41 RP    
+    3:18    Puma    PMC287    T-72AV (TURMS-T)     60 mission points    177 + (PA)89 = 266 SL    11 + (PA)11 + (Booster)2 = 24 RP
+    8:51    Puma    PMC287    M3 Bradley           30 mission points    177 + (PA)89 = 266 SL    8 + (PA)8 + (Booster)1 = 17 RP  
+
+Damage to the enemy                            8    1072 SL      92 RP    
+    3:12    Puma    PMC287    T-72AV (TURMS-T)     20 mission points    89 + (PA)45 = 134 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    3:17    Puma    PMC287    T-72AV (TURMS-T)     20 mission points    89 + (PA)45 = 134 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    3:21    Puma    PMC287    BMD-4M               20 mission points    89 + (PA)45 = 134 SL    5 + (PA)5 + (Booster)1 = 11 RP
+    3:22    Puma    PMC287    T-72AV (TURMS-T)     20 mission points    89 + (PA)45 = 134 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    3:25    Puma    PMC287    T-72AV (TURMS-T)     20 mission points    89 + (PA)45 = 134 SL    6 + (PA)6 + (Booster)1 = 13 RP
+    3:27    Puma    PMC287    BMD-4M               20 mission points    89 + (PA)45 = 134 SL    5 + (PA)5 + (Booster)1 = 11 RP
+    8:51    Puma    PMC287    M3 Bradley           20 mission points    89 + (PA)45 = 134 SL    4 + (PA)4 + (Booster)1 = 9 RP 
+    8:52    Puma    PMC287    M3 Bradley           20 mission points    89 + (PA)45 = 134 SL    4 + (PA)4 + (Booster)1 = 9 RP 
+
+Scouting of the enemy                          7     938 SL               
+    3:13    Puma    T-72AV (TURMS-T)     5 mission points    without UAV       89 + (PA)45 = 134 SL
+    3:20    Puma    BMD-4M               5 mission points    without UAV       89 + (PA)45 = 134 SL
+    4:44    Puma    120S                 5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    5:03    Puma    M3A3 Bradley         5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    5:43    Puma    LAV-AD               5 mission points    UAV in the air    89 + (PA)45 = 134 SL
+    8:38    Puma    M1 Abrams            5 mission points    without UAV       89 + (PA)45 = 134 SL
+    8:48    Puma    M3 Bradley           5 mission points    without UAV       89 + (PA)45 = 134 SL
+
+Damage taken by scouted enemies                7    1862 SL               
+    3:25    Puma    T-72AV (TURMS-T)     20 mission points    without UAV       177 + (PA)89 = 266 SL
+    3:29    Puma    BMD-4M               20 mission points    without UAV       177 + (PA)89 = 266 SL
+    4:50    Puma    120S                 20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+    4:59    Puma    120S                 20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+    5:46    Puma    LAV-AD               20 mission points    UAV in the air    177 + (PA)89 = 266 SL
+    8:49    Puma    M1 Abrams            20 mission points    without UAV       177 + (PA)89 = 266 SL
+    8:52    Puma    M3 Bradley           20 mission points    without UAV       177 + (PA)89 = 266 SL
+
+Destruction by allies of scouted enemies       5    6640 SL     295 RP    
+    3:25    Puma    T-72AV (TURMS-T)     60 mission points    without UAV       ×    885 + (PA)443 = 1328 SL    28 + (PA)28 + (Booster)3 = 59 RP
+    3:37    Puma    BMD-4M               60 mission points    without UAV       ×    885 + (PA)443 = 1328 SL    28 + (PA)28 + (Booster)3 = 59 RP
+    4:59    Puma    120S                 60 mission points    UAV in the air    ×    885 + (PA)443 = 1328 SL    28 + (PA)28 + (Booster)3 = 59 RP
+    8:52    Puma    M3 Bradley           60 mission points    without UAV       ×    885 + (PA)443 = 1328 SL    28 + (PA)28 + (Booster)3 = 59 RP
+    8:53    Puma    M1 Abrams            60 mission points    without UAV       ×    885 + (PA)443 = 1328 SL    28 + (PA)28 + (Booster)3 = 59 RP
+
+Awards                                         8    2925 SL               
+    3:26    Intelligence       100 + (PA)50 = 150 SL   
+    3:37    Intelligence       100 + (PA)50 = 150 SL   
+    4:59    Intelligence       100 + (PA)50 = 150 SL   
+    8:48    Adamant            300 + (PA)150 = 450 SL  
+    8:52    Assists streak!    150 + (PA)75 = 225 SL   
+    8:52    Intelligence       100 + (PA)50 = 150 SL   
+    8:53    Intelligence       100 + (PA)50 = 150 SL   
+    9:09    On Hand            1000 + (PA)500 = 1500 SL
+
+Activity Time                                       5460 SL     533 RP    
+    Leopard 2 (PzBtl 123)    1880 + (PA)1880 = 3760 SL    90 + (PA)180 + (Booster)9 + (Talismans)90 = 369 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 + (Booster)8 = 164 RP                 
+
+Time Played                                 8:01               3101 RP    
+    Leopard 2 (PzBtl 123)    40%    1:44    137 + (PA)274 + (Booster)14 + (Talismans)137 = 562 RP
+    Puma                     95%    6:17    1209 + (PA)1209 + (Booster)121 = 2539 RP             
+
+Reward for winning                                  9384 SL               
+
+Earned: 32404 SL, 4342 CRP
+Activity: 84%
+Damaged Vehicles: Leopard 2 (PzBtl 123), Puma
+Automatic repair of all vehicles: -492 SL
+Automatic purchasing of ammo and "Crew Replenishment": -990 SL
+
+Researched unit: 
+Gepard: 4001 RP
+
+Researching progress: 
+Puma - Smoke grenade: 2711 RP
+
+Used items: 
+Active boosters RP: 
+Common: +10%RP
+* Public booster
++10%RP (all allies), gives (+10%RP).
+
+Session: 6e075b9900041b13
+Total: 30922 SL, 4342 CRP, 6712 RP
+
+Defeat in the [Domination #1] Battle of Hürtgen Forest mission!
+
+Destruction of ground targets                 2    11580 SL     836 RP    
+    5:14    Leopard 2 (PzBtl 123)    DM23    LAV-AD             189 mission points    3860 + (PA)1930 = 5790 SL    99 + (PA)198 + (Talismans)99 = 396 RP  
+    7:06    Leopard 2 (PzBtl 123)    DM23    T-72M2 Moderna     200 mission points    3860 + (PA)1930 = 5790 SL    110 + (PA)220 + (Talismans)110 = 440 RP
+
+Critical damage to the enemy                  3     1461 SL     112 RP    
+    5:14    Leopard 2 (PzBtl 123)    DM23     LAV-AD             57 mission points    386 + (PA)193 = 579 SL    10 + (PA)20 + (Talismans)10 = 40 RP
+    7:06    Leopard 2 (PzBtl 123)    DM23     T-72M2 Moderna     60 mission points    386 + (PA)193 = 579 SL    11 + (PA)22 + (Talismans)11 = 44 RP
+    9:07    T-72M1(Germany)          3BM22    T-90A              60 mission points    202 + (PA)101 = 303 SL    14 + (PA)14 = 28 RP                
+
+Damage to the enemy                           4      884 SL      70 RP    
+    5:14    Leopard 2 (PzBtl 123)    DM23     LAV-AD             20 mission points    193 + (PA)97 = 290 SL    5 + (PA)10 + (Talismans)5 = 20 RP
+    7:06    Leopard 2 (PzBtl 123)    DM23     T-72M2 Moderna     20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    8:03    T-72M1(Germany)          3BM22    T-80UD             20 mission points    101 + (PA)51 = 152 SL    6 + (PA)6 = 12 RP                
+    9:07    T-72M1(Germany)          3BM22    T-90A              20 mission points    101 + (PA)51 = 152 SL    7 + (PA)7 = 14 RP                
+
+Activity Time                                       5816 SL     552 RP    
+    T-72M1(Germany)          908 + (PA)908 = 1816 SL      84 + (PA)84 = 168 RP                 
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+
+Time Played                                7:45                3102 RP    
+    T-72M1(Germany)          63%    1:43    139 + (PA)139 = 278 RP                   
+    Leopard 2 (PzBtl 123)    89%    6:02    706 + (PA)1412 + (Talismans)706 = 2824 RP
+
+Reward for participating in the mission             3949 SL               
+
+Earned: 23690 SL, 4672 CRP
+Activity: 80%
+Damaged Vehicles: Leopard 2 (PzBtl 123), T-72M1(Germany)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic repair of all vehicles: -1745 SL
+Automatic purchasing of ammo and "Crew Replenishment": -920 SL
+
+Researched unit: 
+Gepard: 3160 RP
+
+Session: 6e075b990004233e
+Total: 21025 SL, 4672 CRP, 3160 RP
+
+Defeat in the [Domination #2] Tunisia mission!
+
+Destruction of aircraft                        2    5720 SL     495 RP    
+    4:38     Leopard 2 (PzBtl 123)    DM23      F-4S Phantom II     40 mission points     Own target (the rest of the reward)    1158 + (PA)579 = 1737 SL     39 + (PA)79 + (Talismans)39 = 157 RP
+    12:26    Puma                     PMC308    A-10A               200 mission points    — (full reward)                        2655 + (PA)1328 = 3983 SL    169 + (PA)169 = 338 RP              
+
+Assistance in destroying the enemy             1    1197 SL      98 RP    
+    10:44    Puma    PMC287    Merkava Mk.2D     118 mission points    797 + (PA)400 = 1197 SL    49 + (PA)49 = 98 RP
+
+Severe damage to the enemy                     1    6948 SL     632 RP    
+    4:38    Leopard 2 (PzBtl 123)    DM23    F-4S Phantom II     160 mission points    4632 + (PA)2316 = 6948 SL    158 + (PA)316 + (Talismans)158 = 632 RP
+
+Critical damage to the enemy                   3    1535 SL     136 RP    
+    4:38     Leopard 2 (PzBtl 123)    DM23      F-4S Phantom II     60 mission points    579 + (PA)290 = 869 SL    20 + (PA)40 + (Talismans)20 = 80 RP
+    9:58     Puma                     PMC287    Merkava Mk.2D       59 mission points    177 + (PA)89 = 266 SL     11 + (PA)11 = 22 RP                
+    12:25    Puma                     PMC308    A-10A               60 mission points    266 + (PA)134 = 400 SL    17 + (PA)17 = 34 RP                
+
+Damage to the enemy                            7    1593 SL     128 RP    
+    4:38     Leopard 2 (PzBtl 123)    DM23                F-4S Phantom II     20 mission points    290 + (PA)145 = 435 SL    10 + (PA)20 + (Talismans)10 = 40 RP
+    6:00     Leopard 2 (PzBtl 123)    Default (7.62mm)    M3A3 Bradley        20 mission points    193 + (PA)97 = 290 SL     5 + (PA)10 + (Talismans)5 = 20 RP  
+    9:58     Puma                     PMC287              Merkava Mk.2D       20 mission points    89 + (PA)45 = 134 SL      5 + (PA)5 = 10 RP                  
+    10:03    Puma                     PMC287              Merkava Mk.2D       20 mission points    89 + (PA)45 = 134 SL      5 + (PA)5 = 10 RP                  
+    12:24    Puma                     PMC308              A-10A               20 mission points    133 + (PA)67 = 200 SL     8 + (PA)8 = 16 RP                  
+    12:26    Puma                     PMC308              A-10A               20 mission points    133 + (PA)67 = 200 SL     8 + (PA)8 = 16 RP                  
+    12:26    Puma                     PMC308              A-10A               20 mission points    133 + (PA)67 = 200 SL     8 + (PA)8 = 16 RP                  
+
+Awards                                         4     525 SL               
+    4:39     Tank Rescuer           50 + (PA)25 = 75 SL  
+    6:00     Help with Repairing    100 + (PA)50 = 150 SL
+    12:26    Tank Rescuer           50 + (PA)25 = 75 SL  
+    12:26    Avenger                150 + (PA)75 = 225 SL
+
+Activity Time                                       5700 SL     540 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+
+Time Played                                15:08               4414 RP    
+    Leopard 2 (PzBtl 123)    71%    7:16    679 + (PA)1358 + (Talismans)679 = 2716 RP
+    Puma                     80%    7:52    849 + (PA)849 = 1698 RP                  
+
+Reward for participating in the mission             4539 SL               
+
+Earned: 27757 SL, 6443 CRP
+Activity: 76%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Puma
+Automatic repair of all vehicles free.
+Automatic purchasing of ammo and "Crew Replenishment": -1650 SL
+
+Researching progress: 
+Puma - Engine: 2414 RP
+
+Session: 6e075b9900042a18
+Total: 26107 SL, 6443 CRP, 2414 RP
+
+Defeat in the [Domination] Cargo port mission!
+
+Activity Time                                      4000 SL     384 RP    
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+
+Time Played                                5:17               1528 RP    
+    Leopard 2 (PzBtl 123)    55%    5:17    382 + (PA)764 + (Talismans)382 = 1528 RP
+
+Reward for participating in the mission             800 SL               
+
+Earned: 4800 SL, 1912 CRP
+Activity: 45%
+Damaged Vehicles: Leopard 2 (PzBtl 123)
+Backup vehicles spent: Leopard 2 (PzBtl 123)
+Automatic purchasing of ammo and "Crew Replenishment": -230 SL
+
+Session: 6e075b9900044080
+Total: 4570 SL, 1912 CRP
+
+
+Defeat in the [Domination] Finland mission!
+
+Destruction of aircraft                       1      797 SL      78 RP    
+    6:57    Puma    PMC308    Su-39     40 mission points    Own target (the rest of the reward)    531 + (PA)266 = 797 SL    39 + (PA)39 = 78 RP
+
+Destruction of ground targets                 5    13845 SL    1244 RP    
+    8:01     Puma      PMC287     ZTZ99-II     200 mission points    1770 + (PA)885 = 2655 SL    124 + (PA)124 = 248 RP
+    9:47     KPz-70    XM578E1    T-80UD       200 mission points    1960 + (PA)980 = 2940 SL    125 + (PA)125 = 250 RP
+    9:53     KPz-70    XM578E1    ZBD04A       200 mission points    1960 + (PA)980 = 2940 SL    114 + (PA)114 = 228 RP
+    10:48    TAM 2C    DM33       ZTZ96B       200 mission points    1770 + (PA)885 = 2655 SL    135 + (PA)135 = 270 RP
+    11:05    TAM 2C    DM33       2S6          200 mission points    1770 + (PA)885 = 2655 SL    124 + (PA)124 = 248 RP
+
+Assistance in destroying the enemy            1     1323 SL     112 RP    
+    9:45    KPz-70    DM43    2S38     120 mission points    882 + (PA)441 = 1323 SL    56 + (PA)56 = 112 RP
+
+Severe damage to the enemy                    1     3187 SL     310 RP    
+    6:55    Puma    PMC308    Su-39     160 mission points    2124 + (PA)1063 = 3187 SL    155 + (PA)155 = 310 RP
+
+Critical damage to the enemy                  7     2365 SL     210 RP    
+    4:13     Leopard 2 (PzBtl 123)    DM23       ZTZ99-II     60 mission points    386 + (PA)193 = 579 SL    12 + (PA)24 + (Talismans)12 = 48 RP
+    6:55     Puma                     PMC308     Su-39        60 mission points    266 + (PA)134 = 400 SL    19 + (PA)19 = 38 RP                
+    7:48     Puma                     PMC287     ZTZ99-II     60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+    9:47     KPz-70                   XM578E1    T-80UD       60 mission points    196 + (PA)98 = 294 SL     13 + (PA)13 = 26 RP                
+    9:53     KPz-70                   XM578E1    ZBD04A       60 mission points    196 + (PA)98 = 294 SL     11 + (PA)11 = 22 RP                
+    10:48    TAM 2C                   DM33       ZTZ96B       60 mission points    177 + (PA)89 = 266 SL     14 + (PA)14 = 28 RP                
+    11:05    TAM 2C                   DM33       2S6          60 mission points    177 + (PA)89 = 266 SL     12 + (PA)12 = 24 RP                
+
+Damage to the enemy                          18     2830 SL     246 RP    
+    4:13     Leopard 2 (PzBtl 123)    DM23            ZTZ99-II        20 mission points    193 + (PA)97 = 290 SL    6 + (PA)12 + (Talismans)6 = 24 RP
+    6:53     Puma                     PMC308          Su-39           20 mission points    133 + (PA)67 = 200 SL    10 + (PA)10 = 20 RP              
+    6:57     Puma                     PMC308          Su-39           20 mission points    133 + (PA)67 = 200 SL    10 + (PA)10 = 20 RP              
+    7:47     Puma                     PMC287          ZTZ99-II        20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    7:52     Puma                     PMC287          ZTZ99-II        20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    9:35     KPz-70                   XM578E1         T-80UD          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:35     KPz-70                   APFSDS Sabot    T-80UD          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:41     KPz-70                   XM578E1         T-80UD          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:44     KPz-70                   DM43            2S38            20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:45     KPz-70                   DM43            2S38            20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:45     KPz-70                   DM43            T-80UD          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:47     KPz-70                   XM578E1         T-80UD          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:48     KPz-70                   DM43            ZBD04A          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:52     KPz-70                   DM51A1          ZBD04A          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    9:53     KPz-70                   XM578E1         ZBD04A          20 mission points    98 + (PA)49 = 147 SL     6 + (PA)6 = 12 RP                
+    10:48    TAM 2C                   APFSDS Sabot    ZTZ96B          20 mission points    89 + (PA)45 = 134 SL     7 + (PA)7 = 14 RP                
+    11:05    TAM 2C                   DM33            2S6             20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+    11:48    TAM 2C                   DM33            CRV Block 2     20 mission points    89 + (PA)45 = 134 SL     6 + (PA)6 = 12 RP                
+
+Munitions eliminations                        1      588 SL     104 RP    
+    9:52    KPz-70    DM43    APS03    30 mission points    392 + (PA)196 = 588 SL    52 + (PA)52 = 104 RP
+
+Scouting of the enemy                         1      134 SL               
+    11:16    TAM 2C    Al-Khalid-I     5 mission points    without UAV    89 + (PA)45 = 134 SL
+
+Awards                                       11     4425 SL               
+    4:14     Teamwork                600 + (PA)300 = 900 SL  
+    8:01     Tank Rescuer            50 + (PA)25 = 75 SL     
+    8:01     Eye for Eye             300 + (PA)150 = 450 SL  
+    9:47     Tank Rescuer            50 + (PA)25 = 75 SL     
+    9:47     Avenger                 150 + (PA)75 = 225 SL   
+    9:47     Rank does not matter    500 + (PA)250 = 750 SL  
+    9:53     Tank Rescuer            50 + (PA)25 = 75 SL     
+    9:53     Multi strike!           100 + (PA)50 = 150 SL   
+    10:48    Tank Rescuer            50 + (PA)25 = 75 SL     
+    11:05    Multi strike!           100 + (PA)50 = 150 SL   
+    12:09    Balancer                1000 + (PA)500 = 1500 SL
+
+Activity Time                                       8594 SL     806 RP    
+    KPz-70                   391 + (PA)391 = 782 SL       35 + (PA)35 = 70 RP                  
+    Leopard 2 (PzBtl 123)    2000 + (PA)2000 = 4000 SL    96 + (PA)192 + (Talismans)96 = 384 RP
+    Leopard 2K               478 + (PA)478 = 956 SL       46 + (PA)46 = 92 RP                  
+    Puma                     850 + (PA)850 = 1700 SL      78 + (PA)78 = 156 RP                 
+    TAM 2C                   578 + (PA)578 = 1156 SL      52 + (PA)52 = 104 RP                 
+
+Time Played                                9:30                2094 RP    
+    KPz-70                   42%    0:34    30 + (PA)30 = 60 RP                    
+    Leopard 2 (PzBtl 123)    53%    3:32    247 + (PA)494 + (Talismans)247 = 988 RP
+    Leopard 2K               44%    1:02    60 + (PA)60 = 120 RP                   
+    Puma                     86%    3:11    369 + (PA)369 = 738 RP                 
+    TAM 2C                   59%    1:11    94 + (PA)94 = 188 RP                   
+
+Reward for participating in the mission             6735 SL               
+
+Skill Bonus                                                    1121 RP    
+    KPz-70                   II    248 RP
+    Leopard 2 (PzBtl 123)    II    181 RP
+    Leopard 2K               II    53 RP 
+    Puma                     II    414 RP
+    TAM 2C                   II    225 RP
+
+Earned: 44823 SL, 6325 CRP
+Activity: 92%
+Damaged Vehicles: KPz-70, TAM 2C, Leopard 2 (PzBtl 123), Leopard 2K, Puma
+Automatic repair of all vehicles: -5946 SL
+Automatic purchasing of ammo and "Crew Replenishment": -2320 SL
+
+Researching progress: 
+Puma - Engine: 2070 RP
+TAM 2C - Brake System: 540 RP
+
+Session: 6e075b99000444ea
+Total: 36557 SL, 6325 CRP, 2610 RP
+
+Victory in the [Tank Assault] Mozdok mission!
+
+Activity Time                                         
+    Leopard 2K           
+    Leopard 2K           
+    Leopard 2K           
+    Leopard 2 (PzBtl 123)
+    Leopard 2 (PzBtl 123)
+    Puma                 
+    Puma                 
+    Puma                 
+    Leopard 2 (PzBtl 123)
+    Leopard 2 (PzBtl 123)
+
+Time Played           18:11                4726 RP    
+    Leopard 2 (PzBtl 123)    8:16    1344 + (PA)1344 = 2688 RP
+    Leopard 2K               4:07    483 + (PA)483 = 966 RP   
+    Puma                     5:48    536 + (PA)536 = 1072 RP  
+
+Reward for winning             31721 SL               
+
+Earned: 31721 SL, 4726 CRP
+Activity: 88%
+Respawns in battle: -21636 SL
+
+Researched unit: 
+EMBT(Germany): 5016 RP + earned in the previous battles: 15474 RP
+
+Researching progress: 
+Puma - Engine: 1072 RP
+
+Session: 6e075b9900044eeb
+Total: 10085 SL, 4726 CRP, 21562 RP
+
+
+
