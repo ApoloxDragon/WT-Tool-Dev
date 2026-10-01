@@ -12,7 +12,7 @@ const args = process.argv.slice(2);
 const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i === -1 ? dflt : args[i + 1]; };
 const label = opt('label', 'run');
 const only = opt('only', '') ? opt('only').split(',') : null;
-const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'perf'];
+const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'tutorial', 'perf'];
 
 (async () => {
   const server = await startServer();

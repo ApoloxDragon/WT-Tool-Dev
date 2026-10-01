@@ -1,0 +1,3088 @@
+{
+ "label": "post-colours",
+ "date": "2026-10-01T00:05:09.667Z",
+ "commit": "15db495",
+ "checks": [
+  {
+   "name": "parser › real data › finds 84 match blocks in the example log",
+   "pass": true,
+   "detail": "84"
+  },
+  {
+   "name": "parser › real data › 67 unique Session IDs (17 repeats)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › real data › every match keeps its raw block, from header through the Total: line",
+   "pass": true,
+   "detail": "0 bad"
+  },
+  {
+   "name": "parser › real data › no match is missing a Session ID or a total",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › detail › 1195 event lines parsed — one per indented line in the log",
+   "pass": true,
+   "detail": "1195"
+  },
+  {
+   "name": "parser › detail › no line is left unrecognised in any match",
+   "pass": true,
+   "detail": "0 matches"
+  },
+  {
+   "name": "parser › detail › event SL adds up to the section header in every section",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › detail › event counts match the section header counts",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › detail › every match has a Total: line and a session id that agrees with the summary",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: empty string",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: only whitespace",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: plain garbage",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: header only (no body, no total)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: truncated mid-block",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: CRLF line endings",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: unicode names",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: two headers, no bodies",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › does not throw: binary-ish",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › robustness › CRLF and LF logs parse to identical summaries",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "parser › pathological input › finishes in under 1 second: one 120 KB line of repeated \"Victory in the [\" (no closing bracket)",
+   "pass": true,
+   "detail": "1 ms"
+  },
+  {
+   "name": "parser › pathological input › finishes in under 1 second: 12,000 short lines of \"Victory in the [x\" (no closing bracket)",
+   "pass": true,
+   "detail": "2 ms"
+  },
+  {
+   "name": "parser › pathological input › finishes in under 1 second: \"Researched unit:\" followed by a 40 KB line with no colon",
+   "pass": true,
+   "detail": "1 ms"
+  },
+  {
+   "name": "parser › pathological input › finishes in under 1 second: an event line that is 40,000 digits long",
+   "pass": true,
+   "detail": "5 ms"
+  },
+  {
+   "name": "parser › pathological input › finishes in under 1 second: a 200 KB single line of plain text",
+   "pass": true,
+   "detail": "0 ms"
+  },
+  {
+   "name": "basic › analyze (example log) › per-match table lists all 84 matches, 17 of them struck through as duplicates",
+   "pass": true,
+   "detail": "84 rows, 17 dupes"
+  },
+  {
+   "name": "basic › analyze (example log) › duplicate rows have their SL/RP blanked (shown as —)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › analyze (example log) › archive note reports the 67 stored matches",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › battle-type categories › the new label appears as a category",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › persistence › session (pasted text) is restored after reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › persistence › custom category rule survives reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › persistence › Clear empties the input and hides results",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › persistence › Clear is permanent across reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › persistence › Clear keeps the local archive",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › exports › minimal export filename is wt-session-data-<local time>.json",
+   "pass": true,
+   "detail": "wt-session-data-2026-10-01_00-05-12.json"
+  },
+  {
+   "name": "basic › exports › minimal export has 67 deduped matches with short keys",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › exports › HTML export filename is wt-session-report-<local time>.html",
+   "pass": true,
+   "detail": "wt-session-report-2026-10-01_00-05-12.html"
+  },
+  {
+   "name": "basic › exports › HTML report has 67 match rows and only unique matches",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › exports › raw export is gzip JSON with all 67 archived matches and original text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "basic › export right after Analyze › a raw export requested the instant Analyze runs still contains all 67 matches",
+   "pass": true,
+   "detail": "67 of 67"
+  },
+  {
+   "name": "basic › imports › minimal JSON import: 67 matches",
+   "pass": true,
+   "detail": "Imported 67 match(es). Click Analyze to include them."
+  },
+  {
+   "name": "basic › imports › HTML report import: 201 matches",
+   "pass": true,
+   "detail": "Imported 201 match(es). Click Analyze to include them."
+  },
+  {
+   "name": "basic › imports › raw .json.gz import: 84 blocks read, 67 distinct added",
+   "pass": true,
+   "detail": "Imported 84 match(es) from raw data: 67 new to the local archive, 17 already archived. 67 added to this session — click Analyze to include them."
+  },
+  {
+   "name": "basic › imports › plain .txt log import works",
+   "pass": true,
+   "detail": "Imported 84 match(es) from raw data: 67 new to the local archive, 17 already archived. 67 added to this session — click Analyze to include them."
+  },
+  {
+   "name": "basic › imports › an unrelated JSON file is rejected politely (no crash)",
+   "pass": true,
+   "detail": "No importable match data found — is that a report or data file exported from this tool? "
+  },
+  {
+   "name": "basic › imports › an unrelated HTML file is rejected politely",
+   "pass": true,
+   "detail": "No importable match data found — is that a report or data file exported from this tool?"
+  },
+  {
+   "name": "basic › imports › exported HTML report re-imports to the same match count, win rate and totals",
+   "pass": true,
+   "detail": "67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL304,022TOTAL RP vs 67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL304,022TOTAL RP"
+  },
+  {
+   "name": "advanced › library › lists the 67 archived matches, all with detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › filters › sort by SL puts the biggest payout first",
+   "pass": true,
+   "detail": "78,903"
+  },
+  {
+   "name": "advanced › filters › a search with no hits shows an empty-state row",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › match detail › detail panel shows vehicles, events and raw text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › match detail › Esc closes the detail panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › storage panel › raw export .json.gz: valid, 67 matches",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › storage panel › raw export .json: valid, same matches",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › storage panel › backup status says everything is backed up after export",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › raw round trips › delete-all empties the archive and shows the empty state",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › raw round trips › re-importing the .json.gz restores all 67",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › raw round trips › re-importing is idempotent (67 already archived)",
+   "pass": true,
+   "detail": "Imported 67 match(es): 0 new, 67 already archived."
+  },
+  {
+   "name": "advanced › raw round trips › importing the plain .txt log fills the archive",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › raw round trips › deleting a single match leaves 66",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › raw round trips › no uncaught errors during the advanced-view session",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › older archive records › records stored without a summary are still listed, with full detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › older archive records › …and open in detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › older archive records › …and their summaries are saved, so the next visit needn't read the raw text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › opening does not unpack the archive › opening the library (67 matches) decompresses nothing",
+   "pass": true,
+   "detail": "0"
+  },
+  {
+   "name": "advanced › summary-only matches › summary-only matches are listed and flagged as having no detail",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "advanced › summary-only matches › opening one explains that no detail is stored",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › uses IndexedDB in a normal browser",
+   "pass": true,
+   "detail": "idb"
+  },
+  {
+   "name": "storage › archive basics › put/get round-trips a real match block exactly",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › unicode + 100 KB text round-trips exactly",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › rejects an empty block and an empty id (returns false, no throw)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › get of an unknown id returns null",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › put on an existing id overwrites",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › ids() and all() list what was stored",
+   "pass": true,
+   "detail": "aaa111,uni1"
+  },
+  {
+   "name": "storage › archive basics › remove() and clear() work",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › archive basics › stats() reports count and sizes for 84 blocks",
+   "pass": true,
+   "detail": "{\"count\":84,\"raw\":149924,\"stored\":49673,\"ok\":true}"
+  },
+  {
+   "name": "storage › archive basics › real match blocks compress by at least 2×",
+   "pass": true,
+   "detail": "3.02×"
+  },
+  {
+   "name": "storage › corrupt data › get() on a damaged record returns null instead of throwing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › corrupt data › all() skips a damaged record and still returns the good ones after it",
+   "pass": true,
+   "detail": "a1,c3"
+  },
+  {
+   "name": "storage › corrupt data › stats() still works with a damaged record present",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "storage › fallbacks › without IndexedDB it falls back to localStorage and round-trips",
+   "pass": true,
+   "detail": "{\"be\":\"ls\",\"put\":true,\"got\":true}"
+  },
+  {
+   "name": "storage › fallbacks › with no storage at all it reports \"none\" and never throws",
+   "pass": true,
+   "detail": "{\"be\":\"none\",\"put\":false,\"get\":null,\"ids\":[]}"
+  },
+  {
+   "name": "storage › fallbacks › the page still loads and analyzes with no storage available",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › page structure › wt-log-analyzer.html: has a Content-Security-Policy that blocks inline scripts",
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  {
+   "name": "security › page structure › wt-log-analyzer.html: CSP forbids plugins, base-tag and form hijacking",
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  {
+   "name": "security › page structure › wt-log-analyzer.html: no inline <script> or inline on* handlers",
+   "pass": true,
+   "detail": "{\"csp\":\"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
+  },
+  {
+   "name": "security › page structure › wt-log-analyzer.html: every target=_blank link has rel=noopener",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › page structure › advanced.html: has a Content-Security-Policy that blocks inline scripts",
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  {
+   "name": "security › page structure › advanced.html: CSP forbids plugins, base-tag and form hijacking",
+   "pass": true,
+   "detail": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  {
+   "name": "security › page structure › advanced.html: no inline <script> or inline on* handlers",
+   "pass": true,
+   "detail": "{\"csp\":\"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'\",\"inlineScripts\":0,\"inlineHandlers\":0,\"badBlank\":0}"
+  },
+  {
+   "name": "security › page structure › advanced.html: every target=_blank link has rel=noopener",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › page structure › no request ever leaves this site while using both views (data stays local)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › page structure › no CSP violations or console errors during a normal session",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › injection via pasted log (Basic) › mission + mode containing img payload renders as text",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via pasted log (Basic) › the hostile text is still visible (shown literally, not dropped)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › injection via pasted log (Basic) › mission + mode containing svg payload renders as text",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via pasted log (Basic) › mission + mode containing script payload renders as text",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via pasted log (Basic) › mission + mode containing attr payload renders as text",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › minimal JSON with hostile category/mission/target/id renders as text",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › goal-category dropdown options stay plain text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › injection via imported files (Basic) › the exported HTML report made from hostile data is inert when opened",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › the exported report declares its own Content-Security-Policy",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › injection via imported files (Basic) › re-importing that hostile report is also inert",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › HTML report with hostile category and session-id cells is inert",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › raw export with hostile mission/mode is inert in Basic",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via imported files (Basic) › the same hostile match is inert in the Advanced view (library + detail)",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via category rules › a label containing quotes and tags is stored and shown exactly as typed",
+   "pass": true,
+   "detail": "[\"Tank Assault\",\"Tank Assault\",\"Domination\",\"Evil\\\"><img src=x onerror=window.__pwn=(window.__pwn||0)+1>\"]"
+  },
+  {
+   "name": "security › injection via category rules › such a label is inert in the rules editor, tables and dropdown",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › injection via category rules › and still inert after reload (it is persisted)",
+   "pass": true,
+   "detail": "executed=0 injectedElements=0"
+  },
+  {
+   "name": "security › property-name collisions › research targets called \"constructor\"/\"toString\" are summed as numbers (no NaN / function text)",
+   "pass": true,
+   "detail": "Target RP Earned constructor 500 toString 7"
+  },
+  {
+   "name": "security › property-name collisions › no uncaught errors in Basic with property-name data",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › property-name collisions › a map named \"constructor\" gets a proper row in the Advanced by-map table",
+   "pass": true,
+   "detail": "Map Matches Win% Avg SL Avg RP constructor 1 100% 22,571 4,825"
+  },
+  {
+   "name": "security › property-name collisions › a vehicle named \"constructor\" gets a proper row in the by-vehicle table",
+   "pass": true,
+   "detail": "Vehicle Matches Time played Avg activity Play RP Kills constructor 1 5:38 95% 2,060 0 KPz-70 1 3:06 82% 952 1 JaPz.K A2 1 0:40 0% 0 0"
+  },
+  {
+   "name": "security › property-name collisions › no uncaught errors in Advanced with property-name data",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › malformed imports › wrong-typed entries cause no uncaught exception",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › malformed imports › the valid entry is still analysed and the stats contain no NaN/Infinity",
+   "pass": true,
+   "detail": "3MATCHES66.7%WIN RATE1,000,000,100TOTAL NET SL50TOTAL RP"
+  },
+  {
+   "name": "security › malformed imports › absurdly long strings are clipped, not rendered in full",
+   "pass": true,
+   "detail": "398 chars in one cell"
+  },
+  {
+   "name": "security › malformed imports › invalid JSON is rejected with a message and no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › tampered browser storage › Basic still loads when saved settings are the wrong type (no uncaught error)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › tampered browser storage › …and can still analyze the example log afterwards",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › tampered browser storage › …and can still export an HTML report with a corrupted theme setting",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › tampered browser storage › …and that report does not execute the tampered theme string",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › tampered browser storage › Advanced also loads with tampered settings (no uncaught error)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "security › resource limits › basic: a 160 KB → 160 MB gzip bomb is refused quickly with a clear message",
+   "pass": true,
+   "detail": "Could not read that file: That file is too large once unpacked (limit 128 MB) — it was not opened. (852 ms)"
+  },
+  {
+   "name": "security › resource limits › advanced: a 160 KB → 160 MB gzip bomb is refused quickly with a clear message",
+   "pass": true,
+   "detail": "Could not read that file: That file is too large once unpacked (limit 128 MB) — it was not opened. (366 ms)"
+  },
+  {
+   "name": "security › resource limits › a single 400 KB \"match\" is analysed but not written to the archive",
+   "pass": true,
+   "detail": "392678 chars"
+  },
+  {
+   "name": "appearance › presets › there are exactly eight built-in presets, in this order",
+   "pass": true,
+   "detail": "Blue,Amber,Slate,Forest,Crimson,Violet,Teal,Daylight"
+  },
+  {
+   "name": "appearance › presets › the original four are unchanged (same colours as before)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › eight swatches sit in the top bar, each with a name",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › no built-in preset has an unreadable colour pair (nothing under 3:1)",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "name": "appearance › presets › the four new presets are comfortable everywhere (every pair 4.5:1 or better)",
+   "pass": true,
+   "detail": "[[\"crimson\",\"5.53\"],[\"violet\",\"5.62\"],[\"teal\",\"6.04\"],[\"daylight\",\"4.93\"]]"
+  },
+  {
+   "name": "appearance › presets › Blue: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0d1420,#131b2b,#182338,#26344d,#4d9fe8,#dbe6f2,#6f8299,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Blue: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Blue: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#12130d,#1a1c14,#21231a,#3a3c2c,#d9a441,#e8e4d5,#8b8d78,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Amber: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Amber: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#16181c,#1e2126,#262a30,#383d44,#c9ced6,#e4e7ea,#7d848d,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Slate: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Slate: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0f1712,#16211a,#1c2921,#2e402f,#6bbf7a,#dcead9,#7b9a80,#7fbf6a,#d16158"
+  },
+  {
+   "name": "appearance › presets › Forest: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: also writes the legacy \"theme\" setting (the stable site reads it)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Forest: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#170e10,#211519,#2b1b20,#4a2a32,#ec6a80,#f3e3e6,#b58b93,#86c98d,#f0906c"
+  },
+  {
+   "name": "appearance › presets › Crimson: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Crimson: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#120f1c,#1a1527,#221c33,#3b3260,#a78bfa,#e6e0f7,#9a92bb,#82c98a,#e8847a"
+  },
+  {
+   "name": "appearance › presets › Violet: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Violet: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#0b1718,#112123,#172b2e,#26494d,#2dd4bf,#d8f1ee,#82aeab,#86c98d,#e8897a"
+  },
+  {
+   "name": "appearance › presets › Teal: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: native controls follow (dark colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Teal: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: clicking its swatch applies all nine colours",
+   "pass": true,
+   "detail": "#f4f6f9,#ffffff,#e8edf3,#c4cdd9,#1d5fbf,#1b2430,#556171,#2b7a33,#b3261e"
+  },
+  {
+   "name": "appearance › presets › Daylight: the page background really is that colour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: is saved, and is what you get after a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: its swatch is marked pressed, the others are not",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: text on buttons stays readable (auto dark/light)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: native controls follow (light colour-scheme)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › Daylight: no uncaught errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › an old saved \"theme\" setting is carried over (forest)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › presets › choosing a new preset leaves the legacy \"theme\" setting alone",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the panel opens as a labelled dialog and the button reports it is expanded",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › focus moves into the panel when it opens",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the preset list offers all eight built-in presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › nine colour rows, each with a picker, a hex box and a one-line explanation",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › every control has an accessible name and no id is duplicated",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › Esc closes the panel and returns focus to the Customise button",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › the Close button closes it too",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: typing #101010 changes it on the page at once",
+   "pass": true,
+   "detail": "#101010"
+  },
+  {
+   "name": "appearance › panel › bg: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › bg: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: typing #1a1a1a changes it on the page at once",
+   "pass": true,
+   "detail": "#1a1a1a"
+  },
+  {
+   "name": "appearance › panel › panel: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: typing #232323 changes it on the page at once",
+   "pass": true,
+   "detail": "#232323"
+  },
+  {
+   "name": "appearance › panel › panel2: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › panel2: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: typing #555555 changes it on the page at once",
+   "pass": true,
+   "detail": "#555555"
+  },
+  {
+   "name": "appearance › panel › border: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › border: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: typing #ffffff changes it on the page at once",
+   "pass": true,
+   "detail": "#ffffff"
+  },
+  {
+   "name": "appearance › panel › text: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › text: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: typing #b0b8c4 changes it on the page at once",
+   "pass": true,
+   "detail": "#b0b8c4"
+  },
+  {
+   "name": "appearance › panel › dim: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › dim: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: typing #ffb000 changes it on the page at once",
+   "pass": true,
+   "detail": "#ffb000"
+  },
+  {
+   "name": "appearance › panel › accent: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › accent: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: typing #66dd66 changes it on the page at once",
+   "pass": true,
+   "detail": "#66dd66"
+  },
+  {
+   "name": "appearance › panel › win: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › win: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: typing #ff7a7a changes it on the page at once",
+   "pass": true,
+   "detail": "#ff7a7a"
+  },
+  {
+   "name": "appearance › panel › loss: the colour picker box follows",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: is saved, marked as modified, and survives a reload",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › loss: no swatch claims to be active while the colours are customised",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › \"Reset to preset\" puts the preset’s colours back",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › picking a preset in the panel applies it and updates the boxes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a swatch clicked while the panel is open updates the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a half-typed \"#fff\" is not applied while typing",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › …but shorthand is accepted on Enter (#fff → #ffffff)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"zzzzzz\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"red\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"#12\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"javascript:1\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"#ffffgg\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › an invalid colour (\"<b>\") is flagged and ignored, and the box is restored on leaving",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › panel › a pasted colour with extra CSS after it is cut to 7 characters, so nothing extra can reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #ffffff; --text: #"
+  },
+  {
+   "name": "appearance › panel › no uncaught errors while editing colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › unreadable text (same as the background) is refused: the page keeps its colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and the panel explains which pair is too low, in a visible alert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and the readability list marks it \"Too low\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › …and nothing unreadable was saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › fixing it applies the colours automatically and clears the alert",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › turning a dark look into a light one works one colour at a time (unreadable steps wait, not block you)",
+   "pass": true,
+   "detail": "pending=true bg=#ffffff text=#111111"
+  },
+  {
+   "name": "appearance › readability › …and the result is saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › readability › weak (3–4.5:1) colours are applied, with a warning note but no block",
+   "pass": true,
+   "detail": "AaText on background14.6:1GoodAaText on panels13.6:1GoodAaText on panel 212.4:1GoodAaDim text on background3.7:1WeakAaDim text on panels3.5:1WeakAaDim text on panel 23.2:1WeakAaAccent on background6.5:1GoodAaAccent on panels6.1:1GoodAaWin on background8.4:1GoodAaWin on panels7.8:1GoodAaLoss on backg"
+  },
+  {
+   "name": "appearance › readability › closing the panel drops an unapplied unreadable draft (boxes match the page again)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › the default font is monospace (as before)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Sans-serif applies to the page",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Serif applies to the page",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › buttons and inputs use the chosen font too",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › the font style is remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › at Medium the text is exactly its original size (12.5px subtitle)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › font style and text size › Small makes text 10% smaller everywhere",
+   "pass": true,
+   "detail": "11.25 / 11.7"
+  },
+  {
+   "name": "appearance › font style and text size › Large makes text 15% bigger everywhere",
+   "pass": true,
+   "detail": "14.375"
+  },
+  {
+   "name": "appearance › font style and text size › the text size is remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a Spanish name with accents and ñ is accepted",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › \"Niño ¡Hola!\" (inverted punctuation) is accepted",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a name typed with a decomposed accent is stored in its normal form",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a name with Japanese letters is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with HTML is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with an emoji is refused with a message",
+   "pass": true,
+   "detail": "Use English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › a name with nothing is refused with a message",
+   "pass": true,
+   "detail": "Give the preset a name."
+  },
+  {
+   "name": "appearance › my presets › a name with too long (31) is refused with a message",
+   "pass": true,
+   "detail": "Names can be up to 30 characters."
+  },
+  {
+   "name": "appearance › my presets › a name with a direction-override character is refused with a message",
+   "pass": true,
+   "detail": "Names can’t contain control or invisible characters."
+  },
+  {
+   "name": "appearance › my presets › a name with a duplicate (any case) is refused with a message",
+   "pass": true,
+   "detail": "You already have a preset with that name."
+  },
+  {
+   "name": "appearance › my presets › saved presets appear in the preset list under \"My presets\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › the new preset is now the base (\"Matches …\")",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › “Allow other characters” then accepts Japanese letters",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › …but never control or direction-changing characters",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › saved presets survive a reload, still selected as the base",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › \"Use\" applies a saved preset",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › renaming works",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › renaming to a disallowed name is refused with a message",
+   "pass": true,
+   "detail": "SaveCancelUse English or Spanish letters (A–Z, á é í ó ú ü ñ), numbers, spaces and basic punctuation — or turn on “Allow other characters in names”."
+  },
+  {
+   "name": "appearance › my presets › delete asks for a second click first (nothing deleted yet)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › …the second click deletes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › deleting the active preset keeps the colours and shows them as custom",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › no uncaught errors while managing presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › the 21st preset is refused: the normal limit is 20",
+   "pass": true,
+   "detail": "You have 20 saved presets — the limit is 20."
+  },
+  {
+   "name": "appearance › my presets › ticking \"allow more\" shows the risk warning and changes nothing yet",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › cancelling keeps the limit at 20",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › accepting the risk raises the limit to 100 and remembers it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › a 21st preset can now be saved",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › my presets › even unlocked, 100 is the ceiling",
+   "pass": true,
+   "detail": "You have 100 saved presets — the limit is 100."
+  },
+  {
+   "name": "appearance › my presets › no uncaught errors with 100 presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › the export is a wt-colour-presets file with both presets and valid colours",
+   "pass": true,
+   "detail": "wt-colour-presets-2026-10-01_00-06-10.json"
+  },
+  {
+   "name": "appearance › preset files › importing that file into a fresh browser restores both presets",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › importing it again adds copies with \" 2\" appended, never overwriting",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a hostile preset file imports only the two valid presets",
+   "pass": true,
+   "detail": "Good,Also good"
+  },
+  {
+   "name": "appearance › preset files › no colour from the file reached the page’s styles",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #dbe6f2; --dim: #6f82"
+  },
+  {
+   "name": "appearance › preset files › the file’s own ids are ignored (ids are generated here)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › the import message says what was skipped and why",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › nothing executed",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › not JSON is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a different JSON format is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › preset files › a file over 1 MB is rejected politely",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › garbage types: falls back to the defaults (Blue, monospace, medium)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #0d1420; --panel: #131b2b; --panel-2: #182338; --border: #26344d; --accent: #4d9fe8; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › hostile colours: falls back to the defaults (Blue, monospace, medium)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: the page and panel still load with no uncaught error",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: only valid colours reach the page",
+   "pass": true,
+   "detail": "--bg: #170e10; --panel: #211519; --panel-2: #2b1b20; --border: #4a2a32; --accent: #ec6a80; --text: #"
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: bad saved presets are dropped, good ones kept once",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › tampered settings › extra keys and a hostile preset id: valid parts of saved settings still apply (Crimson colours, serif, large)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › an exported report is styled with the colours you chose (all nine, incl. win and loss)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › opened, the report shows those colours",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › its own picker offers the eight presets plus \"Your colours\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › picking Daylight inside the report switches every colour, win and loss included",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the report still runs under its own strict policy (its script ran)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › an untouched preset exports with just its eight siblings (no \"Your colours\")",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the Advanced view shows the same look you set in Basic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › the Advanced view has the same panel, showing the same state",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › \"Reset everything to default\" restores Blue, monospace, medium text",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › no uncaught errors across both views",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "appearance › reports and views › a colour changed a split second before leaving the page is still remembered",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour opens by itself on the first visit",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 1 of 11: \"Welcome to Session Readout\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 2 of 11: \"1 · Paste your logs\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 2 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 3 of 11: \"2 · Analyze\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 3 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 4 of 11: \"3 · Battle-type categories\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 4 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 5 of 11: \"4 · Results\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 6 of 11: \"5 · Goal calculator\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 7 of 11: \"6 · Per-match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 8 of 11: \"7 · Export and import\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 8 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 9 of 11: \"8 · Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 9 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 10 of 11: \"9 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 10 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop basic Step 11 of 11: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Basic tour closes after \"Done\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and does not open again by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: Esc closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: clicking outside closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: Tab stays inside the dialog",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: no uncaught errors in the Basic tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 1 of 9: \"Welcome to the Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 2 of 9: \"1 · Filter and sort\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 3 of 9: \"2 · Open a match\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 4 of 9: \"3 · Match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 5 of 9: \"4 · Insights\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 6 of 9: \"5 · Storage and backups\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 6 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 7 of 9: \"6 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 7 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 8 of 9: \"7 · Back to Basic\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 8 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop advanced Step 9 of 9: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Advanced tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the Advanced tour doesn't reopen by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: opening the colour panel never starts a tour by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the colour tour explains what every one of the nine colours changes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and explains the readability rule (3:1 and 4.5:1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: …and the name, limit and export rules",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 1 of 10: \"Colours & text\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 2 of 10: \"1 · Start from a preset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 2 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 3 of 10: \"2 · Surfaces — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 3 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 4 of 10: \"3 · Text — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 4 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 5 of 10: \"4 · Accent and results — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 5 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 6 of 10: \"5 · Readability\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 6 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 7 of 10: \"6 · Font style and text size\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 7 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 8 of 10: \"7 · My presets\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 8 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 9 of 10: \"8 · Reset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 9 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop colours Step 10 of 10: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: every colour-tour step that points at something really points at it (no missing targets)",
+   "pass": true,
+   "detail": "8 spotlit of 10 (2 are centred intro/outro)"
+  },
+  {
+   "name": "tutorial › desktop › desktop: the colour tour ends and the panel is still open",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: first Esc closes only the tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: the next Esc closes the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › desktop › desktop: no uncaught errors in the colour tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour opens by itself on the first visit",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 1 of 11: \"Welcome to Session Readout\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 2 of 11: \"1 · Paste your logs\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 2 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 3 of 11: \"2 · Analyze\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 3 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 4 of 11: \"3 · Battle-type categories\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 4 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 5 of 11: \"4 · Results\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 6 of 11: \"5 · Goal calculator\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 7 of 11: \"6 · Per-match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 8 of 11: \"7 · Export and import\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 8 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 9 of 11: \"8 · Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 9 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 10 of 11: \"9 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 10 of 11: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone basic Step 11 of 11: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Basic tour closes after \"Done\"",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and does not open again by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: Esc closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: clicking outside closes it",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: Tab stays inside the dialog",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: no uncaught errors in the Basic tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 1 of 9: \"Welcome to the Advanced view\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 2 of 9: \"1 · Filter and sort\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 3 of 9: \"2 · Open a match\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 4 of 9: \"3 · Match detail\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 5 of 9: \"4 · Insights\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 6 of 9: \"5 · Storage and backups\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 6 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 7 of 9: \"6 · Colours\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 7 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 8 of 9: \"7 · Back to Basic\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 8 of 9: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone advanced Step 9 of 9: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Advanced tour has a Colours step",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the Advanced tour doesn't reopen by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: opening the colour panel never starts a tour by itself",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the colour tour explains what every one of the nine colours changes",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and explains the readability rule (3:1 and 4.5:1)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: …and the name, limit and export rules",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 1 of 10: \"Colours & text\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 2 of 10: \"1 · Start from a preset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 2 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 3 of 10: \"2 · Surfaces — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 3 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 4 of 10: \"3 · Text — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 4 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 5 of 10: \"4 · Accent and results — what each colour changes\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 5 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 6 of 10: \"5 · Readability\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 6 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 7 of 10: \"6 · Font style and text size\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 7 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 8 of 10: \"7 · My presets\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 8 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 9 of 10: \"8 · Reset\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 9 of 10: the card doesn't cover what it points at",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone colours Step 10 of 10: \"You’re set\" stays inside the screen",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: every colour-tour step that points at something really points at it (no missing targets)",
+   "pass": true,
+   "detail": "8 spotlit of 10 (2 are centred intro/outro)"
+  },
+  {
+   "name": "tutorial › phone › phone: the colour tour ends and the panel is still open",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: first Esc closes only the tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: the next Esc closes the panel",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "tutorial › phone › phone: no uncaught errors in the colour tour",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 200 matches › synthetic log parses to 200 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":8.100000000093132,\"n\":200,\"unique\":200}"
+  },
+  {
+   "name": "perf › 200 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":200,\"skipped\":0,\"failed\":0} stored=200"
+  },
+  {
+   "name": "perf › 200 matches › Analyze renders one row per match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 200 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 2000 matches › synthetic log parses to 2000 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":56.0999999998603,\"n\":2000,\"unique\":2000}"
+  },
+  {
+   "name": "perf › 2000 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":2000,\"skipped\":0,\"failed\":0} stored=2000"
+  },
+  {
+   "name": "perf › 2000 matches › Analyze renders one row per match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 2000 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 6000 matches › synthetic log parses to 6000 unique matches",
+   "pass": true,
+   "detail": "{\"ms\":169.80000000004657,\"n\":6000,\"unique\":6000}"
+  },
+  {
+   "name": "perf › 6000 matches › archive write stores every match",
+   "pass": true,
+   "detail": "{\"added\":6000,\"skipped\":0,\"failed\":0} stored=6000"
+  },
+  {
+   "name": "perf › 6000 matches › Analyze renders one row per match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "perf › 6000 matches › no uncaught errors at this size",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "snapshots": {
+  "parser › real data › summary of every parsed match (result, mode, mission, SL, RP, targets, time)": {
+   "hash": "16ab831cb429a8ce",
+   "items": {
+    "73876ab00050b31#0": "d4eda756ad171ae0",
+    "7387a0300052799#1": "9bd998da1608fe0f",
+    "7387dfb000548e6#2": "184150cbcd27d945",
+    "738be9f00071f37#3": "8935734508655123",
+    "738c0160007282e#4": "01bd28bbbb49b507",
+    "738c8c200075cfa#5": "5832bd3cd692469b",
+    "738db0a0007ba75#6": "5fe52757f23e0f01",
+    "738dc9c0007c175#7": "be705dc7756a2dc8",
+    "738def10007cb2e#8": "1a00156fed9928c6",
+    "738e0900007d1c7#9": "42ceb4c3d51a0207",
+    "738e5d30007e651#10": "e924b0c3fb104847",
+    "738e3c60007de66#11": "d0799465c96da24c",
+    "739f39e000e28bc#12": "a2769ab35851b851",
+    "739ff0b000e7d34#13": "9e1a7a44242a5888",
+    "73a0103000e8b84#14": "3da66d82a9216e7e",
+    "73a4c0000101f89#15": "041b527971a2dcc4",
+    "73b04bc00143930#16": "9b6b1d431db921b5",
+    "73b084900145ca3#17": "13b93fd09af28c78",
+    "73b0b120014789b#18": "0cb9de6c17fcadcb",
+    "73b0e1d001496fd#19": "9855e8127e7a1112",
+    "73b10300014ab8a#20": "9f2d35d41a3ba542",
+    "73b6f4900179ccc#21": "56b43f44d745c559",
+    "73b71ac0017a8a8#22": "08203406fdbbeab1",
+    "73b769b0017bf99#23": "ec27bc9efdf5058b",
+    "73b79020017ca30#24": "3eb81e6ab8519a88",
+    "73b859d0017fc84#25": "a9f2d29f2d5c7fe0",
+    "73b92170018264d#26": "5e6fcbb95896aa43",
+    "73c5e28001b1f46#27": "4b87e34c053e97c7",
+    "73060d50015df60#28": "011728e0436125c0",
+    "73050d40015140c#29": "0a10711178270d99",
+    "7282c2e000a1d2a#30": "5867440c23d90b6c",
+    "7282718000a06a4#31": "20ed3f2f6c7245d5",
+    "7281e7b0009e281#32": "1a36f5989910e889",
+    "72815b20009be99#33": "22604c95b74698ee",
+    "727f1d300092f97#34": "4caee478719e9e53",
+    "727ee030009212d#35": "17871e34f8e7d139",
+    "727e7b400090a23#36": "dfa3813f0edb320b",
+    "727de780008e9e8#37": "16810f8473d8e8d7",
+    "727d9ad0008d99f#38": "df7a9b755a883f5b",
+    "7278f3b0007783d#39": "1bf825e32e5e77bf",
+    "72789c7000755ad#40": "b6f709a57100844b",
+    "727828100072671#41": "96b1aa79b9a51264",
+    "7277f9d0007136b#42": "c4a1020ee4746559",
+    "7277aef0006f426#43": "5f6b41af45fc0812",
+    "7266166000113db#44": "648b42185444f395",
+    "725997100069ab3#45": "721598b9dd4032fb",
+    "73c8667001c3b57#46": "734b0d6194e539bb",
+    "73c8ac8001c5831#47": "8932f345362d189c",
+    "73c8dfe001c6d63#48": "05a4968bd107fcf0",
+    "73c8ac8001c5831#49": "8932f345362d189c",
+    "73c8dfe001c6d63#50": "05a4968bd107fcf0",
+    "73cac97001d326a#51": "c737ae64934716b9",
+    "73cb27c001d53b7#52": "9a69ba5a0a5b78e9",
+    "73cb809001d704c#53": "449f3e424955af9d",
+    "73cba8e001d7c28#54": "c5e0b72397c18d0d",
+    "73cc13d001d99dd#55": "05d1272c40ed91f5",
+    "73cba8e001d7c28#56": "c5e0b72397c18d0d",
+    "73cc13d001d99dd#57": "05d1272c40ed91f5",
+    "73cc980001dba0c#58": "5bf50d035bbfe94b",
+    "73c5e28001b1f46#59": "4b87e34c053e97c7",
+    "73c63fd001b49ac#60": "4698fe9eea724cdd",
+    "73c69bd001b73ef#61": "94115dae8661089a",
+    "73c7c03001bf5e7#62": "d88a4f194725b83e",
+    "73c8667001c3b57#63": "734b0d6194e539bb",
+    "73c8ac8001c5831#64": "8932f345362d189c",
+    "73c8dfe001c6d63#65": "05a4968bd107fcf0",
+    "73c914d001c8362#66": "ecc23207966cdc59",
+    "73c9463001c97cd#67": "39f0c06317571b5e",
+    "73ca28f001cf480#68": "2442e1b681765e55",
+    "73ca7cd001d15ad#69": "7251e03d33f3f647",
+    "73cac97001d326a#70": "c737ae64934716b9",
+    "73cb27c001d53b7#71": "9a69ba5a0a5b78e9",
+    "73cb809001d704c#72": "449f3e424955af9d",
+    "73cba8e001d7c28#73": "c5e0b72397c18d0d",
+    "73cc13d001d99dd#74": "05d1272c40ed91f5",
+    "73cc980001dba0c#75": "5bf50d035bbfe94b",
+    "73cba8e001d7c28#76": "c5e0b72397c18d0d",
+    "73cc13d001d99dd#77": "05d1272c40ed91f5",
+    "73cc980001dba0c#78": "5bf50d035bbfe94b",
+    "73cfaf7001e4cb1#79": "dfb76fc3f4ed9c81",
+    "73cffd5001e5ac5#80": "77eb784fdaddeb33",
+    "73d052f001e6a74#81": "52623af05335dddb",
+    "73d1455001e9629#82": "dcb4da5bc6b1084c",
+    "73d2466001ec18d#83": "18697f50348fc1ff"
+   },
+   "count": 84
+  },
+  "parser › real data › aggregates over unique matches": {
+   "hash": "db97f7f3d008a4c3"
+  },
+  "parser › detail › full detail of every match": {
+   "hash": "873aab327320aa8c",
+   "items": {
+    "73876ab00050b31#0": "50c8efd2fd4c5bc8",
+    "7387a0300052799#1": "faca6c7a06f059fb",
+    "7387dfb000548e6#2": "0509692a54e582d7",
+    "738be9f00071f37#3": "a0c4762f1ba047ad",
+    "738c0160007282e#4": "0fc16b28aa9676fa",
+    "738c8c200075cfa#5": "0dfa20eea870a355",
+    "738db0a0007ba75#6": "a445d67e39ad940c",
+    "738dc9c0007c175#7": "74801f6c840b0f10",
+    "738def10007cb2e#8": "2a4475a326c96735",
+    "738e0900007d1c7#9": "2d47c59e58f537b6",
+    "738e5d30007e651#10": "88c8da4ac4839fc8",
+    "738e3c60007de66#11": "915cba700f2502ea",
+    "739f39e000e28bc#12": "63278426b547bb98",
+    "739ff0b000e7d34#13": "95218af6ac403a2d",
+    "73a0103000e8b84#14": "dec8b11bc1f87a4b",
+    "73a4c0000101f89#15": "f3b9ccd952488f45",
+    "73b04bc00143930#16": "efd0ad83a49977ff",
+    "73b084900145ca3#17": "96dead47342234bd",
+    "73b0b120014789b#18": "1460028a78d7249a",
+    "73b0e1d001496fd#19": "c486942e9cace68a",
+    "73b10300014ab8a#20": "c14368b4bcfb2ac7",
+    "73b6f4900179ccc#21": "e2ad60f33523a3be",
+    "73b71ac0017a8a8#22": "f9ff685ceb67fcdd",
+    "73b769b0017bf99#23": "a1d0ea4032f1619d",
+    "73b79020017ca30#24": "b483726af3e1829a",
+    "73b859d0017fc84#25": "517380dfaa73d7eb",
+    "73b92170018264d#26": "66939736d3c9ba99",
+    "73c5e28001b1f46#27": "1ab2fd3f66589e5b",
+    "73060d50015df60#28": "035a53e034beaa5d",
+    "73050d40015140c#29": "5c15cdec1fda2797",
+    "7282c2e000a1d2a#30": "bc829b51e1b3aaa1",
+    "7282718000a06a4#31": "e9c5bb75bf00c232",
+    "7281e7b0009e281#32": "6a33d10b10b4653e",
+    "72815b20009be99#33": "1eb0fd7b0867c36f",
+    "727f1d300092f97#34": "dd0aa311141e8ccb",
+    "727ee030009212d#35": "0ec8556eec6206e7",
+    "727e7b400090a23#36": "f818bb51c1949c71",
+    "727de780008e9e8#37": "a41f0b6511d98559",
+    "727d9ad0008d99f#38": "208c81c2fd1f9fb5",
+    "7278f3b0007783d#39": "57c2470a9097b9df",
+    "72789c7000755ad#40": "801a1638a3e919f0",
+    "727828100072671#41": "bfe436ddcb7c1855",
+    "7277f9d0007136b#42": "eb540fa8084e3009",
+    "7277aef0006f426#43": "b2cca8cde4e84a4b",
+    "7266166000113db#44": "bc0f7caae763c2a3",
+    "725997100069ab3#45": "aa0265e5158e7318",
+    "73c8667001c3b57#46": "3c513ea8b1c8cfba",
+    "73c8ac8001c5831#47": "22c8013ab343f9a5",
+    "73c8dfe001c6d63#48": "c0475dc032d8053c",
+    "73c8ac8001c5831#49": "22c8013ab343f9a5",
+    "73c8dfe001c6d63#50": "c0475dc032d8053c",
+    "73cac97001d326a#51": "d6bcaa524f3d392d",
+    "73cb27c001d53b7#52": "dcc491315429ae4d",
+    "73cb809001d704c#53": "a6143abec750e460",
+    "73cba8e001d7c28#54": "5545e7746c60cb8c",
+    "73cc13d001d99dd#55": "7c4888ac327689b8",
+    "73cba8e001d7c28#56": "5545e7746c60cb8c",
+    "73cc13d001d99dd#57": "7c4888ac327689b8",
+    "73cc980001dba0c#58": "cd49df0cebb5b32f",
+    "73c5e28001b1f46#59": "1ab2fd3f66589e5b",
+    "73c63fd001b49ac#60": "a9b793e470d51a04",
+    "73c69bd001b73ef#61": "6884125b72df1b28",
+    "73c7c03001bf5e7#62": "4a6f1900a505e32e",
+    "73c8667001c3b57#63": "3c513ea8b1c8cfba",
+    "73c8ac8001c5831#64": "22c8013ab343f9a5",
+    "73c8dfe001c6d63#65": "c0475dc032d8053c",
+    "73c914d001c8362#66": "45dea784d5c23233",
+    "73c9463001c97cd#67": "eff30df91c5fb87a",
+    "73ca28f001cf480#68": "0d5d5b85bc3d9af5",
+    "73ca7cd001d15ad#69": "2c3f94ddf875dd33",
+    "73cac97001d326a#70": "d6bcaa524f3d392d",
+    "73cb27c001d53b7#71": "dcc491315429ae4d",
+    "73cb809001d704c#72": "a6143abec750e460",
+    "73cba8e001d7c28#73": "5545e7746c60cb8c",
+    "73cc13d001d99dd#74": "7c4888ac327689b8",
+    "73cc980001dba0c#75": "cd49df0cebb5b32f",
+    "73cba8e001d7c28#76": "5545e7746c60cb8c",
+    "73cc13d001d99dd#77": "7c4888ac327689b8",
+    "73cc980001dba0c#78": "cd49df0cebb5b32f",
+    "73cfaf7001e4cb1#79": "a43ac8870ba97c28",
+    "73cffd5001e5ac5#80": "fe747fe6f3855b3e",
+    "73d052f001e6a74#81": "ad221e925b580f5d",
+    "73d1455001e9629#82": "d00172c874907552",
+    "73d2466001ec18d#83": "f2922161444dc44c"
+   },
+   "count": 84
+  },
+  "basic › analyze (example log) › overall stats": {
+   "hash": "49ae12533119128b",
+   "preview": "67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL304,022TOTAL RP"
+  },
+  "basic › analyze (example log) › battle-type split table": {
+   "hash": "a3ddfea7aab0a5ff",
+   "preview": "Battle TypeMatchesW/LWin% Total Net SLAvg Win SLAvg Loss SLTotal RP Random Battles 28 9/19 32.1% 348,583 12,811 12,278 79,087 Tank Assault 39 33/6 84.6% 1,017,193 30,293 2,923 224,935"
+  },
+  "basic › analyze (example log) › RP by research target table": {
+   "hash": "db6dc94f02f82434",
+   "preview": "TargetRP Earned Radkampfwagen 90138,703Begleitpanzer 5771,852Leopard 2K70,652T-72M1(Germany)26,462"
+  },
+  "basic › analyze (example log) › other-RP (module/progress) table": {
+   "hash": "dc9326a93210e805"
+  },
+  "basic › analyze (example log) › duplicate warning": {
+   "hash": "3b2d4695746c9339",
+   "preview": "⚠ 17 duplicate match(es) detected by Session ID and excluded from totals."
+  },
+  "basic › analyze (example log) › per-match table rows": {
+   "hash": "e55d35d0305e2304",
+   "items": {
+    "row0": "864a3cff8a5f8805",
+    "row1": "141ff8654e01486d",
+    "row2": "d2fe2c34494c034a",
+    "row3": "bebc7e3e0215348c",
+    "row4": "97ec7ca2b206ded5",
+    "row5": "cc39ea41b0f8d4a4",
+    "row6": "db502252b56d58ea",
+    "row7": "a9356453cad6670f",
+    "row8": "088dcae2b09b2bc0",
+    "row9": "a9217ee87f1d384e",
+    "row10": "c1444cebb23b0ef2",
+    "row11": "7888a7e8146fc65d",
+    "row12": "a1141e3c6668444c",
+    "row13": "0962e323cefaa858",
+    "row14": "5983faac222a44bc",
+    "row15": "d2274418c57da5bf",
+    "row16": "9bc83f5bbfd7b7df",
+    "row17": "7a0c1fb0cc7a6a00",
+    "row18": "3094d5e0b7f2021a",
+    "row19": "4ebca9a4bd85f88e",
+    "row20": "f48fcd35e355f057",
+    "row21": "82087f8616cee717",
+    "row22": "057952d05184396d",
+    "row23": "21373ed9d4ffc92d",
+    "row24": "2a65e9033b6004e6",
+    "row25": "09ef41698f2182fc",
+    "row26": "0821908a70345fb7",
+    "row27": "e7ec1d7310cbdab6",
+    "row28": "730fb27563f73abd",
+    "row29": "bab39b66e5ee1a7a",
+    "row30": "287073aefc48249b",
+    "row31": "9d83cd6a97cd1f42",
+    "row32": "0daa3bc70611a7e4",
+    "row33": "d8328b50a5c2319b",
+    "row34": "8e5995d238f364e5",
+    "row35": "b1e45dc998228d1a",
+    "row36": "ca1e76f4ef5e3aa5",
+    "row37": "2156feda10aeba72",
+    "row38": "76f0dab74cbd8938",
+    "row39": "790b9e851990f7e1",
+    "row40": "7d04143057bd0439",
+    "row41": "004cd7fd5f15caea",
+    "row42": "46310fc95b877d1c",
+    "row43": "9740ab983be13743",
+    "row44": "dd00377d5178c224",
+    "row45": "7a93b8a0286b2007",
+    "row46": "435190e7c85c3c2e",
+    "row47": "bb8675b57b22eb2c",
+    "row48": "29f59d9b0860b470",
+    "row49": "559d617e667c41a1",
+    "row50": "0ac7478b26d7e6b7",
+    "row51": "0bd9ad2365bf781a",
+    "row52": "b90bd7fc3ec3c93f",
+    "row53": "2862346f8e04aa27",
+    "row54": "d09cfcda5c4c36b3",
+    "row55": "c33c59214aa759e0",
+    "row56": "e44d778261defd95",
+    "row57": "468e371e1c48dedc",
+    "row58": "3a3290e42bf839f7",
+    "row59": "e44d778261defd95",
+    "row60": "81df1445c7d0998e",
+    "row61": "dc9be80a133f76d6",
+    "row62": "adc1d0e6719d01a7",
+    "row63": "5ebb350648d61f68",
+    "row64": "559d617e667c41a1",
+    "row65": "0ac7478b26d7e6b7",
+    "row66": "8a313c9e55a8deca",
+    "row67": "480e4a73030c59a3",
+    "row68": "acbc4cd223aebcaf",
+    "row69": "773e076075278e6c",
+    "row70": "e7064056e523b00c",
+    "row71": "82c7a961b2a35dd5",
+    "row72": "9727716af4c883c0",
+    "row73": "e44d778261defd95",
+    "row74": "468e371e1c48dedc",
+    "row75": "770b6eb88c3102e5",
+    "row76": "e44d778261defd95",
+    "row77": "468e371e1c48dedc",
+    "row78": "770b6eb88c3102e5",
+    "row79": "5ec4adc474c37a32",
+    "row80": "0d0830197720af4e",
+    "row81": "fe5aab12cb898258",
+    "row82": "9090ecc86c8f466e",
+    "row83": "d3bbd64f62bc12fb"
+   },
+   "count": 84
+  },
+  "basic › goal calculator › default fields loaded for \"All Combined\"": {
+   "hash": "d05c8fac55f063b2",
+   "preview": "62.7,5769,2468,26547,10033"
+  },
+  "basic › goal calculator › result for 50,000 RP / 300,000 SL": {
+   "hash": "295fa6cab292f023",
+   "preview": "15 matches needed · SL-bound Expected RP / match4,538Expected net SL / match20,387Expected time / match14:26Matches needed — RP goal12Matches needed — SL goal15Est. active playtime3.6 hrs"
+  },
+  "basic › goal calculator › result with the +30% booster on": {
+   "hash": "3034d2803b542423"
+  },
+  "basic › goal calculator › goal category choices": {
+   "hash": "0915de5c882e989a",
+   "preview": "Random Battles,Tank Assault,All Combined"
+  },
+  "basic › goal calculator › result after switching to Tank Assault averages": {
+   "hash": "ab2b36e0d5961ab4",
+   "preview": "12 matches needed · SL-bound Expected RP / match5,767Expected net SL / match26,078Expected time / match18:38Matches needed — RP goal9Matches needed — SL goal12Est. active playtime3.7 hrs"
+  },
+  "basic › battle-type categories › split table after adding a Conquest rule": {
+   "hash": "4054b728a3118926"
+  },
+  "basic › exports › minimal export content": {
+   "hash": "72a6b6a4c2f9b807",
+   "items": {
+    "73876ab00050b31": "d3485f7950b877a6",
+    "7387a0300052799": "20c5afb537cf3e05",
+    "7387dfb000548e6": "e716da8bd6815f34",
+    "738be9f00071f37": "744770353cc70139",
+    "738c0160007282e": "31fadd5a0f524e94",
+    "738c8c200075cfa": "7725f3a2a44cc7a9",
+    "738db0a0007ba75": "eac55fe5fcb780ad",
+    "738dc9c0007c175": "ff6999d37d8d0448",
+    "738def10007cb2e": "de06edcb78c43b19",
+    "738e0900007d1c7": "622316ee676d4c20",
+    "738e5d30007e651": "767d99345bd7cec5",
+    "738e3c60007de66": "1bfa00eafced818d",
+    "739f39e000e28bc": "068156e4ad6a1713",
+    "739ff0b000e7d34": "a0b6aa8868cba8b2",
+    "73a0103000e8b84": "9754b3b2ed19c377",
+    "73a4c0000101f89": "f582dc49b902d11a",
+    "73b04bc00143930": "9dfb141826aeb5d2",
+    "73b084900145ca3": "0dbe80a9f5b1419d",
+    "73b0b120014789b": "4789df69740470b5",
+    "73b0e1d001496fd": "31fc3e2bfcf2d51f",
+    "73b10300014ab8a": "488262c48542fb79",
+    "73b6f4900179ccc": "c828346d6e5fa40f",
+    "73b71ac0017a8a8": "0d74b2bcf67b34d3",
+    "73b769b0017bf99": "0326b62662c54ca9",
+    "73b79020017ca30": "e8e162a2247e5ee1",
+    "73b859d0017fc84": "bd388cd98467d2b6",
+    "73b92170018264d": "a07dc49ef9c17d3b",
+    "73c5e28001b1f46": "4110cf50863d9b3a",
+    "73060d50015df60": "d4fa5050f2edab5b",
+    "73050d40015140c": "d3009d277bb71ee9",
+    "7282c2e000a1d2a": "033c67c209e4c2a6",
+    "7282718000a06a4": "b4f38068a1c0dc76",
+    "7281e7b0009e281": "bfc04f2ba49d9ba9",
+    "72815b20009be99": "33d5c8ddcade846d",
+    "727f1d300092f97": "d8792791f0120566",
+    "727ee030009212d": "e08f93b31387abec",
+    "727e7b400090a23": "8c4d76e5fbf0c55f",
+    "727de780008e9e8": "381e284a4bb3e58a",
+    "727d9ad0008d99f": "ab25821bfef28d40",
+    "7278f3b0007783d": "e79f6a1202cf3ef6",
+    "72789c7000755ad": "898a31adb0f43aed",
+    "727828100072671": "18fd973c4562aac7",
+    "7277f9d0007136b": "213536cc8c305cf3",
+    "7277aef0006f426": "2eadf1a3a2c3de75",
+    "7266166000113db": "9a3c13e72bd298ba",
+    "725997100069ab3": "81c9e33de5b1dbb6",
+    "73c8667001c3b57": "bb2024665bcb2c5f",
+    "73c8ac8001c5831": "f42d168c04c1af1d",
+    "73c8dfe001c6d63": "04e25f538ea5e5d1",
+    "73cac97001d326a": "cde8ea97c6a28a74",
+    "73cb27c001d53b7": "ed75a9cc2bf45626",
+    "73cb809001d704c": "340d6af0d0dc1951",
+    "73cba8e001d7c28": "b52597cf5e7423d4",
+    "73cc13d001d99dd": "f4b154d88dd4e76d",
+    "73cc980001dba0c": "7469fd14347bf718",
+    "73c63fd001b49ac": "fde26a81bcfe4fdb",
+    "73c69bd001b73ef": "4364b2e5278a1100",
+    "73c7c03001bf5e7": "3ef4e40e43a7bb41",
+    "73c914d001c8362": "f2ebd67a36a22908",
+    "73c9463001c97cd": "1f8423627af5d6cb",
+    "73ca28f001cf480": "98e12cbcd5527126",
+    "73ca7cd001d15ad": "bb23067c6aadeec2",
+    "73cfaf7001e4cb1": "e59c9ef872afa046",
+    "73cffd5001e5ac5": "3a3b2fa31a08666a",
+    "73d052f001e6a74": "f0880287325feee8",
+    "73d1455001e9629": "94d0b7f4fc390c5b",
+    "73d2466001ec18d": "8b9dc6a67edd7a23"
+   },
+   "count": 67
+  },
+  "basic › exports › HTML report body (time stamp and nonce normalised)": {
+   "hash": "51fedc8d1f8f32f4"
+  },
+  "basic › exports › HTML report data sections (tables and stats only)": {
+   "hash": "e5ecb7d430a0a234"
+  },
+  "basic › exports › raw export matches": {
+   "hash": "fc063e4a1a8d9f6e",
+   "items": {
+    "725997100069ab3": "c7ac8577de9a8b9e",
+    "7266166000113db": "cc671c5f95f0ac33",
+    "7277aef0006f426": "7b7d746852306538",
+    "7277f9d0007136b": "942f145d071831f1",
+    "727828100072671": "b3d671133b1cd606",
+    "72789c7000755ad": "0f87bc275759c6f7",
+    "7278f3b0007783d": "dcda244af9451540",
+    "727d9ad0008d99f": "fb1245b4693ae4f7",
+    "727de780008e9e8": "b3d725f7c757e9f7",
+    "727e7b400090a23": "7258908786abc2ee",
+    "727ee030009212d": "bd531cd7af0b89e6",
+    "727f1d300092f97": "c34d12125e43d3f0",
+    "72815b20009be99": "6687c68eac7cca76",
+    "7281e7b0009e281": "97277fcb78fdb0f5",
+    "7282718000a06a4": "be30a202a4a63c48",
+    "7282c2e000a1d2a": "4cd2f28a7f9f554f",
+    "73050d40015140c": "7dc57d02b94d9a5a",
+    "73060d50015df60": "7ac409ea2ab7a68a",
+    "73876ab00050b31": "4123ca3b1e93eb0a",
+    "7387a0300052799": "3a76ccf47fcb928e",
+    "7387dfb000548e6": "41ce2dc30d94cec0",
+    "738be9f00071f37": "e6b75705b10d60f3",
+    "738c0160007282e": "254fbf40668912f6",
+    "738c8c200075cfa": "984b30b7e10c709b",
+    "738db0a0007ba75": "39816da4e2b3b634",
+    "738dc9c0007c175": "2f7e17a2dbf31c14",
+    "738def10007cb2e": "82299f0858d432ff",
+    "738e0900007d1c7": "c607670965f5b280",
+    "738e3c60007de66": "4565b8a1a807fac9",
+    "738e5d30007e651": "30e98d3b9868d661",
+    "739f39e000e28bc": "c0760f3a5ff0ef35",
+    "739ff0b000e7d34": "6d135aa85ddae97b",
+    "73a0103000e8b84": "3bd73f00bccefc55",
+    "73a4c0000101f89": "b27f64662ff16147",
+    "73b04bc00143930": "47905e3e4a1f9da1",
+    "73b084900145ca3": "b0feff180fd80f86",
+    "73b0b120014789b": "820117434de2db20",
+    "73b0e1d001496fd": "806b910343e46786",
+    "73b10300014ab8a": "3f4f50864939a21b",
+    "73b6f4900179ccc": "b762897643b28477",
+    "73b71ac0017a8a8": "ad5a80f588d542a7",
+    "73b769b0017bf99": "06448bc28f732517",
+    "73b79020017ca30": "13b627bbe416d1c3",
+    "73b859d0017fc84": "5e34fe24b9b2919d",
+    "73b92170018264d": "216634595b4cd32f",
+    "73c5e28001b1f46": "3c34183d25735e0f",
+    "73c63fd001b49ac": "37ba63f47eddae38",
+    "73c69bd001b73ef": "8ff7e90c858bde42",
+    "73c7c03001bf5e7": "7c27590697597fdf",
+    "73c8667001c3b57": "892eddee31da0062",
+    "73c8ac8001c5831": "a567ecdc7b920941",
+    "73c8dfe001c6d63": "dae844050fd546cb",
+    "73c914d001c8362": "e30bdd9e59160b19",
+    "73c9463001c97cd": "d5588bc630154f8b",
+    "73ca28f001cf480": "efc763389443ed45",
+    "73ca7cd001d15ad": "b05a58d64d7da585",
+    "73cac97001d326a": "20e1d3fa552a68e1",
+    "73cb27c001d53b7": "6a44dd9f216f7daf",
+    "73cb809001d704c": "5dae9c5ed86ddc43",
+    "73cba8e001d7c28": "526a205f56040f3d",
+    "73cc13d001d99dd": "9a7ae57d1d2be516",
+    "73cc980001dba0c": "6e8d9d24c7d56c3d",
+    "73cfaf7001e4cb1": "ee5b8be9265d42d2",
+    "73cffd5001e5ac5": "b7fb45401f1b2ba2",
+    "73d052f001e6a74": "824bb269a5668d1a",
+    "73d1455001e9629": "7da499cd52eabb85",
+    "73d2466001ec18d": "8758e19da6bb55df"
+   },
+   "count": 67
+  },
+  "basic › imports › minimal JSON import stats": {
+   "hash": "7e80f120f9ee7822",
+   "preview": "67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL448,375TOTAL RP"
+  },
+  "basic › imports › HTML report import stats": {
+   "hash": "8763e6015954a0ff",
+   "preview": "201MATCHES60.7%WIN RATE3,671,555TOTAL NET SL849,360TOTAL RP"
+  },
+  "basic › imports › raw import stats": {
+   "hash": "49ae12533119128b",
+   "preview": "67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL304,022TOTAL RP"
+  },
+  "advanced › library › library stats": {
+   "hash": "49ae12533119128b",
+   "preview": "67MATCHES62.7%WIN RATE1,365,776TOTAL NET SL304,022TOTAL RP"
+  },
+  "advanced › library › library rows (newest first)": {
+   "hash": "c509e46237aef11c",
+   "items": {
+    "73d2466001ec18d": "131ed644a81992d6",
+    "73d1455001e9629": "513cd59f26419cc5",
+    "73d052f001e6a74": "7031184c55d59e6e",
+    "73cffd5001e5ac5": "099cfa995626df36",
+    "73cfaf7001e4cb1": "795d645c9876f41a",
+    "73cc980001dba0c": "fb13292a24d84c08",
+    "73cc13d001d99dd": "7e9b2177c2aeaace",
+    "73cba8e001d7c28": "91b7af0f7734d02a",
+    "73cb809001d704c": "ca6ff8d5dcf6e6b1",
+    "73cb27c001d53b7": "60eda3541c74b1fb",
+    "73cac97001d326a": "1a03e57cecff0c6a",
+    "73ca7cd001d15ad": "a6a2852470509989",
+    "73ca28f001cf480": "78288735f4779c39",
+    "73c9463001c97cd": "61c0575d7d13ca59",
+    "73c914d001c8362": "88c0647ac7c13ae7",
+    "73c8dfe001c6d63": "8cb7949067fecd2b",
+    "73c8ac8001c5831": "f12344f0f30b9399",
+    "73c8667001c3b57": "997cfd8c7ecfd27d",
+    "73c7c03001bf5e7": "ac21c611bd7534cd",
+    "73c69bd001b73ef": "b3c3ac3a13b53004",
+    "73c63fd001b49ac": "a2fb60979856b952",
+    "73c5e28001b1f46": "3e8de79343e48118",
+    "73b92170018264d": "fac31635f8b30155",
+    "73b859d0017fc84": "9fd74dc927c9e677",
+    "73b79020017ca30": "4e4b4fef1575c542",
+    "73b769b0017bf99": "cd0903733c14e33c",
+    "73b71ac0017a8a8": "3aefb1bf2956faed",
+    "73b6f4900179ccc": "fc679ab439c0647e",
+    "73b10300014ab8a": "c1edd60339fa7d51",
+    "73b0e1d001496fd": "aa2717540163e7cb",
+    "73b0b120014789b": "045a1e0d12a28609",
+    "73b084900145ca3": "c48f01cd131ce251",
+    "73b04bc00143930": "76c2536b96201c4c",
+    "73a4c0000101f89": "bf8a7c5ec985f0dc",
+    "73a0103000e8b84": "f24586f970bb6083",
+    "739ff0b000e7d34": "ec2ee110d8a4aea3",
+    "739f39e000e28bc": "76384bc3367482db",
+    "738e5d30007e651": "6dde054090580cd7",
+    "738e3c60007de66": "01a2e766629828c1",
+    "738e0900007d1c7": "108a0d284a035cbd",
+    "738def10007cb2e": "0d06a1920f63a1f5",
+    "738dc9c0007c175": "ceb85d820e960b3f",
+    "738db0a0007ba75": "8bc4cb33d49d44e5",
+    "738c8c200075cfa": "c5a9665a55d1902b",
+    "738c0160007282e": "ca11ea6642760719",
+    "738be9f00071f37": "29a94f00f4a82a02",
+    "7387dfb000548e6": "a8162840653bde7b",
+    "7387a0300052799": "a53d55f67f698780",
+    "73876ab00050b31": "0e6285bea6a3f6d0",
+    "73060d50015df60": "7454cce9f90b1d9b",
+    "73050d40015140c": "2033d984ea97ac13",
+    "7282c2e000a1d2a": "03d8639771675017",
+    "7282718000a06a4": "f5a23d46da761bb5",
+    "7281e7b0009e281": "59c534c2e9a31e53",
+    "72815b20009be99": "44ac6fb08622be49",
+    "727f1d300092f97": "2edc2f0e8cff4433",
+    "727ee030009212d": "236d117833432035",
+    "727e7b400090a23": "1ed4ab535d3e90f2",
+    "727de780008e9e8": "8ffb1b0b2be5ae8f",
+    "727d9ad0008d99f": "e5c067ee5cc7dfab",
+    "7278f3b0007783d": "96d1b0be37f356bc",
+    "72789c7000755ad": "c3fe38de9f0d9f26",
+    "727828100072671": "8c5f3ff3ab6c14ac",
+    "7277f9d0007136b": "c36805493155cdb9",
+    "7277aef0006f426": "3adedfd7895528e9",
+    "7266166000113db": "7b32240fd4d6a922",
+    "725997100069ab3": "531e135364ac3f4c"
+   },
+   "count": 67
+  },
+  "advanced › library › category filter options": {
+   "hash": "6ca293ff918d9189",
+   "preview": "All battle types,Random Battles,Tank Assault"
+  },
+  "advanced › filters › Victory-only filter count": {
+   "hash": "73475cb40a568e8d",
+   "preview": "42"
+  },
+  "advanced › filters › search \"sinai\" count": {
+   "hash": "ef2d127de37b942b",
+   "preview": "5"
+  },
+  "advanced › match detail › detail panel text for 5 sample matches": {
+   "hash": "23a48e62e8044360",
+   "items": {
+    "73d2466001ec18d": "d5d1db10ed6ea811",
+    "73cac97001d326a": "9a1f6df6ab9c06b2",
+    "73b0b120014789b": "7c30878df55850d0",
+    "727f1d300092f97": "be627b723bbf0516",
+    "725997100069ab3": "1e33210e5f64877c"
+   },
+   "count": 5
+  },
+  "advanced › insights › by-map table": {
+   "hash": "276b2933b4e700ff"
+  },
+  "advanced › insights › by-vehicle table": {
+   "hash": "0995f33170bc56ed"
+  },
+  "advanced › insights › earnings-by-event-type table": {
+   "hash": "02756fb260ff321c"
+  },
+  "advanced › storage panel › storage tiles (counts only)": {
+   "hash": "329f0269f3e3af1b",
+   "preview": "67MATCHES ARCHIVEDSIZESTORED (COMPRESSED)3.0×COMPRESSIONUSAGEBROWSER USAGE / QUOTA"
+  },
+  "advanced › storage panel › raw export matches (advanced view)": {
+   "hash": "fc063e4a1a8d9f6e",
+   "items": {
+    "725997100069ab3": "c7ac8577de9a8b9e",
+    "7266166000113db": "cc671c5f95f0ac33",
+    "7277aef0006f426": "7b7d746852306538",
+    "7277f9d0007136b": "942f145d071831f1",
+    "727828100072671": "b3d671133b1cd606",
+    "72789c7000755ad": "0f87bc275759c6f7",
+    "7278f3b0007783d": "dcda244af9451540",
+    "727d9ad0008d99f": "fb1245b4693ae4f7",
+    "727de780008e9e8": "b3d725f7c757e9f7",
+    "727e7b400090a23": "7258908786abc2ee",
+    "727ee030009212d": "bd531cd7af0b89e6",
+    "727f1d300092f97": "c34d12125e43d3f0",
+    "72815b20009be99": "6687c68eac7cca76",
+    "7281e7b0009e281": "97277fcb78fdb0f5",
+    "7282718000a06a4": "be30a202a4a63c48",
+    "7282c2e000a1d2a": "4cd2f28a7f9f554f",
+    "73050d40015140c": "7dc57d02b94d9a5a",
+    "73060d50015df60": "7ac409ea2ab7a68a",
+    "73876ab00050b31": "4123ca3b1e93eb0a",
+    "7387a0300052799": "3a76ccf47fcb928e",
+    "7387dfb000548e6": "41ce2dc30d94cec0",
+    "738be9f00071f37": "e6b75705b10d60f3",
+    "738c0160007282e": "254fbf40668912f6",
+    "738c8c200075cfa": "984b30b7e10c709b",
+    "738db0a0007ba75": "39816da4e2b3b634",
+    "738dc9c0007c175": "2f7e17a2dbf31c14",
+    "738def10007cb2e": "82299f0858d432ff",
+    "738e0900007d1c7": "c607670965f5b280",
+    "738e3c60007de66": "4565b8a1a807fac9",
+    "738e5d30007e651": "30e98d3b9868d661",
+    "739f39e000e28bc": "c0760f3a5ff0ef35",
+    "739ff0b000e7d34": "6d135aa85ddae97b",
+    "73a0103000e8b84": "3bd73f00bccefc55",
+    "73a4c0000101f89": "b27f64662ff16147",
+    "73b04bc00143930": "47905e3e4a1f9da1",
+    "73b084900145ca3": "b0feff180fd80f86",
+    "73b0b120014789b": "820117434de2db20",
+    "73b0e1d001496fd": "806b910343e46786",
+    "73b10300014ab8a": "3f4f50864939a21b",
+    "73b6f4900179ccc": "b762897643b28477",
+    "73b71ac0017a8a8": "ad5a80f588d542a7",
+    "73b769b0017bf99": "06448bc28f732517",
+    "73b79020017ca30": "13b627bbe416d1c3",
+    "73b859d0017fc84": "5e34fe24b9b2919d",
+    "73b92170018264d": "216634595b4cd32f",
+    "73c5e28001b1f46": "3c34183d25735e0f",
+    "73c63fd001b49ac": "37ba63f47eddae38",
+    "73c69bd001b73ef": "8ff7e90c858bde42",
+    "73c7c03001bf5e7": "7c27590697597fdf",
+    "73c8667001c3b57": "892eddee31da0062",
+    "73c8ac8001c5831": "a567ecdc7b920941",
+    "73c8dfe001c6d63": "dae844050fd546cb",
+    "73c914d001c8362": "e30bdd9e59160b19",
+    "73c9463001c97cd": "d5588bc630154f8b",
+    "73ca28f001cf480": "efc763389443ed45",
+    "73ca7cd001d15ad": "b05a58d64d7da585",
+    "73cac97001d326a": "20e1d3fa552a68e1",
+    "73cb27c001d53b7": "6a44dd9f216f7daf",
+    "73cb809001d704c": "5dae9c5ed86ddc43",
+    "73cba8e001d7c28": "526a205f56040f3d",
+    "73cc13d001d99dd": "9a7ae57d1d2be516",
+    "73cc980001dba0c": "6e8d9d24c7d56c3d",
+    "73cfaf7001e4cb1": "ee5b8be9265d42d2",
+    "73cffd5001e5ac5": "b7fb45401f1b2ba2",
+    "73d052f001e6a74": "824bb269a5668d1a",
+    "73d1455001e9629": "7da499cd52eabb85",
+    "73d2466001ec18d": "8758e19da6bb55df"
+   },
+   "count": 67
+  },
+  "storage › archive basics › raw bytes stored for the 84 example blocks": {
+   "hash": "6917bff614b8a338",
+   "preview": "149924"
+  },
+  "appearance › presets › contrast of every built-in preset (lowest ratio, rounded)": {
+   "hash": "8734953f1e423e65",
+   "preview": "blue:4.0,amber:4.6,slate:3.8,forest:4.4,crimson:5.5,violet:5.6,teal:6.0,daylight:4.9"
+  },
+  "appearance › reports and views › report data sections are identical whatever the colours (tables only)": {
+   "hash": "e5ecb7d430a0a234"
+  }
+ },
+ "metrics": {
+  "parser › pathological input › parse time — one 120 KB line of repeated \"Victory in the [\" (no closing bracket)": 0.6,
+  "parser › pathological input › parse time — 12,000 short lines of \"Victory in the [x\" (no closing bracket)": 1.9,
+  "parser › pathological input › parse time — \"Researched unit:\" followed by a 40 KB line with no colon": 1.4,
+  "parser › pathological input › parse time — an event line that is 40,000 digits long": 4.6,
+  "parser › pathological input › parse time — a 200 KB single line of plain text": 0.3,
+  "security › resource limits › decompression bomb handling time — basic": 852,
+  "security › resource limits › decompression bomb handling time — advanced": 366,
+  "perf › 200 matches › parse the pasted log": 8.1,
+  "perf › 200 matches › parse per-match detail for all matches": 27.6,
+  "perf › 200 matches › write all matches to the archive": 154.4,
+  "perf › 200 matches › read + decompress the whole archive": 102.4,
+  "perf › 200 matches › archive stats()": 4,
+  "perf › 200 matches › Analyze click (stats + every table)": 18.1,
+  "perf › 200 matches › Advanced: open page until first library row shows": 197,
+  "perf › 200 matches › Advanced: open page and have every insight table filled": 366,
+  "perf › 200 matches › Advanced: re-render library after a filter change": 5.4,
+  "perf › 200 matches › Advanced: open one match detail": 42.4,
+  "perf › 2000 matches › parse the pasted log": 56.1,
+  "perf › 2000 matches › parse per-match detail for all matches": 203.8,
+  "perf › 2000 matches › write all matches to the archive": 1682,
+  "perf › 2000 matches › read + decompress the whole archive": 1267.7,
+  "perf › 2000 matches › archive stats()": 29,
+  "perf › 2000 matches › Analyze click (stats + every table)": 141.1,
+  "perf › 2000 matches › Advanced: open page until first library row shows": 464,
+  "perf › 2000 matches › Advanced: open page and have every insight table filled": 1954,
+  "perf › 2000 matches › Advanced: re-render library after a filter change": 15.3,
+  "perf › 2000 matches › Advanced: open one match detail": 10.2,
+  "perf › 6000 matches › parse the pasted log": 169.8,
+  "perf › 6000 matches › parse per-match detail for all matches": 569.5,
+  "perf › 6000 matches › write all matches to the archive": 4904.8,
+  "perf › 6000 matches › read + decompress the whole archive": 3366.2,
+  "perf › 6000 matches › archive stats()": 70.3,
+  "perf › 6000 matches › Analyze click (stats + every table)": 334,
+  "perf › 6000 matches › Advanced: open page until first library row shows": 918,
+  "perf › 6000 matches › Advanced: open page and have every insight table filled": 5019,
+  "perf › 6000 matches › Advanced: re-render library after a filter change": 14.6,
+  "perf › 6000 matches › Advanced: open one match detail": 26.9
+ },
+ "suites": [
+  "parser",
+  "basic",
+  "advanced",
+  "storage",
+  "security",
+  "appearance",
+  "tutorial",
+  "perf"
+ ]
+}

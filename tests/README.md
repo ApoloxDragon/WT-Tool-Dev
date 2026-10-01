@@ -7,7 +7,7 @@ Dev-only checks for the Session Readout tool. The app itself stays dependency-fr
 ```
 node tests/run.js --label my-run                                   # run everything, save tests/results/my-run.json
 node tests/run.js --label post --compare tests/baseline/pre-change.json   # …and compare with the baseline
-node tests/run.js --only parser,security                           # just some suites
+node tests/run.js --only appearance,tutorial                       # just some suites
 node tests/run.js --scale small                                    # smaller performance datasets (faster)
 ```
 
@@ -31,6 +31,8 @@ context, so storage always starts empty.
 | `advanced` | library, filters, match detail, insights, storage panel, raw round trips |
 | `storage` | the compressed archive, damaged records, localStorage fallback, no-storage mode |
 | `security` | CSP, HTML injection through every input route, name collisions, malformed / tampered data, size limits |
+| `appearance` | the eight presets, the Customise panel, every colour role, readability rules, fonts and sizes, saved presets (names, limits), preset files, tampered settings, reports |
+| `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
 | `perf` | parse, archive, Analyze and Advanced-view timings at 200 / 2,000 / 6,000 matches |
 
 ## The before / after workflow
