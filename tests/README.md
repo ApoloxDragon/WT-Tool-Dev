@@ -14,6 +14,24 @@ node tests/run.js --scale small                                    # smaller per
 A static server and headless browser are started automatically; every test runs in a fresh browser
 context, so storage always starts empty.
 
+## Fake match logs (stress testing)
+
+`tests/generate-matches.js` makes War Thunder-style logs of any size, so stress data never has to be written by hand.
+Each match is random but typical (win rate, mode mix, missions, which sections appear and how the SL / RP figures
+add up are modelled on the real example logs), and the same `--seed` always gives the same file. Everything is
+labelled fake: a banner above the first match and Session IDs that all start `fade`.
+
+```
+node tests/generate-matches.js --count 10000 --out "example data/generated/fake-10k-matches.txt"
+node tests/generate-matches.js --count 500 --dupes 0.1 --seed 5 --crlf --out fake.txt   # 10% repeated matches, CRLF
+node tests/generate-matches.js --help
+```
+
+`--dupes F` adds `F × count` repeats of earlier matches (like overlapping pastes). Generated files are big, so
+`example data/generated/` is git-ignored: generate them when you need them. The invariants suite always includes a
+400-match generated log; `WT_FAKE_COUNT=10000 node tests/run.js --only invariants` adds a 10,000-match one
+(PowerShell: `$env:WT_FAKE_COUNT=10000` first).
+
 ## What gets recorded
 
 | kind | meaning | compared between runs |

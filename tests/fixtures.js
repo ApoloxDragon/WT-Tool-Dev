@@ -96,6 +96,11 @@ function datasets(scale) {
   list.push({ name: 'one match pasted 50 times', text: Array(50).fill(base[0]).join('\n'), ui: true });
   list.push({ name: 'a log pasted twice (every match duplicated)', text: syntheticLog(25) + '\n' + syntheticLog(25), ui: true });
   list.push({ name: 'blocks in reverse order', text: base.slice().reverse().join('\n'), ui: true });
+  // Generated logs (tests/generate-matches.js): random but typical, labelled fake. WT_FAKE_COUNT=10000 adds a big one for stress runs.
+  const { generate } = require('./generate-matches');
+  list.push({ name: 'generated: 400 fake matches plus repeats', text: generate({ count: 400, seed: 7, dupes: 0.08 }).text, ui: scale !== 'small' });
+  const big = parseInt(process.env.WT_FAKE_COUNT, 10);
+  if (big > 0) list.push({ name: `generated: ${big} fake matches plus repeats`, text: generate({ count: big, seed: 11, dupes: 0.03 }).text, ui: true });
   list.push({ name: 'CRLF line endings', text: syntheticLog(15).replace(/\n/g, '\r\n') });
   list.push({ name: 'junk before, between and after the matches', text: 'notes\n\n' + base.slice(0, 5).join('\nsome unrelated line\n') + '\n\ntrailing text' });
   return list;
