@@ -35,6 +35,12 @@ exports.run = async ({ browser, base, t, scale }) => {
         rawOk: ms.every(m => m.raw && m.raw.startsWith(m.result + ' in the [') && m.raw.includes(m.sessionId)),
         rawCoversInput: ms.map(m => m.raw).join('').replace(/\s/g, '').length <= src.replace(/\s/g, '').length,
         detail: ms.map(m => { const dt = parseDetail(m.raw); return { unparsed: dt.unparsed.length, events: dt.sections.reduce((a, s) => a + s.events.length, 0), session: dt.sessionId, hasTotal: !!dt.total }; }),
+        dd: (() => {
+          const lf = src.replace(/\r\n/g, '\n'), a = dedupeLogText(src), b = dedupeLogText(a.text), after = parseLog(a.text);
+          const first = lf.search(/^(Victory|Defeat) in the \[/m);
+          return { removed: a.removed, ids: after.map(m => m.sessionId), sl: after.reduce((s, m) => s + m.netSL, 0), rp: after.reduce((s, m) => s + m.totalRP, 0),
+            againRemoved: b.removed, againSame: b.text === a.text, prefixKept: first < 0 || a.text.startsWith(lf.slice(0, first)) };
+        })(),
         lf: JSON.stringify(parseLog(src.replace(/\r\n/g, '\n')).map(m => ({ ...m, raw: undefined }))),
         crlf: JSON.stringify(parseLog(src.replace(/\r?\n/g, '\r\n')).map(m => ({ ...m, raw: undefined })))
       };
@@ -48,6 +54,10 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.check('detail parsing finds one event per indented line, in every match', r.detail.every((x, i) => x.events === o.all[i].events), r.detail.filter((x, i) => x.events !== o.all[i].events).length + ' differ');
     t.check('detail parsing reads the same Session ID and a total in every match', r.detail.every((x, i) => x.session === o.all[i].id && x.hasTotal));
     t.check('CRLF and LF versions of the log parse identically', r.lf === r.crlf);
+    t.check('dedupeLogText removes exactly the repeated matches', r.dd.removed === o.dupes, `${r.dd.removed} vs ${o.dupes}`);
+    t.check('after dedupeLogText the log holds exactly the unique matches, first copies, in order', JSON.stringify(r.dd.ids) === JSON.stringify(o.unique.map(m => m.id)));
+    t.check('dedupeLogText leaves the totals unchanged', r.dd.sl === o.sl && r.dd.rp === o.rp, `${r.dd.sl}/${r.dd.rp} vs ${o.sl}/${o.rp}`);
+    t.check('dedupeLogText is idempotent and keeps any text before the first match', r.dd.againRemoved === 0 && r.dd.againSame && r.dd.prefixKept);
   }
   t.check('no uncaught errors while parsing every dataset', page.errs.length === 0, page.errs.join(' | '));
   await page.ctx.close();
@@ -149,6 +159,70 @@ exports.run = async ({ browser, base, t, scale }) => {
     }
     t.check('no uncaught errors in either view', p.errs.length === 0, p.errs.join(' | '));
     await p.ctx.close();
+
+    /* ---- Advanced > Storage > "Clear duplicate matches", each time on a fresh browser profile ---- */
+    t.scope(`invariants › duplicates › ${d.name}`);
+    const KEY = 'wtSessionReadout.';
+    const savedText = pg => pg.evaluate(k => { try { return JSON.parse(localStorage.getItem(k + 'inputText') || '""'); } catch (e) { return ''; } }, KEY);
+    const clickDedupe = async pg => {
+      await pg.evaluate(() => { document.getElementById('storageMsg').textContent = ''; });
+      await pg.click('#dedupeBtn');
+      await pg.waitForFunction(() => document.getElementById('storageMsg').textContent.length > 0, null, { timeout: 30000 });
+      return norm(await pg.textContent('#storageMsg'));
+    };
+    const backInBasic = async (pg, label) => {
+      await pg.goto(base + 'wt-log-analyzer.html');
+      await pg.waitForSelector('#matchTable tr');
+      const s = await statCells(pg);
+      t.check(`${label}: the Basic view shows the same matches, win rate and totals`, s['MATCHES'] === String(o.unique.length) && s['WIN RATE'] === o.winRate
+        && digits(s['TOTAL NET SL']) === String(o.sl) && digits(s['TOTAL RP']) === String(o.rp), JSON.stringify(s));
+      t.check(`${label}: no duplicate warning and no struck-through rows`, !(await pg.isVisible('#dupeWarn')) && (await pg.$$('#matchTable tr.dupe')).length === 0);
+      t.check(`${label}: one row per unique match`, (await pg.$$('#matchTable tr')).length - 1 === o.unique.length);
+    };
+    const prepare = async () => {
+      const pg = await newPage(browser);
+      await pg.goto(base + 'wt-log-analyzer.html');
+      await analyze(pg, d.text);
+      await pg.waitForSelector('#matchTable tr');
+      const saved = await pg.waitForFunction(k => localStorage.getItem(k + 'inputText') !== null, KEY, { timeout: 5000 }).then(() => true).catch(() => false);
+      await pg.waitForFunction(n => new RegExp('\\b' + n + ' match').test(document.getElementById('archiveNote').textContent), o.unique.length, { timeout: 60000 }).catch(() => {});
+      return { pg, saved };
+    };
+
+    // A) saved session text only
+    { const { pg, saved } = await prepare();
+      if (!saved) { console.log(`  skip  duplicates › ${d.name}: this log is too big for the browser to save as a session, so there is nothing to clean`); }
+      else {
+        await pg.goto(base + 'advanced.html'); await pg.waitForSelector('#dedupeBtn');
+        const msg1 = await clickDedupe(pg);
+        t.check('the saved session: the button reports exactly the number of repeated matches (or none)', o.dupes ? msg1.includes(`Deleted ${o.dupes} duplicate`) : /No duplicate matches found/.test(msg1), msg1);
+        const after = oracle(await savedText(pg));
+        t.check('the saved session now holds exactly the unique matches, first copies, in order', after.dupes === 0 && JSON.stringify(after.all.map(m => m.id)) === JSON.stringify(o.unique.map(m => m.id)));
+        t.check('each kept match is its original text, untouched', JSON.stringify(after.all.map(m => m.raw)) === JSON.stringify(o.unique.map(m => m.raw)));
+        t.check('the archive is untouched', (await pg.evaluate(async () => (await WtDB.ids()).length)) === o.unique.length);
+        const msg2 = await clickDedupe(pg);
+        t.check('a second run finds nothing more', /No duplicate matches found/.test(msg2), msg2);
+        await backInBasic(pg, 'after cleaning the saved session');
+        t.check('no uncaught errors', pg.errs.length === 0, pg.errs.join(' | '));
+      }
+      await pg.ctx.close(); }
+
+    // B) the same matches also imported as summaries (every imported match is a repeat of one in the saved text)
+    { const { pg, saved } = await prepare();
+      if (saved) {
+        await pg.setInputFiles('#importFile', { name: 'wt-session-data.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(min)) });
+        await pg.waitForFunction(() => document.getElementById('importNote').textContent.length > 0);
+        await pg.waitForFunction(k => localStorage.getItem(k + 'importedMatches') !== null, KEY, { timeout: 10000 }).catch(() => {});
+        await pg.goto(base + 'advanced.html'); await pg.waitForSelector('#dedupeBtn');
+        const msg = await clickDedupe(pg);
+        const expected = o.dupes + o.unique.length;
+        t.check('with imported copies too: the button reports the repeats in the text plus every imported copy', msg.includes(`Deleted ${expected} duplicate`), msg);
+        const imported = await pg.evaluate(k => JSON.parse(localStorage.getItem(k + 'importedMatches') || '[]'), KEY);
+        t.check('no imported copies are left, and the saved text holds each match once', imported.length === 0 && oracle(await savedText(pg)).dupes === 0 && oracle(await savedText(pg)).all.length === o.unique.length);
+        await backInBasic(pg, 'after cleaning imported copies too');
+        t.check('no uncaught errors (imported case)', pg.errs.length === 0, pg.errs.join(' | '));
+      }
+      await pg.ctx.close(); }
   }
 
   /* ---------- relationships between datasets ---------- */

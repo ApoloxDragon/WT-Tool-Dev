@@ -60,7 +60,7 @@ Open it with **Advanced view →** in the top bar (`advanced.html`); **← Basic
 - **Library** — every archived match, with search, battle-type / win-loss filters, sorting, and totals for the current filter.
 - **Match detail** — click a row marked ● to see net and earned SL, repair / ammo / respawn costs, a per-vehicle table, every scoring event (time, vehicle, weapon, target, SL and RP — hover an amount for its base / premium / booster split), flat rewards, research progress, used items and the raw log text. You can copy the raw text, export just that match, or delete it. Rows marked ○ are summary-only (they came from a minimal export or HTML report, which don't contain the original text).
 - **Insights** — results by map, time / kills per vehicle, and which event types earn the most SL and RP.
-- **Storage** — archive size and compression, browser quota, backup status, raw export / import, and delete-all.
+- **Storage** — archive size and compression, browser quota, backup status, raw export / import, **Clear duplicate matches** (removes repeats, same Session ID, from your saved session and imported matches, keeping the first copy), and delete-all.
 
 ### Local storage
 
