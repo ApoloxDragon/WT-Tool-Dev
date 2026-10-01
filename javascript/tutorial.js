@@ -28,6 +28,8 @@ const TUTORIAL_STEPS = {
       text: '“Export HTML” makes a printable report. “Minimal export” saves a compact summary file. “Export Raw” saves the original match text from your local archive — that is your backup, and it keeps all detail. “Import Report” accepts any of these files, plus plain .txt logs.' },
     { target: '.view-link', title: '8 · Advanced view',
       text: 'Every match you analyze is also saved, compressed, in this browser. The Advanced view opens that archive: click a match for its full breakdown (kills, assists, awards, per-vehicle numbers, costs), compare maps and vehicles, and manage storage. It has a link back here.' },
+    { target: '#colourBtn', title: '9 · Colours',
+      text: 'Pick one of eight colour presets with the swatches next to this button, or open “Customise…” to change any colour, the font style and the text size, and to save your own presets. Everything is remembered in this browser.' },
     { title: 'You’re set',
       text: 'Tip: the local archive lives only in this browser on this device. Use “Export Raw” now and then so you never lose your history. Reopen this tour any time from “? Tutorial”.' }
   ],
@@ -48,12 +50,40 @@ const TUTORIAL_STEPS = {
       text: 'Stats across the whole archive: results by map, time and kills per vehicle, and which kinds of events earn the most SL and RP. Vehicle and event tables only use matches with stored detail.' },
     { target: '#storageSection', title: '5 · Storage and backups',
       text: 'Shows how much the archive uses and how well it compresses. “Export raw” downloads the original match text (.json.gz is the smallest) — re-importing it rebuilds everything, even as the tool improves. You can also import plain log text, or delete the whole archive. Remember: it lives only in this browser, so back it up.' },
-    { target: '#basicLink', title: '6 · Back to Basic',
+    { target: '#colourBtn', title: '6 · Colours',
+      text: 'The swatches next to this button are eight colour presets; “Customise…” opens the full colour, font and text-size panel. Your look is shared with the Basic view.' },
+    { target: '#basicLink', title: '7 · Back to Basic',
       text: 'Use this link to return to the regular view whenever you like. Your archive and settings are shared between both views.' },
     { title: 'You’re set',
       text: 'Reopen this tour any time from “? Tutorial”.' }
   ]
 };
+
+// What each colour changes, straight from the panel's own descriptions (themes.js).
+const roleLines = group => COLOUR_ROLES.filter(r => r.group === group).map(r => `${r.label}: ${r.about}`).join('\n');
+
+TUTORIAL_STEPS.colours = [
+  { title: 'Colours & text',
+    text: 'Choose a preset, change any colour, pick a font style and text size, and save your own presets. Everything applies instantly and is remembered in this browser. This tour is optional and never starts by itself — Esc closes it.' },
+  { target: '#cpPresetSec', title: '1 · Start from a preset',
+    text: 'Eight built-in presets (Blue, Amber, Slate, Forest, Crimson, Violet, Teal and the light Daylight) plus any you save yourself. “Reset to preset” undoes your edits. The swatches in the top bar are a quick way to pick the built-in ones.' },
+  { target: '[data-group="Surfaces"]', title: '2 · Surfaces — what each colour changes',
+    text: roleLines('Surfaces') + '\nUse the square to pick a colour, or type it as #rrggbb.' },
+  { target: '[data-group="Text"]', title: '3 · Text — what each colour changes',
+    text: roleLines('Text') },
+  { target: '[data-group="Accent & results"]', title: '4 · Accent and results — what each colour changes',
+    text: roleLines('Accent & results') + '\nText on buttons and banners switches between dark and light by itself so it stays readable.' },
+  { target: '#cpContrastSec', title: '5 · Readability',
+    text: 'Each line shows how clearly one colour reads on another. 4.5:1 or more is good; 3 to 4.5 is weak but allowed; under 3:1 is refused. Refused colours aren’t applied until every pair passes — so you can change two colours in a row (for example background, then text) to switch between a dark and a light look.' },
+  { target: '#cpFontSec', title: '6 · Font style and text size',
+    text: 'Monospace (the original), sans-serif or serif, and Small, Medium or Large text. The sample line shows the result; it applies to the whole page.' },
+  { target: '#cpMineSec', title: '7 · My presets',
+    text: 'Give your current colours a name and save them. Names use English or Spanish letters (á é í ó ú ü ñ), numbers and basic punctuation unless you allow other characters. You can keep 20 presets — more only if you accept the warning, up to 100. Export them to a file to move them to another device, and import them back.' },
+  { target: '#cpResetAll', title: '8 · Reset',
+    text: 'Puts everything back to the default: Blue, monospace, medium text. Your saved presets are kept.' },
+  { title: 'You’re set',
+    text: 'Reopen this tour any time with “? How this works” at the bottom of the panel.' }
+];
 
 const Tutorial = (() => {
   const isShown = el => !!el && el.getClientRects().length > 0;
@@ -66,6 +96,7 @@ const Tutorial = (() => {
     spot.className = 'tut-spot';
     const card = document.createElement('div');
     card.className = 'tut-card';
+    card.id = 'tutCard';
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-modal', 'true');
     card.setAttribute('aria-labelledby', 'tutTitle');
@@ -104,15 +135,19 @@ const Tutorial = (() => {
     spot.style.width = (r.width + pad * 2) + 'px';
     spot.style.height = (r.height + pad * 2) + 'px';
 
-    // Card goes below the target if it fits, else above, else centred over it.
+    // Where the card goes: below the target if it fits, else above, else beside it
+    // (left, then right — useful for tall things in the side panel), else over it.
     card.style.transform = 'none';
     const cw = card.offsetWidth, ch = card.offsetHeight, gap = 14;
     const vw = window.innerWidth, vh = window.innerHeight;
-    let top;
-    if (r.bottom + gap + ch <= vh) top = r.bottom + gap;
-    else if (r.top - gap - ch >= 0) top = r.top - gap - ch;
-    else top = Math.max(12, Math.min(vh - ch - 12, r.top + 16));
-    let left = Math.max(12, Math.min(vw - cw - 12, r.left));
+    const clampTop = y => Math.max(12, Math.min(vh - ch - 12, y));
+    const clampLeft = x => Math.max(12, Math.min(vw - cw - 12, x));
+    let top, left;
+    if (r.bottom + gap + ch <= vh) { top = r.bottom + gap; left = clampLeft(r.left); }
+    else if (r.top - gap - ch >= 0) { top = r.top - gap - ch; left = clampLeft(r.left); }
+    else if (r.left - gap - cw >= 12) { top = clampTop(r.top); left = r.left - gap - cw; }
+    else if (r.right + gap + cw <= vw - 12) { top = clampTop(r.top); left = r.right + gap; }
+    else { top = clampTop(r.top + 16); left = clampLeft(r.left); }
     card.style.top = top + 'px';
     card.style.left = left + 'px';
   }
@@ -131,7 +166,12 @@ const Tutorial = (() => {
     document.getElementById('tutNext').textContent = last ? 'Done' : 'Next';
     document.getElementById('tutSkip').style.visibility = last ? 'hidden' : 'visible';
 
-    if (visible) target.scrollIntoView({ block: 'center', behavior: 'auto' });
+    if (visible) {
+      // A target that fits on screen together with the card is scrolled to the top of its
+      // area so the card has room below it; a taller one is centred.
+      const fits = target.getBoundingClientRect().height + document.getElementById('tutCard').offsetHeight + 40 <= window.innerHeight;
+      target.scrollIntoView({ block: fits ? 'start' : 'center', behavior: 'auto' });
+    }
     place();
     document.getElementById('tutNext').focus({ preventScroll: true });
   }

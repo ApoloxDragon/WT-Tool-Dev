@@ -66,6 +66,18 @@ Each match's raw text is gzip-compressed (native `CompressionStream`, no library
 
 The archive exists only in your browser on this device: clearing site data deletes it and it doesn't sync. **Export Raw regularly as your backup.** The dev build uses its own database name, so it can't touch the stable site's data.
 
+## Colours and text
+
+Pick one of **eight colour presets** with the swatches in the top bar — Blue, Amber, Slate, Forest, Crimson, Violet, Teal and the light Daylight — or open **Customise…** for the full panel (available in both views):
+
+- change **any of nine colours**: background, panel, panel 2, border, text, dim text, accent, win and loss (each row says what it changes);
+- choose a **font style** (monospace, sans-serif, serif) and **text size** (small, medium, large);
+- **save your own presets** (rename, delete; 20 by default, up to 100 if you accept the warning) and export / import them as a file;
+- see a **readability** check for every pair: 4.5:1 or better is good, 3–4.5:1 is weak but allowed, under 3:1 is refused. A refused set simply waits — it applies by itself as soon as every pair passes, so you can move from a dark look to a light one one colour at a time;
+- preset names use English / Spanish letters by default (a setting allows others).
+
+Everything applies instantly and is remembered in this browser; exported HTML reports use your colours. An optional tour ("? How this works" in the panel) explains each part. Design notes: [docs/colour-customisation.md](docs/colour-customisation.md).
+
 ## Security and robustness
 
 The tool reads text you paste or import, so nothing from a log or file is trusted:
@@ -91,7 +103,7 @@ advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
 javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
 javascript/storage.js          localStorage persistence helpers
-javascript/themes.js           Theme system + picker
+javascript/themes.js           Colour presets, validation, readability maths, saved appearance + presets, swatches
 javascript/categories.js       Battle-type category rules editor
 javascript/detail-parser.js    Per-match detail parsing (parseDetail), no DOM access
 javascript/db.js               Compressed raw-match archive (IndexedDB, localStorage fallback)
@@ -102,9 +114,10 @@ javascript/goal-calculator.js  Goal calculator DOM wiring (Basic view)
 javascript/import-export.js    File import + HTML/JSON export (Basic view)
 javascript/main.js             App state, analyze() orchestration (Basic view)
 javascript/advanced.js         Library, match detail, insights, storage panel (Advanced view)
-javascript/tutorial.js         Step-by-step tutorial for both views
+javascript/appearance-panel.js  The Customise panel (colours, font, text size, my presets)
+javascript/tutorial.js         Step-by-step tutorials (both views + the colour panel)
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
-docs/                          Design notes (e.g. the colour-customisation draft)
+docs/                          Design notes (colour customisation)
 example data/                  Sample logs and exports for testing:
                                  matches.txt                    raw match-log text (84 matches)
                                  wt-session-data.json           minimal export (summaries only)
