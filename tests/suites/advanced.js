@@ -76,7 +76,7 @@ exports.run = async ({ browser, base, t }) => {
   await page.waitForSelector('#libTable tr.pick');
   t.check('re-importing the .json.gz restores all 67', (await count()) === 67);
   await page.setInputFiles('#importRawFile', { name: 'x.json', mimeType: 'application/json', buffer: pj.buf });
-  await page.waitForFunction(() => /already archived/.test(document.getElementById('storageMsg').textContent));
+  await page.waitForFunction(() => /67 already archived/.test(document.getElementById('storageMsg').textContent)); // the earlier import's message also says "already archived" (0 of them)
   t.check('re-importing is idempotent (67 already archived)', /67 already archived/.test(await T('#storageMsg')), await T('#storageMsg'));
   await page.click('#deleteArchiveBtn'); await page.waitForSelector('#libEmpty', { state: 'visible' });
   await page.setInputFiles('#importRawFile', EX('matches.txt'));
