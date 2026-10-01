@@ -11,6 +11,7 @@
 }
 * { box-sizing: border-box; }
 html { font-size: calc(16px * var(--text-scale, 1)); }
+a { color: var(--accent); } /* the browser's default link blue is hard to read on dark and custom looks */
 body {
   background-color: var(--bg);
   background-image: radial-gradient(var(--border) 1px, transparent 1px);

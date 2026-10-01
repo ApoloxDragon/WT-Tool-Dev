@@ -21,6 +21,9 @@
 - **Text size** scales all text (CSS sizes are in `rem`); printing ignores it.
 - The four original presets keep their exact colours, so a few of their dim-text pairs are in the "weak" band (e.g. Blue's dim text on panel 2 is 3.99:1). The new presets are all ≥ 4.5:1.
 
+## Loading without a flash
+The saved look is applied by `appearance-core.js`, loaded in the `<head>` *before* the stylesheet, so the colours, font and text size are set before anything can be painted (and the page's 0.15 s colour transition has nothing to animate). Without it the look was applied by `themes.js`, which loads at the very end of the page, so the default Blue could show first and fade into the saved look. The redirect page (`index.html`) uses the same file. `tests/suites/flash.js` checks this by slowing `themes.js` down and inspecting the colours when the page body first appears and on every frame after.
+
 ## Stored settings (all under `wtSessionReadout.`)
 | key | holds |
 |---|---|

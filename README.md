@@ -75,7 +75,7 @@ Pick one of **eight colour presets** with the swatches in the top bar — Blue, 
 - see a **readability** check for every pair: 4.5:1 or better is good, 3–4.5:1 is weak but allowed, under 3:1 is refused. A refused set simply waits — it applies by itself as soon as every pair passes, so you can move from a dark look to a light one one colour at a time;
 - preset names use English / Spanish letters by default (a setting allows others).
 
-Everything applies instantly and is remembered in this browser; exported HTML reports use your colours. An optional tour ("? How this works" in the panel) explains each part. Design notes: [docs/colour-customisation.md](docs/colour-customisation.md).
+Everything applies instantly and is remembered in this browser — your saved look is applied before the page first paints, so reloading or switching between the Basic and Advanced views never flashes the default Blue; exported HTML reports use your colours. An optional tour ("? How this works" in the panel) explains each part. Design notes: [docs/colour-customisation.md](docs/colour-customisation.md).
 
 ## Security and robustness
 
@@ -102,7 +102,8 @@ advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
 javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
 javascript/storage.js          localStorage persistence helpers
-javascript/themes.js           Colour presets, validation, readability maths, saved appearance + presets, swatches
+javascript/appearance-core.js  Look data (presets, validation) + applies the saved look; loaded in the <head>, before the stylesheet
+javascript/themes.js           Appearance state, readability maths, saved presets, swatches (builds on the core)
 javascript/categories.js       Battle-type category rules editor
 javascript/detail-parser.js    Per-match detail parsing (parseDetail), no DOM access
 javascript/db.js               Compressed raw-match archive (IndexedDB, localStorage fallback)
