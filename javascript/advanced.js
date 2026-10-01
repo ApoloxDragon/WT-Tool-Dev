@@ -510,3 +510,7 @@ el('libTable').addEventListener('keydown', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selectedId) closeDetail(); });
 
 refreshAll();
+
+// Everything above has run: the page is usable. (load-guard.js watches for this to clear its "still loading" note.)
+window.__wtReady = true;
+document.dispatchEvent(new Event('wt-ready'));

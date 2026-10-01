@@ -26,7 +26,7 @@ exports.run = async ({ browser, base, t, scale }) => {
 
     const an = await page.evaluate(src => { document.getElementById('input').value = src; const t0 = performance.now(); analyze(); return performance.now() - t0; }, log);
     t.metric('Analyze click (stats + every table)', an);
-    t.check('Analyze renders one row per match', await page.$$eval('#matchTable tr', r => r.length) === n + 1);
+    t.check('Analyze renders the first batch of rows (200, or all of them if fewer)', await page.$$eval('#matchTable tr', r => r.length) === Math.min(n, 200) + 1);
     await page.waitForFunction(len => /match/.test(document.getElementById('archiveNote').textContent), null, { timeout: 120000 }).catch(() => {});
     await page.waitForTimeout(300);
 

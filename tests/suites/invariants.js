@@ -8,6 +8,9 @@ const { newPage, norm } = require('../harness');
 const { oracle, datasets, splitBlocks, exampleLog } = require('../fixtures');
 
 const digits = s => String(s).replace(/[^\d-]/g, '');
+// The Basic per-match table shows a first batch of rows; reveal the rest (a no-op for small sessions).
+const showAllRows = page => page.evaluate(() => { if (typeof expandAllMatchRows === 'function') expandAllMatchRows(); });
+const ROWS_FIRST = 200; // MATCH_ROWS_FIRST in main.js
 async function download(page, clickSel) {
   const [dl] = await Promise.all([page.waitForEvent('download'), page.click(clickSel)]);
   return { name: dl.suggestedFilename(), buf: fs.readFileSync(await dl.path()) };
@@ -116,6 +119,10 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.check('TOTAL NET SL is the sum over unique matches', digits(st['TOTAL NET SL']) === String(o.sl), `${st['TOTAL NET SL']} vs ${o.sl}`);
     t.check('TOTAL RP is the sum over unique matches', digits(st['TOTAL RP']) === String(o.rp), `${st['TOTAL RP']} vs ${o.rp}`);
 
+    const firstBatch = (await p.$$('#matchTable tr')).length - 1;
+    t.check('the table starts with at most the first batch of rows, and says how many more there are', firstBatch === Math.min(o.all.length, ROWS_FIRST)
+      && (o.all.length <= ROWS_FIRST ? (await p.textContent('#matchTableMore')) === '' : new RegExp(`Showing the first ${ROWS_FIRST} of ${o.all.length.toLocaleString('en-US')} matches`).test(await p.textContent('#matchTableMore'))), `${firstBatch} rows`);
+    await showAllRows(p);
     const rows = await p.$$eval('#matchTable tr', trs => trs.slice(1).map(tr => ({ dupe: tr.classList.contains('dupe'), win: tr.classList.contains('win'), cells: [...tr.cells].map(c => c.textContent.trim()) })));
     t.check('the per-match table has one row per match pasted', rows.length === o.all.length, `${rows.length} vs ${o.all.length}`);
     t.check('exactly the repeated matches are struck through', rows.filter(r => r.dupe).length === o.dupes, `${rows.filter(r => r.dupe).length} vs ${o.dupes}`);
@@ -212,6 +219,7 @@ exports.run = async ({ browser, base, t, scale }) => {
     const backInBasic = async (pg, label) => {
       await pg.goto(base + 'wt-log-analyzer.html');
       await pg.waitForSelector('#matchTable tr');
+      await showAllRows(pg);
       const s = await statCells(pg);
       t.check(`${label}: the Basic view shows the same matches, win rate and totals`, s['MATCHES'] === String(o.unique.length) && s['WIN RATE'] === o.winRate
         && digits(s['TOTAL NET SL']) === String(o.sl) && digits(s['TOTAL RP']) === String(o.rp), JSON.stringify(s));
