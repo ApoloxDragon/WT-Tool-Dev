@@ -20,7 +20,9 @@ function loadPlaywright() {
 function startServer(opts = {}) {
   const root = opts.root ? path.resolve(opts.root) : ROOT;
   const gzipCache = new Map();
+  let down = false; // setDown(true): drop every connection, like a dead network (page.context().setOffline() doesn't reach service-worker requests)
   const handler = (req, res) => {
+    if (down) { req.socket.destroy(); return; }
     let p = decodeURIComponent(req.url.split('?')[0]);
     if (p === '/') p = '/index.html';
     const file = path.normalize(path.join(root, p));
@@ -51,7 +53,7 @@ function startServer(opts = {}) {
       scheme = 'https';
       server = require('http2').createSecureServer({ key: fs.readFileSync('/tmp/h2/key.pem'), cert: fs.readFileSync('/tmp/h2/cert.pem'), allowHTTP1: true }, handler);
     } else server = http.createServer(handler);
-    server.listen(0, '127.0.0.1', () => resolve({ url: `${scheme}://127.0.0.1:${server.address().port}/`, close: () => server.close() }));
+    server.listen(0, '127.0.0.1', () => resolve({ url: `${scheme}://127.0.0.1:${server.address().port}/`, close: () => server.close(), setDown: v => { down = !!v; } }));
   });
 }
 
@@ -96,8 +98,10 @@ function collector(label) {
 }
 
 // A fresh browser context (= empty storage) with the tutorials pre-dismissed, so they never block clicks.
-async function newPage(browser, { tutorialSeen = true, init = null, viewport = { width: 1200, height: 900 } } = {}) {
-  const ctx = await browser.newContext({ acceptDownloads: true, viewport, ignoreHTTPSErrors: true });
+// Service workers are blocked unless a test asks for them (serviceWorkers: 'allow'): they cache pages, which would
+// make every other test depend on what an earlier one left behind.
+async function newPage(browser, { tutorialSeen = true, init = null, viewport = { width: 1200, height: 900 }, serviceWorkers = 'block' } = {}) {
+  const ctx = await browser.newContext({ acceptDownloads: true, viewport, ignoreHTTPSErrors: true, serviceWorkers });
   if (tutorialSeen) {
     await ctx.addInitScript(() => {
       try {

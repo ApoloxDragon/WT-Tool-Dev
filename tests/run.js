@@ -13,7 +13,7 @@ const args = process.argv.slice(2);
 const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i === -1 ? dflt : args[i + 1]; };
 const label = opt('label', 'run');
 const only = opt('only', '') ? opt('only').split(',') : null;
-const SUITES = ['build', 'parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'flash', 'guard', 'tutorial', 'invariants', 'perf'];
+const SUITES = ['build', 'parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'flash', 'guard', 'offline', 'tutorial', 'invariants', 'perf'];
 const OPT_IN = ['lowend']; // slow by design: only runs when named with --only
 
 (async () => {

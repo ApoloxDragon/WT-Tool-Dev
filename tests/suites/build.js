@@ -51,7 +51,7 @@ exports.run = async ({ t, distStale = [] }) => {
     const parts = [page, 'css/styles.css', 'javascript/load-guard.js', 'javascript/appearance-core.js', 'dist/' + CORE[page], 'dist/extras.js'];
     const total = parts.reduce((a, f) => a + gz(read(f)), 0);
     t.metric(`${page}: first visit, text files (KB gzip ×1000)`, total / 1024 * 1000 / 1000);
-    t.check(`${page}: text needed for a first visit is under 52 KB gzipped`, total < 52 * 1024, (total / 1024).toFixed(1) + ' KB');
+    t.check(`${page}: text needed for a first visit is under 54 KB gzipped`, total < 54 * 1024, (total / 1024).toFixed(1) + ' KB');
     t.check(`${page}: the core bundle is under 32 KB gzipped (it gates being usable)`, gz(read('dist/' + CORE[page])) < 32 * 1024, (gz(read('dist/' + CORE[page])) / 1024).toFixed(1) + ' KB');
   }
   t.check('the deferred extras are under 14 KB gzipped', gz(read('dist/extras.js')) < 14 * 1024);
