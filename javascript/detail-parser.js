@@ -101,8 +101,9 @@ function parseDetail(block) {
 
     const sess = line.match(/^Session:\s*(\S+)/);
     if (sess) { detail.sessionId = sess[1]; inUsedItems = false; listKey = null; section = null; continue; }
-    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP,\s*([\d,]{1,15})\s*RP/);
-    if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: detailNum(tot[3]) }; continue; }
+    // The trailing ", N RP" figure is optional (the game leaves it off when there was no research progress).
+    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
+    if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: tot[3] === undefined ? null : detailNum(tot[3]) }; continue; }
 
     if (!line) { section = null; listKey = null; continue; }
 

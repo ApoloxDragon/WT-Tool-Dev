@@ -47,7 +47,8 @@ function oracle(text) {
   const blocks = text.replace(/\r\n/g, '\n').split(/(?=^(?:Victory|Defeat) in the \[)/m).filter(b => /^(Victory|Defeat) in the \[/.test(b));
   const all = blocks.map((b, i) => {
     const id = (b.match(/^Session:\s*([a-f0-9]+)/im) || [])[1] || 'noid-' + i;
-    const totals = [...b.matchAll(/^Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP,\s*([\d,]+)\s*RP/gm)].pop();
+    // the trailing ", N RP" is optional: the game leaves it off when there was no research progress
+    const totals = [...b.matchAll(/^Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP(?:,\s*[\d,]+\s*RP)?/gm)].pop();
     const num = s => parseInt(String(s).replace(/,/g, ''), 10);
     return { id, result: b.startsWith('Victory') ? 'Victory' : 'Defeat', sl: totals ? num(totals[1]) : 0, rp: totals ? num(totals[2]) : 0,
       events: b.split('\n').filter(l => /^\s+\S/.test(l)).length, raw: b };

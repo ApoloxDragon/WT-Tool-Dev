@@ -5,7 +5,7 @@
  * run on those marked `ui` in fixtures.datasets(). */
 const fs = require('fs'), zlib = require('zlib');
 const { newPage, norm } = require('../harness');
-const { oracle, datasets } = require('../fixtures');
+const { oracle, datasets, splitBlocks, exampleLog } = require('../fixtures');
 
 const digits = s => String(s).replace(/[^\d-]/g, '');
 async function download(page, clickSel) {
@@ -52,12 +52,26 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.check('each match keeps its own raw text, and no text is invented', r.rawOk && r.rawCoversInput);
     t.check('detail parsing leaves no line unrecognised', r.detail.every(x => x.unparsed === 0), r.detail.filter(x => x.unparsed).length + ' matches');
     t.check('detail parsing finds one event per indented line, in every match', r.detail.every((x, i) => x.events === o.all[i].events), r.detail.filter((x, i) => x.events !== o.all[i].events).length + ' differ');
-    t.check('detail parsing reads the same Session ID and a total in every match', r.detail.every((x, i) => x.session === o.all[i].id && x.hasTotal));
+    const badDetail = r.detail.map((x, i) => ({ i, id: o.all[i].id, got: x.session, hasTotal: x.hasTotal })).filter(x => x.got !== x.id || !x.hasTotal);
+    t.check('detail parsing reads the same Session ID and a total in every match', badDetail.length === 0, badDetail.length + ' bad, first: ' + JSON.stringify(badDetail[0]));
     t.check('CRLF and LF versions of the log parse identically', r.lf === r.crlf);
     t.check('dedupeLogText removes exactly the repeated matches', r.dd.removed === o.dupes, `${r.dd.removed} vs ${o.dupes}`);
     t.check('after dedupeLogText the log holds exactly the unique matches, first copies, in order', JSON.stringify(r.dd.ids) === JSON.stringify(o.unique.map(m => m.id)));
     t.check('dedupeLogText leaves the totals unchanged', r.dd.sl === o.sl && r.dd.rp === o.rp, `${r.dd.sl}/${r.dd.rp} vs ${o.sl}/${o.rp}`);
     t.check('dedupeLogText is idempotent and keeps any text before the first match', r.dd.againRemoved === 0 && r.dd.againSame && r.dd.prefixKept);
+  }
+  // The game leaves the trailing ", N RP" off the Total: line when there was no research progress.
+  // (A copy of the app's own pattern can't catch this, so it is checked on its own, with fixed numbers.)
+  t.scope('invariants › parser › Total: line without the trailing RP figure');
+  {
+    const withTotal = line => splitBlocks(exampleLog())[0].replace(/^Total:.*$/m, line).replace(/(\n\s*)+$/, '') + '\n';
+    const cases = { 'two figures': ['Total: 4570 SL, 1912 CRP', 4570, 1912], 'three figures': ['Total: 4570 SL, 1912 CRP, 2414 RP', 4570, 1912],
+      'with thousands separators': ['Total: 1,234,567 SL, 89,012 CRP', 1234567, 89012] };
+    for (const [name, [line, sl, crp]] of Object.entries(cases)) {
+      const r = await page.evaluate(src => { const [m] = parseLog(src); const d = parseDetail(m.raw); return { sl: m.netSL, rp: m.totalRP, endsWithTotal: /Total:[^\n]*$/.test(m.raw), dsl: d.total && d.total.sl, dcrp: d.total && d.total.crp, unparsed: d.unparsed.length }; }, withTotal(line));
+      t.check(`${name}: the match's net SL and RP are read in full`, r.sl === sl && r.rp === crp, JSON.stringify(r));
+      t.check(`${name}: the detail view reads the same total, and the stored text ends at the Total line`, r.dsl === sl && r.dcrp === crp && r.endsWithTotal && r.unparsed === 0, JSON.stringify(r));
+    }
   }
   t.check('no uncaught errors while parsing every dataset', page.errs.length === 0, page.errs.join(' | '));
   await page.ctx.close();

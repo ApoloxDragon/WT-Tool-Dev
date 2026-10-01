@@ -80,7 +80,8 @@ function parseLog(text) {
     const timeMatch = block.match(/Time Played\s+(\d{1,6}):(\d{1,2})/);
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
-    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP,\s*([\d,]{1,15})\s*RP/g;
+    // The trailing ", N RP" figure is optional: the game leaves it off when there was no research progress.
+    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;
