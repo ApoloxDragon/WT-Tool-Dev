@@ -1,7 +1,7 @@
 # WT Session Readout
 
 > ⚠️ **Development version.** This is the `Dev` branch — used for testing in-progress changes before they reach the stable release. Features here may be incomplete, broken, or change without notice, and data-affecting bugs are more likely than on the stable version. For the stable release, use [the main branch / production site](https://apoloxdragon.github.io/WarThunder-Tool/) instead.
-
+>
 > **Stable Branch** located on the [War Thunder tool Stable](https://github.com/ApoloxDragon/WarThunder-Tool) repo
 
 ## AI disclosure
