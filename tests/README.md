@@ -35,6 +35,7 @@ context, so storage always starts empty.
 | `flash` | a saved look is in place before the first paint on every view (Basic, Advanced, the redirect page), with the late script slowed down; no fade from the default |
 | `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
 | `invariants` | **size-agnostic**: no check names a match count. An independent oracle (`oracle()` in `fixtures.js`) works the expected matches, duplicates, win rate, SL and RP out of each log's raw text; the app's parser, Analyze tables, archive, exports, re-imports and Advanced library must agree. Runs on both real example files (`matches.txt`, `matches-large.txt`) plus 1, 2, 37 and 1,001 synthetic matches, one match pasted 50 times, a log pasted twice, reversed block order, CRLF endings and junk between matches. Any example file added to the list in `datasets()` gets the same checks. |
+| `lowend` *(opt-in)* | bad connections and slow processors: throttled page loads, CPU-throttled runtime at 200/2,000 matches, profiler hot spots, memory/DOM size, scripts that fail or stall, and a bundled-vs-separate-files experiment over HTTP/1.1 and HTTP/2. Run with `--only lowend` (parts: `LOWEND_PART=net,cpu,hot,mem,fail,exp`); findings in `tests/results/low-end-report.md` |
 | `perf` | parse, archive, Analyze and Advanced-view timings at 200 / 2,000 / 6,000 matches |
 
 ## The before / after workflow

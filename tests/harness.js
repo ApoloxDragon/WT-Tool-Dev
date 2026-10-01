@@ -1,6 +1,6 @@
 /* Test harness: static server + Playwright launch + result collector.
  * Dev-only — the app itself has no build step and no dependencies. */
-const http = require('http'), fs = require('fs'), path = require('path'), crypto = require('crypto'), cp = require('child_process');
+const http = require('http'), fs = require('fs'), path = require('path'), crypto = require('crypto'), cp = require('child_process'), zlib = require('zlib');
 
 const ROOT = path.resolve(__dirname, '..');
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
@@ -12,17 +12,46 @@ function loadPlaywright() {
   return require(path.join(globalRoot, 'playwright'));
 }
 
-function startServer() {
+// Options (all default to off, so the ordinary suites behave exactly as before):
+//   gzip   compress text like GitHub Pages does        cache  seconds for a Cache-Control max-age header
+//   etag   send ETags and answer If-None-Match with 304 (what a browser does once max-age has run out)
+//   http2  speak HTTP/2 over TLS with a throw-away certificate (GitHub Pages is HTTP/2); the URL is then https://
+//   root   serve this folder instead of the repository
+function startServer(opts = {}) {
+  const root = opts.root ? path.resolve(opts.root) : ROOT;
+  const gzipCache = new Map();
+  const handler = (req, res) => {
+    let p = decodeURIComponent(req.url.split('?')[0]);
+    if (p === '/') p = '/index.html';
+    const file = path.normalize(path.join(root, p));
+    if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end('not found'); return; }
+    const st = fs.statSync(file);
+    const mime = MIME[path.extname(file)] || 'application/octet-stream';
+    const headers = { 'Content-Type': mime };
+    if (opts.cache != null) headers['Cache-Control'] = 'public, max-age=' + opts.cache;
+    if (opts.etag) {
+      headers.ETag = `W/"${st.size}-${Math.round(st.mtimeMs)}"`;
+      if (req.headers['if-none-match'] === headers.ETag) { res.writeHead(304, headers); res.end(); return; }
+    }
+    const compressible = /^text\/|json|javascript/.test(mime);
+    if (opts.gzip && compressible && /gzip/.test(req.headers['accept-encoding'] || '')) {
+      const key = file + st.mtimeMs;
+      if (!gzipCache.has(key)) gzipCache.set(key, zlib.gzipSync(fs.readFileSync(file), { level: 6 }));
+      const buf = gzipCache.get(key);
+      res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip', 'Content-Length': buf.length, Vary: 'Accept-Encoding' });
+      res.end(buf);
+      return;
+    }
+    res.writeHead(200, headers);
+    fs.createReadStream(file).pipe(res);
+  };
   return new Promise(resolve => {
-    const server = http.createServer((req, res) => {
-      let p = decodeURIComponent(req.url.split('?')[0]);
-      if (p === '/') p = '/index.html';
-      const file = path.normalize(path.join(ROOT, p));
-      if (!file.startsWith(ROOT + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end('not found'); return; }
-      res.writeHead(200, { 'Content-Type': MIME[path.extname(file)] || 'application/octet-stream' });
-      fs.createReadStream(file).pipe(res);
-    });
-    server.listen(0, '127.0.0.1', () => resolve({ url: `http://127.0.0.1:${server.address().port}/`, close: () => server.close() }));
+    let server, scheme = 'http';
+    if (opts.http2) {
+      scheme = 'https';
+      server = require('http2').createSecureServer({ key: fs.readFileSync('/tmp/h2/key.pem'), cert: fs.readFileSync('/tmp/h2/cert.pem'), allowHTTP1: true }, handler);
+    } else server = http.createServer(handler);
+    server.listen(0, '127.0.0.1', () => resolve({ url: `${scheme}://127.0.0.1:${server.address().port}/`, close: () => server.close() }));
   });
 }
 
@@ -68,7 +97,7 @@ function collector(label) {
 
 // A fresh browser context (= empty storage) with the tutorials pre-dismissed, so they never block clicks.
 async function newPage(browser, { tutorialSeen = true, init = null, viewport = { width: 1200, height: 900 } } = {}) {
-  const ctx = await browser.newContext({ acceptDownloads: true, viewport });
+  const ctx = await browser.newContext({ acceptDownloads: true, viewport, ignoreHTTPSErrors: true });
   if (tutorialSeen) {
     await ctx.addInitScript(() => {
       try {

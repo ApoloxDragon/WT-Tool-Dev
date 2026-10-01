@@ -13,6 +13,7 @@ const opt = (name, dflt) => { const i = args.indexOf('--' + name); return i === 
 const label = opt('label', 'run');
 const only = opt('only', '') ? opt('only').split(',') : null;
 const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearance', 'flash', 'tutorial', 'invariants', 'perf'];
+const OPT_IN = ['lowend']; // slow by design: only runs when named with --only
 
 (async () => {
   const server = await startServer();
@@ -20,8 +21,8 @@ const SUITES = ['parser', 'basic', 'advanced', 'storage', 'security', 'appearanc
   const t = collector(label);
   t.out.suites = [];
   const ctx = { browser, base: server.url, t, scale: opt('scale', 'full') };
-  for (const name of SUITES) {
-    if (only && !only.includes(name)) continue;
+  for (const name of [...SUITES, ...OPT_IN]) {
+    if (only ? !only.includes(name) : OPT_IN.includes(name)) continue;
     console.log(`\n=== ${name} ===`);
     t.out.suites.push(name);
     t.scope(name);
