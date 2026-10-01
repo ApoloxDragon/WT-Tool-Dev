@@ -118,7 +118,7 @@ document.getElementById('importFile').addEventListener('change', async (e) => {
 });
 
 /* ---------- Export ---------- */
-// Depends on: lastMatches (main.js), THEMES/currentTheme (themes.js), esc/jsonForScript (util.js).
+// Depends on: lastMatches (main.js), appearance/BUILTIN_PRESETS/presetById/isModified (themes.js), esc/jsonForScript (util.js).
 
 // localTimestampForFilename() and downloadBlob() live in raw-export.js.
 
@@ -157,8 +157,16 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   }
 
   const now = exportDate.toLocaleString();
-  const themesJson = jsonForScript(THEMES);
-  const theme = THEMES[currentTheme] || THEMES.blue;
+  // The report is styled with the colours active right now (all nine, already validated as
+  // #rrggbb), and its own picker can switch between the eight presets or back to "Your colours".
+  const theme = appearance.colours;
+  const reportThemes = {};
+  const reportNames = {};
+  BUILTIN_PRESETS.forEach(p => { reportThemes[p.id] = p.colours; reportNames[p.id] = p.name; });
+  const reportStart = (presetById(appearance.presetId) && !isModified()) ? appearance.presetId : 'current';
+  if (reportStart === 'current') { reportThemes.current = theme; reportNames.current = 'Your colours'; }
+  const themesJson = jsonForScript(reportThemes);
+  const namesJson = jsonForScript(reportNames);
   // The report is a standalone file with one inline script (its theme picker). A fresh
   // random nonce per export means only that script can run, whatever the data contains.
   const nonceBytes = crypto.getRandomValues(new Uint8Array(16));
@@ -192,7 +200,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     --bg: ${theme.bg}; --panel: ${theme.panel}; --panel-2: ${theme.panel2};
     --border: ${theme.border}; --accent: ${theme.accent};
     --text: ${theme.text}; --dim: ${theme.dim};
-    --win: #7fbf6a; --loss: #d16158;
+    --win: ${theme.win}; --loss: ${theme.loss};
   }
   * { box-sizing: border-box; }
   body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:var(--bg); color:var(--text); padding:30px 16px 60px; margin:0; transition: background 0.15s, color 0.15s; }
@@ -245,13 +253,15 @@ document.getElementById('exportBtn').addEventListener('click', () => {
 </div>
 <script nonce="${nonce}">
   const THEMES = ${themesJson};
-  let currentTheme = ${jsonForScript(currentTheme)};
+  const NAMES = ${namesJson};
+  let currentTheme = ${jsonForScript(reportStart)};
   function applyTheme(name) {
     const t = THEMES[name]; if (!t) return;
     const root = document.documentElement.style;
     root.setProperty('--bg', t.bg); root.setProperty('--panel', t.panel);
     root.setProperty('--panel-2', t.panel2); root.setProperty('--border', t.border);
     root.setProperty('--accent', t.accent); root.setProperty('--text', t.text); root.setProperty('--dim', t.dim);
+    root.setProperty('--win', t.win); root.setProperty('--loss', t.loss);
     currentTheme = name;
     document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
   }
@@ -259,9 +269,9 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   Object.entries(THEMES).forEach(([name, t]) => {
     const btn = document.createElement('button');
     btn.className = 'swatch' + (name === currentTheme ? ' active' : '');
-    btn.style.background = t.accent;
+    btn.style.background = 'linear-gradient(135deg, ' + t.bg + ' 50%, ' + t.accent + ' 50%)';
     btn.dataset.theme = name;
-    btn.title = name;
+    btn.title = NAMES[name] || name;
     btn.addEventListener('click', () => applyTheme(name));
     picker.appendChild(btn);
   });
