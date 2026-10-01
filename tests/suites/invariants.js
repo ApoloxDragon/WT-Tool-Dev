@@ -32,9 +32,11 @@ exports.run = async ({ browser, base, t, scale }) => {
       const ms = parseLog(src);
       return {
         n: ms.length, ids: ms.map(m => m.sessionId), results: ms.map(m => m.result), netSL: ms.map(m => m.netSL), rp: ms.map(m => m.totalRP),
+        fields: ms.map(m => ({ mode: m.mode, mission: m.mission, timeSec: m.timeSec,
+          researched: m.researched.map(x => ({ name: x.name, rp: x.rp })), researching: m.researching.map(x => ({ name: x.name, rp: x.rp })) })),
         rawOk: ms.every(m => m.raw && m.raw.startsWith(m.result + ' in the [') && m.raw.includes(m.sessionId)),
         rawCoversInput: ms.map(m => m.raw).join('').replace(/\s/g, '').length <= src.replace(/\s/g, '').length,
-        detail: ms.map(m => { const dt = parseDetail(m.raw); return { unparsed: dt.unparsed.length, events: dt.sections.reduce((a, s) => a + s.events.length, 0), session: dt.sessionId, hasTotal: !!dt.total }; }),
+        detail: ms.map(m => { const dt = parseDetail(m.raw); return { unparsed: dt.unparsed.length, events: dt.sections.reduce((a, s) => a + s.events.length, 0), session: dt.sessionId, hasTotal: !!dt.total, researched: dt.researched.map(x => ({ name: x.name, rp: x.rp })), researching: dt.researching.map(x => ({ name: x.name, rp: x.rp })) }; }),
         dd: (() => {
           const lf = src.replace(/\r\n/g, '\n'), a = dedupeLogText(src), b = dedupeLogText(a.text), after = parseLog(a.text);
           const first = lf.search(/^(Victory|Defeat) in the \[/m);
@@ -49,6 +51,14 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.check('matches come back in the order they appear, with the right Session IDs', JSON.stringify(r.ids) === JSON.stringify(o.all.map(m => m.id)));
     t.check('every result (Victory/Defeat) agrees', JSON.stringify(r.results) === JSON.stringify(o.all.map(m => m.result)));
     t.check('every match\'s net SL and RP agree with its Total: line', JSON.stringify(r.netSL) === JSON.stringify(o.all.map(m => m.sl)) && JSON.stringify(r.rp) === JSON.stringify(o.all.map(m => m.rp)));
+    // Field by field, naming the first mismatch, so a silent misread of one match is pinned to that match.
+    const firstDiff = pick => { const i = r.fields.findIndex((f, k) => JSON.stringify(pick(f)) !== JSON.stringify(pick(o.all[k]))); return i < 0 ? '' : `match #${i} (${o.all[i].id}): got ${JSON.stringify(pick(r.fields[i]))}, expected ${JSON.stringify(pick(o.all[i]))}`; };
+    t.check('every match\'s game mode and mission agree with its header', !firstDiff(f => [f.mode, f.mission]), firstDiff(f => [f.mode, f.mission]));
+    t.check('every match\'s time played agrees with its Time Played line', !firstDiff(f => f.timeSec), firstDiff(f => f.timeSec));
+    t.check('every match\'s research targets ("Researched unit") agree, name by name', !firstDiff(f => f.researched), firstDiff(f => f.researched));
+    t.check('every match\'s module progress ("Researching progress") agrees, name by name', !firstDiff(f => f.researching), firstDiff(f => f.researching));
+    const dDiff = r.detail.findIndex((x, k) => JSON.stringify(x.researched) !== JSON.stringify(r.fields[k].researched) || JSON.stringify(x.researching) !== JSON.stringify(r.fields[k].researching));
+    t.check('the detail view lists the same research targets and module progress as the summary, match by match', dDiff < 0, dDiff < 0 ? '' : `match #${dDiff}: detail ${JSON.stringify(r.detail[dDiff].researched)} vs summary ${JSON.stringify(r.fields[dDiff].researched)}`);
     t.check('each match keeps its own raw text, and no text is invented', r.rawOk && r.rawCoversInput);
     t.check('detail parsing leaves no line unrecognised', r.detail.every(x => x.unparsed === 0), r.detail.filter(x => x.unparsed).length + ' matches');
     t.check('detail parsing finds one event per indented line, in every match', r.detail.every((x, i) => x.events === o.all[i].events), r.detail.filter((x, i) => x.events !== o.all[i].events).length + ' differ');
@@ -71,6 +81,21 @@ exports.run = async ({ browser, base, t, scale }) => {
       const r = await page.evaluate(src => { const [m] = parseLog(src); const d = parseDetail(m.raw); return { sl: m.netSL, rp: m.totalRP, endsWithTotal: /Total:[^\n]*$/.test(m.raw), dsl: d.total && d.total.sl, dcrp: d.total && d.total.crp, unparsed: d.unparsed.length }; }, withTotal(line));
       t.check(`${name}: the match's net SL and RP are read in full`, r.sl === sl && r.rp === crp, JSON.stringify(r));
       t.check(`${name}: the detail view reads the same total, and the stored text ends at the Total line`, r.dsl === sl && r.dcrp === crp && r.endsWithTotal && r.unparsed === 0, JSON.stringify(r));
+    }
+  }
+  // A finished vehicle's line can add RP banked toward it in earlier battles; that is real progress on the target.
+  t.scope('invariants › parser › research line with "earned in the previous battles"');
+  {
+    const withLine = line => splitBlocks(exampleLog())[0].replace(/^Researched unit:[^\n]*\n[^\n]*\n/m, 'Researched unit: \n' + line + '\n');
+    const cases = {
+      'one vehicle, plus RP from earlier battles': ['EMBT(Germany): 5016 RP + earned in the previous battles: 15474 RP', [{ name: 'EMBT(Germany)', rp: 20490 }]],
+      'with thousands separators': ['EMBT(Germany): 5,016 RP + earned in the previous battles: 15,474 RP', [{ name: 'EMBT(Germany)', rp: 20490 }]],
+      'a plain line is unchanged': ['EMBT(Germany): 5016 RP', [{ name: 'EMBT(Germany)', rp: 5016 }]]
+    };
+    for (const [name, [line, want]] of Object.entries(cases)) {
+      const r = await page.evaluate(s => { const [m] = parseLog(s); const d = parseDetail(m.raw); return { target: m.researched, detail: d.researched, unparsed: d.unparsed.length }; }, withLine(line));
+      t.check(`${name}: one target row with the combined RP (no "earned in the previous battles" target)`, JSON.stringify(r.target) === JSON.stringify(want), JSON.stringify(r.target));
+      t.check(`${name}: the detail view agrees, and leaves no line unrecognised`, JSON.stringify(r.detail) === JSON.stringify(want) && r.unparsed === 0, JSON.stringify(r));
     }
   }
   t.check('no uncaught errors while parsing every dataset', page.errs.length === 0, page.errs.join(' | '));

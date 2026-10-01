@@ -120,7 +120,11 @@ function parseDetail(block) {
     if (/^Researching progress:/.test(line)) { listKey = 'researching'; section = null; continue; }
     if (listKey) {
       const lm = line.match(/^(.+?):\s*([\d,]{1,15})\s*RP/);
-      if (lm) detail[listKey].push({ name: lm[1].trim(), rp: detailNum(lm[2]) });
+      if (lm) {
+        // "Vehicle: 5016 RP + earned in the previous battles: 15474 RP" — both figures are progress on that vehicle
+        const carried = line.match(/\+\s*earned in the previous battles:\s*([\d,]{1,15})\s*RP/i);
+        detail[listKey].push({ name: lm[1].trim(), rp: detailNum(lm[2]) + (carried ? detailNum(carried[1]) : 0) });
+      }
       else detail.unparsed.push(line);
       continue;
     }
