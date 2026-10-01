@@ -10,10 +10,17 @@ function saveState(key, value) {
   } catch (err) { /* ignore — persistence just won't happen this time */ }
 }
 
-function loadState(key, fallback) {
+// `sanitize` (optional) checks/rebuilds whatever was saved — saved settings can be
+// stale, corrupt or hand-edited, so callers that depend on a shape pass one. It
+// returns the value to use, or undefined to fall back to the default.
+function loadState(key, fallback, sanitize) {
   try {
     const raw = localStorage.getItem(STORAGE_PREFIX + key);
-    return raw === null ? fallback : JSON.parse(raw);
+    if (raw === null) return fallback;
+    const value = JSON.parse(raw);
+    if (!sanitize) return value;
+    const clean = sanitize(value);
+    return clean === undefined ? fallback : clean;
   } catch (err) {
     return fallback;
   }

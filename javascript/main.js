@@ -1,10 +1,29 @@
 /* ---------- App state ---------- */
 let lastMatches = null; // cache for export
 let lastCategoryStats = null; // cache for goal calculator
-let importedMatches = loadState('importedMatches', []); // matches loaded from a previously exported report
+let importedMatches = loadState('importedMatches', [], sanitizeMatchList); // matches loaded from a previously exported report
+
+/* ---------- Local archive ---------- */
+// Every pasted match's raw text is kept (compressed) in the browser so the
+// Advanced view can show per-match detail later. Clear only resets the current
+// session — the archive is managed from the Advanced view's storage panel.
+// Depends on: WtDB (db.js), archiveParsedMatches/trackArchiveWrite (raw-export.js).
+async function archiveMatches(matches) {
+  const note = document.getElementById('archiveNote');
+  const fresh = matches.filter(m => m.raw && !m.sessionId.startsWith('noid-'));
+  if (fresh.length === 0) return;
+  const { added } = await archiveParsedMatches(fresh);
+  if (await WtDB.backendName() === 'none') {
+    note.textContent = 'Local archive unavailable in this browser — Advanced view detail won\'t be saved.';
+    return;
+  }
+  const total = (await WtDB.ids()).length;
+  note.textContent = `Local archive: ${total} match(es) stored` + (added ? ` (${added} new).` : '.');
+  WtDB.requestPersistence();
+}
 
 /* ---------- Analyze ---------- */
-// Depends on: parseLog (parser.js), computeCategoryStats (math.js),
+// Depends on: esc (util.js), parseLog (parser.js), computeCategoryStats (math.js),
 // loadGoalFieldsFromCategory/computeGoalOutputs (goal-calculator.js).
 function analyze() {
   const raw = document.getElementById('input').value;
@@ -42,6 +61,7 @@ function analyze() {
   emptyState.style.display = 'none';
   results.style.display = 'block';
   lastMatches = { all, matches };
+  trackArchiveWrite(archiveMatches(freshlyParsed));
 
   const wins = matches.filter(m => m.result === 'Victory');
   const totalSL = matches.reduce((a, m) => a + m.netSL, 0);
@@ -57,14 +77,14 @@ function analyze() {
 
   const categories = [...new Set(matches.map(m => m.category))];
 
-  lastCategoryStats = {};
+  lastCategoryStats = Object.create(null); // keyed by names from the log: no inherited keys like "constructor"
   categories.forEach(cat => { lastCategoryStats[cat] = computeCategoryStats(matches, m => m.category === cat); });
   lastCategoryStats['All Combined'] = computeCategoryStats(matches, () => true);
 
   const splitRows = categories.map(cat => {
     const s = lastCategoryStats[cat];
     return `<tr>
-      <td>${cat}</td>
+      <td>${esc(cat)}</td>
       <td class="num">${s.count}</td>
       <td class="num">${s.w}/${s.l}</td>
       <td class="num">${s.wr.toFixed(1)}%</td>
@@ -82,45 +102,46 @@ function analyze() {
 
   const goalCatSelect = document.getElementById('goalCategory');
   const catKeys = [...categories, 'All Combined'];
-  goalCatSelect.innerHTML = catKeys.map(c => `<option value="${c}">${c}</option>`).join('');
+  goalCatSelect.innerHTML = catKeys.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
   goalCatSelect.value = 'All Combined';
   loadGoalFieldsFromCategory('All Combined');
   computeGoalOutputs();
 
-  const targetMap = {};
+  const targetMap = Object.create(null);
   matches.forEach(m => m.researched.forEach(r => {
     targetMap[r.name] = (targetMap[r.name] || 0) + r.rp;
   }));
   const targetRows = Object.entries(targetMap)
     .sort((a, b) => b[1] - a[1])
-    .map(([name, rp]) => `<tr><td>${name}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
+    .map(([name, rp]) => `<tr><td>${esc(name)}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
   document.getElementById('targetTable').innerHTML = `
     <tr><th>Target</th><th class="num">RP Earned</th></tr>
     ${targetRows || '<tr><td colspan="2" class="note">No research targets found</td></tr>'}`;
 
-  const progressMap = {};
+  const progressMap = Object.create(null);
   matches.forEach(m => (m.researching || []).forEach(r => {
     progressMap[r.name] = (progressMap[r.name] || 0) + r.rp;
   }));
   const progressRows = Object.entries(progressMap)
     .sort((a, b) => b[1] - a[1])
-    .map(([name, rp]) => `<tr><td>${name}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
+    .map(([name, rp]) => `<tr><td>${esc(name)}</td><td class="num">${rp.toLocaleString()}</td></tr>`).join('');
   document.getElementById('progressTable').innerHTML = `
     <tr><th>Module / progress</th><th class="num">RP Earned</th></tr>
     ${progressRows || '<tr><td colspan="2" class="note">No research progress entries found</td></tr>'}`;
 
+  const kept = new Set(matches); // a Set: indexOf() here made the table O(n²) for big sessions
   const matchRows = all.map(m => {
-    const isDupe = matches.indexOf(m) === -1;
+    const isDupe = !kept.has(m);
     // Duplicates are excluded from every total, so their SL/RP/target figures are
     // blanked out here too — showing the real numbers next to a struck-through row
     // reads as double-counted RP even though it isn't included anywhere.
-    const target = isDupe ? '—' : m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
+    const target = isDupe ? '—' : m.researched.map(r => `${esc(r.name)} (+${r.rp.toLocaleString()})`).join(', ');
     const resultClass = m.result === 'Victory' ? 'win' : 'loss';
     return `<tr class="${resultClass}${isDupe ? ' dupe' : ''}">
-      <td class="result">${m.result}</td>
-      <td>${m.category}</td>
-      <td>${m.mode !== m.category ? m.mode : ''}</td>
-      <td>${m.mission}</td>
+      <td class="result">${esc(m.result)}</td>
+      <td>${esc(m.category)}</td>
+      <td>${m.mode !== m.category ? esc(m.mode) : ''}</td>
+      <td>${esc(m.mission)}</td>
       <td class="num">${isDupe ? '—' : m.netSL.toLocaleString()}</td>
       <td class="num">${isDupe ? '—' : m.totalRP.toLocaleString()}</td>
       <td>${target}</td>
@@ -183,6 +204,6 @@ document.getElementById('input').addEventListener('input', (e) => {
   inputSaveTimer = setTimeout(() => saveState('inputText', e.target.value), 300);
 });
 
-const savedInput = loadState('inputText', '');
+const savedInput = loadState('inputText', '', v => (typeof v === 'string' ? v : undefined));
 if (savedInput) document.getElementById('input').value = savedInput;
 if (savedInput || importedMatches.length > 0) analyze();

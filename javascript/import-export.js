@@ -1,101 +1,126 @@
 /* ---------- Import ---------- */
-// Depends on: importedMatches (main.js).
+// Depends on: importedMatches (main.js), readRawFile/archiveParsedMatches (raw-export.js).
 document.getElementById('importBtn').addEventListener('click', () => {
   document.getElementById('importFile').click();
 });
 
-document.getElementById('importFile').addEventListener('change', (e) => {
+// Persist imported matches without their raw text — that lives in the archive
+// (IndexedDB), and would blow through localStorage's quota here.
+function withoutRaw(m) {
+  const { raw, ...rest } = m;
+  return rest;
+}
+
+// Raw exports (.json / .json.gz) and plain .txt logs: archive the raw blocks, and
+// add their summaries to the current session.
+async function importRawMatches(parsedMatches, importNote) {
+  const { added, skipped, failed } = await archiveParsedMatches(parsedMatches);
+  const existingIds = new Set(importedMatches.map(m => m.sessionId));
+  let inSession = 0;
+  parsedMatches.forEach(m => {
+    if (existingIds.has(m.sessionId)) return;
+    importedMatches.push(withoutRaw(m));
+    existingIds.add(m.sessionId);
+    inSession++;
+  });
+  saveState('importedMatches', importedMatches);
+  importNote.textContent = `Imported ${parsedMatches.length} match(es) from raw data: ${added} new to the local archive`
+    + (skipped ? `, ${skipped} already archived` : '')
+    + (failed ? `, ${failed} could not be stored (archive unavailable or full)` : '')
+    + `. ${inSession} added to this session — click Analyze to include them.`;
+}
+
+// Summary-only files: the minimal JSON export and the HTML report. Every entry is
+// rebuilt through sanitizeMatch(), so malformed or hostile data is dropped (and
+// counted) instead of reaching the page — and one bad entry never aborts the rest.
+// Returns { added, skipped, invalid }, or null if the text is neither format.
+function importSummaryText(text) {
+  const existingIds = new Set(importedMatches.map(m => m.sessionId));
+  let added = 0, skipped = 0, invalid = 0;
+  const addMatch = (candidate) => {
+    const match = sanitizeMatch(candidate);
+    if (!match) { invalid++; return; }
+    if (existingIds.has(match.sessionId)) { skipped++; return; }
+    importedMatches.push(match);
+    existingIds.add(match.sessionId);
+    added++;
+  };
+
+  let parsed, isJson = true;
+  try { parsed = JSON.parse(text); } catch (err) { isJson = false; }
+
+  if (isJson) {
+    // Minimal JSON format (short keys: id, r, c, m, sl, rp, t, tg).
+    if (!Array.isArray(parsed)) return null;
+    parsed.slice(0, LIMITS.MAX_IMPORT_MATCHES).forEach(entry => {
+      if (!entry || typeof entry !== 'object') { invalid++; return; }
+      addMatch({
+        sessionId: entry.id,
+        result: entry.r === 'W' ? 'Victory' : 'Defeat',
+        category: entry.c, mode: entry.c, mission: entry.m,
+        netSL: entry.sl, totalRP: entry.rp, timeSec: entry.t,
+        researched: Array.isArray(entry.tg) ? entry.tg.map(x => (x && typeof x === 'object') ? { name: x.n, rp: x.v } : null) : []
+      });
+    });
+    return { added, skipped, invalid };
+  }
+
+  // HTML report exported by this tool. DOMParser builds an inert document (no scripts
+  // run, nothing loads); only the cells' plain text is read.
+  const doc = new DOMParser().parseFromString(text, 'text/html');
+  const rows = doc.querySelectorAll('tr[data-session]');
+  if (rows.length === 0) return null;
+  Array.prototype.slice.call(rows, 0, LIMITS.MAX_IMPORT_MATCHES).forEach(row => {
+    const cells = row.querySelectorAll('td');
+    if (cells.length < 6) { invalid++; return; }
+    const cell = i => (cells[i] ? cells[i].textContent.trim() : '');
+    const researched = [];
+    const targetText = cell(6).slice(0, 5000);
+    if (targetText) {
+      targetText.split(/,\s+(?=[^()]+\(\+)/).forEach(part => {
+        const mm = part.trim().match(/^(.*)\s\(\+([\d,]{1,15})\)$/);
+        if (mm) researched.push({ name: mm[1].trim(), rp: mm[2] });
+      });
+    }
+    addMatch({
+      sessionId: row.dataset.session, result: cell(0), category: cell(1), mode: cell(2) || cell(1), mission: cell(3),
+      netSL: cell(4), totalRP: cell(5), timeSec: row.dataset.time, researched
+    });
+  });
+  return { added, skipped, invalid };
+}
+
+document.getElementById('importFile').addEventListener('change', async (e) => {
   const file = e.target.files[0];
   const importNote = document.getElementById('importNote');
+  e.target.value = ''; // so choosing the same file again still fires "change"
   if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    const raw = ev.target.result;
-    const existingIds = new Set(importedMatches.map(m => m.sessionId));
-    let added = 0, skipped = 0;
-    const addMatch = (match) => {
-      if (existingIds.has(match.sessionId)) { skipped++; return; }
-      importedMatches.push(match);
-      existingIds.add(match.sessionId);
-      added++;
-    };
 
-    // Try the minimal JSON format first (short keys: id, r, c, m, sl, rp, t, tg).
-    let handledAsJson = false;
-    try {
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        handledAsJson = true;
-        parsed.forEach(entry => {
-          if (!entry || !entry.id) return;
-          addMatch({
-            sessionId: entry.id,
-            result: entry.r === 'W' ? 'Victory' : 'Defeat',
-            category: entry.c || 'Random Battles',
-            mode: entry.c || 'Random Battles',
-            mission: entry.m || '',
-            netSL: entry.sl || 0,
-            totalRP: entry.rp || 0,
-            timeSec: entry.t || 0,
-            researched: (entry.tg || []).map(x => ({ name: x.n, rp: x.v }))
-          });
-        });
-      }
-    } catch (err) { /* not JSON — fall through to HTML parsing below */ }
-
-    if (!handledAsJson) {
-      try {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(raw, 'text/html');
-        const rows = doc.querySelectorAll('tr[data-session]');
-        if (rows.length === 0) {
-          importNote.textContent = 'No importable match data found — is that a report or data file exported from this tool?';
-          return;
-        }
-        rows.forEach(row => {
-          const sessionId = row.dataset.session;
-          const timeSec = parseInt(row.dataset.time) || 0;
-          const cells = row.querySelectorAll('td');
-          const result = cells[0].textContent.trim();
-          const category = cells[1].textContent.trim();
-          const modeCell = cells[2].textContent.trim();
-          const mode = modeCell || category;
-          const mission = cells[3].textContent.trim();
-          const netSL = parseInt(cells[4].textContent.replace(/,/g, '')) || 0;
-          const totalRP = parseInt(cells[5].textContent.replace(/,/g, '')) || 0;
-          const targetText = cells[6] ? cells[6].textContent.trim() : '';
-          const researched = [];
-          if (targetText) {
-            targetText.split(/,\s+(?=[^()]+\(\+)/).forEach(part => {
-              const mm = part.trim().match(/^(.*)\s\(\+([\d,]+)\)$/);
-              if (mm) researched.push({ name: mm[1].trim(), rp: parseInt(mm[2].replace(/,/g, '')) });
-            });
-          }
-          addMatch({ result, mode, category, mission, sessionId, netSL, totalRP, researched, timeSec });
-        });
-      } catch (err) {
-        importNote.textContent = 'Could not read that file as a valid report or data export.';
-        return;
-      }
+  try {
+    const rawMatches = await readRawFile(file); // also enforces the file-size / unpacked-size limits
+    if (rawMatches) {
+      await importRawMatches(rawMatches, importNote);
+      return;
     }
-
+    const result = importSummaryText(await file.text());
+    if (!result) {
+      importNote.textContent = 'No importable match data found — is that a report or data file exported from this tool?';
+      return;
+    }
     saveState('importedMatches', importedMatches);
-    importNote.textContent = `Imported ${added} match(es)` + (skipped ? ` — ${skipped} already loaded, skipped.` : '.') + ' Click Analyze to include them.';
-    e.target.value = '';
-  };
-  reader.readAsText(file);
+    importNote.textContent = `Imported ${result.added} match(es)`
+      + (result.skipped ? ` — ${result.skipped} already loaded, skipped` : '')
+      + (result.invalid ? ` — ${result.invalid} invalid entr${result.invalid === 1 ? 'y' : 'ies'} ignored` : '')
+      + '. Click Analyze to include them.';
+  } catch (err) {
+    importNote.textContent = 'Could not read that file: ' + err.message;
+  }
 });
 
 /* ---------- Export ---------- */
-// Depends on: lastMatches (main.js), THEMES/currentTheme (themes.js).
+// Depends on: lastMatches (main.js), appearance/BUILTIN_PRESETS/presetById/isModified (themes.js), esc/jsonForScript (util.js).
 
-// Filename-safe local-time stamp (no ":" or "/", which are invalid in
-// Windows filenames) so repeated exports don't overwrite each other.
-function localTimestampForFilename(date) {
-  const pad = n => String(n).padStart(2, '0');
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
-    + `_${pad(date.getHours())}-${pad(date.getMinutes())}-${pad(date.getSeconds())}`;
-}
+// localTimestampForFilename() and downloadBlob() live in raw-export.js.
 
 document.getElementById('printBtn').addEventListener('click', () => {
   if (!lastMatches) { alert('Run Analyze first.'); return; }
@@ -127,31 +152,35 @@ document.getElementById('exportBtn').addEventListener('click', () => {
       t: m.timeSec || 0,
       tg: m.researched.map(x => ({ n: x.name, v: x.rp }))
     }));
-    const json = JSON.stringify(data);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `wt-session-data-${fileStamp}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    downloadBlob(new Blob([JSON.stringify(data)], { type: 'application/json' }), `wt-session-data-${fileStamp}.json`);
     return;
   }
 
   const now = exportDate.toLocaleString();
-  const themesJson = JSON.stringify(THEMES);
+  // The report is styled with the colours active right now (all nine, already validated as
+  // #rrggbb), and its own picker can switch between the eight presets or back to "Your colours".
+  const theme = appearance.colours;
+  const reportThemes = {};
+  const reportNames = {};
+  BUILTIN_PRESETS.forEach(p => { reportThemes[p.id] = p.colours; reportNames[p.id] = p.name; });
+  const reportStart = (presetById(appearance.presetId) && !isModified()) ? appearance.presetId : 'current';
+  if (reportStart === 'current') { reportThemes.current = theme; reportNames.current = 'Your colours'; }
+  const themesJson = jsonForScript(reportThemes);
+  const namesJson = jsonForScript(reportNames);
+  // The report is a standalone file with one inline script (its theme picker). A fresh
+  // random nonce per export means only that script can run, whatever the data contains.
+  const nonceBytes = crypto.getRandomValues(new Uint8Array(16));
+  const nonce = btoa(String.fromCharCode(...nonceBytes)).replace(/[^A-Za-z0-9]/g, '');
 
   // Export only the deduped match list — duplicates are fully omitted, not just struck through.
   const exportMatchRows = lastMatches.matches.map(m => {
-    const target = m.researched.map(r => `${r.name} (+${r.rp.toLocaleString()})`).join(', ');
+    const target = m.researched.map(r => `${esc(r.name)} (+${r.rp.toLocaleString()})`).join(', ');
     const resultClass = m.result === 'Victory' ? 'win' : 'loss';
-    return `<tr class="${resultClass}" data-session="${m.sessionId}" data-time="${m.timeSec || 0}">
-      <td class="result">${m.result}</td>
-      <td>${m.category}</td>
-      <td>${m.mode !== m.category ? m.mode : ''}</td>
-      <td>${m.mission}</td>
+    return `<tr class="${resultClass}" data-session="${esc(m.sessionId)}" data-time="${Number(m.timeSec) || 0}">
+      <td class="result">${esc(m.result)}</td>
+      <td>${esc(m.category)}</td>
+      <td>${m.mode !== m.category ? esc(m.mode) : ''}</td>
+      <td>${esc(m.mission)}</td>
       <td class="num">${m.netSL.toLocaleString()}</td>
       <td class="num">${m.totalRP.toLocaleString()}</td>
       <td>${target}</td>
@@ -163,13 +192,15 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     ${exportMatchRows}`;
 
   const html = `<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>WT Session Report — ${now}</title>
+<html><head><meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}'; base-uri 'none'; form-action 'none'">
+<title>WT Session Report — ${esc(now)}</title>
 <style>
   :root {
-    --bg: ${THEMES[currentTheme].bg}; --panel: ${THEMES[currentTheme].panel}; --panel-2: ${THEMES[currentTheme].panel2};
-    --border: ${THEMES[currentTheme].border}; --accent: ${THEMES[currentTheme].accent};
-    --text: ${THEMES[currentTheme].text}; --dim: ${THEMES[currentTheme].dim};
-    --win: #7fbf6a; --loss: #d16158;
+    --bg: ${theme.bg}; --panel: ${theme.panel}; --panel-2: ${theme.panel2};
+    --border: ${theme.border}; --accent: ${theme.accent};
+    --text: ${theme.text}; --dim: ${theme.dim};
+    --win: ${theme.win}; --loss: ${theme.loss};
   }
   * { box-sizing: border-box; }
   body { font-family: 'SF Mono', Consolas, Menlo, monospace; background:var(--bg); color:var(--text); padding:30px 16px 60px; margin:0; transition: background 0.15s, color 0.15s; }
@@ -207,7 +238,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   <div class="topbar">
     <div>
       <h1>War Thunder Session Report</h1>
-      <div class="meta">Generated ${now}</div>
+      <div class="meta">Generated ${esc(now)}</div>
     </div>
     <div class="theme-picker" id="themePicker"><label>Theme</label></div>
   </div>
@@ -220,15 +251,17 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   <h2>Per-Match Detail</h2>
   <table>${exportMatchTable}</table>
 </div>
-<script>
+<script nonce="${nonce}">
   const THEMES = ${themesJson};
-  let currentTheme = '${currentTheme}';
+  const NAMES = ${namesJson};
+  let currentTheme = ${jsonForScript(reportStart)};
   function applyTheme(name) {
     const t = THEMES[name]; if (!t) return;
     const root = document.documentElement.style;
     root.setProperty('--bg', t.bg); root.setProperty('--panel', t.panel);
     root.setProperty('--panel-2', t.panel2); root.setProperty('--border', t.border);
     root.setProperty('--accent', t.accent); root.setProperty('--text', t.text); root.setProperty('--dim', t.dim);
+    root.setProperty('--win', t.win); root.setProperty('--loss', t.loss);
     currentTheme = name;
     document.querySelectorAll('.swatch').forEach(s => s.classList.toggle('active', s.dataset.theme === name));
   }
@@ -236,21 +269,22 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   Object.entries(THEMES).forEach(([name, t]) => {
     const btn = document.createElement('button');
     btn.className = 'swatch' + (name === currentTheme ? ' active' : '');
-    btn.style.background = t.accent;
+    btn.style.background = 'linear-gradient(135deg, ' + t.bg + ' 50%, ' + t.accent + ' 50%)';
     btn.dataset.theme = name;
-    btn.title = name;
+    btn.title = NAMES[name] || name;
     btn.addEventListener('click', () => applyTheme(name));
     picker.appendChild(btn);
   });
 <\/script>
 </body></html>`;
-  const blob = new Blob([html], { type: 'text/html' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `wt-session-report-${fileStamp}.html`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  downloadBlob(new Blob([html], { type: 'text/html' }), `wt-session-report-${fileStamp}.html`);
+});
+
+// Raw export: the original match text for everything in the local archive.
+document.getElementById('rawExportBtn').addEventListener('click', async () => {
+  const note = document.getElementById('importNote');
+  const count = await downloadRawExport({ gzip: true });
+  note.textContent = count
+    ? `Exported ${count} archived match(es) as raw data (.json.gz). Import it here or in the Advanced view to restore everything.`
+    : 'Nothing to export yet — the local archive is empty. Analyze some matches first.';
 });

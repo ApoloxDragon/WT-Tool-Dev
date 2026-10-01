@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <title>WT Session Readout</title>
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body data-page="basic">
 <div class="dev-banner">⚠ Development build — testing in progress, not guaranteed stable. <a href="https://apoloxdragon.github.io/WarThunder-Tool/">Use the stable version</a> for reliable results.</div>
 <div class="wrap">
 
@@ -15,6 +17,8 @@
       <p>Paste raw War Thunder match logs below. Splits by battle type, dedupes repeats, tallies RP by research target.</p>
     </div>
     <div class="theme-picker" id="themePicker">
+      <a class="view-link" href="advanced.html" title="Per-match detail, stats and storage tools">Advanced view →</a>
+      <button type="button" class="tut-btn" id="tutorialBtn" title="Step-by-step guide to this page">? Tutorial</button>
       <a class="github-link" href="https://github.com/ApoloxDragon/WT-Tool-Dev" target="_blank" rel="noopener" title="View source on GitHub" aria-label="View source on GitHub">
         <span class="github-logo-mask"></span>
       </a>
@@ -30,12 +34,14 @@
     <button class="secondary" id="printBtn">Print / Save PDF</button>
     <button class="secondary" id="exportBtn">Export HTML</button>
     <button type="button" id="minimalToggle" class="toggle-btn" style="padding:10px 14px;">Minimal export</button>
+    <button class="secondary" id="rawExportBtn" title="Export the original match text from your local archive (.json.gz)">Export Raw</button>
     <button class="secondary" id="importBtn">Import Report</button>
-    <input type="file" id="importFile" accept=".html,.json" style="display:none;">
+    <input type="file" id="importFile" accept=".html,.json,.gz,.txt" style="display:none;">
     <span class="note" id="fileNote"></span>
   </div>
   <div class="warn" id="dupeWarn"></div>
   <div class="note" id="importNote" style="margin-top:6px;"></div>
+  <div class="note" id="archiveNote" style="margin-top:4px;"></div>
 
   <div class="section">
     <details class="rules-toggle">
@@ -140,13 +146,19 @@
 
 </div>
 
+<script src="javascript/util.js"></script>
 <script src="javascript/storage.js"></script>
 <script src="javascript/themes.js"></script>
 <script src="javascript/categories.js"></script>
+<script src="javascript/detail-parser.js"></script>
+<script src="javascript/db.js"></script>
+<script src="javascript/raw-export.js"></script>
 <script src="javascript/parser.js"></script>
 <script src="javascript/math.js"></script>
 <script src="javascript/goal-calculator.js"></script>
 <script src="javascript/import-export.js"></script>
 <script src="javascript/main.js"></script>
+<script src="javascript/appearance-panel.js"></script>
+<script src="javascript/tutorial.js"></script>
 </body>
 </html>
