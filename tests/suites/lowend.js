@@ -1,5 +1,4 @@
 /* Low-end suite (opt-in: `node tests/run.js --only lowend`, or LOWEND_PART=net,cpu,hot,mem,fail to pick parts).
- * LOWEND_PART=exp compares separate script files with one bundle over HTTP/1.1 and HTTP/2 (LOWEND_EXP=h1 or h2 to pick one).
  * Simulates bad connections (Chromium's network throttling), slow processors (CPU throttling, a stand-in for
  * low-end phones), and scripts that fail or stall. Mostly measurements, plus a few checks for things that
  * should hold however bad conditions get (no flash of the wrong theme, core features survive a missing script).
@@ -83,8 +82,9 @@ async function profiled(cdp, fn) {
 }
 
 exports.run = async ({ browser, t }) => {
-  const parts = (process.env.LOWEND_PART || 'net,cpu,hot,mem,fail,exp').split(',');
-  const srv = await startServer({ gzip: true, cache: 600 }); // behave like GitHub Pages: gzip + 10-minute cache
+  const parts = (process.env.LOWEND_PART || 'net,cpu,hot,mem,fail').split(',');
+  // LOWEND_SITE=/path/to/an/older/checkout measures that copy instead (used for the before/after comparison in the report)
+  const srv = await startServer({ gzip: true, cache: 600, root: process.env.LOWEND_SITE }); // behave like GitHub Pages: gzip + 10-minute cache
   const B = srv.url;
   try {
 
@@ -132,7 +132,7 @@ exports.run = async ({ browser, t }) => {
         const out = {}, long = [];
         try { new PerformanceObserver(l => l.getEntries().forEach(e => long.push(e.duration))).observe({ type: 'longtask' }); } catch (e) {}
         let t0 = performance.now(); parseLog(src); out.parse = performance.now() - t0;
-        document.getElementById('input').value = src;
+        document.getElementById('input').value = src; await frame();   // pasting is the browser's own cost (a huge textarea), so it is not part of what is timed
         t0 = performance.now(); analyze(); out.analyzeSync = performance.now() - t0; await frame(); out.analyzeToPaint = performance.now() - t0;
         await pendingArchiveWrites; out.archiveDone = performance.now() - t0;
         t0 = performance.now(); ColourPanel.open(); await frame(); out.panelOpen = performance.now() - t0; ColourPanel.close();
@@ -194,28 +194,36 @@ exports.run = async ({ browser, t }) => {
     }
   }
 
-  /* ================= scripts that fail or stall ================= */
+  /* ================= files that fail or stall ================= */
   if (parts.includes('fail')) {
-    const scripts = fs.readdirSync(path.join(__dirname, '..', '..', 'javascript')).map(f => f.replace(/\.js$/, '')).filter(f => !['advanced'].includes(f));
     details.fail = {};
-    for (const name of scripts) {
-      t.scope(`lowend › a script never arrives › ${name}.js missing`);
+    // The page now loads ONE core bundle (gates being usable), one deferred "extras" bundle (tutorial, colour panel, import/export,
+    // archive tools) and a compression worker file. Each is blocked in turn.
+    const BLOCKS = [
+      ['dist/app-basic.js', 'the core bundle', false],
+      ['dist/extras.js', 'the extras bundle (tutorial, colour panel, import/export, archive)', true],
+      ['javascript/archive-worker.js', 'the compression worker', true],
+      ['css/styles.css', 'the stylesheet', true]
+    ];
+    for (const [file, label, analysisExpected] of BLOCKS) {
+      t.scope(`lowend › a file never arrives › ${file}`);
       const p = await newPage(browser, { init: { fn: probe, arg: { look: LOOK } } });
-      await p.route(`**/javascript/${name}.js`, r => r.abort());
-      await p.goto(B + BASIC, { waitUntil: 'load' }); await p.waitForTimeout(600);
+      await p.route(`**/${file}*`, r => r.abort());
+      await p.goto(B + BASIC, { waitUntil: 'load' }); await p.waitForTimeout(800);
       let works = true;
       try { await p.click('#loadExampleBtn', { timeout: 2000 }); await p.waitForFunction(() => document.querySelectorAll('#matchTable tr').length > 1, null, { timeout: 3000 }); } catch (e) { works = false; }
-      const info = await p.evaluate(() => ({ look: getComputedStyle(document.documentElement).getPropertyValue('--bg').trim(), notice: /failed|could not load|unavailable|error/i.test(document.body.innerText) }));
-      details.fail[name] = { analysisWorks: works, lookKept: info.look === CRIMSON.bg, errors: p.errs.length, visibleNotice: info.notice };
+      const info = await p.evaluate(() => ({ look: getComputedStyle(document.documentElement).getPropertyValue('--bg').trim(), notice: !!document.querySelector('.load-note') && document.querySelector('.load-note').textContent.slice(0, 100) }));
+      details.fail[file] = { analysisWorks: works, lookKept: info.look === CRIMSON.bg, errors: p.errs.length, visibleNotice: info.notice };
       t.metric('uncaught errors (count)', p.errs.length);
-      if (['tutorial', 'appearance-panel', 'db', 'raw-export'].includes(name)) t.check(`analysis still works without ${name}.js (it is an optional feature)`, works, `${p.errs.length} errors; ${p.errs[0] || ''}`.slice(0, 160));
+      if (analysisExpected) t.check(`analysis still works without ${file} (${label})`, works, `${p.errs.length} errors; ${p.errs[0] || ''}`.slice(0, 160));
+      else t.check(`without ${file} (${label}) the page says so instead of sitting there dead`, !!info.notice, String(info.notice));
       await p.ctx.close();
     }
-    t.scope('lowend › a script stalls (connection hangs mid-load)');
+    t.scope('lowend › a file stalls (connection hangs mid-load)');
     // "Hangs" = held for 12 s (longer than the 9 s we watch for) and then dropped, so the test can end cleanly.
-    for (const [name, label, ms, hang] of [['tutorial', 'the LAST script hangs', 12000, true], ['db', 'a MIDDLE script hangs', 12000, true], ['util', 'the FIRST script takes 6 s', 6000, false]]) {
+    for (const [file, label, ms, hang] of [['dist/extras.js', 'the extras bundle hangs', 12000, true], ['dist/app-basic.js', 'the core bundle takes 6 s', 6000, false]]) {
       const p = await newPage(browser, { init: { fn: probe, arg: { look: LOOK } } });
-      await p.route(`**/javascript/${name}.js`, async r => { await new Promise(res => setTimeout(res, ms)); try { await (hang ? r.abort() : r.continue()); } catch (e) {} });
+      await p.route(`**/${file}*`, async r => { await new Promise(res => setTimeout(res, ms)); try { await (hang ? r.abort() : r.continue()); } catch (e) {} });
       p.goto(B + BASIC, { waitUntil: 'commit' }).catch(() => {});
       let usableAt = null; const t0 = Date.now();
       while (Date.now() - t0 < 9000 && usableAt === null) {
@@ -224,43 +232,8 @@ exports.run = async ({ browser, t }) => {
       }
       details.fail['stall: ' + label] = { analysisAvailableAfterMs: usableAt === null ? 'not within 9 s' : Math.round(usableAt) };
       if (usableAt !== null) t.metric(`${label}: Analyze becomes available (ms)`, usableAt);
+      if (file.includes('extras')) t.check('a hung extras bundle never blocks Analyze', usableAt !== null && usableAt < 3000, String(usableAt));
       await p.ctx.close().catch(() => {});
-    }
-  }
-
-  /* ================= experiment: would bundling the scripts help? (HTTP/1.1 vs HTTP/2, first visit vs after cache expiry) ================= */
-  if (parts.includes('exp')) {
-    details.exp = {};
-    const dst = '/tmp/wt-lowend-bundle';
-    fs.rmSync(dst, { recursive: true, force: true }); fs.mkdirSync(dst, { recursive: true });
-    for (const f of ['css', 'assets', 'javascript']) fs.cpSync(path.join(ROOT, f), path.join(dst, f), { recursive: true });
-    fs.copyFileSync(path.join(ROOT, 'index.html'), path.join(dst, 'index.html'));
-    for (const page of [BASIC, ADV]) {
-      let html = fs.readFileSync(path.join(ROOT, page), 'utf8');
-      const names = [...html.matchAll(/<script src="javascript\/([\w-]+)\.js"><\/script>/g)].map(m => m[1]).filter(n => n !== 'appearance-core');
-      const bundle = 'bundle-' + (page === BASIC ? 'basic' : 'adv') + '.js';
-      fs.writeFileSync(path.join(dst, 'javascript', bundle), names.map(n => fs.readFileSync(path.join(ROOT, 'javascript', n + '.js'), 'utf8')).join('\n;\n'));
-      let first = true;
-      html = html.replace(/<script src="javascript\/([\w-]+)\.js"><\/script>\n?/g, (m, n) => n === 'appearance-core' ? m : (first ? (first = false, `<script src="javascript/${bundle}"></script>\n`) : ''));
-      fs.writeFileSync(path.join(dst, page), html);
-    }
-    const protocols = (process.env.LOWEND_EXP || 'h1,h2').split(',');
-    for (const proto of protocols) for (const variant of ['separate files (as now)', 'one bundled file']) {
-      const root = variant.startsWith('one') ? dst : ROOT;
-      const s2 = await startServer({ gzip: true, cache: 0, etag: true, http2: proto === 'h2', root }); // cache 0 + ETag = "the 10-minute cache has expired"
-      for (const prof of PROFILES.slice(2)) {
-        t.scope(`lowend › experiment › ${proto === 'h2' ? 'HTTP/2' : 'HTTP/1.1'} › ${variant} › ${prof.name}`);
-        const p = await newPage(browser, { init: { fn: probe, arg: { look: LOOK } } });
-        const cdp = await throttle(p, prof);
-        await cdp.send('Network.clearBrowserCache');
-        const cold = await measureLoad(p, s2.url + BASIC, false);
-        const reval = await measureLoad(p, s2.url + BASIC, false);     // revalidates every file (304) because max-age is 0
-        t.metric('first visit › first paint', cold.fcp); t.metric('first visit › app usable', cold.ready); t.metric('first visit › requests (count)', cold.requests); t.metric('first visit › KB over the wire', cold.kb);
-        t.metric('after cache expiry › first paint', reval.fcp); t.metric('after cache expiry › app usable', reval.ready); t.metric('after cache expiry › requests (count)', reval.requests);
-        (details.exp[`${proto} | ${variant} | ${prof.name}`] = { cold, reval });
-        await p.ctx.close();
-      }
-      s2.close();
     }
   }
 

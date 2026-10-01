@@ -1,12 +1,79 @@
 # Low-end devices and bad connections — findings
 
-Measured with `node tests/run.js --only lowend` (opt-in; parts: `net`, `cpu`, `hot`, `mem`, `fail`, `exp`). Chromium's built-in throttling stands in for real conditions, so read these as **relative** numbers — they show where the time goes and what would help, not what a specific phone will do. **No app code was changed for this report.**
+Measured with `node tests/run.js --only lowend` (opt-in; parts: `net`, `cpu`, `hot`, `mem`, `fail`; `LOWEND_SITE=/path` measures an older checkout). Chromium's built-in throttling stands in for real conditions, so read these as **relative** numbers — they show where the time goes and what would help, not what a specific phone will do. The sections after the results below are the **original findings, measured on the code before any of the fixes**; all eight candidates have since been implemented and re-measured.
 
 | profile | connection | processor |
 |---|---|---|
 | Slow 4G, mid-range phone | 1.6 Mbit/s, 150 ms round trip | 4× slower |
 | Slow 3G, low-end phone | 400 kbit/s, 400 ms round trip | 6× slower |
 | Awful 2G-like, very low-end phone | 100 kbit/s, 1,500 ms round trip | 20× slower |
+
+## Results after implementing all eight candidates
+Same machine, same throttling profiles, same test. "Before" = the code at `e095d20` (separate scripts, no service worker); "after" = this branch. Milliseconds unless stated. Read as relative numbers (see above).
+
+### First visit to the Basic page (controls usable)
+| profile | before | after | first paint before → after |
+|---|---:|---:|---:|
+| Slow 4G, 4× CPU | 2,724 | **1,119** | 628 → 804 |
+| Slow 3G, 6× CPU | 7,203 | **3,302** | 1,604 → 2,088 |
+| Awful 2G-like, 20× CPU | 27,138 | **12,738** | 6,048 → 7,764 |
+
+Requests 18 → 7; data over the wire unchanged at about 58 KB. **First paint is a little later** (about +25%): the script bundle now downloads at the same time as the stylesheet and they share a slow link. Marking the bundle low-priority (`fetchpriority="low"`) was tried and made no difference, so it was not kept. Being *usable* 2× sooner is worth more than painting 1.7 s earlier on a 100 kbit/s link, and the saved theme is still on every painted frame (checked in all profiles).
+
+### Return visits
+| | before | after |
+|---|---:|---:|
+| 4G/3G/awful, HTTP cache still fresh (≤10 min) | 97–150 / 698 | 89–167 / 698 (unchanged) |
+| **Awful 2G-like, 20× CPU, after the 10-minute cache expired** | **≈24,000** | **857** (service worker) |
+| **No connection at all** | page doesn't load | **works** (open, Analyze, archive, Advanced, insights; checked in the `offline` suite) |
+
+### Big sessions (2,000 matches; before → after)
+Measured with the improved test (pasting 3.5 MB into the textarea is no longer counted as "Analyze" — that is the browser's own cost, see "Still open" below), so both columns are the *same* test run on old and new code.
+
+| step | 1× | 4× | 6× | 20× |
+|---|---:|---:|---:|---:|
+| Analyze: click until the screen updates | 411 → 203 | 2,249 → 1,249 | 3,114 → 1,800 | 12,715 → 6,158 |
+| Analyze: until saved to the archive | 2,256 → 1,327 | 11,969 → 2,797 | 19,540 → 3,652 | 79,395 → 10,093 |
+| **fill the vehicle + event insights** | 1,572 → **27** | 9,357 → **57** | 15,561 → **73** | 64,880 → **466** |
+| switch colour preset | 949 → 419 | 2,914 → 1,934 | 4,312 → 2,895 | 14,668 → 10,138 |
+| open the colour panel | 676 → 605 | 3,874 → 3,243 | 6,140 → 4,457 | 16,655 → 16,560 |
+| open Advanced until the first row | 420 → 401 | 1,220 → 1,365 | 1,993 → 2,152 | 7,370 → 6,991 |
+
+With 200 matches: Analyze is unchanged (about 76–95 ms at 1×), the archive finishes 2.5–3× sooner (20×: 7.8 s → 2.5 s), insights are 7–20× faster. Memory: page elements at 2,000 matches 18,295 → 2,087 (and 54,295 → 2,087 at 6,000); JS heap after Analyze 31.3 → 22.6 MB at 2,000 and 72.7 → 65.1 MB at 6,000 (the pasted text itself is 3.5 / 10 MB).
+
+Honest summary: the biggest wins are **insights (20–140× faster)**, **archive saving off the main thread** (the long freezes after Analyze are gone: the profiler shows two short tasks of 118 ms and 60 ms), **first usable load (2×)** and **return visits (≈28×, and offline)**. Analyze and the screen updates improved about 2×, not the 5–10× predicted — see below for why.
+
+### Still open (not done — a decision for you)
+- **The big pasted text itself is now the main cost of colour/preset changes on huge sessions.** With 2,000 matches the textarea holds 3.5 MB; every time the page is restyled the browser re-lays out that text: switching preset costs ~1,100 ms at 4× with the text in the box vs ~130 ms with the box empty (measured). CSS containment tricks only got ~40% back, so they weren't added. The real fix would change behaviour: after Analyze, replace a very large pasted log with a short placeholder ("2,000 matches analysed — paste again to add more"), keeping the text in the archive. This is a draft idea, **not implemented**, because it changes what people see in the box. Real sessions are far smaller than 2,000 matches (200 matches = 364 KB: preset switch 70 ms at 1×).
+- Opening the colour panel at 2,000 matches shows the same textarea effect.
+
+### Files that fail or stall (new structure: one core bundle, one deferred extras bundle, one worker file)
+| missing | result |
+|---|---|
+| `dist/extras.js` (tutorial, colour panel, import/export, archive tools) | page and Analyze work; the optional features are simply absent |
+| `javascript/archive-worker.js` | Analyze works; compression falls back to the main thread |
+| `css/styles.css` | Analyze works; a "part of this page didn't load" note with a Reload button |
+| `dist/app-basic.js` (the core) | **a visible note with a Reload button** instead of a silently dead page (this was the old "page is dead, no message" case) |
+| `extras.js` hangs for 12 s | Analyze is available after 165 ms (it was *not usable within 9 s* when the middle script `db.js` hung) |
+| core bundle takes 6 s | usable at 6.1 s, with the "still loading" note after 3.5 s |
+
+The old `raw-export.js` → Analyze coupling is gone (Analyze never waits on or calls the archive), and a failed example load now reports the real reason instead of always blaming `file://`.
+
+### What was implemented
+| # | candidate | status |
+|---|---|---|
+| 1 | bundle the scripts | ✅ `tools/build.js` → `dist/app-basic.js`, `app-advanced.js`, `extras.js` (committed; tests rebuild and fail on a stale `dist/`) |
+| 2 | cap the Basic table | ✅ first 200 rows, "show 500 more" / "show all"; exports unaffected |
+| 3 | insights from stored summaries | ✅ rollup stored with each match (versioned; old records are rebuilt once) |
+| 4 | compress off the main thread | ✅ `archive-worker.js`, with a main-thread fallback and timeout |
+| 5 | service worker | ✅ versioned cache, updates wait for "Reload", off on localhost unless flagged |
+| 6 | guard optional features + notice | ✅ `load-guard.js`; Analyze no longer depends on the archive script |
+| 7 | Blob-free decompress | ✅ done as part of the worker work |
+| 8 | fix the misleading `file://` message | ✅ |
+
+---
+
+# Original findings (before the fixes)
 
 Text is gzip-compressed and cached for 10 minutes by the test server, like GitHub Pages. The page is **about 55–60 KB** over the wire on a first visit (16–18 requests).
 
@@ -75,7 +142,7 @@ One script missing at a time (Basic view):
 
 Stalls: scripts run strictly in order, so a **stalled file in the middle blocks everything after it**. A hung last script costs nothing (Analyze ready in 0.16 s); a hung `db.js` (middle) leaves the app dead for the whole stall (not usable within 9 s); a slow first script delays everything equally (6 s stall → usable at 6.1 s). Separately, if loading the example fails for *any* reason, the message blames `file://` even when the real cause is a missing script.
 
-## Optimisation candidates (nothing done yet)
+## Optimisation candidates (all implemented — see the results at the top)
 | # | idea | evidence | expected payoff | effort / risk |
 |---|---|---|---|---|
 | 1 | **Bundle the scripts** (one file per page, plus the early look script) | experiment above | usable ~3–5× sooner on slow links; 18 → 5 requests; one failure mode instead of many | small; needs a tiny build/concat step (the project has none today) or a committed bundle |
