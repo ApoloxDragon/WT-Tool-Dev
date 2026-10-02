@@ -49,12 +49,20 @@ function build({ write = true, root = ROOT } = {}) {
   }
   // the service worker: one cache name per VERSION, a hash of every file it caches, so any change anywhere is a new version
   const urls = [...SHELL, ...new Set(PAGES.flatMap(p => [...files[p].matchAll(/src="(dist\/[\w-]+\.js\?v=[0-9a-f]+)"/g)].map(m => m[1])))];
-  const bytes = url => { const rel = url.split('?')[0]; return files[rel] !== undefined ? Buffer.from(files[rel]) : fs.readFileSync(path.join(root, rel)); };
-  const template = fs.readFileSync(path.join(ROOT, 'tools/sw.template.js'), 'utf8'); // the template always comes from the real tools/ folder
+  // Text is hashed and compared in its LF form: a checkout with core.autocrlf (Windows) has CRLF on disk, and the
+  // version must come out the same on every OS. (A no-op where files are already LF, so the output doesn't change.)
+  const lf = s => s.replace(/\r\n/g, '\n');
+  const bytes = url => {
+    const rel = url.split('?')[0];
+    if (files[rel] !== undefined) return Buffer.from(lf(files[rel]));
+    const raw = fs.readFileSync(path.join(root, rel));
+    return /\.(html|css|js)$/.test(rel) ? Buffer.from(lf(raw.toString('utf8'))) : raw;
+  };
+  const template = lf(fs.readFileSync(path.join(ROOT, 'tools/sw.template.js'), 'utf8')); // the template always comes from the real tools/ folder
   const version = sha(urls.map(u => u + ':' + sha(bytes(u))).join('\n') + sha(template)).slice(0, 10);
   files['sw.js'] = template.replace('__VERSION__', version).replace('__PRECACHE__', JSON.stringify(urls, null, 2));
-  const onDisk = rel => { try { return read(rel); } catch (e) { return null; } };
-  const stale = Object.keys(files).filter(rel => onDisk(rel) !== files[rel]);
+  const onDisk = rel => { try { return lf(read(rel)); } catch (e) { return null; } };
+  const stale = Object.keys(files).filter(rel => onDisk(rel) !== lf(files[rel]));
   if (write && stale.length) {
     fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
     stale.forEach(rel => fs.writeFileSync(path.join(root, rel), files[rel]));
