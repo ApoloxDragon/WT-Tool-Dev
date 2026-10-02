@@ -52,6 +52,7 @@ node tests/generate-matches.js --help
 | `appearance` | the eight presets, the Customise panel, every colour role, readability rules, fonts and sizes, saved presets (names, limits), preset files, tampered settings, reports |
 | `flash` | a saved look is in place before the first paint on every view (Basic, Advanced, the redirect page), with the late script slowed down; no fade from the default |
 | `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
+| `menu` | the phone Menu: on a 390 px screen the top bar folds behind a Menu button (no sideways scrolling, tap targets, jump-to list, Escape / outside tap, swatches, Customise, view switch, the tutorial opening it for steps inside it, resizing to desktop); on a wide screen, and with JavaScript off, the top bar is unchanged |
 | `invariants` | **size-agnostic**: no check names a match count. An independent oracle (`oracle()` in `fixtures.js`) works the expected matches, duplicates, win rate, SL and RP out of each log's raw text; the app's parser, Analyze tables, archive, exports, re-imports and Advanced library must agree. Runs on both real example files (`matches.txt`, `matches-large.txt`) plus 1, 2, 37 and 1,001 synthetic matches, one match pasted 50 times, a log pasted twice, reversed block order, CRLF endings and junk between matches. Any example file added to the list in `datasets()` gets the same checks. |
 | `perf` | parse, archive, Analyze and Advanced-view timings at 200 / 2,000 / 6,000 matches |
 

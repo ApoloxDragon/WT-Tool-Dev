@@ -155,6 +155,8 @@ const Tutorial = (() => {
   function show(i) {
     const step = state.steps[i];
     state.i = i;
+    // On a phone the top bar's controls live in a menu: open it for a step that points inside it.
+    if (typeof WtMenu !== 'undefined') WtMenu.sync(step.target);
     const target = step.target ? document.querySelector(step.target) : null;
     const visible = isShown(target);
 
@@ -183,6 +185,7 @@ const Tutorial = (() => {
     window.removeEventListener('resize', state.onReflow);
     window.removeEventListener('scroll', state.onReflow, true);
     Object.values(state.nodes).forEach(n => n.remove());
+    if (typeof WtMenu !== 'undefined') WtMenu.close();
     const opener = state.opener;
     state = null;
     if (opener && opener.focus) opener.focus({ preventScroll: true });
