@@ -4,3 +4,4 @@ tests/results/probe*
 tests/results/low-end-details.json
 tests/results/sanity*
 tests/results/s[0-9]*
+example data/generated/

@@ -12,7 +12,7 @@
  *     stable site lives on the same origin).
  *   - It only handles same-origin GET requests inside its own folder. Everything else is left alone.
  *   - If caching the app fails for any reason, installation fails and the site simply keeps working from the network. */
-const VERSION = 'dccd561560';
+const VERSION = '34fb868079';
 const PRECACHE = [
   "index.html",
   "wt-log-analyzer.html",
@@ -25,7 +25,7 @@ const PRECACHE = [
   "javascript/util.js",
   "javascript/detail-parser.js",
   "dist/app-basic.js?v=4a8de076",
-  "dist/extras.js?v=22db7a78",
+  "dist/extras.js?v=f80b3a75",
   "dist/app-advanced.js?v=07d1cfa7"
 ];
 

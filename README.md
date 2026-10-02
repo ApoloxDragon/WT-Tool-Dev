@@ -18,6 +18,7 @@ A single-page, client-side tool for analyzing pasted War Thunder match-log text.
 - Run a goal calculator estimating how many matches you need to hit an RP or SL target, based on your actual win/loss averages
 - Import/export session data so you can carry progress across multiple paste sessions
 - Save every analyzed match (compressed, in your browser) so the **Advanced view** can show a full per-match breakdown, cross-match insights and storage tools
+- Fit a phone: below 680 px wide the top bar's controls fold into a **Menu** button, which also lists the page's sections to jump to
 - Walk you through all of it with a built-in step-by-step tutorial (opens on your first visit; reopen any time from **? Tutorial**)
 
 Everything runs locally in the browser — no server, no account, no data leaves your machine (except when you explicitly export a file). The match archive is stored in your browser only (IndexedDB) and is never uploaded.
@@ -105,7 +106,7 @@ advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
 dist/app-basic.js              GENERATED bundle: the whole Basic view (do not edit; see Development)
 dist/app-advanced.js           GENERATED bundle: the whole Advanced view
-dist/extras.js                 GENERATED bundle: colour panel, tutorials, service-worker registration (loaded after the core)
+dist/extras.js                 GENERATED bundle: colour panel, phone menu, tutorials, service-worker registration (loaded after the core)
 sw.js                          GENERATED service worker (offline use, instant return visits)
 tools/build.js                 The build: concatenates javascript/ into dist/, stamps ?v= hashes, writes sw.js
 tools/sw.template.js           Source of the service worker
@@ -127,6 +128,7 @@ javascript/import-export.js    File import + HTML/JSON export (Basic view)
 javascript/main.js             App state, analyze() orchestration (Basic view)
 javascript/advanced.js         Library, match detail, insights, storage panel (Advanced view)
 javascript/appearance-panel.js  The Customise panel (colours, font, text size, my presets)
+javascript/nav-menu.js         Phone menu: folds the top bar behind a Menu button on narrow screens, with jump-to-section links
 javascript/tutorial.js         Step-by-step tutorials (both views + the colour panel)
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
 docs/                          Design notes (colour customisation)

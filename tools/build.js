@@ -22,7 +22,7 @@ const BUNDLES = {
   'app-basic.js':    ['util', 'storage', 'themes', 'categories', 'detail-parser', 'db', 'raw-export', 'parser', 'math', 'goal-calculator', 'import-export', 'main'],
   'app-advanced.js': ['util', 'storage', 'themes', 'categories', 'detail-parser', 'db', 'raw-export', 'parser', 'math', 'advanced'],
   // nice-to-have pieces shared by both pages, loaded after the core (deferred): the colour panel and the tutorials
-  'extras.js':       ['appearance-panel', 'tutorial', 'sw-register']
+  'extras.js':       ['appearance-panel', 'nav-menu', 'tutorial', 'sw-register']
 };
 const PAGES = ['wt-log-analyzer.html', 'advanced.html'];
 // Cached by the service worker (sw.js) for offline use. The bundles are added below with their ?v= URLs.
