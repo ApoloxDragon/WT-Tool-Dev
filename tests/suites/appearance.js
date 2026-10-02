@@ -313,6 +313,32 @@ exports.run = async ({ browser, base, t }) => {
   t.check('no uncaught errors across both views', p.errs.length === 0, p.errs.join(' | '));
   await p.ctx.close();
 
+  /* ---------------- printing / Save as PDF ---------------- */
+  t.scope('appearance › printing');
+  p = await open(browser, base);
+  await p.click('#themePicker .swatch[data-preset="forest"]'); await settle(p);
+  const log = fs.readFileSync(require('path').join(__dirname, '..', '..', 'example data', 'matches.txt'), 'utf8');
+  await p.evaluate(v => { document.getElementById('input').value = v + '\n' + v; }, log);   // the same log twice → every match is a duplicate once
+  await p.click('#analyzeBtn'); await p.waitForTimeout(400);
+  const onScreen = await p.$$eval('#matchTable tr', r => r.length), dupes = await p.$$eval('tr.dupe', r => r.length);
+  t.check('on screen the repeated matches are listed (struck through), so there is something to leave out', dupes > 0 && onScreen > dupes, `${dupes} of ${onScreen}`);
+  await p.emulateMedia({ media: 'print' });
+  const pr = await p.evaluate(() => { const g = (e, k) => getComputedStyle(e)[k]; const d = document.documentElement.style; return { bg: g(document.body, 'backgroundColor'), htmlBg: g(document.documentElement, 'backgroundColor'), text: g(document.querySelector('#matchTable td:nth-child(2)'), 'color'), adjust: g(document.documentElement, 'printColorAdjust'), dupe: g(document.querySelector('tr.dupe'), 'display'), win: g(document.querySelector('tr.win td.result'), 'color'), loss: g(document.querySelector('tr.loss td.result'), 'color'), panel: g(document.querySelector('.stat-cell'), 'backgroundColor'), controls: g(document.querySelector('.controls'), 'display'), area: g(document.getElementById('input'), 'display'), more: g(document.getElementById('matchTableMore'), 'display') }; });
+  const forest = await p.evaluate(() => presetById('forest').colours), rgb = h => { const n = parseInt(h.slice(1), 16); return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`; };
+  t.check('a printout keeps the chosen theme: page background is the preset\'s (not white)', pr.bg === rgb(forest.bg) && pr.htmlBg === rgb(forest.bg), JSON.stringify(pr));
+  t.check('…with its text, panel, win and loss colours', pr.text === rgb(forest.text) && pr.panel === rgb(forest.panel) && pr.win === rgb(forest.win) && pr.loss === rgb(forest.loss), JSON.stringify(pr));
+  t.check('…and the browser is told to keep those colours even with "background graphics" off (print-color-adjust: exact)', pr.adjust === 'exact');
+  t.check('repeated (duplicate) matches are left out of the printout, like they are left out of every total', pr.dupe === 'none');
+  t.check('buttons, the paste box and the "show more" row are not printed', pr.controls === 'none' && pr.area === 'none' && pr.more === 'none');
+  const pdf = await p.pdf({ printBackground: false, format: 'A4' });                       // what "Save as PDF" does with default settings
+  const streams = []; { const s = pdf.toString('latin1'), re = /stream\r?\n/g; let m; while ((m = re.exec(s))) { const en = s.indexOf('endstream', m.index + m[0].length); try { streams.push(require('zlib').inflateSync(Buffer.from(s.slice(m.index + m[0].length, en), 'latin1')).toString('latin1')); } catch (e) { /* not a content stream */ } } }
+  const fillOf = h => { const n = parseInt(h.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255].map(v => +(v / 255).toFixed(4)).map(v => String(v).replace(/^0\./, '.')); };
+  const has = h => { const [r, g, b] = fillOf(h); return streams.some(x => x.includes(`${r} ${g} ${b} rg`)); };
+  t.check('a real PDF made with default print settings contains the theme\'s background and text colours', has(forest.bg) && has(forest.text), `${streams.length} streams`);
+  const plainWin = await p.evaluate(() => { const r = document.querySelector('tr.win td.result'); return !!r; });
+  t.check('a PDF is produced (and there is a win row to print)', pdf.length > 5000 && plainWin);
+  await p.ctx.close();
+
   p = await open(browser, base, { panel: true });
   await hex(p, 'accent', '#ffb000'); await p.reload();       // reload immediately: the pending save must be flushed on the way out
   t.check('a colour changed a split second before leaving the page is still remembered', (await css(p, '--accent')) === '#ffb000');
