@@ -8,6 +8,9 @@ const { newPage, norm } = require('../harness');
 const { oracle, datasets, splitBlocks, exampleLog } = require('../fixtures');
 
 const digits = s => String(s).replace(/[^\d-]/g, '');
+// The Basic per-match table shows a first batch of rows; reveal the rest (a no-op for small sessions).
+const showAllRows = page => page.evaluate(() => { if (typeof expandAllMatchRows === 'function') expandAllMatchRows(); });
+const ROWS_FIRST = 200; // MATCH_ROWS_FIRST in main.js
 async function download(page, clickSel) {
   const [dl] = await Promise.all([page.waitForEvent('download'), page.click(clickSel)]);
   return { name: dl.suggestedFilename(), buf: fs.readFileSync(await dl.path()) };
@@ -25,6 +28,8 @@ exports.run = async ({ browser, base, t, scale }) => {
   /* ---------- parser level: every dataset, one page ---------- */
   const page = await newPage(browser);
   await page.goto(base + 'wt-log-analyzer.html');
+  const adv = await newPage(browser);
+  await adv.goto(base + 'advanced.html');
   for (const d of sets) {
     const o = d.o;
     t.scope(`invariants › parser › ${d.name}`);
@@ -37,12 +42,6 @@ exports.run = async ({ browser, base, t, scale }) => {
         rawOk: ms.every(m => m.raw && m.raw.startsWith(m.result + ' in the [') && m.raw.includes(m.sessionId)),
         rawCoversInput: ms.map(m => m.raw).join('').replace(/\s/g, '').length <= src.replace(/\s/g, '').length,
         detail: ms.map(m => { const dt = parseDetail(m.raw); return { unparsed: dt.unparsed.length, events: dt.sections.reduce((a, s) => a + s.events.length, 0), session: dt.sessionId, hasTotal: !!dt.total, researched: dt.researched.map(x => ({ name: x.name, rp: x.rp })), researching: dt.researching.map(x => ({ name: x.name, rp: x.rp })) }; }),
-        dd: (() => {
-          const lf = src.replace(/\r\n/g, '\n'), a = dedupeLogText(src), b = dedupeLogText(a.text), after = parseLog(a.text);
-          const first = lf.search(/^(Victory|Defeat) in the \[/m);
-          return { removed: a.removed, ids: after.map(m => m.sessionId), sl: after.reduce((s, m) => s + m.netSL, 0), rp: after.reduce((s, m) => s + m.totalRP, 0),
-            againRemoved: b.removed, againSame: b.text === a.text, prefixKept: first < 0 || a.text.startsWith(lf.slice(0, first)) };
-        })(),
         lf: JSON.stringify(parseLog(src.replace(/\r\n/g, '\n')).map(m => ({ ...m, raw: undefined }))),
         crlf: JSON.stringify(parseLog(src.replace(/\r?\n/g, '\r\n')).map(m => ({ ...m, raw: undefined })))
       };
@@ -65,10 +64,17 @@ exports.run = async ({ browser, base, t, scale }) => {
     const badDetail = r.detail.map((x, i) => ({ i, id: o.all[i].id, got: x.session, hasTotal: x.hasTotal })).filter(x => x.got !== x.id || !x.hasTotal);
     t.check('detail parsing reads the same Session ID and a total in every match', badDetail.length === 0, badDetail.length + ' bad, first: ' + JSON.stringify(badDetail[0]));
     t.check('CRLF and LF versions of the log parse identically', r.lf === r.crlf);
-    t.check('dedupeLogText removes exactly the repeated matches', r.dd.removed === o.dupes, `${r.dd.removed} vs ${o.dupes}`);
-    t.check('after dedupeLogText the log holds exactly the unique matches, first copies, in order', JSON.stringify(r.dd.ids) === JSON.stringify(o.unique.map(m => m.id)));
-    t.check('dedupeLogText leaves the totals unchanged', r.dd.sl === o.sl && r.dd.rp === o.rp, `${r.dd.sl}/${r.dd.rp} vs ${o.sl}/${o.rp}`);
-    t.check('dedupeLogText is idempotent and keeps any text before the first match', r.dd.againRemoved === 0 && r.dd.againSame && r.dd.prefixKept);
+    // dedupeLogText belongs to the Advanced view (its Storage panel), so it is exercised on that page.
+    const dd = await adv.evaluate(src => {
+      const lf = src.replace(/\r\n/g, '\n'), a = dedupeLogText(src), b = dedupeLogText(a.text), after = parseLog(a.text);
+      const first = lf.search(/^(Victory|Defeat) in the \[/m);
+      return { removed: a.removed, ids: after.map(m => m.sessionId), sl: after.reduce((s, m) => s + m.netSL, 0), rp: after.reduce((s, m) => s + m.totalRP, 0),
+        againRemoved: b.removed, againSame: b.text === a.text, prefixKept: first < 0 || a.text.startsWith(lf.slice(0, first)) };
+    }, d.text);
+    t.check('dedupeLogText removes exactly the repeated matches', dd.removed === o.dupes, `${dd.removed} vs ${o.dupes}`);
+    t.check('after dedupeLogText the log holds exactly the unique matches, first copies, in order', JSON.stringify(dd.ids) === JSON.stringify(o.unique.map(m => m.id)));
+    t.check('dedupeLogText leaves the totals unchanged', dd.sl === o.sl && dd.rp === o.rp, `${dd.sl}/${dd.rp} vs ${o.sl}/${o.rp}`);
+    t.check('dedupeLogText is idempotent and keeps any text before the first match', dd.againRemoved === 0 && dd.againSame && dd.prefixKept);
   }
   // The game leaves the trailing ", N RP" off the Total: line when there was no research progress.
   // (A copy of the app's own pattern can't catch this, so it is checked on its own, with fixed numbers.)
@@ -98,8 +104,8 @@ exports.run = async ({ browser, base, t, scale }) => {
       t.check(`${name}: the detail view agrees, and leaves no line unrecognised`, JSON.stringify(r.detail) === JSON.stringify(want) && r.unparsed === 0, JSON.stringify(r));
     }
   }
-  t.check('no uncaught errors while parsing every dataset', page.errs.length === 0, page.errs.join(' | '));
-  await page.ctx.close();
+  t.check('no uncaught errors while parsing every dataset', page.errs.length === 0 && adv.errs.length === 0, page.errs.concat(adv.errs).join(' | '));
+  await page.ctx.close(); await adv.ctx.close();
 
   /* ---------- page level: Basic view, then the archive, exports and Advanced view ---------- */
   for (const d of sets.filter(s => s.ui)) {
@@ -116,6 +122,10 @@ exports.run = async ({ browser, base, t, scale }) => {
     t.check('TOTAL NET SL is the sum over unique matches', digits(st['TOTAL NET SL']) === String(o.sl), `${st['TOTAL NET SL']} vs ${o.sl}`);
     t.check('TOTAL RP is the sum over unique matches', digits(st['TOTAL RP']) === String(o.rp), `${st['TOTAL RP']} vs ${o.rp}`);
 
+    const firstBatch = (await p.$$('#matchTable tr')).length - 1;
+    t.check('the table starts with at most the first batch of rows, and says how many more there are', firstBatch === Math.min(o.all.length, ROWS_FIRST)
+      && (o.all.length <= ROWS_FIRST ? (await p.textContent('#matchTableMore')) === '' : new RegExp(`Showing the first ${ROWS_FIRST} of ${o.all.length.toLocaleString('en-US')} matches`).test(await p.textContent('#matchTableMore'))), `${firstBatch} rows`);
+    await showAllRows(p);
     const rows = await p.$$eval('#matchTable tr', trs => trs.slice(1).map(tr => ({ dupe: tr.classList.contains('dupe'), win: tr.classList.contains('win'), cells: [...tr.cells].map(c => c.textContent.trim()) })));
     t.check('the per-match table has one row per match pasted', rows.length === o.all.length, `${rows.length} vs ${o.all.length}`);
     t.check('exactly the repeated matches are struck through', rows.filter(r => r.dupe).length === o.dupes, `${rows.filter(r => r.dupe).length} vs ${o.dupes}`);
@@ -212,6 +222,7 @@ exports.run = async ({ browser, base, t, scale }) => {
     const backInBasic = async (pg, label) => {
       await pg.goto(base + 'wt-log-analyzer.html');
       await pg.waitForSelector('#matchTable tr');
+      await showAllRows(pg);
       const s = await statCells(pg);
       t.check(`${label}: the Basic view shows the same matches, win rate and totals`, s['MATCHES'] === String(o.unique.length) && s['WIN RATE'] === o.winRate
         && digits(s['TOTAL NET SL']) === String(o.sl) && digits(s['TOTAL RP']) === String(o.rp), JSON.stringify(s));

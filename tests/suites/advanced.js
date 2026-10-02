@@ -119,4 +119,69 @@ exports.run = async ({ browser, base, t }) => {
   await s.click('#libTable tr.pick >> nth=0');
   t.check('opening one explains that no detail is stored', /No detail stored/.test(await s.textContent('#detailBody')));
   await s.ctx.close(); await page.ctx.close();
+
+  /* ---------------- Insights from stored rollups ---------------- */
+  const countOps = () => { window.__ops = []; window.__gunzips = 0;
+  const post = Worker.prototype.postMessage; Worker.prototype.postMessage = function (m, t) { if (m && m.op) window.__ops.push(m.op); return post.call(this, m, t); };
+  const OD = window.DecompressionStream; window.DecompressionStream = function (f) { window.__gunzips++; return new OD(f); }; };
+  const openInsights = async p => {
+    await p.evaluate(() => document.querySelectorAll('#insightsSection details').forEach(d => { d.open = true; }));
+    await p.waitForFunction(() => document.querySelectorAll('#vehicleTable tr').length > 1 && document.querySelectorAll('#eventTable tr').length > 1, null, { timeout: 30000 });
+    return { veh: norm(await p.textContent('#vehicleTable')), ev: norm(await p.textContent('#eventTable')) };
+  };
+  t.scope('advanced › insights from stored rollups');
+  let ref = null;
+  { const p = await newPage(browser, { init: { fn: countOps } }); await p.goto(base + 'wt-log-analyzer.html');
+    await p.click('#loadExampleBtn'); await p.waitForFunction(() => /67 match/.test(document.getElementById('archiveNote').textContent));
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    await p.evaluate(() => { window.__ops = []; window.__gunzips = 0; });
+    ref = await openInsights(p);
+    const ops = await p.evaluate(() => ({ ops: window.__ops, gz: window.__gunzips }));
+    t.check('matches saved by Analyze carry their rollups, so the Insights read nothing from the archive (no unpacking at all)', ops.ops.length === 0 && ops.gz === 0, JSON.stringify(ops));
+    t.check('…and the vehicle and event tables are filled', /KPz-70/.test(ref.veh) && /Destruction of ground targets/.test(ref.ev));
+    t.check('every stored match has a rollup', await p.evaluate(async () => (await WtDB.meta()).every(m => m.sum && m.sum.ins && m.sum.ins.v === 1)));
+    await p.ctx.close(); }
+
+  { // older records: saved by a version that stored no rollups
+    const p = await newPage(browser, { init: { fn: countOps } }); await p.goto(base + 'wt-log-analyzer.html');
+    await p.evaluate(async src => { await WtDB.putMany(parseLog(src).filter((m, i, a) => a.findIndex(x => x.sessionId === m.sessionId) === i).map(m => ({ id: m.sessionId, text: m.raw, sum: summaryOf(m) }))); }, exampleLog());
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    await p.evaluate(() => { window.__ops = []; });
+    const got = await openInsights(p);
+    const used = await p.evaluate(() => window.__ops);
+    t.check('records saved without rollups still give identical Insights (computed once, in the worker)', got.veh === ref.veh && got.ev === ref.ev && used.includes('unpackInsights'), used.join());
+    await p.waitForTimeout(600);
+    t.check('…and the rollups are then saved back to the archive', await p.evaluate(async () => (await WtDB.meta()).every(m => m.sum && m.sum.ins && m.sum.ins.v === 1)));
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    await p.evaluate(() => { window.__ops = []; });
+    const again = await openInsights(p);
+    t.check('…so the next visit needs no unpacking and shows the same tables', again.veh === ref.veh && again.ev === ref.ev && (await p.evaluate(() => window.__ops.length)) === 0);
+    t.check('no uncaught errors', p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close(); }
+
+  { // corrupt rollups in storage: malformed ones are detected and recomputed
+    const p = await newPage(browser, { init: { fn: countOps } }); await p.goto(base + 'wt-log-analyzer.html');
+    await p.evaluate(async src => {
+      const ms = parseLog(src).filter((m, i, a) => a.findIndex(x => x.sessionId === m.sessionId) === i);
+      const bad = [{ v: 1, veh: 'x', kills: [], ev: [] }, { v: 1, veh: new Array(10000).fill(['a', 1, 1, 1]), kills: [], ev: [] }, 'garbage', null, { v: 7 }, { v: 1, veh: [['a', 'NaN', 1, 1]], kills: [], ev: [] }];
+      await WtDB.putMany(ms.map((m, i) => ({ id: m.sessionId, text: m.raw, sum: { ...summaryOf(m), ins: i % 2 === 0 ? bad[(i / 2) % bad.length | 0] : undefined } })));
+    }, exampleLog());
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    const got = await openInsights(p);
+    t.check('corrupt stored rollups (wrong types, oversized, wrong version, garbage) are rejected and recomputed: the tables equal the clean ones', got.veh === ref.veh && got.ev === ref.ev, got.veh.slice(0, 120));
+    t.check('…without errors', p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close(); }
+
+  { // a well-formed rollup with hostile CONTENT can't be told from a real one — it must at least be inert
+    const p = await newPage(browser, { init: { fn: countOps } }); await p.goto(base + 'wt-log-analyzer.html');
+    await p.evaluate(async src => {
+      const ms = parseLog(src).filter((m, i, a) => a.findIndex(x => x.sessionId === m.sessionId) === i);
+      const evil = { v: 1, veh: [['<img src=x onerror=window.__pwn=1>', 99999999, 1, 1]], kills: [['constructor', 5], ['__proto__', 5]], ev: [['<svg/onload=window.__pwn=1>', 1, 1, 1], ['__proto__', 1, 1, 1]] };
+      await WtDB.putMany(ms.map((m, i) => ({ id: m.sessionId, text: m.raw, sum: { ...summaryOf(m), ins: i === 0 ? evil : undefined } })));
+    }, exampleLog());
+    await p.goto(base + 'advanced.html'); await p.waitForSelector('#libTable tr.pick');
+    const got = await openInsights(p);
+    t.check('hostile names inside a stored rollup are shown as plain text, never as markup', /<img src=x onerror/.test(got.veh) && !(await p.$('#vehicleTable img, #eventTable svg')));
+    t.check('…and nothing executed, and no errors', (await p.evaluate(() => window.__pwn || 0)) === 0 && p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close(); }
 };

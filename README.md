@@ -21,14 +21,14 @@ A single-page, client-side tool for analyzing pasted War Thunder match-log text.
 - Fit a phone: below 680 px wide the top bar's controls fold into a **Menu** button, which also lists the page's sections to jump to
 - Walk you through all of it with a built-in step-by-step tutorial (opens on your first visit; reopen any time from **? Tutorial**)
 
-Everything runs locally in the browser — no server, no build step, no account, no data leaves your machine (except when you explicitly export a file). The match archive is stored in your browser only (IndexedDB) and is never uploaded.
+Everything runs locally in the browser — no server, no account, no data leaves your machine (except when you explicitly export a file). The match archive is stored in your browser only (IndexedDB) and is never uploaded.
 
 **Dev preview:** https://apoloxdragon.github.io/WT-Tool-Dev/ (this branch, unstable)
 **Stable release:** https://apoloxdragon.github.io/WarThunder-Tool/
 
 ## Usage
 
-Open `wt-log-analyzer.html` in a browser (or use one of the demos above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads its stylesheet and scripts as relative paths.
+Open `wt-log-analyzer.html` in a browser (or use one of the demos above). Keep it in the same folder as `css/`, `javascript/` and `dist/` if running locally — it loads its stylesheet and scripts as relative paths. (Opened straight from disk with `file://`, everything works except loading the example data, the offline cache and background compression (it falls back to the main thread); a local web server avoids all three.)
 
 Paste one or more match reports — from "Victory/Defeat in the [Mode] ... mission!" through the "Session:" and "Total:" lines — into the text box and click **Analyze**. No local data? Click **Load Example Data** to try it with the sample log in `example data/matches.txt` (this only works on a server/hosted page, not when the file is opened directly from disk, since browsers block that fetch over `file://`).
 
@@ -96,7 +96,7 @@ The tool reads text you paste or import, so nothing from a log or file is truste
 
 ## Tests
 
-`tests/` holds a Playwright-based suite (parser, Basic view, Advanced view, storage, security, performance) plus a **pre-change baseline** recorded before the security and performance work, and a comparison report of the current code against it. See [tests/README.md](tests/README.md). The app itself stays dependency-free.
+`tests/` holds a Playwright-based suite (parser, Basic view, Advanced view, storage, security, colours, theme flash, offline, build, performance) plus a **pre-change baseline** recorded before the security and performance work, and a comparison report of the current code against it. See [tests/README.md](tests/README.md). The app itself stays dependency-free.
 
 ## Project structure
 
@@ -104,6 +104,15 @@ The tool reads text you paste or import, so nothing from a log or file is truste
 wt-log-analyzer.html          Basic view markup
 advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
+dist/app-basic.js              GENERATED bundle: the whole Basic view (do not edit; see Development)
+dist/app-advanced.js           GENERATED bundle: the whole Advanced view
+dist/extras.js                 GENERATED bundle: colour panel, tutorials, service-worker registration (loaded after the core)
+sw.js                          GENERATED service worker (offline use, instant return visits)
+tools/build.js                 The build: concatenates javascript/ into dist/, stamps ?v= hashes, writes sw.js
+tools/sw.template.js           Source of the service worker
+javascript/load-guard.js       Tiny ES5 guard: "still loading" / "part of this page didn't load" notes with a Reload button
+javascript/archive-worker.js   Web Worker: compresses / decompresses the archive and builds insight summaries off the main thread
+javascript/sw-register.js      Registers the service worker and offers "New version ready — Reload"
 javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
 javascript/storage.js          localStorage persistence helpers
 javascript/appearance-core.js  Look data (presets, validation) + applies the saved look; loaded in the <head>, before the stylesheet
@@ -131,7 +140,17 @@ index.html                     Redirects to wt-log-analyzer.html (for GitHub Pag
 
 ## Development
 
-No build step. Edit the files directly and reload the page — there's no bundler, no dependencies, no package.json. The whole thing is vanilla HTML/CSS/JS.
+Still vanilla HTML/CSS/JS with no dependencies and no package.json, but the pages now load **bundles** (`dist/`) instead of ~15 separate scripts, because on a slow connection every file is a round trip (see [the low-end report](tests/results/low-end-report.md)). The bundles are plain concatenations of `javascript/*.js` — nothing is minified or rewritten.
+
+```
+node tools/build.js            # after editing anything in javascript/: rebuild dist/, the ?v= hashes in the HTML, and sw.js
+node tools/build.js --watch    # rebuild automatically while you edit
+node tools/build.js --check    # change nothing; exit 1 if dist/ is out of date (what the tests use)
+```
+
+Commit `dist/` and `sw.js` with your change — GitHub Pages serves them as they are. The test runner rebuilds them first and the `build` suite fails if they were stale, so forgetting is caught. (The order of files in each bundle is in `tools/build.js`: classic scripts share one scope, so order matters.)
+
+**The service worker** caches the app after the first visit so return visits are instant on any connection and the app works offline. It is **off on `localhost`** (so edits are never hidden behind a cache) unless you run `localStorage.setItem('wtSessionReadout.enableServiceWorkerLocally','true')` in the console. A new version installs quietly and waits; the page shows "A new version is ready — Reload" and nothing changes mid-session. It only touches caches starting `wt-tool-dev-`.
 
 ## License
 

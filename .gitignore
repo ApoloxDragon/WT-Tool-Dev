@@ -2,3 +2,6 @@ tests/results/*.log
 tests/results/.tmp-*
 tests/results/probe*
 example data/generated/
+tests/results/low-end-details.json
+tests/results/sanity*
+tests/results/s[0-9]*

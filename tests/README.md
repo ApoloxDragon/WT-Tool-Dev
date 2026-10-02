@@ -11,7 +11,7 @@ node tests/run.js --only appearance,tutorial                       # just some s
 node tests/run.js --scale small                                    # smaller performance datasets (faster)
 ```
 
-A static server and headless browser are started automatically; every test runs in a fresh browser
+`dist/` and `sw.js` are rebuilt automatically before a run (see `tools/build.js`), and the `build` suite fails if the committed ones were stale. A static server and headless browser are started automatically; every test runs in a fresh browser
 context, so storage always starts empty.
 
 ## Fake match logs (stress testing)
@@ -54,6 +54,10 @@ node tests/generate-matches.js --help
 | `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
 | `menu` | the phone Menu: on a 390 px screen the top bar folds behind a Menu button (no sideways scrolling, tap targets, jump-to list, Escape / outside tap, swatches, Customise, view switch, the tutorial opening it for steps inside it, resizing to desktop); on a wide screen, and with JavaScript off, the top bar is unchanged |
 | `invariants` | **size-agnostic**: no check names a match count. An independent oracle (`oracle()` in `fixtures.js`) works the expected matches, duplicates, win rate, SL and RP out of each log's raw text; the app's parser, Analyze tables, archive, exports, re-imports and Advanced library must agree. Runs on both real example files (`matches.txt`, `matches-large.txt`) plus 1, 2, 37 and 1,001 synthetic matches, one match pasted 50 times, a log pasted twice, reversed block order, CRLF endings and junk between matches. Any example file added to the list in `datasets()` gets the same checks. |
+| `build` | `dist/` and `sw.js` match the sources; every source is bundled exactly once, in a working order; page `?v=` hashes are current; size budgets (gzip) hold |
+| `guard` | the load guard: "still loading" note on a slow load, an error note with Reload when a file fails, never shown once the page is ready |
+| `offline` | the service worker: installs a versioned cache, the whole app (Analyze, archive, Advanced, insights) works with no network, updates wait for "Reload", only its own caches are touched, off on localhost unless flagged, a failed install leaves nothing behind. The test browser's offline switch doesn't reach service-worker requests, so the test server is taken down instead (`setDown`) |
+| `lowend` *(opt-in)* | bad connections and slow processors: throttled page loads, CPU-throttled runtime at 200/2,000 matches, profiler hot spots, memory/DOM size, files that fail or stall. Run with `--only lowend` (parts: `LOWEND_PART=net,cpu,hot,mem,fail`; `LOWEND_SITE=/path/to/older/checkout` measures an older copy for a before/after). Findings in `tests/results/low-end-report.md` |
 | `perf` | parse, archive, Analyze and Advanced-view timings at 200 / 2,000 / 6,000 matches |
 
 ## The before / after workflow
@@ -67,4 +71,4 @@ node tests/generate-matches.js --help
 
 A snapshot that is *supposed* to change is listed in `tests/expected-changes.json` with the reason, so the report shows it as "changed on purpose" instead of a regression.
 
-`tests/baseline/pre-change.json` was taken on commit `e0bba8c`, before the security / performance work, and is committed so the comparison stays reproducible. (It was re-recorded on that same unmodified code whenever a test itself was corrected — never on changed app code.) The latest comparison is `tests/results/post-change.comparison.md`.
+`tests/baseline/pre-change.json` was taken on commit `e0bba8c`, before the security / performance work, and is committed so the comparison stays reproducible. (It was re-recorded on that same unmodified code whenever a test itself was corrected — never on changed app code.) The latest full comparison is `tests/results/final.comparison.md` (0 regressions, 33 of 34 example-data snapshots identical and 1 changed on purpose).

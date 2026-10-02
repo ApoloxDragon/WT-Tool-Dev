@@ -115,6 +115,12 @@ async function archiveParsedMatches(matches) {
     have.add(m.sessionId);
     fresh.push({ id: m.sessionId, text: m.raw, sum: summaryOf(m) });
   }
+  // Each match also gets its insight rollup, computed in the worker, so the Advanced view's Insights
+  // never have to unpack the archive. If that fails the matches are still saved (the rollup is made later).
+  try {
+    const ins = await WtDB.insightsFromTexts(fresh.map(f => f.text));
+    fresh.forEach((f, i) => { if (ins[i]) f.sum.ins = ins[i]; });
+  } catch (e) { /* saved without rollups */ }
   const added = await WtDB.putMany(fresh);
   return { added, skipped, failed: fresh.length - added };
 }

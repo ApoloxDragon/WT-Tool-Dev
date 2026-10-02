@@ -46,27 +46,7 @@ function parseRpLines(section) {
 const LOG_HEADER = /(Victory|Defeat) in the \[([^\]\n]{1,200})\][^\S\n]+(.+?)[^\S\n]+mission!/;
 const SESSION_ID = /Session:\s*([a-f0-9]{1,64})/i;
 
-// Removes every match whose Session ID already appeared earlier in the text. The first copy of each
-// match stays, as do text before the first match and every match without a Session ID. Uses the same
-// header and Session ID patterns as parseLog, so what remains is exactly what parseLog would keep.
-function dedupeLogText(text) {
-  text = capLines(text.replace(/\r\n/g, '\n'));
-  const headerRegex = new RegExp(LOG_HEADER.source, 'g');
-  const starts = [];
-  let m;
-  while ((m = headerRegex.exec(text)) !== null) starts.push(m.index);
-  if (!starts.length) return { text, removed: 0 };
-  const seen = new Set();
-  let out = text.slice(0, starts[0]), removed = 0;
-  starts.forEach((start, i) => {
-    const block = text.slice(start, i + 1 < starts.length ? starts[i + 1] : text.length);
-    const sm = block.match(SESSION_ID);
-    if (sm && seen.has(sm[1])) { removed++; return; }
-    if (sm) seen.add(sm[1]);
-    out += block;
-  });
-  return { text: out, removed };
-}
+// (dedupeLogText, which uses these two patterns, lives in advanced.js: only the Advanced view needs it.)
 
 function parseLog(text) {
   text = capLines(text.replace(/\r\n/g, '\n'));

@@ -1,7 +1,7 @@
 /* Basic view suite: analyze, goal calculator, categories, persistence, exports, imports. */
 const fs = require('fs'), zlib = require('zlib');
 const { newPage, norm, sha } = require('../harness');
-const { EX, exampleLog, gz, rawExportOf, splitBlocks, REPORT_HTML } = require('../fixtures');
+const { EX, exampleLog, gz, rawExportOf, splitBlocks, REPORT_HTML, syntheticLog } = require('../fixtures');
 
 const text = id => async (page, sel) => norm(await page.textContent(sel));
 async function download(page, clickSel) {
@@ -107,6 +107,62 @@ exports.run = async ({ browser, base, t }) => {
     const dl = await dlPromise;
     const exp = dl ? JSON.parse(zlib.gunzipSync(fs.readFileSync(await dl.path())).toString()) : { count: 0 };
     t.check('a raw export requested the instant Analyze runs still contains all 67 matches', exp.count === 67, exp.count + ' of 67' + (dl ? '' : ' (no download at all)'));
+    await p.ctx.close(); }
+
+  t.scope('basic › long sessions (the table shows a first batch)');
+  { const p = await newPage(browser); await p.goto(base + 'wt-log-analyzer.html');
+    const log = syntheticLog(1300);
+    await p.evaluate(v => { document.getElementById('input').value = v; }, log);
+    await p.click('#analyzeBtn');
+    const rowCount = () => p.$$eval('#matchTable tr', r => r.length - 1);
+    const more = async () => norm(await p.textContent('#matchTableMore'));
+    t.check('1,300 matches: only the first 200 rows are built, with a note saying so', (await rowCount()) === 200 && /Showing the first 200 of 1,300 matches/.test(await more()), `${await rowCount()} rows; ${await more()}`);
+    t.check('…but the totals still cover all 1,300', /1300|1,300/.test(norm(await p.textContent('#overallStats'))));
+    t.check('the page stays small (well under the ~18,000 elements 2,000 rows used to cost)', (await p.evaluate(() => document.querySelectorAll('*').length)) < 4000);
+    await p.click('text=Show 500 more');
+    t.check('"Show 500 more" adds a batch', (await rowCount()) === 700 && /Showing the first 700 of 1,300/.test(await more()));
+    await p.click('text=Show 500 more');
+    t.check('…and the next one adds the rest (only 600 were left)', (await rowCount()) === 1200 || (await rowCount()) === 1300, String(await rowCount()));
+    await p.click('#analyzeBtn');
+    t.check('analysing again starts from the first batch again', (await rowCount()) === 200);
+    await p.click('text=Show all 1,300');
+    t.check('"Show all" shows every match and the note disappears', (await rowCount()) === 1300 && (await more()) === '');
+    await p.click('#analyzeBtn');
+    await p.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
+    t.check('printing (beforeprint) reveals every row, so a printout is complete', (await rowCount()) === 1300);
+    await p.click('#analyzeBtn');
+    const html = await download(p, '#exportBtn');
+    t.check('an HTML export contains all 1,300 matches even while only 200 rows are shown', (html.buf.toString('utf8').match(/data-session=/g) || []).length === 1300);
+    await p.click('#clearBtn');
+    t.check('Clear empties the table and its "show more" note', (await more()) === '' && (await p.isHidden('#results')));
+    t.check('no uncaught errors with a long session', p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close(); }
+
+  t.scope('basic › the analysis never depends on saving to the archive');
+  for (const [what, breakIt] of [
+    ['the archive function throws', () => { window.archiveParsedMatches = () => { throw new Error('archive exploded'); }; }],
+    ['the archive promise rejects', () => { window.archiveParsedMatches = () => Promise.reject(new Error('archive rejected')); }],
+    ['the helper that tracks archive writes is missing', () => { window.trackArchiveWrite = undefined; }]
+  ]) {
+    const p = await newPage(browser); await p.goto(base + 'wt-log-analyzer.html');
+    await p.evaluate(breakIt);
+    await p.evaluate(v => { document.getElementById('input').value = v; }, exampleLog());
+    await p.click('#analyzeBtn'); await p.waitForTimeout(300);
+    t.check(`${what}: Analyze still shows the full results`, /67/.test(norm(await p.textContent('#overallStats'))) && (await p.$$('#matchTable tr')).length === 85);
+    t.check(`${what}: …and nothing is reported as an uncaught error`, p.errs.length === 0, p.errs.join(' | '));
+    await p.ctx.close();
+  }
+
+  t.scope('basic › the example button reports problems honestly');
+  { const p = await newPage(browser); await p.goto(base + 'wt-log-analyzer.html');
+    await p.route('**/example%20data/matches.txt', r => r.abort());
+    await p.click('#loadExampleBtn'); await p.waitForTimeout(400);
+    t.check('a failed download still points at the file:// / local-server explanation', /file:\/\//.test(await p.textContent('#importNote')));
+    await p.unroute('**/example%20data/matches.txt');
+    await p.evaluate(() => { window.parseLog = () => { throw new Error('boom'); }; });
+    await p.click('#loadExampleBtn'); await p.waitForTimeout(400);
+    const note = await p.textContent('#importNote');
+    t.check('a problem analysing the downloaded text is NOT blamed on the download', /analysing it failed: boom/.test(note) && !/file:\/\//.test(note), note);
     await p.ctx.close(); }
 
   /* ---- imports ---- */

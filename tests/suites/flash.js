@@ -1,5 +1,5 @@
 /* Load suite: a saved look must be in place BEFORE the page first paints — no flash of the default Blue.
- * The late script that used to apply the look (themes.js) is slowed down on purpose, the way a phone or a
+ * The page's main script (dist/app-*.js, which used to be the thing that applied the look) is slowed down on purpose, the way a phone or a
  * slow connection would, so a look applied only by that script shows up as a flash of the default.
  * What counts as "in place": the colours in effect when <body> first appears, and on every animation frame after. */
 const { newPage } = require('../harness');
@@ -29,7 +29,8 @@ function probe({ storage }) {
 
 async function load(browser, base, view, storage, slowMs = 700) {
   const p = await newPage(browser, { init: { fn: probe, arg: { storage } } });
-  await p.route('**/javascript/themes.js', async route => { await new Promise(r => setTimeout(r, slowMs)); route.continue(); });
+  p.heldBack = 0;
+  await p.route('**/dist/app-*.js*', async route => { p.heldBack++; await new Promise(r => setTimeout(r, slowMs)); route.continue(); }); // the page's main script arrives late
   await p.goto(base + view, { waitUntil: 'load' });
   await p.waitForTimeout(600);
   const flash = await p.evaluate(() => window.__flash);
@@ -48,6 +49,7 @@ exports.run = async ({ browser, base, t }) => {
       t.scope(`load › ${view.startsWith('adv') ? 'Advanced' : 'Basic'} › ${name}`);
       const { p, flash } = await load(browser, base, view, look.storage);
       const f = flash.frames;
+      t.check('(setup) the page\'s main script really was held back, so this test means something', p.heldBack === 1, String(p.heldBack));
       t.check('the saved colours are already in place the moment the page body appears', flash.atBody && flash.atBody.bg === look.bg, JSON.stringify(flash.atBody && flash.atBody.bg));
       t.check(`and on every one of the ${f.length} frames that follow (none shows the default Blue or an unstyled page)`, f.length > 5 && f.every(x => x.bg === look.bg), 'colours seen: ' + [...new Set(f.map(x => x.bg || '(none)'))].join(', '));
       t.check('the painted page background is that colour on every frame — no fade from Blue', f.filter(x => x.bodyBg).length > 3 && f.filter(x => x.bodyBg).every(x => x.bodyBg === rgbOf(look.bg)), 'backgrounds seen: ' + [...new Set(f.map(x => x.bodyBg))].join(' | '));

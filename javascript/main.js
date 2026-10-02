@@ -22,6 +22,60 @@ async function archiveMatches(matches) {
   WtDB.requestPersistence();
 }
 
+// Saving to the archive is a bonus. Whatever goes wrong with it — storage blocked or full, a part of
+// the page that didn't load — the analysis the user asked for has already happened and must stand.
+function archiveInBackground(matches) {
+  const job = archiveMatches(matches).catch(() => {});
+  if (typeof trackArchiveWrite === 'function') trackArchiveWrite(job);
+}
+
+/* ---------- The per-match table (shows a first batch; the rest on request) ---------- */
+// Building a row for every match is what made big sessions slow: 2,000 matches meant ~18,000 page
+// elements, and every theme switch or layout change had to re-style all of them. Only the rows on
+// screen matter, so show the first batch and let the user ask for more. Exports use the data, not
+// these rows, and printing shows everything (see beforeprint below).
+const MATCH_ROWS_FIRST = 200, MATCH_ROWS_MORE = 500;
+let matchRowItems = [];            // [[match, isDuplicate], …] for the whole session
+let matchRowsShown = MATCH_ROWS_FIRST;
+
+function matchRowHtml([m, isDupe]) {
+  // Duplicates are excluded from every total, so their SL/RP/target figures are
+  // blanked out here too — showing the real numbers next to a struck-through row
+  // reads as double-counted RP even though it isn't included anywhere.
+  const target = isDupe ? '—' : m.researched.map(r => `${esc(r.name)} (+${r.rp.toLocaleString()})`).join(', ');
+  const resultClass = m.result === 'Victory' ? 'win' : 'loss';
+  return `<tr class="${resultClass}${isDupe ? ' dupe' : ''}">
+      <td class="result">${esc(m.result)}</td>
+      <td>${esc(m.category)}</td>
+      <td>${m.mode !== m.category ? esc(m.mode) : ''}</td>
+      <td>${esc(m.mission)}</td>
+      <td class="num">${isDupe ? '—' : m.netSL.toLocaleString()}</td>
+      <td class="num">${isDupe ? '—' : m.totalRP.toLocaleString()}</td>
+      <td>${target}</td>
+      <td>${isDupe ? 'DUPLICATE — excluded' : ''}</td>
+    </tr>`;
+}
+
+function renderMatchRows() {
+  const total = matchRowItems.length;
+  const shown = Math.min(matchRowsShown, total);
+  document.getElementById('matchTable').innerHTML = `
+    <tr><th>Result</th><th>Category</th><th>Sub-mode</th><th>Mission</th>
+        <th class="num">Net SL</th><th class="num">RP</th><th>Target(s)</th><th></th></tr>
+    ${matchRowItems.slice(0, shown).map(matchRowHtml).join('')}`;
+  const more = document.getElementById('matchTableMore');
+  more.textContent = '';
+  if (shown < total) {
+    more.append(`Showing the first ${shown.toLocaleString()} of ${total.toLocaleString()} matches. `);
+    const step = Math.min(MATCH_ROWS_MORE, total - shown);
+    const mk = (label, fn) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'secondary small'; b.textContent = label; b.addEventListener('click', fn); return b; };
+    more.append(mk(`Show ${step.toLocaleString()} more`, () => { matchRowsShown += MATCH_ROWS_MORE; renderMatchRows(); }), ' ',
+      mk(`Show all ${total.toLocaleString()}`, expandAllMatchRows));
+  }
+}
+function expandAllMatchRows() { matchRowsShown = Math.max(matchRowItems.length, MATCH_ROWS_FIRST); renderMatchRows(); }
+window.addEventListener('beforeprint', () => { if (matchRowsShown < matchRowItems.length) expandAllMatchRows(); }); // a printout must have every match
+
 /* ---------- Analyze ---------- */
 // Depends on: esc (util.js), parseLog (parser.js), computeCategoryStats (math.js),
 // loadGoalFieldsFromCategory/computeGoalOutputs (goal-calculator.js).
@@ -61,7 +115,7 @@ function analyze() {
   emptyState.style.display = 'none';
   results.style.display = 'block';
   lastMatches = { all, matches };
-  trackArchiveWrite(archiveMatches(freshlyParsed));
+  archiveInBackground(freshlyParsed);
 
   const wins = matches.filter(m => m.result === 'Victory');
   const totalSL = matches.reduce((a, m) => a + m.netSL, 0);
@@ -130,28 +184,9 @@ function analyze() {
     ${progressRows || '<tr><td colspan="2" class="note">No research progress entries found</td></tr>'}`;
 
   const kept = new Set(matches); // a Set: indexOf() here made the table O(n²) for big sessions
-  const matchRows = all.map(m => {
-    const isDupe = !kept.has(m);
-    // Duplicates are excluded from every total, so their SL/RP/target figures are
-    // blanked out here too — showing the real numbers next to a struck-through row
-    // reads as double-counted RP even though it isn't included anywhere.
-    const target = isDupe ? '—' : m.researched.map(r => `${esc(r.name)} (+${r.rp.toLocaleString()})`).join(', ');
-    const resultClass = m.result === 'Victory' ? 'win' : 'loss';
-    return `<tr class="${resultClass}${isDupe ? ' dupe' : ''}">
-      <td class="result">${esc(m.result)}</td>
-      <td>${esc(m.category)}</td>
-      <td>${m.mode !== m.category ? esc(m.mode) : ''}</td>
-      <td>${esc(m.mission)}</td>
-      <td class="num">${isDupe ? '—' : m.netSL.toLocaleString()}</td>
-      <td class="num">${isDupe ? '—' : m.totalRP.toLocaleString()}</td>
-      <td>${target}</td>
-      <td>${isDupe ? 'DUPLICATE — excluded' : ''}</td>
-    </tr>`;
-  }).join('');
-  document.getElementById('matchTable').innerHTML = `
-    <tr><th>Result</th><th>Category</th><th>Sub-mode</th><th>Mission</th>
-        <th class="num">Net SL</th><th class="num">RP</th><th>Target(s)</th><th></th></tr>
-    ${matchRows}`;
+  matchRowItems = all.map(m => [m, !kept.has(m)]);
+  matchRowsShown = MATCH_ROWS_FIRST;
+  renderMatchRows();
 }
 
 document.getElementById('analyzeBtn').addEventListener('click', analyze);
@@ -161,6 +196,8 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   document.getElementById('dupeWarn').style.display = 'none';
   lastMatches = null;
   lastCategoryStats = null;
+  matchRowItems = [];
+  document.getElementById('matchTableMore').textContent = '';
   importedMatches = [];
   clearState('importedMatches');
   clearState('inputText');
@@ -188,9 +225,11 @@ document.getElementById('loadExampleBtn').addEventListener('click', () => {
       document.getElementById('input').value = text;
       saveState('inputText', text);
       importNote.textContent = '';
-      analyze();
-    })
-    .catch(() => {
+      // analyze() is outside the fetch's error handling on purpose: a problem analysing the text
+      // must not be reported as "couldn't download it".
+      try { analyze(); }
+      catch (err) { importNote.textContent = 'The example loaded, but analysing it failed: ' + err.message; }
+    }, () => {
       importNote.textContent = 'Could not load example data — if you opened this file directly from disk (file://), browsers block that fetch; open the hosted version or run a local server instead.';
     });
 });
@@ -207,3 +246,7 @@ document.getElementById('input').addEventListener('input', (e) => {
 const savedInput = loadState('inputText', '', v => (typeof v === 'string' ? v : undefined));
 if (savedInput) document.getElementById('input').value = savedInput;
 if (savedInput || importedMatches.length > 0) analyze();
+
+// Everything above has run: the page is usable. (load-guard.js watches for this to clear its "still loading" note.)
+window.__wtReady = true;
+document.dispatchEvent(new Event('wt-ready'));
