@@ -185,6 +185,7 @@ const Tutorial = (() => {
     window.removeEventListener('resize', state.onReflow);
     window.removeEventListener('scroll', state.onReflow, true);
     Object.values(state.nodes).forEach(n => n.remove());
+    document.body.style.paddingBottom = '';
     if (typeof WtMenu !== 'undefined') WtMenu.close();
     const opener = state.opener;
     state = null;
@@ -197,6 +198,8 @@ const Tutorial = (() => {
     if (!steps) return;
     const nodes = build();
     state = { steps, i: 0, page, nodes, opener: document.activeElement };
+    // Room to scroll: a short page can't scroll a mid-height target up to the top, so the card would have nowhere to go.
+    document.body.style.paddingBottom = window.innerHeight + 'px';
 
     let raf = 0;
     state.onReflow = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(place); };
