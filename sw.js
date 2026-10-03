@@ -12,27 +12,31 @@
  *     stable site lives on the same origin).
  *   - It only handles same-origin GET requests inside its own folder. Everything else is left alone.
  *   - If caching the app fails for any reason, installation fails and the site simply keeps working from the network. */
-const VERSION = 'ff65bf814a';
+const VERSION = '5d651d4a31';
 const PRECACHE = [
   "index.html",
   "wt-log-analyzer.html",
   "advanced.html",
   "css/styles.css",
   "assets/github-logo.png",
+  "assets/icon-64.png",
+  "assets/icon-dev-64.png",
   "javascript/load-guard.js",
   "javascript/appearance-core.js",
+  "javascript/dev-mode.js",
   "javascript/archive-worker.js",
   "javascript/util.js",
   "javascript/detail-parser.js",
-  "dist/app-basic.js?v=da994b79",
-  "dist/extras.js?v=fe8c4728",
-  "dist/app-advanced.js?v=c73496b4"
+  "dist/app-basic.js?v=3dbbd83f",
+  "dist/extras.js?v=21177663",
+  "dist/app-advanced.js?v=f3c0f4ce"
 ];
 
-const PREFIX = 'wt-tool-dev-';
+const SCOPE_PATH = new URL('./', self.location.href).pathname;
+// The dev site (/WT-Tool-Dev/) and the stable site share this origin's cache storage: each gets its own prefix.
+const PREFIX = /\/WT-Tool-Dev\//i.test(SCOPE_PATH) ? 'wt-tool-dev-' : 'wt-tool-';
 const SHELL = PREFIX + 'shell-' + VERSION;   // the app, one immutable set per version
 const EXAMPLES = PREFIX + 'examples';        // the sample logs, kept after the first time they are fetched
-const SCOPE_PATH = new URL('./', self.location.href).pathname;
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

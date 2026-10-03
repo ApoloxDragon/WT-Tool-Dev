@@ -2,3 +2,4 @@
 # version match the committed files even where git would otherwise check files out with CRLF (core.autocrlf).
 dist/*.js text eol=lf
 sw.js text eol=lf
+*.png binary

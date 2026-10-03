@@ -198,7 +198,7 @@ const Tutorial = (() => {
     if (!steps) return;
     const nodes = build();
     state = { steps, i: 0, page, nodes, opener: document.activeElement };
-    // Room to scroll: a short page can't scroll a mid-height target up to the top, so the card would have nowhere to go.
+    // room to scroll a mid-height target to the top (a short page has none)
     document.body.style.paddingBottom = window.innerHeight + 'px';
 
     let raf = 0;

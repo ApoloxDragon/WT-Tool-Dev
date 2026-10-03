@@ -10,7 +10,7 @@
  * become usable (see tests/results/low-end-report.md). Files are only concatenated (no minifying, no
  * rewriting), so the code that runs is exactly the code in javascript/, in the order listed here.
  *
- * Not bundled, on purpose:  load-guard.js and appearance-core.js (tiny, must run first in the <head>),
+ * Not bundled, on purpose:  load-guard.js and appearance-core.js (tiny, must run first in the <head>), dev-mode.js (loaded by appearance-core.js on the dev site only),
  * archive-worker.js (a Web Worker has its own file; it also loads util.js and detail-parser.js).
  * It also generates /sw.js (the service worker) from tools/sw.template.js, versioned by a hash of every file it caches. */
 const fs = require('fs'), path = require('path'), crypto = require('crypto'), zlib = require('zlib');
@@ -28,8 +28,8 @@ const BUNDLES = {
 const PAGES = ['wt-log-analyzer.html', 'advanced.html'];
 // Cached by the service worker (sw.js) for offline use. The bundles are added below with their ?v= URLs.
 // archive-worker.js loads util.js and detail-parser.js itself, so those travel with it.
-const SHELL = ['index.html', 'wt-log-analyzer.html', 'advanced.html', 'css/styles.css', 'assets/github-logo.png',
-  'javascript/load-guard.js', 'javascript/appearance-core.js', 'javascript/archive-worker.js', 'javascript/util.js', 'javascript/detail-parser.js'];
+const SHELL = ['index.html', 'wt-log-analyzer.html', 'advanced.html', 'css/styles.css', 'assets/github-logo.png', 'assets/icon-64.png', 'assets/icon-dev-64.png',
+  'javascript/load-guard.js', 'javascript/appearance-core.js', 'javascript/dev-mode.js', 'javascript/archive-worker.js', 'javascript/util.js', 'javascript/detail-parser.js'];
 const sha = s => crypto.createHash('sha256').update(s).digest('hex');
 
 function bundleText(name, files, read) {

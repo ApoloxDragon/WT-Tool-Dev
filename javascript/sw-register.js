@@ -10,7 +10,7 @@
   if (!('serviceWorker' in navigator)) return;
   const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
   let enabledLocally = false;
-  try { enabledLocally = localStorage.getItem('wtSessionReadout.enableServiceWorkerLocally') === 'true'; } catch (e) { /* storage blocked */ }
+  try { enabledLocally = localStorage.getItem(WT_STORE + '.enableServiceWorkerLocally') === 'true'; } catch (e) { /* storage blocked */ }
 
   if (local && !enabledLocally) {
     navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister())).catch(() => {});

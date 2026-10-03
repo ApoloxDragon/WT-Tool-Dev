@@ -6,7 +6,7 @@ const { build, BUNDLES, PAGES } = require('../../tools/build');
 
 const read = rel => fs.readFileSync(path.join(ROOT, rel), 'utf8');
 const gz = s => zlib.gzipSync(Buffer.from(s)).length;
-const UNBUNDLED = ['load-guard', 'appearance-core', 'archive-worker']; // deliberately separate files
+const UNBUNDLED = ['load-guard', 'appearance-core', 'archive-worker', 'dev-mode']; // deliberately separate files
 const CORE = { 'wt-log-analyzer.html': 'app-basic.js', 'advanced.html': 'app-advanced.js' };
 
 exports.run = async ({ t, distStale = [] }) => {

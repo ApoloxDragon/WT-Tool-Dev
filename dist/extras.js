@@ -298,9 +298,7 @@
 ;
 /* ===== javascript/nav-menu.js ===== */
 /* ---------- Phone menu ---------- */
-// Below 680 px the top bar's controls fold behind a Menu button, with a "Jump to" list of the page's
-// sections. The same elements are shown in a panel (not rebuilt); wide screens and no-JS are unchanged.
-// Loaded after appearance-panel.js so the picker already holds the swatches and Customise.
+// Below 680 px the top bar's controls fold behind a Menu button (plus a "Jump to" list). The same elements are shown in a panel; wide screens and no-JS are unchanged. Loaded after appearance-panel.js.
 const WtMenu = (() => {
   const narrow = matchMedia('(max-width: 680px)');
   const JUMPS = {
@@ -316,7 +314,6 @@ const WtMenu = (() => {
     bar.classList.toggle('menu-open', open);
     btn.setAttribute('aria-expanded', open);
   };
-  // Rebuilt on every open, so it only offers sections that are on screen right now.
   function fill() {
     const seen = new Set();
     list.textContent = '';
@@ -347,7 +344,6 @@ const WtMenu = (() => {
     const view = picker.querySelector('.view-link');
     picker.insertBefore(jump, view ? view.nextSibling : picker.firstChild);
     bar.classList.add('has-menu');
-    // Close on Escape (focus back on the button), on a tap outside, after Tutorial / Customise, and on a wide screen.
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen() && !document.getElementById('tutCard')) { set(false); btn.focus(); } });
     document.addEventListener('click', e => { if (isOpen() && !bar.contains(e.target) && !e.target.closest('.tut-card, .tut-backdrop, .tut-spot')) set(false); });
     picker.addEventListener('click', e => { if (e.target.closest('#tutorialBtn, #colourBtn')) setTimeout(() => document.getElementById('tutCard') || set(false), 0); });
@@ -355,7 +351,7 @@ const WtMenu = (() => {
   }
 
   return {
-    // For the tutorial: open the menu for a step that points at something inside it, close it otherwise.
+    // for the tutorial: open for a step that points inside the menu, close otherwise
     sync(selector) { if (!bar || !narrow.matches) return; const el = selector && document.querySelector(selector); set(!!el && picker.contains(el)); },
     close: () => set(false)
   };
@@ -562,7 +558,7 @@ const Tutorial = (() => {
     if (!steps) return;
     const nodes = build();
     state = { steps, i: 0, page, nodes, opener: document.activeElement };
-    // Room to scroll: a short page can't scroll a mid-height target up to the top, so the card would have nowhere to go.
+    // room to scroll a mid-height target to the top (a short page has none)
     document.body.style.paddingBottom = window.innerHeight + 'px';
 
     let raf = 0;
@@ -619,7 +615,7 @@ Tutorial.init();
   if (!('serviceWorker' in navigator)) return;
   const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
   let enabledLocally = false;
-  try { enabledLocally = localStorage.getItem('wtSessionReadout.enableServiceWorkerLocally') === 'true'; } catch (e) { /* storage blocked */ }
+  try { enabledLocally = localStorage.getItem(WT_STORE + '.enableServiceWorkerLocally') === 'true'; } catch (e) { /* storage blocked */ }
 
   if (local && !enabledLocally) {
     navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister())).catch(() => {});

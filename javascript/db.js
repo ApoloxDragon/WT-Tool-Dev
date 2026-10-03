@@ -53,9 +53,10 @@ const WtWorker = (() => {
 })();
 
 const WtDB = (() => {
-  const DB_NAME = 'wtSessionReadout-dev';
+  // Stable keeps its historical name (renaming would orphan saved archives); the dev site gets its own database.
+  const DB_NAME = WT_DEV ? 'wtSessionReadoutDev' : 'wtSessionReadout-dev';
   const STORE = 'raw';
-  const LS_PREFIX = 'wtSessionReadout.raw.';
+  const LS_PREFIX = WT_STORE + '.raw.';
   let dbPromise = null;
   let backend = null; // 'idb' | 'ls' | 'none', decided on first open
 

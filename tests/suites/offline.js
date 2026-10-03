@@ -48,8 +48,8 @@ exports.run = async ({ browser, t }) => {
   t.scope('offline › first visit installs it');
   let p = await install(browser, base);
   const names = await cacheNames(p), ver = swVersion(swText);
-  t.check('exactly one app cache exists, named for the version in sw.js', names.filter(n => n.startsWith('wt-tool-dev-shell-')).join() === 'wt-tool-dev-shell-' + ver, names.join());
-  const cached = await p.evaluate(async n => (await (await caches.open(n)).keys()).map(r => new URL(r.url).pathname.replace(/^\//, '') + new URL(r.url).search), 'wt-tool-dev-shell-' + ver);
+  t.check('exactly one app cache exists, named for the version in sw.js', names.filter(n => n.startsWith('wt-tool-shell-')).join() === 'wt-tool-shell-' + ver, names.join());
+  const cached = await p.evaluate(async n => (await (await caches.open(n)).keys()).map(r => new URL(r.url).pathname.replace(/^\//, '') + new URL(r.url).search), 'wt-tool-shell-' + ver);
   t.check('the cache holds exactly the listed files', JSON.stringify([...cached].sort()) === JSON.stringify([...precache].sort()), cached.length + ' vs ' + precache.length);
   t.check('the very first page is already controlled (so offline works without a second visit)', await p.evaluate(() => !!navigator.serviceWorker.controller));
   await p.waitForTimeout(600);
@@ -117,7 +117,7 @@ exports.run = async ({ browser, t }) => {
   t.check('the running page is told a new version is ready (role=status, with Reload and Later)', (await p.getAttribute('.update-note', 'role')) === 'status' && /new version is ready/i.test(await p.textContent('.update-note')) && !!(await p.$('.update-note >> text=Reload')) && !!(await p.$('.update-note >> text=Later')));
   t.check('…while this page keeps running the old version (nothing changes under your feet)', (await p.evaluate(() => document.querySelector('script[src*="app-basic"]').getAttribute('src'))) === bundleBefore);
   const during = await cacheNames(p);
-  t.check('the new version is installed alongside the old one, waiting', during.filter(n => n.startsWith('wt-tool-dev-shell-')).sort().join() === ['wt-tool-dev-shell-' + v1, 'wt-tool-dev-shell-' + v2].sort().join(), during.join());
+  t.check('the new version is installed alongside the old one, waiting', during.filter(n => n.startsWith('wt-tool-shell-')).sort().join() === ['wt-tool-shell-' + v1, 'wt-tool-shell-' + v2].sort().join(), during.join());
   await p.click('.update-note >> text=Later');
   t.check('"Later" dismisses the note', !(await p.$('.update-note')));
   await p.reload(); await p.waitForSelector('.update-note', { timeout: 10000 });
@@ -130,7 +130,7 @@ exports.run = async ({ browser, t }) => {
   const bundleAfter = await p.evaluate(() => document.querySelector('script[src*="app-basic"]').getAttribute('src'));
   t.check('Reload switches the page to the new version', bundleAfter !== bundleBefore && bundleAfter === build({ root: site, write: false }).files['wt-log-analyzer.html'].match(/src="(dist\/app-basic\.js\?v=[0-9a-f]+)"/)[1]);
   const after = await cacheNames(p);
-  t.check('the old version\'s cache is deleted, the new one kept', after.filter(n => n.startsWith('wt-tool-dev-shell-')).join() === 'wt-tool-dev-shell-' + v2, after.join());
+  t.check('the old version\'s cache is deleted, the new one kept', after.filter(n => n.startsWith('wt-tool-shell-')).join() === 'wt-tool-shell-' + v2, after.join());
   t.check('a cache that is not ours was never touched', after.includes('someone-elses-cache'));
   t.check('the updated app still works offline', await (async () => { await goOffline(p, true); await p.reload(); await p.waitForSelector('#analyzeBtn'); const ok = await p.isVisible('#analyzeBtn'); await goOffline(p, false); return ok; })());
   t.check('no uncaught errors through the whole update', p.errs.length === 0, p.errs.join(' | '));
@@ -157,7 +157,7 @@ exports.run = async ({ browser, t }) => {
     p = await newPage(browser, { serviceWorkers: 'allow', init: ENABLE });
     await p.goto(srv2.url + 'wt-log-analyzer.html'); await p.waitForTimeout(3000);
     t.check('if caching the app fails, the worker never takes over and the site keeps working from the network', (await p.evaluate(() => navigator.serviceWorker.getRegistration().then(r => !r || !r.active))) && await p.isVisible('#analyzeBtn'));
-    t.check('…and no half-filled cache is left behind', (await cacheNames(p)).filter(n => n.startsWith('wt-tool-dev-shell-')).length === 0);
+    t.check('…and no half-filled cache is left behind', (await cacheNames(p)).filter(n => n.startsWith('wt-tool-shell-')).length === 0);
     t.check('…and nothing is reported as an uncaught error', p.errs.length === 0, p.errs.join(' | '));
     await p.ctx.close();
   } finally { srv2.close(); fs.rmSync(broken, { recursive: true, force: true }); }

@@ -2,7 +2,7 @@
 // Wrapped in try/catch since localStorage can throw (private browsing,
 // disabled storage, quota exceeded) — persistence is a nice-to-have,
 // never something the rest of the app should crash over.
-const STORAGE_PREFIX = 'wtSessionReadout.';
+const STORAGE_PREFIX = WT_STORE + '.'; // WT_STORE: appearance-core.js (different on the dev site)
 
 function saveState(key, value) {
   try {

@@ -21,7 +21,7 @@ Everything runs locally in the browser — no server, no account, no data leaves
 
 **Live demo:** https://apoloxdragon.github.io/WarThunder-Tool/
 
-> **Curious about what's coming next?** In-progress changes are tried out in the [WT-Tool-Dev repo](https://github.com/ApoloxDragon/WT-Tool-Dev) first (live preview: https://apoloxdragon.github.io/WT-Tool-Dev/). It's the unstable development version, so expect rough edges — this page is the stable release.
+> **Two builds.** The **stable release** ([site](https://apoloxdragon.github.io/WarThunder-Tool/), [repo](https://github.com/ApoloxDragon/WarThunder-Tool)) and the **dev build** ([site](https://apoloxdragon.github.io/WT-Tool-Dev/), [repo](https://github.com/ApoloxDragon/WT-Tool-Dev)), where in-progress changes are tried first, so expect rough edges there. They keep separate saved data in your browser.
 
 ## Usage
 
@@ -107,9 +107,12 @@ dist/extras.js                 GENERATED bundle: colour panel, tutorials, servic
 sw.js                          GENERATED service worker (offline use, instant return visits)
 tools/build.js                 The build: concatenates javascript/ into dist/, stamps ?v= hashes, writes sw.js
 tools/sw.template.js           Source of the service worker
+assets/                        Tab / touch icons (icon.svg is the source art; the PNGs are rendered from it) and the GitHub logo
 javascript/load-guard.js       Tiny ES5 guard: "still loading" / "part of this page didn't load" notes with a Reload button
 javascript/archive-worker.js   Web Worker: compresses / decompresses the archive and builds insight summaries off the main thread
 javascript/sw-register.js      Registers the service worker and offers "New version ready — Reload"
+javascript/nav-menu.js        The phone Menu: folds the top bar's controls and adds a "Jump to" list below 680 px
+javascript/dev-mode.js        Dev-site marker (banner, [DEV] title, dev icon, dev-repo link); loaded by appearance-core.js on the dev URL only
 javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
 javascript/storage.js          localStorage persistence helpers
 javascript/appearance-core.js  Look data (presets, validation) + applies the saved look; loaded in the <head>, before the stylesheet
@@ -147,7 +150,9 @@ node tools/build.js --check    # change nothing; exit 1 if dist/ is out of date 
 
 Commit `dist/` and `sw.js` with your change — GitHub Pages serves them as they are. The test runner rebuilds them first and the `build` suite fails if they were stale, so forgetting is caught. (The order of files in each bundle is in `tools/build.js`: classic scripts share one scope, so order matters.)
 
-**The service worker** caches the app after the first visit so return visits are instant on any connection and the app works offline. It is **off on `localhost`** (so edits are never hidden behind a cache) unless you run `localStorage.setItem('wtSessionReadout.enableServiceWorkerLocally','true')` in the console. A new version installs quietly and waits; the page shows "A new version is ready — Reload" and nothing changes mid-session. It only touches caches starting `wt-tool-dev-`.
+**The service worker** caches the app after the first visit so return visits are instant on any connection and the app works offline. It is **off on `localhost`** (so edits are never hidden behind a cache) unless you run `localStorage.setItem('wtSessionReadout.enableServiceWorkerLocally','true')` in the console. A new version installs quietly and waits; the page shows "A new version is ready — Reload" and nothing changes mid-session. It only touches its own site's caches (`wt-tool-` on the stable site, `wt-tool-dev-` on the dev site), so the two never clean up each other.
+
+**Stable and dev are told apart by the URL, not by the files.** Both sites live on one origin (`apoloxdragon.github.io`), so a browser would share their storage. `WT_DEV` (in `javascript/appearance-core.js`) is true when the path contains `/WT-Tool-Dev/`; merging Dev into main therefore cannot turn the stable site into the dev one, or the reverse. The dev site uses its own `localStorage` keys (`wtSessionReadoutDev.…`), IndexedDB database (`wtSessionReadoutDev`) and service-worker caches, and adds a banner, a `[DEV]` tab title, a red-cornered icon and a link to the dev repo (`javascript/dev-mode.js`, which only the dev site loads). Stable keeps the original names, so saved data stays put. To move data between them, use the raw export / import in the Advanced view.
 
 ## License
 

@@ -15,10 +15,11 @@
 const VERSION = '__VERSION__';
 const PRECACHE = __PRECACHE__;
 
-const PREFIX = 'wt-tool-dev-';
+const SCOPE_PATH = new URL('./', self.location.href).pathname;
+// The dev site (/WT-Tool-Dev/) and the stable site share this origin's cache storage: each gets its own prefix.
+const PREFIX = /\/WT-Tool-Dev\//i.test(SCOPE_PATH) ? 'wt-tool-dev-' : 'wt-tool-';
 const SHELL = PREFIX + 'shell-' + VERSION;   // the app, one immutable set per version
 const EXAMPLES = PREFIX + 'examples';        // the sample logs, kept after the first time they are fetched
-const SCOPE_PATH = new URL('./', self.location.href).pathname;
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {

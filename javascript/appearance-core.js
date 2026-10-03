@@ -72,7 +72,12 @@ function cleanColours(obj) {
 
 
 /* ----- what is saved ----- */
-const APPEARANCE_STORAGE_PREFIX = 'wtSessionReadout.'; // same prefix as storage.js
+// Dev (/WT-Tool-Dev/) and stable (/WarThunder-Tool/) share an origin, so storage is split by URL, not by branch
+// contents: merging Dev into main can't change which site is which. Stable keeps the original names.
+const WT_DEV = /\/WT-Tool-Dev(\/|$)/i.test(location.pathname);
+const WT_STORE = WT_DEV ? 'wtSessionReadoutDev' : 'wtSessionReadout';
+if (WT_DEV) document.head.append(Object.assign(document.createElement('script'), { src: 'javascript/dev-mode.js' })); // banner, [DEV] title, dev icon
+const APPEARANCE_STORAGE_PREFIX = WT_STORE + '.'; // same prefix as storage.js
 function readSavedSetting(key) {
   try {
     const raw = localStorage.getItem(APPEARANCE_STORAGE_PREFIX + key);

@@ -437,13 +437,9 @@ el('importRawFile').addEventListener('change', async (e) => {
 });
 
 /* ---------- Duplicate cleanup ---------- */
-// The archive keeps one record per Session ID, so it can't hold duplicates. They can pile up in the
-// saved pasted-text session (the struck-through rows in the Basic view) and in imported summaries
-// that the saved text also contains. The first copy of each match is kept; nothing else is touched.
-
-// Removes every match whose Session ID already appeared earlier in the text, keeping the first copy, any
-// text before the first match, and every match without a Session ID. Uses parseLog's own header and
-// Session ID patterns (parser.js), so what remains is exactly what parseLog would keep.
+// The archive has one record per Session ID, so duplicates live only in the saved pasted text and in imported
+// summaries it already contains. The first copy of each match stays; nothing else is touched.
+// dedupeLogText uses parseLog's own header / Session ID patterns, so what remains is what parseLog would keep.
 function dedupeLogText(text) {
   text = capLines(text.replace(/\r\n/g, '\n'));
   const headerRegex = new RegExp(LOG_HEADER.source, 'g');

@@ -112,7 +112,7 @@ function sanitizeMatchList(v) {
 // Wrapped in try/catch since localStorage can throw (private browsing,
 // disabled storage, quota exceeded) — persistence is a nice-to-have,
 // never something the rest of the app should crash over.
-const STORAGE_PREFIX = 'wtSessionReadout.';
+const STORAGE_PREFIX = WT_STORE + '.'; // WT_STORE: appearance-core.js (different on the dev site)
 
 function saveState(key, value) {
   try {
@@ -759,9 +759,10 @@ const WtWorker = (() => {
 })();
 
 const WtDB = (() => {
-  const DB_NAME = 'wtSessionReadout-dev';
+  // Stable keeps its historical name (renaming would orphan saved archives); the dev site gets its own database.
+  const DB_NAME = WT_DEV ? 'wtSessionReadoutDev' : 'wtSessionReadout-dev';
   const STORE = 'raw';
-  const LS_PREFIX = 'wtSessionReadout.raw.';
+  const LS_PREFIX = WT_STORE + '.raw.';
   let dbPromise = null;
   let backend = null; // 'idb' | 'ls' | 'none', decided on first open
 
@@ -1262,9 +1263,7 @@ function summaryOf(m) {
 
 const RP_NAME_CHAR = /[A-Za-z0-9À-ÿ'".\-() ]/;
 
-// A finished vehicle's line can read "EMBT(Germany): 5016 RP + earned in the previous battles: 15474 RP".
-// The second figure is RP banked toward that same vehicle in earlier battles. It is real progress on the
-// target, so it is added to the vehicle's own entry (20,490 here) rather than listed as a target of its own.
+// "Vehicle: 5016 RP + earned in the previous battles: 15474 RP": the second figure is progress on that same vehicle, so it joins its entry.
 const CARRIED_OVER = /^earned in the previous battles$/i;
 
 // Lines like "Leopard 2K: 5163 RP". The name is the run of allowed characters
@@ -1294,7 +1293,6 @@ function parseRpLines(section) {
 const LOG_HEADER = /(Victory|Defeat) in the \[([^\]\n]{1,200})\][^\S\n]+(.+?)[^\S\n]+mission!/;
 const SESSION_ID = /Session:\s*([a-f0-9]{1,64})/i;
 
-// (dedupeLogText, which uses these two patterns, lives in advanced.js: only the Advanced view needs it.)
 
 function parseLog(text) {
   text = capLines(text.replace(/\r\n/g, '\n'));
