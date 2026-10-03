@@ -26,6 +26,8 @@ Everything runs locally in the browser — no server, no account, no data leaves
 **Dev preview:** https://apoloxdragon.github.io/WT-Tool-Dev/ (this branch, unstable)
 **Stable release:** https://apoloxdragon.github.io/WarThunder-Tool/
 
+> **Curious about what's coming next?** In-progress changes are tried out in the [WT-Tool-Dev repo](https://github.com/ApoloxDragon/WT-Tool-Dev) first (live preview: https://apoloxdragon.github.io/WT-Tool-Dev/). It's the unstable development version, so expect rough edges — this page is the stable release.
+
 ## Usage
 
 Open `wt-log-analyzer.html` in a browser (or use one of the demos above). Keep it in the same folder as `css/`, `javascript/` and `dist/` if running locally — it loads its stylesheet and scripts as relative paths. (Opened straight from disk with `file://`, everything works except loading the example data, the offline cache and background compression (it falls back to the main thread); a local web server avoids all three.)
