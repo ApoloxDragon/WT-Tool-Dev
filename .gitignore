@@ -1,3 +1,4 @@
 tests/results/*.log
 tests/results/.tmp-*
 tests/results/probe*
+example data/generated/

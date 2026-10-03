@@ -49,7 +49,7 @@ const TUTORIAL_STEPS = {
       hiddenText: 'Once the archive has matches, insights by map, vehicle and event type appear here.',
       text: 'Stats across the whole archive: results by map, time and kills per vehicle, and which kinds of events earn the most SL and RP. Vehicle and event tables only use matches with stored detail.' },
     { target: '#storageSection', title: '5 · Storage and backups',
-      text: 'Shows how much the archive uses and how well it compresses. “Export raw” downloads the original match text (.json.gz is the smallest) — re-importing it rebuilds everything, even as the tool improves. You can also import plain log text, or delete the whole archive. Remember: it lives only in this browser, so back it up.' },
+      text: 'Shows how much the archive uses and how well it compresses. “Export raw” downloads the original match text (.json.gz is the smallest) — re-importing it rebuilds everything, even as the tool improves. You can also import plain log text, clear duplicate matches from your saved session, or delete the whole archive. Remember: it lives only in this browser, so back it up.' },
     { target: '#colourBtn', title: '6 · Colours',
       text: 'The swatches next to this button are eight colour presets; “Customise…” opens the full colour, font and text-size panel. Your look is shared with the Basic view.' },
     { target: '#basicLink', title: '7 · Back to Basic',
@@ -155,6 +155,8 @@ const Tutorial = (() => {
   function show(i) {
     const step = state.steps[i];
     state.i = i;
+    // On a phone the top bar's controls live in a menu: open it for a step that points inside it.
+    if (typeof WtMenu !== 'undefined') WtMenu.sync(step.target);
     const target = step.target ? document.querySelector(step.target) : null;
     const visible = isShown(target);
 
@@ -183,6 +185,7 @@ const Tutorial = (() => {
     window.removeEventListener('resize', state.onReflow);
     window.removeEventListener('scroll', state.onReflow, true);
     Object.values(state.nodes).forEach(n => n.remove());
+    if (typeof WtMenu !== 'undefined') WtMenu.close();
     const opener = state.opener;
     state = null;
     if (opener && opener.focus) opener.focus({ preventScroll: true });

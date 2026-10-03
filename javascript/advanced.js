@@ -427,6 +427,38 @@ el('importRawFile').addEventListener('change', async (e) => {
   e.target.value = '';
 });
 
+/* ---------- Duplicate cleanup ---------- */
+// The archive keeps one record per Session ID, so it can't hold duplicates. They can pile up in the
+// saved pasted-text session (the struck-through rows in the Basic view) and in imported summaries
+// that the saved text also contains. The first copy of each match is kept; nothing else is touched.
+function findDuplicates() {
+  const savedText = loadState('inputText', '', v => (typeof v === 'string' ? v : undefined));
+  const deduped = dedupeLogText(savedText);
+  const inText = new Set(parseLog(deduped.text).map(m => m.sessionId));
+  const seen = new Set();
+  const imported = loadState('importedMatches', [], sanitizeMatchList);
+  const keptImported = imported.filter(m => {
+    if (!m.sessionId || m.sessionId.startsWith('noid-')) return true;
+    if (inText.has(m.sessionId) || seen.has(m.sessionId)) return false;
+    seen.add(m.sessionId);
+    return true;
+  });
+  return { text: deduped.text, textRemoved: deduped.removed, imported: keptImported, importedRemoved: imported.length - keptImported.length };
+}
+
+el('dedupeBtn').addEventListener('click', async () => {
+  const msg = el('storageMsg');
+  const d = findDuplicates();
+  const total = d.textRemoved + d.importedRemoved;
+  if (!total) { msg.textContent = 'No duplicate matches found in your saved session or imported matches. (The archive keeps one copy per Session ID, so it never holds duplicates.)'; return; }
+  const parts = [d.textRemoved ? `${d.textRemoved} from your saved session text` : '', d.importedRemoved ? `${d.importedRemoved} from your imported matches` : ''].filter(Boolean).join(' and ');
+  if (!confirm(`Delete ${total} duplicate match(es) — ${parts}? The first copy of each match is kept. This cannot be undone.`)) return;
+  if (d.textRemoved) saveState('inputText', d.text);
+  if (d.importedRemoved) saveState('importedMatches', d.imported);
+  msg.textContent = `Deleted ${total} duplicate match(es): ${parts}. The first copy of each was kept.`;
+  await refreshAll();
+});
+
 el('deleteArchiveBtn').addEventListener('click', async () => {
   const n = (await WtDB.ids()).length;
   if (!n) { el('storageMsg').textContent = 'The archive is already empty.'; return; }

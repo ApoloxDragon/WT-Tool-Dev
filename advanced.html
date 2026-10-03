@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="advanced">
+<div class="dev-banner">⚠ Development build — testing in progress, not guaranteed stable. <a href="https://apoloxdragon.github.io/WarThunder-Tool/">Use the stable version</a> for reliable results.</div>
 <div class="wrap">
 
   <div class="topbar">
@@ -20,7 +21,7 @@
     <div class="theme-picker" id="themePicker">
       <a class="view-link" id="basicLink" href="wt-log-analyzer.html" title="Go back to the regular view">← Basic view</a>
       <button type="button" class="tut-btn" id="tutorialBtn" title="Step-by-step guide to this page">? Tutorial</button>
-      <a class="github-link" href="https://github.com/ApoloxDragon/WarThunder-Tool" target="_blank" rel="noopener" title="View source on GitHub" aria-label="View source on GitHub">
+      <a class="github-link" href="https://github.com/ApoloxDragon/WT-Tool-Dev" target="_blank" rel="noopener" title="View source on GitHub" aria-label="View source on GitHub">
         <span class="github-logo-mask"></span>
       </a>
       <label>Theme</label>
@@ -97,6 +98,7 @@
         <button class="secondary" id="exportRawJson">Export raw (.json)</button>
         <button class="secondary" id="importRawBtn">Import raw / log file</button>
         <input type="file" id="importRawFile" accept=".json,.gz,.txt" style="display:none;">
+        <button class="secondary" id="dedupeBtn" title="Delete repeated matches (same Session ID) from your saved session and imported matches, keeping the first copy of each">Clear duplicate matches</button>
         <button class="secondary danger" id="deleteArchiveBtn">Delete entire archive</button>
       </div>
       <div class="note" id="storageMsg" style="margin-top:8px;"></div>
@@ -120,6 +122,7 @@
 <script src="javascript/math.js"></script>
 <script src="javascript/advanced.js"></script>
 <script src="javascript/appearance-panel.js"></script>
+<script src="javascript/nav-menu.js"></script>
 <script src="javascript/tutorial.js"></script>
 </body>
 </html>

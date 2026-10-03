@@ -1,5 +1,9 @@
 # WT Session Readout
 
+> ⚠️ **Development version.** This is the `Dev` branch — used for testing in-progress changes before they reach the stable release. Features here may be incomplete, broken, or change without notice, and data-affecting bugs are more likely than on the stable version. For the stable release, use [the main branch / production site](https://apoloxdragon.github.io/WarThunder-Tool/) instead.
+>
+> **Stable Branch** located on the [War Thunder tool Stable](https://github.com/ApoloxDragon/WarThunder-Tool) repo
+
 ## AI disclosure
 
 This project was built with the assistance of Claude (Anthropic). Code changes — including the parsing logic, bug fixes, and this README — were written collaboratively with Claude rather than entirely by hand.
@@ -14,17 +18,19 @@ A single-page, client-side tool for analyzing pasted War Thunder match-log text.
 - Run a goal calculator estimating how many matches you need to hit an RP or SL target, based on your actual win/loss averages
 - Import/export session data so you can carry progress across multiple paste sessions
 - Save every analyzed match (compressed, in your browser) so the **Advanced view** can show a full per-match breakdown, cross-match insights and storage tools
+- Fit a phone: below 680 px wide the top bar's controls fold into a **Menu** button, which also lists the page's sections to jump to
 - Walk you through all of it with a built-in step-by-step tutorial (opens on your first visit; reopen any time from **? Tutorial**)
 
 Everything runs locally in the browser — no server, no build step, no account, no data leaves your machine (except when you explicitly export a file). The match archive is stored in your browser only (IndexedDB) and is never uploaded.
 
-**Live demo:** https://apoloxdragon.github.io/WarThunder-Tool/
+**Dev preview:** https://apoloxdragon.github.io/WT-Tool-Dev/ (this branch, unstable)
+**Stable release:** https://apoloxdragon.github.io/WarThunder-Tool/
 
 > **Curious about what's coming next?** In-progress changes are tried out in the [WT-Tool-Dev repo](https://github.com/ApoloxDragon/WT-Tool-Dev) first (live preview: https://apoloxdragon.github.io/WT-Tool-Dev/). It's the unstable development version, so expect rough edges — this page is the stable release.
 
 ## Usage
 
-Open `wt-log-analyzer.html` in a browser (or use the live demo above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads `css/styles.css` and `javascript/app.js` as relative paths.
+Open `wt-log-analyzer.html` in a browser (or use one of the demos above). Keep it in the same folder as `css/` and `javascript/` if running locally — it loads its stylesheet and scripts as relative paths.
 
 Paste one or more match reports — from "Victory/Defeat in the [Mode] ... mission!" through the "Session:" and "Total:" lines — into the text box and click **Analyze**. No local data? Click **Load Example Data** to try it with the sample log in `example data/matches.txt` (this only works on a server/hosted page, not when the file is opened directly from disk, since browsers block that fetch over `file://`).
 
@@ -57,7 +63,7 @@ Open it with **Advanced view →** in the top bar (`advanced.html`); **← Basic
 - **Library** — every archived match, with search, battle-type / win-loss filters, sorting, and totals for the current filter.
 - **Match detail** — click a row marked ● to see net and earned SL, repair / ammo / respawn costs, a per-vehicle table, every scoring event (time, vehicle, weapon, target, SL and RP — hover an amount for its base / premium / booster split), flat rewards, research progress, used items and the raw log text. You can copy the raw text, export just that match, or delete it. Rows marked ○ are summary-only (they came from a minimal export or HTML report, which don't contain the original text).
 - **Insights** — results by map, time / kills per vehicle, and which event types earn the most SL and RP.
-- **Storage** — archive size and compression, browser quota, backup status, raw export / import, and delete-all.
+- **Storage** — archive size and compression, browser quota, backup status, raw export / import, **Clear duplicate matches** (removes repeats, same Session ID, from your saved session and imported matches, keeping the first copy), and delete-all.
 
 ### Local storage
 

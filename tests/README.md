@@ -14,6 +14,24 @@ node tests/run.js --scale small                                    # smaller per
 A static server and headless browser are started automatically; every test runs in a fresh browser
 context, so storage always starts empty.
 
+## Fake match logs (stress testing)
+
+`tests/generate-matches.js` makes War Thunder-style logs of any size, so stress data never has to be written by hand.
+Each match is random but typical (win rate, mode mix, missions, which sections appear and how the SL / RP figures
+add up are modelled on the real example logs), and the same `--seed` always gives the same file. Everything is
+labelled fake: a banner above the first match and Session IDs that all start `fade`.
+
+```
+node tests/generate-matches.js --count 10000 --out "example data/generated/fake-10k-matches.txt"
+node tests/generate-matches.js --count 500 --dupes 0.1 --seed 5 --crlf --out fake.txt   # 10% repeated matches, CRLF
+node tests/generate-matches.js --help
+```
+
+`--dupes F` adds `F × count` repeats of earlier matches (like overlapping pastes). Generated files are big, so
+`example data/generated/` is git-ignored: generate them when you need them. The invariants suite always includes a
+400-match generated log; `WT_FAKE_COUNT=10000 node tests/run.js --only invariants` adds a 10,000-match one
+(PowerShell: `$env:WT_FAKE_COUNT=10000` first).
+
 ## What gets recorded
 
 | kind | meaning | compared between runs |
@@ -34,6 +52,7 @@ context, so storage always starts empty.
 | `appearance` | the eight presets, the Customise panel, every colour role, readability rules, fonts and sizes, saved presets (names, limits), preset files, tampered settings, reports |
 | `flash` | a saved look is in place before the first paint on every view (Basic, Advanced, the redirect page), with the late script slowed down; no fade from the default |
 | `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
+| `menu` | the phone Menu: on a 390 px screen the top bar folds behind a Menu button (no sideways scrolling, tap targets, jump-to list, Escape / outside tap, swatches, Customise, view switch, the tutorial opening it for steps inside it, resizing to desktop); on a wide screen, and with JavaScript off, the top bar is unchanged |
 | `invariants` | **size-agnostic**: no check names a match count. An independent oracle (`oracle()` in `fixtures.js`) works the expected matches, duplicates, win rate, SL and RP out of each log's raw text; the app's parser, Analyze tables, archive, exports, re-imports and Advanced library must agree. Runs on both real example files (`matches.txt`, `matches-large.txt`) plus 1, 2, 37 and 1,001 synthetic matches, one match pasted 50 times, a log pasted twice, reversed block order, CRLF endings and junk between matches. Any example file added to the list in `datasets()` gets the same checks. |
 | `perf` | parse, archive, Analyze and Advanced-view timings at 200 / 2,000 / 6,000 matches |
 

@@ -3,6 +3,12 @@ const { newPage } = require('../harness');
 
 const DESKTOP = { width: 1100, height: 800 }, PHONE = { width: 390, height: 780 };
 
+// Clicks a control in the top bar. On a phone those live behind the Menu button, so open it first if it is closed.
+async function tap(p, sel) {
+  if (!(await p.isVisible('#themePicker')) && (await p.isVisible('#menuBtn'))) await p.click('#menuBtn');
+  await p.click(sel);
+}
+
 // Steps through a whole tour with the keyboard, checking every card stays on screen and clear of its spotlight.
 async function walk(t, p, key, label) {
   const n = await p.evaluate(k => TUTORIAL_STEPS[k].length, key);
@@ -37,11 +43,11 @@ exports.run = async ({ browser, base, t }) => {
     t.check(`${vpName}: the Basic tour closes after "Done"`, !(await p.$('.tut-card')));
     await p.reload(); await p.waitForTimeout(900);
     t.check(`${vpName}: …and does not open again by itself`, !(await p.$('.tut-card')));
-    await p.click('#tutorialBtn'); await p.waitForSelector('.tut-card');
+    await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card');
     await p.keyboard.press('Escape'); t.check(`${vpName}: Esc closes it`, !(await p.$('.tut-card')));
-    await p.click('#tutorialBtn'); await p.waitForSelector('.tut-card'); await p.mouse.click(4, 4);
+    await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card'); await p.mouse.click(4, 4);
     t.check(`${vpName}: clicking outside closes it`, !(await p.$('.tut-card')));
-    await p.click('#tutorialBtn'); await p.waitForSelector('.tut-card');
+    await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card');
     for (let i = 0; i < 6; i++) await p.keyboard.press('Tab');
     t.check(`${vpName}: Tab stays inside the dialog`, await p.evaluate(() => document.querySelector('.tut-card').contains(document.activeElement)));
     await p.keyboard.press('Escape');
@@ -61,7 +67,7 @@ exports.run = async ({ browser, base, t }) => {
     // ---- the colour tour: opt-in only
     p = await newPage(browser, { viewport });
     await p.goto(base + 'wt-log-analyzer.html');
-    await p.click('#colourBtn'); await p.waitForSelector('#colourPanel:not([hidden])'); await p.waitForTimeout(900);
+    await tap(p, '#colourBtn'); await p.waitForSelector('#colourPanel:not([hidden])'); await p.waitForTimeout(900);
     t.check(`${vpName}: opening the colour panel never starts a tour by itself`, !(await p.$('.tut-card')));
     await p.click('#cpHelp'); await p.waitForSelector('.tut-card');
     const texts = await p.evaluate(() => TUTORIAL_STEPS.colours.map(s => s.text).join(' '));

@@ -42,10 +42,35 @@ function parseRpLines(section) {
   return out;
 }
 
+// [^\S\n] = any whitespace except a newline, so a header never spans lines.
+const LOG_HEADER = /(Victory|Defeat) in the \[([^\]\n]{1,200})\][^\S\n]+(.+?)[^\S\n]+mission!/;
+const SESSION_ID = /Session:\s*([a-f0-9]{1,64})/i;
+
+// Removes every match whose Session ID already appeared earlier in the text. The first copy of each
+// match stays, as do text before the first match and every match without a Session ID. Uses the same
+// header and Session ID patterns as parseLog, so what remains is exactly what parseLog would keep.
+function dedupeLogText(text) {
+  text = capLines(text.replace(/\r\n/g, '\n'));
+  const headerRegex = new RegExp(LOG_HEADER.source, 'g');
+  const starts = [];
+  let m;
+  while ((m = headerRegex.exec(text)) !== null) starts.push(m.index);
+  if (!starts.length) return { text, removed: 0 };
+  const seen = new Set();
+  let out = text.slice(0, starts[0]), removed = 0;
+  starts.forEach((start, i) => {
+    const block = text.slice(start, i + 1 < starts.length ? starts[i + 1] : text.length);
+    const sm = block.match(SESSION_ID);
+    if (sm && seen.has(sm[1])) { removed++; return; }
+    if (sm) seen.add(sm[1]);
+    out += block;
+  });
+  return { text: out, removed };
+}
+
 function parseLog(text) {
   text = capLines(text.replace(/\r\n/g, '\n'));
-  // [^\S\n] = any whitespace except a newline, so a header never spans lines.
-  const headerRegex = /(Victory|Defeat) in the \[([^\]\n]{1,200})\][^\S\n]+(.+?)[^\S\n]+mission!/g;
+  const headerRegex = new RegExp(LOG_HEADER.source, 'g');
   const headers = [];
   let m;
   while ((m = headerRegex.exec(text)) !== null) {
@@ -58,7 +83,7 @@ function parseLog(text) {
     const end = i + 1 < headers.length ? headers[i + 1].index : text.length;
     const block = text.slice(start, end);
 
-    const sessionMatch = block.match(/Session:\s*([a-f0-9]{1,64})/i);
+    const sessionMatch = block.match(SESSION_ID);
     const sessionId = sessionMatch ? sessionMatch[1] : ('noid-' + i);
 
     const timeMatch = block.match(/Time Played\s+(\d{1,6}):(\d{1,2})/);
