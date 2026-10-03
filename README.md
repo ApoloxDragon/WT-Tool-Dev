@@ -103,7 +103,7 @@ advanced.html                  Advanced view markup
 css/styles.css                 Styling (both views)
 dist/app-basic.js              GENERATED bundle: the whole Basic view (do not edit; see Development)
 dist/app-advanced.js           GENERATED bundle: the whole Advanced view
-dist/extras.js                 GENERATED bundle: colour panel, tutorials, service-worker registration (loaded after the core)
+dist/extras.js                 GENERATED bundle: colour panel, phone menu, tutorials, service-worker registration (loaded after the core)
 sw.js                          GENERATED service worker (offline use, instant return visits)
 tools/build.js                 The build: concatenates javascript/ into dist/, stamps ?v= hashes, writes sw.js
 tools/sw.template.js           Source of the service worker
@@ -111,7 +111,6 @@ assets/                        Tab / touch icons (icon.svg is the source art; th
 javascript/load-guard.js       Tiny ES5 guard: "still loading" / "part of this page didn't load" notes with a Reload button
 javascript/archive-worker.js   Web Worker: compresses / decompresses the archive and builds insight summaries off the main thread
 javascript/sw-register.js      Registers the service worker and offers "New version ready — Reload"
-javascript/nav-menu.js        The phone Menu: folds the top bar's controls and adds a "Jump to" list below 680 px
 javascript/dev-mode.js        Dev-site marker (banner, [DEV] title, dev icon, dev-repo link); loaded by appearance-core.js on the dev URL only
 javascript/util.js             Shared helpers: HTML escaping, limits, input sanitising (loaded first)
 javascript/storage.js          localStorage persistence helpers
@@ -128,6 +127,7 @@ javascript/import-export.js    File import + HTML/JSON export (Basic view)
 javascript/main.js             App state, analyze() orchestration (Basic view)
 javascript/advanced.js         Library, match detail, insights, storage panel (Advanced view)
 javascript/appearance-panel.js  The Customise panel (colours, font, text size, my presets)
+javascript/nav-menu.js         Phone menu: folds the top bar behind a Menu button on narrow screens, with jump-to-section links
 javascript/tutorial.js         Step-by-step tutorials (both views + the colour panel)
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
 docs/                          Design notes (colour customisation)
