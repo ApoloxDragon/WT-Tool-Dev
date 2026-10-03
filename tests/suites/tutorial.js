@@ -45,6 +45,7 @@ exports.run = async ({ browser, base, t }) => {
     t.check(`${vpName}: …and does not open again by itself`, !(await p.$('.tut-card')));
     await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card');
     await p.keyboard.press('Escape'); t.check(`${vpName}: Esc closes it`, !(await p.$('.tut-card')));
+    t.check(`${vpName}: the temporary scroll room the tour adds is gone once it ends`, await p.evaluate(() => document.body.style.paddingBottom === ''));
     await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card'); await p.mouse.click(4, 4);
     t.check(`${vpName}: clicking outside closes it`, !(await p.$('.tut-card')));
     await tap(p, '#tutorialBtn'); await p.waitForSelector('.tut-card');

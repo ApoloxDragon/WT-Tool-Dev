@@ -184,17 +184,6 @@ button.secondary:hover { color: var(--text); border-color: var(--accent); }
   display: none;
 }
 
-.dev-banner {
-  background: var(--loss);
-  color: var(--on-loss, #fff);
-  text-align: center;
-  font-size: 0.78125rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 8px 12px;
-}
-.dev-banner a { color: var(--on-loss, #fff); }
-
 .section { margin-top: 30px; }
 .section-title {
   color: var(--accent);
@@ -421,7 +410,7 @@ details.rules-toggle summary {
 @media print {
   html { font-size: 16px; } /* printing ignores the text-size setting */
   body { background: #fff; color: #111; padding: 0; }
-  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle, .dev-banner, #goalCalcSection { display: none !important; }
+  .topbar .theme-picker, textarea, .controls, .warn, .rules-toggle, #goalCalcSection { display: none !important; }
   /* Every color/background in this app is normally a CSS custom property tuned
      for the dark theme (light text, dark panels). None of that is safe to print
      as-is — light-on-white is invisible. Force everything in .wrap to safe

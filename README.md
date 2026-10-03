@@ -1,9 +1,5 @@
 # WT Session Readout
 
-> ⚠️ **Development version.** This is the `Dev` branch — used for testing in-progress changes before they reach the stable release. Features here may be incomplete, broken, or change without notice, and data-affecting bugs are more likely than on the stable version. For the stable release, use [the main branch / production site](https://apoloxdragon.github.io/WarThunder-Tool/) instead.
->
-> **Stable Branch** located on the [War Thunder tool Stable](https://github.com/ApoloxDragon/WarThunder-Tool) repo
-
 ## AI disclosure
 
 This project was built with the assistance of Claude (Anthropic). Code changes — including the parsing logic, bug fixes, and this README — were written collaboratively with Claude rather than entirely by hand.
@@ -23,8 +19,7 @@ A single-page, client-side tool for analyzing pasted War Thunder match-log text.
 
 Everything runs locally in the browser — no server, no build step, no account, no data leaves your machine (except when you explicitly export a file). The match archive is stored in your browser only (IndexedDB) and is never uploaded.
 
-**Dev preview:** https://apoloxdragon.github.io/WT-Tool-Dev/ (this branch, unstable)
-**Stable release:** https://apoloxdragon.github.io/WarThunder-Tool/
+**Live demo:** https://apoloxdragon.github.io/WarThunder-Tool/
 
 > **Curious about what's coming next?** In-progress changes are tried out in the [WT-Tool-Dev repo](https://github.com/ApoloxDragon/WT-Tool-Dev) first (live preview: https://apoloxdragon.github.io/WT-Tool-Dev/). It's the unstable development version, so expect rough edges — this page is the stable release.
 
