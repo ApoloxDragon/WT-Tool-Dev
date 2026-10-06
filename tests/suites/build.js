@@ -55,4 +55,19 @@ exports.run = async ({ t, distStale = [] }) => {
     t.check(`${page}: the core bundle is under 32 KB gzipped (it gates being usable)`, gz(read('dist/' + CORE[page])) < 32 * 1024, (gz(read('dist/' + CORE[page])) / 1024).toFixed(1) + ' KB');
   }
   t.check('the deferred extras are under 14 KB gzipped', gz(read('dist/extras.js')) < 14 * 1024);
+
+  /* ---------- documentation ---------- */
+  t.scope('build › documentation (docs/)');
+  const docs = require('../../tools/build-docs');
+  const dir = path.join(ROOT, 'docs'), html = read('docs/index.html');
+  t.check('docs/index.html matches a fresh build of the Markdown pages (run `node tools/build-docs.js` and commit it)', html === docs.build());
+  const mds = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
+  t.check('every Markdown page in docs/ is in the docs page, and every listed page exists', mds.every(f => docs.PAGES.some(([n]) => n === f)) && docs.PAGES.every(([n]) => mds.includes(n)), mds.filter(f => !docs.PAGES.some(([n]) => n === f)).join(', '));
+  t.check('the docs page has no scripts, no inline handlers and no external resources (it only serves documentation)', !/<script|\son\w+=|<iframe|<img|<link/i.test(html));
+  const ids = new Set([...html.matchAll(/id="([^"]+)"/g)].map(m => m[1]));
+  const broken = [...html.matchAll(/href="#([^"]*)"/g)].map(m => m[1]).filter(h => h && !ids.has(h));
+  t.check('every link inside the docs page lands somewhere', broken.length === 0, [...new Set(broken)].join(', '));
+  const mdLinks = mds.flatMap(f => [...fs.readFileSync(path.join(dir, f), 'utf8').matchAll(/\]\(([\w.-]+\.md)(?:#[^)]*)?\)/g)].map(m => [f, m[1]])).filter(([, to]) => !mds.includes(to));
+  t.check('every link between Markdown pages points at a page that exists', mdLinks.length === 0, mdLinks.map(x => x.join(' -> ')).join(', '));
+  t.check('the docs mention nothing the app does not have: no leftover "TODO" or "TBD"', !/\bTODO\b|\bTBD\b/.test(mds.map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n')));
 };

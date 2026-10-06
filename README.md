@@ -94,6 +94,10 @@ The tool reads text you paste or import, so nothing from a log or file is truste
 - **Names that look like code.** Lookups keyed by names from logs use prototype-free maps, so a map or vehicle called `constructor` is just a name.
 - **Nothing leaves your device.** The pages make no network requests beyond loading their own files (and the optional example data).
 
+## Documentation
+
+Full user documentation — getting started, every feature, tips and tricks, troubleshooting, privacy, how it works — is in [docs/](docs/README.md). For a single page with a sidebar open `docs/index.html` (on the hosted site: the `docs/` address next to the app). It is generated from the Markdown pages with `node tools/build-docs.js`; the test suite fails if it is out of date.
+
 ## Tests
 
 `tests/` holds a Playwright-based suite (parser, Basic view, Advanced view, storage, security, colours, theme flash, offline, build, performance) plus a **pre-change baseline** recorded before the security and performance work, and a comparison report of the current code against it. See [tests/README.md](tests/README.md). The app itself stays dependency-free.
@@ -131,7 +135,8 @@ javascript/appearance-panel.js  The Customise panel (colours, font, text size, m
 javascript/nav-menu.js         Phone menu: folds the top bar behind a Menu button on narrow screens, with jump-to-section links
 javascript/tutorial.js         Step-by-step tutorials (both views + the colour panel)
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
-docs/                          Design notes (colour customisation)
+docs/                          User documentation (Markdown pages + generated single-page index.html) and the colour design record
+tools/build-docs.js            Builds docs/index.html from the Markdown pages
 example data/                  Sample logs and exports for testing:
                                  matches.txt                    raw match-log text (84 matches)
                                  wt-session-data.json           minimal export (summaries only)
