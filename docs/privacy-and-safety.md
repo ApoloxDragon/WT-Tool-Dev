@@ -1,6 +1,8 @@
 # Privacy and safety
 
 ## Your data stays with you
+This is a project rule, not just a current fact: see [Project rules](project-rules.md). It is checked by automated tests and enforced by the pages' security policy.
+
 - **Nothing is uploaded.** Pasted logs, your archive, your settings and your exports are processed and stored entirely inside your browser. The site has no account system and no server that receives your data.
 - **No tracking.** The pages make no network requests except to load their own files (and the optional example data).
 - **You decide what leaves.** Data only leaves your device when you deliberately save an export file and share it yourself.
@@ -42,6 +44,12 @@ These exist so a damaged or hostile file can't freeze or fill your browser. Real
 | Characters kept per name, mission or category | 200 |
 | Research targets kept per match | 50 |
 | Saved colour presets | 20 by default, up to 100 |
+
+## Sample data
+The sample logs in the repository come from the project owner, Apolox, from their own matches — not from other players. See [Project rules](project-rules.md#sample-data).
+
+## More on how security is built
+See [Security practices](security-practices.md) for the protections, their known limits and the owner's checklist.
 
 ## Good habits
 - Keep a raw backup ([Backups, import and export](backups-import-export.md)).

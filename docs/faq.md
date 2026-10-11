@@ -16,6 +16,12 @@ Fixes for specific problems are in [Troubleshooting](troubleshooting.md). This p
 
 **Which should I use?** Stable if you want the most reliable experience; Dev if you want newer features and don't mind occasional rough edges. Back up either with **Export Raw**.
 
+**Is it written by AI?** Largely, yes — under the owner's guidance, review and corrections, and held to the same rules as any other code. See [Project rules](project-rules.md#ai-generated-content).
+
+**Where does the sample data come from?** From the project owner, Apolox — their own matches. See [Project rules](project-rules.md#sample-data).
+
+**Does the site send anything anywhere?** No. Everything is processed in your browser and nothing leaves your device unless you export a file yourself ([Project rules](project-rules.md)).
+
 ## About your data
 
 **Where is my data?** Only in your browser on this device. See [Where your data goes](data-lifecycle.md).

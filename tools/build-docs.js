@@ -35,6 +35,8 @@ const PAGES = [
   ['troubleshooting.md', 'Troubleshooting'],
   ['limitations.md', 'What the site does not do'],
   ['privacy-and-safety.md', 'Privacy and safety'],
+  ['project-rules.md', 'Project rules'],
+  ['security-practices.md', 'Security practices'],
   ['how-it-works.md', 'How it works'],
   ['glossary.md', 'Glossary'],
   ['colour-customisation.md', 'Design record: colours'],
@@ -126,7 +128,7 @@ function build() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <title>WT Session Readout — Documentation</title>

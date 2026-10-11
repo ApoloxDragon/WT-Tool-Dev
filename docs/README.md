@@ -26,7 +26,7 @@ Welcome. **WT Session Readout** turns the match logs you copy out of War Thunder
 | Fix something that looks wrong | [Troubleshooting](troubleshooting.md) |
 | Get quick answers | [Frequently asked questions](faq.md) |
 | Know what the site can't do | [What the site does not do](limitations.md) |
-| Know what happens to your data | [Privacy and safety](privacy-and-safety.md) |
+| Know what happens to your data | [Privacy and safety](privacy-and-safety.md), [Project rules](project-rules.md), [Security practices](security-practices.md) |
 | See the big picture of how it works | [How it works](how-it-works.md) |
 | Look up a word | [Glossary](glossary.md) |
 

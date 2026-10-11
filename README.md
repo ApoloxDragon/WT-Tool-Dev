@@ -6,7 +6,19 @@
 
 ## AI disclosure
 
-This project was built with the assistance of Claude (Anthropic). Code changes — including the parsing logic, bug fixes, and this README — were written collaboratively with Claude rather than entirely by hand.
+This project is written almost entirely by AI (primarily Claude, by Anthropic), under the owner's guidance, review and corrections. That is intentional: **AI-written code is welcome here** — it is held to the same rules as any other contribution (see below), and the owner, Apolox, decides what ships. AI assistants working on the repository should read [AGENTS.md](AGENTS.md); contributors should read [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Project rules
+
+- **Everything stays client-side.** All processing happens in your browser. There is no server, account, analytics, tracking, third-party script, font or CDN. **Nothing leaves your device** unless you click an export button and save a file yourself. The only requests the site makes are for its own files and the sample data; the GitHub logo in the top bar is just a link. This is checked by automated tests (the `clientside` suite) and enforced by the pages' Content-Security-Policy.
+- **All text is untrusted.** Logs, imports and saved settings are escaped, validated and size-limited.
+- **No runtime dependencies.** Plain HTML, CSS and JavaScript.
+- **Tests are never skipped or weakened to get green.**
+- **No invented facts:** no made-up game rules, numbers or sources.
+- **Sample data is the owner's.** The files in `example data/` come from **Apolox** (the project owner), from their own War Thunder matches; they are not anyone else's data. See [example data/README.md](example%20data/README.md).
+- **Security reports:** privately, as described in [SECURITY.md](SECURITY.md). How security is built in: [docs/security-practices.md](docs/security-practices.md).
+
+War Thunder and its names belong to their respective owners; this project is independent and unofficial.
 
 ## What it is
 
@@ -134,10 +146,12 @@ javascript/advanced.js         Library, match detail, insights, storage panel (A
 javascript/appearance-panel.js  The Customise panel (colours, font, text size, my presets)
 javascript/nav-menu.js         Phone menu: folds the top bar behind a Menu button on narrow screens, with jump-to-section links
 javascript/tutorial.js         Step-by-step tutorials (both views + the colour panel)
+AGENTS.md, CLAUDE.md           Guidance for AI agents working on the repository
+CONTRIBUTING.md, SECURITY.md   How to contribute; how to report a security issue
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
 docs/                          User documentation (Markdown pages + generated single-page index.html) and the colour design record
 tools/build-docs.js            Builds docs/index.html from the Markdown pages
-example data/                  Sample logs and exports for testing:
+example data/                  Sample logs and exports for testing (all from the project owner, Apolox):
                                  matches.txt                    raw match-log text (84 matches)
                                  wt-session-data.json           minimal export (summaries only)
                                  wt-session-report-*.html       HTML report export (201 matches, summaries only)

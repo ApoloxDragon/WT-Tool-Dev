@@ -49,6 +49,7 @@ node tests/generate-matches.js --help
 | `advanced` | library, filters, match detail, insights, storage panel, raw round trips |
 | `storage` | the compressed archive, damaged records, localStorage fallback, no-storage mode |
 | `security` | CSP, HTML injection through every input route, name collisions, malformed / tampered data, size limits |
+| `clientside` | the **client-side-only rule**: while both views are really used (paste, export, import, colours, tours, print) every request, fetch, beacon, socket and image is same-origin; hostile logs can't cause a request; no page loads anything external; no source file can use cross-site, powerful-device or code-from-string APIs; every page and the exported report carry a deny-by-default Content-Security-Policy |
 | `appearance` | the eight presets, the Customise panel, every colour role, readability rules, fonts and sizes, saved presets (names, limits), preset files, tampered settings, reports |
 | `flash` | a saved look is in place before the first paint on every view (Basic, Advanced, the redirect page), with the late script slowed down; no fade from the default |
 | `tutorial` | the main tours and the colour tour on desktop and phone: placement, keyboard, opt-in behaviour |
