@@ -10,14 +10,22 @@ Welcome. **WT Session Readout** turns the match logs you copy out of War Thunder
 |---|---|
 | Use the site for the first time | [Getting started](getting-started.md) |
 | Understand what the log text is and where each number comes from | [Reading your logs](reading-your-logs.md) |
+| Understand the ideas behind the numbers | [Key concepts](concepts.md) |
+| Follow a worked example with real numbers | [Walkthrough: your first session](first-session-walkthrough.md) |
 | Learn every part of the main page | [The Basic view](basic-view.md) |
-| Dig into one match, compare maps and vehicles, manage storage | [The Advanced view](advanced-view.md) |
-| Back up, move or restore your data | [Backups, import and export](backups-import-export.md) |
+| Estimate how many matches a goal needs | [The goal calculator in depth](goal-calculator-guide.md) |
+| Group matches by game mode | [Battle-type categories](categories-guide.md) |
+| Dig into one match, compare maps and vehicles, manage storage | [The Advanced view](advanced-view.md), [Reading a match's detail](match-detail-guide.md), [Insights explained](insights-guide.md) |
+| Back up, move or restore your data | [Backups, import and export](backups-import-export.md), [Where your data goes](data-lifecycle.md) |
 | Change colours, fonts and text size | [Colours and text](colours-and-text.md) |
 | Use it on a phone, offline, or on a slow connection | [Phone, offline and slow devices](phone-offline-and-slow-devices.md) |
 | Follow the in-app guided tours | [The guided tours](tutorials.md) |
-| Get more out of it | [Tips and tricks](tips-and-tricks.md) |
-| Fix something that looks wrong | [Troubleshooting and FAQ](troubleshooting.md) |
+| Get more out of it | [Recipes: how do I…?](recipes.md), [Tips and tricks](tips-and-tricks.md) |
+| Look up any control | [Controls reference](controls-reference.md) |
+| Use it with accessibility needs | [Accessibility](accessibility.md) |
+| Fix something that looks wrong | [Troubleshooting](troubleshooting.md) |
+| Get quick answers | [Frequently asked questions](faq.md) |
+| Know what the site can't do | [What the site does not do](limitations.md) |
 | Know what happens to your data | [Privacy and safety](privacy-and-safety.md) |
 | See the big picture of how it works | [How it works](how-it-works.md) |
 | Look up a word | [Glossary](glossary.md) |

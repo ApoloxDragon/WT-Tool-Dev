@@ -24,6 +24,8 @@ Every match you analyze is also **saved, compressed, in your browser** (a small 
 **Important:** because the archive lives only in your browser, clearing your browser's site data deletes it. Use **Export Raw** now and then as a backup — see [Backups, import and export](backups-import-export.md).
 
 ## 5. Next steps
+- See a worked example with real numbers: [Walkthrough: your first session](first-session-walkthrough.md).
+- Learn the ideas behind the figures: [Key concepts](concepts.md).
 - Try the **goal calculator** to see how many matches a research goal needs: [The Basic view](basic-view.md#goal-calculator).
 - Click **Advanced view →** to open a single match in detail.
 - Pick a colour theme with the swatches in the top bar.

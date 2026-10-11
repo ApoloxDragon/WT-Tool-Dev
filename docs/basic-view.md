@@ -28,6 +28,8 @@ Small notes under the buttons report what happened (for example how many matches
 If some pasted matches repeat (same Session ID), a warning says how many were left out of the totals. See [Reading your logs](reading-your-logs.md#session-ids-and-duplicates).
 
 ## Battle-type categories
+*Full guide: [Battle-type categories in depth](categories-guide.md).*
+
 Open **Battle-type categories** to see and edit the rules that put each match in a category.
 
 - A rule is a **keyword** (looked for in the match's mode name) and a **label** (the category name to show).
@@ -44,6 +46,8 @@ Four tiles: **Matches** (unique matches counted), **Win rate**, **Total net SL**
 One row per category: matches, wins/losses, win percentage, total net SL, average SL per win and per loss, and total RP.
 
 ### Goal calculator
+*In-depth guide with worked arithmetic: [The goal calculator in depth](goal-calculator-guide.md).*
+
 Estimates how many matches you need to reach a goal, using *your own* averages.
 
 1. **Load averages from** — choose a battle type (or **All Combined**). Win rate, average win/loss RP and average win/loss SL are filled in from your data. You can edit any of them to ask "what if".
@@ -77,4 +81,4 @@ For very large sessions the table first shows the first **200** rows; use **Show
 If you would rather save ink, switch to a light preset such as **Daylight** before printing. For a file you can share, **Export HTML** makes a standalone report.
 
 ## Session text is remembered
-What you pasted is remembered in your browser, so refreshing the page does not lose it. **Clear** forgets it.
+What you pasted is remembered in your browser, and so are matches you imported from summary files. When you reopen the page it analyzes them again automatically, so your results are back without clicking anything. **Clear** forgets the pasted text and the imported summaries (your archive is not touched).

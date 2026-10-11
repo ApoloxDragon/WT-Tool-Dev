@@ -32,15 +32,27 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <nav aria-label="Documentation pages"><div class="brand">WT Session Readout</div><div class="sub">Documentation</div>
 <a href="#readme">Overview</a>
 <a href="#getting-started">Getting started</a>
+<a href="#concepts">Key concepts</a>
+<a href="#first-session-walkthrough">Walkthrough: your first session</a>
 <a href="#reading-your-logs">Reading your logs</a>
 <a href="#basic-view">The Basic view</a>
+<a href="#goal-calculator-guide">The goal calculator in depth</a>
+<a href="#categories-guide">Battle-type categories</a>
 <a href="#advanced-view">The Advanced view</a>
+<a href="#match-detail-guide">Reading a match's detail</a>
+<a href="#insights-guide">Insights explained</a>
 <a href="#backups-import-export">Backups, import and export</a>
+<a href="#data-lifecycle">Where your data goes</a>
 <a href="#colours-and-text">Colours and text</a>
 <a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a>
 <a href="#tutorials">The guided tours</a>
+<a href="#recipes">Recipes: how do I…?</a>
 <a href="#tips-and-tricks">Tips and tricks</a>
-<a href="#troubleshooting">Troubleshooting and FAQ</a>
+<a href="#controls-reference">Controls reference</a>
+<a href="#accessibility">Accessibility</a>
+<a href="#faq">Frequently asked questions</a>
+<a href="#troubleshooting">Troubleshooting</a>
+<a href="#limitations">What the site does not do</a>
 <a href="#privacy-and-safety">Privacy and safety</a>
 <a href="#how-it-works">How it works</a>
 <a href="#glossary">Glossary</a>
@@ -53,7 +65,7 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <p>Welcome. <strong>WT Session Readout</strong> turns the match logs you copy out of War Thunder into clear numbers: win rate, Silver Lions (SL), Research Points (RP), what you are researching, and how many matches a goal will take. Everything runs inside your web browser — nothing is uploaded anywhere.</p>
 <blockquote><p>This is the <strong>Development</strong> version of the site. It is where new things are tried before they reach the stable release, so things can change. The documentation describes how this version works today.</p></blockquote>
 <h2 id="readme-start-here">Start here</h2>
-<div class="scroll"><table><thead><tr><th>If you want to…</th><th>Read</th></tr></thead><tbody><tr><td>Use the site for the first time</td><td><a href="#getting-started">Getting started</a></td></tr><tr><td>Understand what the log text is and where each number comes from</td><td><a href="#reading-your-logs">Reading your logs</a></td></tr><tr><td>Learn every part of the main page</td><td><a href="#basic-view">The Basic view</a></td></tr><tr><td>Dig into one match, compare maps and vehicles, manage storage</td><td><a href="#advanced-view">The Advanced view</a></td></tr><tr><td>Back up, move or restore your data</td><td><a href="#backups-import-export">Backups, import and export</a></td></tr><tr><td>Change colours, fonts and text size</td><td><a href="#colours-and-text">Colours and text</a></td></tr><tr><td>Use it on a phone, offline, or on a slow connection</td><td><a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a></td></tr><tr><td>Follow the in-app guided tours</td><td><a href="#tutorials">The guided tours</a></td></tr><tr><td>Get more out of it</td><td><a href="#tips-and-tricks">Tips and tricks</a></td></tr><tr><td>Fix something that looks wrong</td><td><a href="#troubleshooting">Troubleshooting and FAQ</a></td></tr><tr><td>Know what happens to your data</td><td><a href="#privacy-and-safety">Privacy and safety</a></td></tr><tr><td>See the big picture of how it works</td><td><a href="#how-it-works">How it works</a></td></tr><tr><td>Look up a word</td><td><a href="#glossary">Glossary</a></td></tr></tbody></table></div>
+<div class="scroll"><table><thead><tr><th>If you want to…</th><th>Read</th></tr></thead><tbody><tr><td>Use the site for the first time</td><td><a href="#getting-started">Getting started</a></td></tr><tr><td>Understand what the log text is and where each number comes from</td><td><a href="#reading-your-logs">Reading your logs</a></td></tr><tr><td>Understand the ideas behind the numbers</td><td><a href="#concepts">Key concepts</a></td></tr><tr><td>Follow a worked example with real numbers</td><td><a href="#first-session-walkthrough">Walkthrough: your first session</a></td></tr><tr><td>Learn every part of the main page</td><td><a href="#basic-view">The Basic view</a></td></tr><tr><td>Estimate how many matches a goal needs</td><td><a href="#goal-calculator-guide">The goal calculator in depth</a></td></tr><tr><td>Group matches by game mode</td><td><a href="#categories-guide">Battle-type categories</a></td></tr><tr><td>Dig into one match, compare maps and vehicles, manage storage</td><td><a href="#advanced-view">The Advanced view</a>, <a href="#match-detail-guide">Reading a match's detail</a>, <a href="#insights-guide">Insights explained</a></td></tr><tr><td>Back up, move or restore your data</td><td><a href="#backups-import-export">Backups, import and export</a>, <a href="#data-lifecycle">Where your data goes</a></td></tr><tr><td>Change colours, fonts and text size</td><td><a href="#colours-and-text">Colours and text</a></td></tr><tr><td>Use it on a phone, offline, or on a slow connection</td><td><a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a></td></tr><tr><td>Follow the in-app guided tours</td><td><a href="#tutorials">The guided tours</a></td></tr><tr><td>Get more out of it</td><td><a href="#recipes">Recipes: how do I…?</a>, <a href="#tips-and-tricks">Tips and tricks</a></td></tr><tr><td>Look up any control</td><td><a href="#controls-reference">Controls reference</a></td></tr><tr><td>Use it with accessibility needs</td><td><a href="#accessibility">Accessibility</a></td></tr><tr><td>Fix something that looks wrong</td><td><a href="#troubleshooting">Troubleshooting</a></td></tr><tr><td>Get quick answers</td><td><a href="#faq">Frequently asked questions</a></td></tr><tr><td>Know what the site can't do</td><td><a href="#limitations">What the site does not do</a></td></tr><tr><td>Know what happens to your data</td><td><a href="#privacy-and-safety">Privacy and safety</a></td></tr><tr><td>See the big picture of how it works</td><td><a href="#how-it-works">How it works</a></td></tr><tr><td>Look up a word</td><td><a href="#glossary">Glossary</a></td></tr></tbody></table></div>
 <h2 id="readme-reading-these-docs">Reading these docs</h2>
 <ul><li>On GitHub, these pages are plain Markdown files in the <code>docs</code> folder.</li><li>There is also a single-page version with a sidebar: open <strong>index.html</strong> in this folder (on the hosted site it lives at the <code>docs/</code> address next to the app).</li><li>The older page <a href="#colour-customisation">Colour customisation — design record</a> explains <em>why</em> the colour system works the way it does; it is background reading, not a how-to.</li><li><a href="#draft-docs-link-in-app">Draft: linking the docs from the app</a> is a proposal that has <strong>not</strong> been applied.</li></ul>
 </section>
@@ -73,7 +85,71 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <p>Every match you analyze is also <strong>saved, compressed, in your browser</strong> (a small note under the buttons tells you how many are archived). That saved archive is what the <a href="#advanced-view">Advanced view</a> reads. It stays on this device, in this browser only.</p>
 <p><strong>Important:</strong> because the archive lives only in your browser, clearing your browser's site data deletes it. Use <strong>Export Raw</strong> now and then as a backup — see <a href="#backups-import-export">Backups, import and export</a>.</p>
 <h2 id="getting-started-5-next-steps">5. Next steps</h2>
-<ul><li>Try the <strong>goal calculator</strong> to see how many matches a research goal needs: <a href="#basic-view-goal-calculator">The Basic view</a>.</li><li>Click <strong>Advanced view →</strong> to open a single match in detail.</li><li>Pick a colour theme with the swatches in the top bar.</li><li>Read <a href="#tips-and-tricks">Tips and tricks</a>.</li></ul>
+<ul><li>See a worked example with real numbers: <a href="#first-session-walkthrough">Walkthrough: your first session</a>.</li><li>Learn the ideas behind the figures: <a href="#concepts">Key concepts</a>.</li><li>Try the <strong>goal calculator</strong> to see how many matches a research goal needs: <a href="#basic-view-goal-calculator">The Basic view</a>.</li><li>Click <strong>Advanced view →</strong> to open a single match in detail.</li><li>Pick a colour theme with the swatches in the top bar.</li><li>Read <a href="#tips-and-tricks">Tips and tricks</a>.</li></ul>
+</section>
+<section>
+<h1 id="concepts">Key concepts</h1>
+<p>This page explains the ideas behind the numbers, so every screen makes sense. It describes what the <em>site</em> does with your logs; for game rules themselves, the game is the authority.</p>
+<h2 id="concepts-the-match-is-the-unit">The match is the unit</h2>
+<p>Everything starts with <strong>one match report</strong> — the text War Thunder shows for a finished battle. The site reads it into a small record: result (win or loss), battle type, mission, net SL, RP, research targets, time played and a <strong>Session ID</strong>. All totals and averages are built by adding these records up.</p>
+<h2 id="concepts-two-kinds-of-currency">Two kinds of currency</h2>
+<ul><li><strong>SL (Silver Lions)</strong> — money. The site shows <strong>net SL</strong>: what you earned minus what the match cost (repairs, ammunition and crew replenishment, respawns). A match can have a high <em>earned</em> SL and a much lower <em>net</em> SL.</li><li><strong>RP (Research Points)</strong> — what you spend to unlock vehicles and modules. The site counts a match's <strong>CRP</strong> as its RP (see <a href="#reading-your-logs-why-crp-and-not-the-last-rp-figure">Reading your logs</a>).</li></ul>
+<h2 id="concepts-where-rp-goes-new-vehicle-vs-moduleprogress">Where RP goes: new vehicle vs module/progress</h2>
+<p>A match can earn RP toward more than one thing at once. The site keeps them apart:</p>
+<div class="scroll"><table><thead><tr><th>Bucket</th><th>Where you see it</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Research target</strong></td><td><em>RP by research target</em></td><td>RP that went toward unlocking a <strong>whole new vehicle</strong></td></tr><tr><td><strong>Other RP</strong> (module / progress)</td><td><em>Other RP</em> (collapsed)</td><td>RP that went toward <strong>modules and research progress</strong> on a vehicle</td></tr></tbody></table></div>
+<p>They are <strong>not added together</strong>, because the same match performance is credited to both. Seeing a big &quot;Other RP&quot; number does not mean you earned extra — it is a different view of the same earning.</p>
+<h2 id="concepts-net-sl-vs-earned-sl">Net SL vs earned SL</h2>
+<p>The Advanced view's match detail shows both. <strong>Earned SL</strong> is what the match paid out; <strong>net SL</strong> subtracts costs. The totals on the Basic view use <strong>net SL</strong>, because it reflects what you actually gained.</p>
+<h2 id="concepts-wins-losses-and-averages">Wins, losses and averages</h2>
+<p>A match is a <strong>win</strong> (Victory) or a <strong>loss</strong> (Defeat). The site averages SL and RP <strong>separately for wins and for losses</strong> because they are very different. Those four averages (plus your win rate) drive the <a href="#goal-calculator-guide">goal calculator</a>: your expected income per match is the win rate times the average win plus the loss rate times the average loss.</p>
+<h2 id="concepts-battle-types-categories">Battle types (categories)</h2>
+<p>Different modes pay very differently, so mixing them hides the truth. The site splits matches into <strong>battle types</strong> by looking at the mode name. You can define your own groups (<a href="#categories-guide">Battle-type categories</a>).</p>
+<h2 id="concepts-sessions-duplicates-and-the-session-id">Sessions, duplicates and the Session ID</h2>
+<p>Each match report carries a unique <strong>Session ID</strong>. It lets the site recognise a match it has already seen:</p>
+<ul><li>while analyzing, repeats are struck through and left out of every total;</li><li>in the archive, only one copy per Session ID is ever kept.</li></ul>
+<p>A &quot;session&quot; in this site's language is simply <strong>what is in the paste box plus anything you imported</strong> — not a game session.</p>
+<h2 id="concepts-current-session-vs-archive">Current session vs archive</h2>
+<p>There are two places matches can live:</p>
+<div class="scroll"><table><thead><tr><th></th><th>Current session</th><th>Archive</th></tr></thead><tbody><tr><td>What it is</td><td>What is in the paste box, plus any imported summaries</td><td>Every match you have ever analyzed in this browser</td></tr><tr><td>Where it shows</td><td>The <strong>Basic view</strong> results</td><td>The <strong>Advanced view</strong></td></tr><tr><td>Cleared by</td><td><strong>Clear</strong></td><td>Only <strong>Delete entire archive</strong>, deleting single matches, or clearing browser data</td></tr><tr><td>Survives closing the tab</td><td>Yes — the pasted text is remembered and analyzed again when you come back</td><td>Yes</td></tr></tbody></table></div>
+<p>Analyzing adds the session's matches to the archive automatically. See <a href="#data-lifecycle">Where your data goes</a>.</p>
+<h2 id="concepts-detail-vs-summary">Detail vs summary</h2>
+<ul><li>A match with <strong>detail (●)</strong> has its original text stored. The Advanced view can unpack it into vehicles, events, costs and research.</li><li>A match with only a <strong>summary (○)</strong> was imported from a minimal export or HTML report. It still counts in totals, maps and win rates, but has no breakdown.</li></ul>
+<p>Raw exports keep the original text, so they are the only backup that preserves detail.</p>
+<h2 id="concepts-everything-is-local">Everything is local</h2>
+<p>Parsing, counting, compression, storage and colour handling all happen in your browser. There is no account and nothing is sent anywhere. See <a href="#privacy-and-safety">Privacy and safety</a>.</p>
+</section>
+<section>
+<h1 id="first-session-walkthrough">Walkthrough: your first session, with real numbers</h1>
+<p>This page follows the <strong>sample session</strong> that ships with the site, so you can click along and compare. (The numbers below are what the sample produced when this page was written; if the sample file is ever updated, yours may differ slightly.)</p>
+<h2 id="first-session-walkthrough-1-load-the-sample">1. Load the sample</h2>
+<p>Open the Basic view and click <strong>Load Example Data</strong>. The paste box fills with the sample and the page analyzes it.</p>
+<p>You will see a warning: <em>17 duplicate match(es) detected by Session ID and excluded from totals.</em> The sample contains 84 match reports, but 17 are repeats of others — exactly what happens when you paste overlapping history. The site counts each match once: <strong>67 matches</strong>.</p>
+<h2 id="first-session-walkthrough-2-overall">2. Overall</h2>
+<div class="scroll"><table><thead><tr><th>Tile</th><th>Value</th><th>Meaning</th></tr></thead><tbody><tr><td>Matches</td><td>67</td><td>Unique matches counted</td></tr><tr><td>Win rate</td><td>62.7%</td><td>Wins divided by matches</td></tr><tr><td>Total net SL</td><td>1,365,776</td><td>All earnings after costs</td></tr><tr><td>Total RP</td><td>304,022</td><td>Sum of each match's CRP</td></tr></tbody></table></div>
+<h2 id="first-session-walkthrough-3-the-split-by-battle-type">3. The split by battle type</h2>
+<div class="scroll"><table><thead><tr><th>Battle type</th><th>Matches</th><th>W/L</th><th>Win%</th><th>Total net SL</th><th>Avg win SL</th><th>Avg loss SL</th><th>Total RP</th></tr></thead><tbody><tr><td>Random Battles</td><td>28</td><td>9/19</td><td>32.1%</td><td>348,583</td><td>12,811</td><td>12,278</td><td>79,087</td></tr><tr><td>Tank Assault</td><td>39</td><td>33/6</td><td>84.6%</td><td>1,017,193</td><td>30,293</td><td>2,923</td><td>224,935</td></tr></tbody></table></div>
+<p>What to notice:</p>
+<ul><li>The two groups behave <strong>very differently</strong> (a 32% win rate versus 85%). Overall averages hide that, which is why the split exists.</li><li>In Random Battles a win and a loss pay almost the same net SL here, while in Tank Assault a win pays about ten times a loss. That matters for the goal calculator.</li></ul>
+<h2 id="first-session-walkthrough-4-rp-by-research-target">4. RP by research target</h2>
+<p>The biggest targets in the sample:</p>
+<div class="scroll"><table><thead><tr><th>Target</th><th>RP earned</th></tr></thead><tbody><tr><td>Radkampfwagen 90</td><td>138,703</td></tr><tr><td>Begleitpanzer 57</td><td>71,852</td></tr><tr><td>Leopard 2K</td><td>70,652</td></tr><tr><td>T-72M1(Germany)</td><td>26,462</td></tr></tbody></table></div>
+<p>Note that these figures are a <em>different measure</em> from the 304,022 total above (they count RP credited to each research target, not each match's CRP), so don't expect them to add up to it. Open <strong>Other RP</strong> to see module and research progress lines (for example <em>Leopard 2K — Adjustment of Fire</em>, 11,994) — a <strong>separate view</strong> of the same earning, not extra RP. See <a href="#concepts-where-rp-goes-new-vehicle-vs-moduleprogress">Key concepts</a>.</p>
+<h2 id="first-session-walkthrough-5-the-goal-calculator">5. The goal calculator</h2>
+<p>The calculator starts from <strong>All Combined</strong>: win rate 62.7%, average win RP 5,769, average loss RP 2,468, average win SL 26,547, average loss SL 10,033.</p>
+<p>Suppose you still need <strong>60,000 RP</strong> and <strong>300,000 SL</strong>:</p>
+<div class="scroll"><table><thead><tr><th>Result</th><th>Value</th></tr></thead><tbody><tr><td>Expected RP per match</td><td>4,538</td></tr><tr><td>Expected net SL per match</td><td>20,387</td></tr><tr><td>Expected time per match</td><td>14:26</td></tr><tr><td>Matches needed — RP goal</td><td>14</td></tr><tr><td>Matches needed — SL goal</td><td>15</td></tr><tr><td>Headline</td><td><strong>15 matches · SL-bound</strong></td></tr><tr><td>Estimated playtime</td><td>3.6 hours</td></tr></tbody></table></div>
+<p>Turn on <strong>+30% RP Booster</strong> and expected RP rises to 5,899 per match; the RP goal drops to 11 matches. The headline stays at <strong>15</strong> because SL is the slower goal — the booster doesn't help SL. The full explanation, with the arithmetic, is in <a href="#goal-calculator-guide">The goal calculator in depth</a>.</p>
+<h2 id="first-session-walkthrough-6-the-per-match-table">6. The per-match table</h2>
+<p>Scroll to <strong>Per-match detail</strong>. Struck-through rows are the 17 duplicates, with their SL/RP shown as — and the note <em>DUPLICATE — excluded</em>.</p>
+<h2 id="first-session-walkthrough-7-open-the-advanced-view">7. Open the Advanced view</h2>
+<p>Click <strong>Advanced view →</strong>. The sample's matches are now in your archive (the page said so under the buttons). Try:</p>
+<ol><li>Click a row marked <strong>●</strong> to open its breakdown — see <a href="#match-detail-guide">Reading a match's detail</a>.</li><li>Filter to <strong>Victories</strong>, sort by <strong>Most SL</strong>.</li><li>Open <strong>Insights → By map</strong> — see <a href="#insights-guide">Insights explained</a>.</li><li>Look at <strong>Storage</strong>: how many matches, how small the compressed archive is, and whether you have a backup.</li></ol>
+<h2 id="first-session-walkthrough-8-make-a-backup">8. Make a backup</h2>
+<p>In <strong>Storage</strong>, click <strong>Export raw (.json.gz)</strong>. That file is a complete, restorable copy of your archive's original match text. See <a href="#backups-import-export">Backups, import and export</a>.</p>
+<h2 id="first-session-walkthrough-9-make-it-yours">9. Make it yours</h2>
+<p>Click a swatch in the top bar, or <strong>Customise…</strong>, and try Daylight or Crimson. See <a href="#colours-and-text">Colours and text</a>.</p>
+<h2 id="first-session-walkthrough-where-next">Where next</h2>
+<ul><li>The same steps with your own logs: <a href="#getting-started">Getting started</a>.</li><li>Ideas for what to do with the data: <a href="#recipes">Recipes: how do I…?</a>.</li></ul>
 </section>
 <section>
 <h1 id="reading-your-logs">Reading your logs</h1>
@@ -105,6 +181,7 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <h2 id="basic-view-duplicate-warning">Duplicate warning</h2>
 <p>If some pasted matches repeat (same Session ID), a warning says how many were left out of the totals. See <a href="#reading-your-logs-session-ids-and-duplicates">Reading your logs</a>.</p>
 <h2 id="basic-view-battle-type-categories">Battle-type categories</h2>
+<p><em>Full guide: <a href="#categories-guide">Battle-type categories in depth</a>.</em></p>
 <p>Open <strong>Battle-type categories</strong> to see and edit the rules that put each match in a category.</p>
 <ul><li>A rule is a <strong>keyword</strong> (looked for in the match's mode name) and a <strong>label</strong> (the category name to show).</li><li>By default <strong>Tank Assault</strong> has its own category; anything not matched by a rule is <strong>Random Battles</strong>.</li><li>To add one, type a keyword (for example <em>Arcade</em>) and a label (for example <em>Arcade Battles</em>), then <strong>Add rule</strong>. Existing matches are re-sorted next time you Analyze.</li><li>Rules are remembered in your browser.</li></ul>
 <h2 id="basic-view-results">Results</h2>
@@ -113,6 +190,7 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <h3 id="basic-view-battle-type-split">Battle type split</h3>
 <p>One row per category: matches, wins/losses, win percentage, total net SL, average SL per win and per loss, and total RP.</p>
 <h3 id="basic-view-goal-calculator">Goal calculator</h3>
+<p><em>In-depth guide with worked arithmetic: <a href="#goal-calculator-guide">The goal calculator in depth</a>.</em></p>
 <p>Estimates how many matches you need to reach a goal, using <em>your own</em> averages.</p>
 <ol><li><strong>Load averages from</strong> — choose a battle type (or <strong>All Combined</strong>). Win rate, average win/loss RP and average win/loss SL are filled in from your data. You can edit any of them to ask &quot;what if&quot;.</li><li><strong>RP goal remaining</strong> and <strong>SL goal remaining</strong> — type what you still need (either or both).</li><li><strong>+30% RP Booster</strong> — toggle if you use the booster; it multiplies expected RP by 1.3.</li></ol>
 <p>You get: expected RP and net SL per match, expected time per match, matches needed for each goal, and an estimated playtime. The big number is <strong>matches needed for whichever goal takes longer</strong>, labelled <em>RP-bound</em>, <em>SL-bound</em> or <em>tied</em>. Leave a goal empty to ignore it.</p>
@@ -129,7 +207,57 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <ul><li>The printout <strong>keeps your chosen colour theme</strong>.</li><li>Buttons, the paste box and the &quot;show more&quot; row are left out.</li><li><strong>Repeated (duplicate) matches are left out</strong>, just like in the totals.</li><li>Every match is included even if the screen only shows the first 200.</li><li>Text size follows a fixed print size, not your on-screen text-size setting.</li></ul>
 <p>If you would rather save ink, switch to a light preset such as <strong>Daylight</strong> before printing. For a file you can share, <strong>Export HTML</strong> makes a standalone report.</p>
 <h2 id="basic-view-session-text-is-remembered">Session text is remembered</h2>
-<p>What you pasted is remembered in your browser, so refreshing the page does not lose it. <strong>Clear</strong> forgets it.</p>
+<p>What you pasted is remembered in your browser, and so are matches you imported from summary files. When you reopen the page it analyzes them again automatically, so your results are back without clicking anything. <strong>Clear</strong> forgets the pasted text and the imported summaries (your archive is not touched).</p>
+</section>
+<section>
+<h1 id="goal-calculator-guide">The goal calculator in depth</h1>
+<p>The goal calculator answers one question: <strong>&quot;At the rate I actually play, how many more matches until I reach this goal?&quot;</strong> It uses <em>your own</em> averages, so it gets more useful the more matches you have analyzed.</p>
+<h2 id="goal-calculator-guide-the-inputs">The inputs</h2>
+<div class="scroll"><table><thead><tr><th>Field</th><th>What it is</th><th>Where the starting value comes from</th></tr></thead><tbody><tr><td><strong>Load averages from</strong></td><td>Which battle type's averages to use</td><td>A drop-down of your categories plus <strong>All Combined</strong></td></tr><tr><td><strong>Win rate %</strong></td><td>Share of matches you win</td><td>The chosen category's win rate</td></tr><tr><td><strong>Avg win RP / Avg loss RP</strong></td><td>Average RP in a win / in a loss</td><td>The chosen category</td></tr><tr><td><strong>Avg win SL / Avg loss SL</strong></td><td>Average <strong>net</strong> SL in a win / in a loss</td><td>The chosen category</td></tr><tr><td><strong>RP goal remaining</strong></td><td>RP you still need</td><td>You type it</td></tr><tr><td><strong>SL goal remaining</strong></td><td>SL you still need</td><td>You type it</td></tr><tr><td><strong>+30% RP Booster</strong></td><td>Toggle: multiply expected RP by 1.3</td><td>You choose</td></tr></tbody></table></div>
+<p>Every field can be edited after loading. Changing one updates the answer immediately — that is how you ask &quot;what if my win rate were 70%?&quot;.</p>
+<h2 id="goal-calculator-guide-the-arithmetic">The arithmetic</h2>
+<p>Let <em>w</em> be the win rate as a fraction (62.7% → 0.627).</p>
+<ul><li><strong>Expected RP per match</strong> = (<em>w</em> × avg win RP + (1 − <em>w</em>) × avg loss RP), times 1.3 if the booster is on.</li><li><strong>Expected net SL per match</strong> = <em>w</em> × avg win SL + (1 − <em>w</em>) × avg loss SL.</li><li><strong>Expected time per match</strong> = <em>w</em> × average win time + (1 − <em>w</em>) × average loss time.</li><li><strong>Matches needed — RP goal</strong> = RP goal ÷ expected RP, <strong>rounded up</strong>.</li><li><strong>Matches needed — SL goal</strong> = SL goal ÷ expected net SL, <strong>rounded up</strong>.</li><li>The headline <strong>matches needed</strong> is the <strong>larger</strong> of the two (you must satisfy both). It is labelled <strong>RP-bound</strong>, <strong>SL-bound</strong> or <strong>tied</strong>.</li><li><strong>Estimated playtime</strong> = matches needed × expected time per match.</li></ul>
+<h3 id="goal-calculator-guide-worked-example-the-sample-session-all-combined">Worked example (the sample session, All Combined)</h3>
+<p>Win rate 62.7%, avg win RP 5,769, avg loss RP 2,468, avg win SL 26,547, avg loss SL 10,033.</p>
+<ul><li>Expected RP = 0.627 × 5,769 + 0.373 × 2,468 ≈ <strong>4,538</strong></li><li>Expected net SL = 0.627 × 26,547 + 0.373 × 10,033 ≈ <strong>20,387</strong></li><li>Goals 60,000 RP and 300,000 SL: 60,000 ÷ 4,538 = 13.2 → <strong>14</strong>; 300,000 ÷ 20,387 = 14.7 → <strong>15</strong></li><li>Headline: <strong>15 matches, SL-bound</strong>; at 14:26 per match, about <strong>3.6 hours</strong>.</li></ul>
+<p>With the booster: expected RP = 4,538 × 1.3 ≈ <strong>5,899</strong> → 60,000 ÷ 5,899 = 10.2 → <strong>11</strong> RP matches. Headline still <strong>15</strong> (SL).</p>
+<h2 id="goal-calculator-guide-reading-the-result">Reading the result</h2>
+<ul><li><strong>Only one goal filled in?</strong> Leave the other empty. The empty one is ignored and the label follows the one you set.</li><li><strong>A dash (—)</strong> means there isn't enough to compute (no goal entered, or the expected value is zero).</li><li><strong>&quot;Tied&quot;</strong> means both goals take the same number of matches.</li><li><strong>Expected time</strong> needs time data; if your matches have none, time shows as a dash.</li></ul>
+<h2 id="goal-calculator-guide-choosing-the-right-averages">Choosing the right averages</h2>
+<ul><li><strong>Pick the battle type you will actually play.</strong> In the sample, Random Battles and Tank Assault differ hugely; &quot;All Combined&quot; blends them and describes neither.</li><li><strong>Very few matches in a category means shaky averages.</strong> Three matches is an anecdote, not a rate. Edit the fields by hand if you know better.</li><li><strong>The booster is only a toggle for RP.</strong> It does not touch SL or time.</li><li><strong>Vehicle-specific play.</strong> If a vehicle earns very differently from the rest, analyze only logs from it (or filter in the Advanced view) and type the averages in by hand.</li></ul>
+<h2 id="goal-calculator-guide-honest-limits">Honest limits</h2>
+<ul><li>It is an <strong>expectation</strong>, not a promise: real streaks happen.</li><li>It assumes future matches look like past ones — same mode, same vehicles, same habits.</li><li>It does not know about game events, premium status changes, or reward changes between updates.</li><li>Averages are of <strong>net</strong> SL (after costs), so an expensive-to-repair vehicle already lowers them.</li><li>RP uses <strong>CRP</strong> per match (<a href="#reading-your-logs-why-crp-and-not-the-last-rp-figure">why</a>).</li></ul>
+<h2 id="goal-calculator-guide-questions-people-ask">Questions people ask</h2>
+<p><strong>Why does my RP goal say 14 but the headline says 15?</strong> The headline is whichever goal takes longer; here SL does.</p>
+<p><strong>Can I get &quot;hours&quot; for a goal in a particular mode?</strong> Choose that mode in <em>Load averages from</em>; the time estimate uses that mode's average win and loss time.</p>
+<p><strong>Is my goal saved?</strong> Not between visits; the loaded averages follow your data and the goal fields start empty each time.</p>
+</section>
+<section>
+<h1 id="categories-guide">Battle-type categories in depth</h1>
+<p>Different game modes pay differently, so the site groups matches into <strong>battle types</strong> and shows each group's numbers separately. The rules that decide the group are yours to edit.</p>
+<h2 id="categories-guide-how-a-match-gets-its-category">How a match gets its category</h2>
+<ol><li>The site reads the <strong>mode name</strong> from the match headline (the part in square brackets).</li><li>It walks your <strong>rules from top to bottom</strong>. A rule is a <strong>keyword</strong> and a <strong>label</strong>.</li><li>The <strong>first rule whose keyword appears anywhere in the mode name</strong> wins. The comparison ignores upper/lower case, and the keyword only has to be <em>contained</em> in the mode name (it doesn't need to match the whole thing).</li><li>If no rule matches, the match is a <strong>Random Battles</strong> match.</li></ol>
+<p>So a rule with the keyword <em>Assault</em> would catch <em>Tank Assault</em>, <em>Air Assault</em>, or anything else containing the word.</p>
+<h2 id="categories-guide-the-default-rules">The default rules</h2>
+<p>A fresh install has one rule: <strong>Tank Assault → Tank Assault</strong>. Everything else is <em>Random Battles</em>.</p>
+<h2 id="categories-guide-adding-a-rule">Adding a rule</h2>
+<ol><li>Open <strong>Battle-type categories</strong> on the Basic view.</li><li>Type a <strong>keyword</strong> you can see in a mode name (for example <em>Arcade</em>).</li><li>Type the <strong>label</strong> you want to see in tables (for example <em>Arcade Battles</em>).</li><li>Click <strong>Add rule</strong>.</li><li>Click <strong>Analyze</strong> again to re-sort your matches.</li></ol>
+<p>Rules are saved in your browser as you type. Every rule row can be edited in place, and <strong>Remove</strong> deletes it.</p>
+<h3 id="categories-guide-tips-for-good-keywords">Tips for good keywords</h3>
+<ul><li>Use a distinctive word from the mode name, not a whole sentence.</li><li>Check the exact spelling in your logs: the <strong>Per-match detail</strong> table shows each match's mode.</li><li>Keep the label short; it appears in the split table, the goal calculator's drop-down and the Advanced view's filter.</li><li>Two rules may share one label — handy to merge two modes into one group.</li></ul>
+<h2 id="categories-guide-order-matters">Order matters</h2>
+<p>Rules are checked in the order shown, and the first hit wins. If one keyword is contained in another (say <em>Assault</em> and <em>Tank Assault</em>), the earlier rule takes the match. There is no drag-to-reorder: remove and re-add a rule to change its position.</p>
+<h2 id="categories-guide-what-changes-when-you-edit-a-rule">What changes when you edit a rule</h2>
+<ul><li><strong>Basic view:</strong> the next <strong>Analyze</strong> uses the new rules.</li><li><strong>Advanced view:</strong> matches are re-classified when the page is opened or refreshed, using your current rules; the <em>Battle type</em> filter shows the labels in use.</li><li><strong>Saved archive:</strong> your matches are not changed on disk; the category is decided when they are shown.</li><li><strong>Exports:</strong> an HTML report or minimal export records the categories as they were when you exported.</li></ul>
+<h2 id="categories-guide-limits">Limits</h2>
+<ul><li>Up to 100 rules are kept.</li><li>Keywords and labels are cut at 100 characters; text is always displayed safely as plain text.</li><li>Rules live in your browser only and are not part of a raw export — if you move to another device, re-create them (they are short).</li></ul>
+<h2 id="categories-guide-examples">Examples</h2>
+<div class="scroll"><table><thead><tr><th>Goal</th><th>Keyword</th><th>Label</th></tr></thead><tbody><tr><td>Separate Arcade from Realistic</td><td>Arcade</td><td>Arcade Battles</td></tr><tr><td>Group two event modes together</td><td>Event A (and again with Event B)</td><td>Events</td></tr><tr><td>Keep Tank Assault apart (default)</td><td>Tank Assault</td><td>Tank Assault</td></tr></tbody></table></div>
+<h2 id="categories-guide-common-questions">Common questions</h2>
+<p><strong>My new category is empty.</strong> The keyword must appear in the mode name; check spelling and re-Analyze.</p>
+<p><strong>Can I rename a category later?</strong> Yes, edit the label in the rule row and Analyze again.</p>
+<p><strong>Why is everything &quot;Random Battles&quot;?</strong> No rule matched. That is the fallback group by design.</p>
 </section>
 <section>
 <h1 id="advanced-view">The Advanced view</h1>
@@ -140,10 +268,12 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <ul><li><strong>Search</strong> looks in mission, category and target.</li><li><strong>Battle type</strong> and <strong>Win + loss / Victories / Defeats</strong> narrow the list.</li><li><strong>Sort</strong>: newest first, oldest first, most SL, most RP or longest.</li><li><strong>Detail only</strong> shows only matches that have stored detail.</li><li>Totals above the table follow the current filters.</li><li>A <strong>●</strong> marks a match with full detail; a <strong>○</strong> marks a <strong>summary-only</strong> match (it came from a minimal export or an HTML report, which do not contain the original text).</li></ul>
 <p>The table shows the first 500 rows of the current filter, with a way to show all. Searching and filtering never needs to unpack your archive, so it stays quick.</p>
 <h2 id="advanced-view-match-detail">Match detail</h2>
+<p><em>Section-by-section guide: <a href="#match-detail-guide">Reading a match's detail</a>.</em></p>
 <p>Click a ● row to open that match's full breakdown:</p>
 <ul><li>net and earned SL, with repair, ammunition and respawn costs;</li><li>a per-vehicle table;</li><li>every scoring event — time, vehicle, weapon, target, SL and RP (<strong>hover an amount</strong> to see its base, premium-account and booster parts);</li><li>flat rewards, research progress and used items;</li><li>the original log text.</li></ul>
 <p>Buttons let you <strong>copy the raw text</strong>, <strong>export this match</strong> (raw), or <strong>delete it</strong> (it asks first; a deleted match is only recoverable from a raw export). <strong>Esc</strong> or <strong>Close ✕</strong> closes the panel.</p>
 <h2 id="advanced-view-insights">Insights</h2>
+<p><em>Column-by-column guide: <a href="#insights-guide">Insights explained</a>.</em></p>
 <p>Statistics across the whole archive, in three collapsible tables:</p>
 <ul><li><strong>By map</strong> — results per map.</li><li><strong>By vehicle</strong> — time and kills per vehicle.</li><li><strong>Earnings by event type</strong> — which kinds of events earn the most SL and RP.</li></ul>
 <p>The vehicle and event tables only use matches that have stored detail (●). They are filled in when you open them, using small summaries saved with each match, so they appear quickly even for big archives.</p>
@@ -153,6 +283,63 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <p>Summary-only files (minimal export, HTML report) cannot be imported here because they contain no raw text; import those in the Basic view instead.</p>
 <h3 id="advanced-view-where-is-the-archive">Where is the archive?</h3>
 <p>In your browser, on this device only (<a href="#privacy-and-safety">Privacy and safety</a>). If your browser cannot use its main database, a smaller fallback of roughly 5 MB is used, and if nothing works the site keeps working for the current session without saving.</p>
+</section>
+<section>
+<h1 id="match-detail-guide">Reading a match's detail</h1>
+<p>In the Advanced view, clicking a <strong>●</strong> row opens that match's <strong>breakdown</strong>. This page explains every part of it. (A <strong>○</strong> row has no breakdown; see <a href="#concepts-detail-vs-summary">Key concepts</a>.)</p>
+<h2 id="match-detail-guide-the-header">The header</h2>
+<p>A coloured strip at the top gives: <strong>result</strong>, battle type, mode, the <strong>mission</strong> (map), <strong>time played</strong> and the <strong>Session ID</strong>.</p>
+<h2 id="match-detail-guide-the-five-tiles">The five tiles</h2>
+<div class="scroll"><table><thead><tr><th>Tile</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Net SL</strong></td><td>Silver Lions after costs — what the totals use</td></tr><tr><td><strong>Earned SL</strong></td><td>What the match paid out before costs</td></tr><tr><td><strong>Repair / ammo / respawn</strong></td><td>The costs together</td></tr><tr><td><strong>RP (CRP)</strong></td><td>The match's RP as the site counts it</td></tr><tr><td><strong>Activity</strong></td><td>The match's activity percentage, as reported in the log</td></tr></tbody></table></div>
+<p>A dash means the log did not contain that figure.</p>
+<h2 id="match-detail-guide-vehicles">Vehicles</h2>
+<p>One row per vehicle you used:</p>
+<div class="scroll"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Vehicle</strong></td><td>Name. Tags: <strong>damaged</strong> and <strong>backup</strong> when the log flags them</td></tr><tr><td><strong>Time</strong></td><td>Time on that vehicle</td></tr><tr><td><strong>Activity</strong></td><td>Activity percentage for the vehicle</td></tr><tr><td><strong>Activity SL / Activity RP</strong></td><td>SL and RP credited for activity</td></tr><tr><td><strong>Play RP</strong></td><td>RP credited for time played</td></tr><tr><td><strong>Skill bonus RP</strong></td><td>RP from a skill bonus (the skill level is shown in brackets when present)</td></tr></tbody></table></div>
+<p>Dashes mean the log has no figure for that vehicle and column.</p>
+<h2 id="match-detail-guide-events">Events</h2>
+<p>Each kind of scoring event gets a <strong>collapsible section</strong> (for example, one per award type). The heading tells you how many events it holds and their total SL and RP. Open one to see a table; only columns that at least one event uses are shown:</p>
+<p><strong>Time · Award · Vehicle · Weapon · Target · Note · Pts</strong>, then <strong>SL</strong> and <strong>RP</strong>.</p>
+<h3 id="match-detail-guide-the-hover-breakdown">The hover breakdown</h3>
+<p><strong>Hover an SL or RP amount</strong> (it is a tooltip, so touch screens may not show it) to see how it is made: <strong>base</strong>, plus <strong>premium account</strong>, plus <strong>booster</strong> when those apply. This is the quickest way to see what a premium account or booster added to a single event.</p>
+<h2 id="match-detail-guide-flat-rewards--costs">Flat rewards &amp; costs</h2>
+<p>Rewards that are not tied to individual events (as listed in the log), then the three cost lines: <strong>Automatic repair</strong>, <strong>Ammo &amp; crew replenishment</strong> and <strong>Respawns in battle</strong>.</p>
+<h2 id="match-detail-guide-research">Research</h2>
+<p>A table of what the match's RP went toward: <strong>New vehicle</strong> targets and <strong>Module / progress</strong> items, each with RP. These are the same two buckets as on the Basic view (<a href="#concepts-where-rp-goes-new-vehicle-vs-moduleprogress">Key concepts</a>).</p>
+<h2 id="match-detail-guide-used-items">Used items</h2>
+<p>Consumables and other items listed in the log, shown as plain text when present.</p>
+<h2 id="match-detail-guide-lines-werent-recognised">&quot;Lines weren't recognised&quot;</h2>
+<p>If some lines could not be understood, a yellow note says how many. Nothing is lost: the lines are still in the raw text. This usually means the game wording changed; the rest of the breakdown is still valid.</p>
+<h2 id="match-detail-guide-raw-log-text">Raw log text</h2>
+<p>A collapsible block with the <strong>original text</strong>, always available for ● matches, so you can check any number against the source.</p>
+<h2 id="match-detail-guide-buttons">Buttons</h2>
+<ul><li><strong>Copy raw text</strong> — copies the original text to your clipboard. If your browser blocks clipboard access, select the text by hand.</li><li><strong>Export this match (raw)</strong> — saves just this match as a raw file (re-importable).</li><li><strong>Delete from archive</strong> — removes this match after a confirmation. It cannot be undone unless you have a raw export.</li></ul>
+<h2 id="match-detail-guide-closing">Closing</h2>
+<p><strong>Close ✕</strong> or <strong>Esc</strong>. Opening another row replaces the panel. While a match loads you briefly see <em>Loading…</em>; you never see the previous match's numbers under a new title.</p>
+<h2 id="match-detail-guide-when-the-panel-says-it-cant-read-the-match">When the panel says it can't read the match</h2>
+<p><em>&quot;This match's stored text could not be read&quot;</em> means the stored copy is damaged. Delete it and re-import it from a raw export or the original log.</p>
+</section>
+<section>
+<h1 id="insights-guide">Insights explained</h1>
+<p>The <strong>Insights</strong> section in the Advanced view adds up your whole archive. It has three collapsible tables. The heading shows the scope, for example <em>— 67 matches, 67 with stored detail</em>.</p>
+<h2 id="insights-guide-by-map">By map</h2>
+<p>One row per <strong>map</strong> (the mission name), most-played first.</p>
+<div class="scroll"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Map</strong></td><td>The mission name</td></tr><tr><td><strong>Matches</strong></td><td>How many matches you played on it</td></tr><tr><td><strong>Win%</strong></td><td>Share of those matches you won</td></tr><tr><td><strong>Avg SL</strong></td><td>Average net SL per match on that map</td></tr><tr><td><strong>Avg RP</strong></td><td>Average RP per match on that map</td></tr></tbody></table></div>
+<p>This table uses <strong>every</strong> archived match, including summary-only ones.</p>
+<p>Use it to see whether some maps are consistently better or worse for you. Small counts (one or two matches) are noise — look at maps you have played several times.</p>
+<h2 id="insights-guide-by-vehicle">By vehicle</h2>
+<p>Only matches with <strong>stored detail</strong> (●) are included. Rows are sorted by time played.</p>
+<div class="scroll"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Vehicle</strong></td><td>Vehicle name</td></tr><tr><td><strong>Matches</strong></td><td>Matches in which you actually played it (spawned-but-never-played entries aren't counted)</td></tr><tr><td><strong>Time played</strong></td><td>Total time on it</td></tr><tr><td><strong>Avg activity</strong></td><td>Average activity percentage over those matches</td></tr><tr><td><strong>Play RP</strong></td><td>Total play RP on it</td></tr><tr><td><strong>Kills</strong></td><td>Total kills credited to it</td></tr></tbody></table></div>
+<p>Use it to see which vehicles you really spend time in and which earn well.</p>
+<h2 id="insights-guide-earnings-by-event-type">Earnings by event type</h2>
+<p>Also from matches with stored detail. Sorted by SL.</p>
+<div class="scroll"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>Event type</strong></td><td>The kind of scoring event</td></tr><tr><td><strong>Events</strong></td><td>How many happened</td></tr><tr><td><strong>SL / RP</strong></td><td>Total SL and RP they earned</td></tr></tbody></table></div>
+<p>This shows what actually earns for you — for example whether kills, assists or other awards dominate.</p>
+<h2 id="insights-guide-when-the-tables-fill-in">When the tables fill in</h2>
+<p>The By-map table is shown straight away. The vehicle and event tables fill in <strong>when you open their section</strong>, and they read small per-match summaries saved with each match, so they are quick even for large archives. If you have older matches saved before those summaries existed, the first open prepares them once (a progress message is shown); after that it is instant.</p>
+<h2 id="insights-guide-what-the-tables-do-not-do">What the tables do not do</h2>
+<ul><li>They always cover the <strong>whole archive</strong>, not the current filter.</li><li>Summary-only matches (○) appear in the map table but not the vehicle or event tables.</li><li>They are totals and averages, not trends over time.</li></ul>
+<h2 id="insights-guide-making-them-more-useful">Making them more useful</h2>
+<ul><li>Keep logs coming in regularly so the numbers settle.</li><li>Import raw exports (not minimal ones) so detail isn't lost.</li><li>Compare maps only after several matches each.</li></ul>
 </section>
 <section>
 <h1 id="backups-import-export">Backups, import and export</h1>
@@ -171,6 +358,22 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <ul><li>Export Raw after a long session, and before clearing browser data, reinstalling or switching devices.</li><li>Keep a couple of dated copies (the file name already includes the date and time).</li><li>After restoring, open the Advanced view's Storage section to confirm the match count.</li></ul>
 <h2 id="backups-import-export-what-clears-your-archive">What clears your archive</h2>
 <p>Clearing your browser's &quot;site data&quot; or &quot;cookies and site data&quot; for this site; using a private/incognito window (it is discarded when closed); or <strong>Delete entire archive</strong>. <strong>Clear</strong> in the Basic view does <em>not</em> touch it.</p>
+</section>
+<section>
+<h1 id="data-lifecycle">Where your data goes</h1>
+<p>Everything the site keeps is in <strong>your browser, on this device</strong>. This page lists exactly what each action does, so nothing surprises you.</p>
+<h2 id="data-lifecycle-the-places-data-lives">The places data lives</h2>
+<div class="scroll"><table><thead><tr><th>Place</th><th>Holds</th><th>Cleared by</th></tr></thead><tbody><tr><td><strong>The paste box</strong></td><td>The text you pasted — remembered, and analyzed again automatically when you reopen the page</td><td><strong>Clear</strong>, or you edit it</td></tr><tr><td><strong>Imported summaries</strong></td><td>Matches loaded from a minimal export or HTML report (no original text). Remembered and shown in both views</td><td><strong>Clear</strong> (Basic view), or <strong>Clear duplicate matches</strong> for repeats</td></tr><tr><td><strong>The results on screen</strong></td><td>Totals computed from the paste box plus the imported summaries; rebuilt each time the page opens</td><td><strong>Clear</strong></td></tr><tr><td><strong>The archive</strong></td><td>The original text of every match you analyzed, compressed, plus small summaries</td><td><strong>Delete entire archive</strong>, deleting single matches, clearing browser data</td></tr><tr><td><strong>Settings</strong></td><td>Battle-type rules, colours, font, text size, saved presets, tour &quot;seen&quot; flags</td><td>Clearing browser data, or Reset buttons for colours</td></tr><tr><td><strong>Offline copy of the site</strong></td><td>The site's own files</td><td>Clearing browser data</td></tr></tbody></table></div>
+<h2 id="data-lifecycle-what-each-action-does">What each action does</h2>
+<div class="scroll"><table><thead><tr><th>Action</th><th>Paste box</th><th>On-screen results</th><th>Archive</th><th>Settings</th></tr></thead><tbody><tr><td><strong>Analyze</strong></td><td>kept</td><td>recomputed</td><td>adds new matches (existing ones skipped)</td><td>—</td></tr><tr><td><strong>Clear</strong></td><td>emptied (and forgotten)</td><td>cleared, imported summaries forgotten</td><td><strong>untouched</strong></td><td>—</td></tr><tr><td><strong>Load Example Data</strong></td><td>replaced with the sample</td><td>recomputed</td><td>adds the sample's matches</td><td>—</td></tr><tr><td><strong>Import Report</strong> (Basic)</td><td>—</td><td>adds the imported matches</td><td>raw files add their matches; summary files are remembered as imported summaries (○)</td><td>—</td></tr><tr><td><strong>Import raw / log file</strong> (Advanced)</td><td>—</td><td>—</td><td>adds new matches</td><td>—</td></tr><tr><td><strong>Export HTML / Minimal / Raw</strong></td><td>—</td><td>—</td><td>— (reads only)</td><td>—</td></tr><tr><td><strong>Clear duplicate matches</strong></td><td>—</td><td>—</td><td>removes repeats, keeps first</td><td>—</td></tr><tr><td><strong>Delete from archive</strong> (one match)</td><td>—</td><td>—</td><td>removes that match</td><td>—</td></tr><tr><td><strong>Delete entire archive</strong></td><td>—</td><td>—</td><td><strong>empties it</strong></td><td>—</td></tr><tr><td><strong>Reset everything to default</strong> (colours)</td><td>—</td><td>—</td><td>—</td><td>colours/font/size reset; presets kept</td></tr><tr><td>Changing a category rule</td><td>—</td><td>next Analyze</td><td>not changed</td><td>rules saved</td></tr></tbody></table></div>
+<h2 id="data-lifecycle-the-browser-can-clear-things-too">The browser can clear things too</h2>
+<ul><li><strong>Site data cleared</strong> (in browser settings, or by a &quot;clean-up&quot; app): archive and settings go.</li><li><strong>Private or incognito windows</strong> start empty and forget everything on close.</li><li><strong>Low storage on the device</strong>: browsers may evict site data in rare cases; the Advanced view's Storage section says when your data is protected from this.</li><li><strong>Different address, different data.</strong> The stable and Dev sites, and <code>localhost</code>, each have their own archive.</li></ul>
+<h2 id="data-lifecycle-safe-keeping-checklist">Safe-keeping checklist</h2>
+<ol><li>After a long session: <strong>Export Raw</strong>.</li><li>Before clearing browser data, changing phones, or resetting a browser: <strong>Export Raw</strong>.</li><li>Keep at least one old backup as well as the newest.</li><li>Check the Advanced view's Storage note: it tells you when your last backup was and how many matches were added since.</li></ol>
+<h2 id="data-lifecycle-restoring">Restoring</h2>
+<p>Use <strong>Import Report</strong> or <strong>Import raw / log file</strong> with a raw export. Matches already present are skipped; the rest are added. Colour presets and category rules are separate; see <a href="#colours-and-text">Colours and text</a> and <a href="#categories-guide">Battle-type categories</a>.</p>
+<h2 id="data-lifecycle-what-is-never-stored">What is never stored</h2>
+<p>Nothing is sent to a server. Names in your logs appear only in your browser (and in files you choose to export).</p>
 </section>
 <section>
 <h1 id="colours-and-text">Colours and text</h1>
@@ -248,6 +451,56 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <ul><li>If you skipped a tour by accident, just reopen it.</li><li>Tours are remembered per view in your browser. Clearing site data makes them appear again as if it were your first visit.</li></ul>
 </section>
 <section>
+<h1 id="recipes">Recipes: how do I…?</h1>
+<p>Short, practical answers. Each ends with where to read more.</p>
+<h2 id="recipes-see-how-my-session-went">…see how my session went?</h2>
+<p>Paste the logs, click <strong>Analyze</strong>, read <strong>Overall</strong> and <strong>Battle type split</strong>. → <a href="#getting-started">Getting started</a></p>
+<h2 id="recipes-find-out-how-long-until-i-unlock-a-vehicle">…find out how long until I unlock a vehicle?</h2>
+<p>Analyze some recent matches, open the <strong>Goal calculator</strong>, choose the battle type you play, type the <strong>RP goal remaining</strong> (what the game shows you still need) and read <strong>matches needed</strong> and <strong>estimated playtime</strong>. Toggle <strong>+30% RP Booster</strong> if you use one. → <a href="#goal-calculator-guide">The goal calculator in depth</a></p>
+<h2 id="recipes-compare-two-game-modes">…compare two game modes?</h2>
+<p>Add a rule for each mode in <strong>Battle-type categories</strong>, click <strong>Analyze</strong>, and compare their rows in the split table (win rate, average win/loss SL, total RP). → <a href="#categories-guide">Battle-type categories</a></p>
+<h2 id="recipes-see-which-maps-are-bad-for-me">…see which maps are bad for me?</h2>
+<p>Advanced view → <strong>Insights → By map</strong>. Judge maps you've played several times. → <a href="#insights-guide">Insights explained</a></p>
+<h2 id="recipes-see-which-vehicle-earns-best">…see which vehicle earns best?</h2>
+<p>Advanced view → <strong>Insights → By vehicle</strong> for time, play RP and kills; open individual matches to see per-vehicle activity. → <a href="#match-detail-guide">Reading a match's detail</a></p>
+<h2 id="recipes-check-one-particular-match">…check one particular match?</h2>
+<p>Advanced view → search the mission or target, click the <strong>●</strong> row. Open the <strong>raw log text</strong> to verify any figure. → <a href="#match-detail-guide">Reading a match's detail</a></p>
+<h2 id="recipes-find-my-best-or-worst-matches">…find my best (or worst) matches?</h2>
+<p>Advanced view → <strong>Sort</strong> by <em>Most SL</em>, <em>Most RP</em> or <em>Longest</em>, optionally filter to <em>Victories</em> or <em>Defeats</em>.</p>
+<h2 id="recipes-find-out-what-a-premium-account-or-booster-added">…find out what a premium account or booster added?</h2>
+<p>Open a match, expand an event section, and <strong>hover an SL/RP amount</strong> for the base + premium + booster parts.</p>
+<h2 id="recipes-avoid-double-counting-when-i-paste-the-same-matches-twice">…avoid double-counting when I paste the same matches twice?</h2>
+<p>You don't need to do anything: repeats are recognised by Session ID and left out. If a match has no readable Session ID, paste it only once. → <a href="#reading-your-logs-session-ids-and-duplicates">Reading your logs</a></p>
+<h2 id="recipes-keep-a-long-history-safely">…keep a long history safely?</h2>
+<p>Analyze regularly (it saves automatically) and <strong>Export Raw</strong> now and then. → <a href="#backups-import-export">Backups, import and export</a></p>
+<h2 id="recipes-move-everything-to-a-new-phone-or-computer">…move everything to a new phone or computer?</h2>
+<p><strong>Export Raw</strong> on the old device, copy the file across, then <strong>Import Report</strong> (Basic) or <strong>Import raw / log file</strong> (Advanced) on the new one. Re-create your category rules, and export/import your colour presets if you made any. → <a href="#data-lifecycle">Where your data goes</a></p>
+<h2 id="recipes-share-my-results-with-a-friend">…share my results with a friend?</h2>
+<p>Use <strong>Export HTML</strong> for a standalone, themed report of the current session (unique matches only). It contains your results, so share it only with people you want to see them. For the numbers only, use <strong>Print / Save PDF</strong>.</p>
+<h2 id="recipes-print-or-save-a-pdf">…print or save a PDF?</h2>
+<p>Click <strong>Analyze</strong>, then <strong>Print / Save PDF</strong>, and choose <em>Save as PDF</em> as the destination. The printout keeps your theme and leaves out duplicates. → <a href="#basic-view-printing-and-save-as-pdf">The Basic view</a></p>
+<h2 id="recipes-clean-out-repeated-matches-that-slipped-in">…clean out repeated matches that slipped in?</h2>
+<p>Advanced view → <strong>Storage → Clear duplicate matches</strong>. It keeps the first copy of each.</p>
+<h2 id="recipes-delete-just-one-match">…delete just one match?</h2>
+<p>Advanced view → open it → <strong>Delete from archive</strong>.</p>
+<h2 id="recipes-start-completely-fresh">…start completely fresh?</h2>
+<p>Back up first (<strong>Export Raw</strong>), then Advanced view → <strong>Delete entire archive</strong>. In the Basic view also click <strong>Clear</strong>.</p>
+<h2 id="recipes-read-it-comfortably-on-my-phone">…read it comfortably on my phone?</h2>
+<p>Use the <strong>Menu</strong> button for jump links, raise <strong>Text size</strong> in <strong>Customise…</strong>, and choose a high-contrast preset. → <a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a></p>
+<h2 id="recipes-use-it-with-no-internet">…use it with no internet?</h2>
+<p>Visit once while online; after that the site works offline. → <a href="#phone-offline-and-slow-devices-offline-use">Phone, offline and slow devices</a></p>
+<h2 id="recipes-make-it-match-my-taste">…make it match my taste?</h2>
+<p>Pick a swatch, or <strong>Customise…</strong> to change all nine colours, the font and text size, and save your own presets. → <a href="#colours-and-text">Colours and text</a></p>
+<h2 id="recipes-restore-after-clearing-my-browser">…restore after clearing my browser?</h2>
+<p>Import your latest raw export. Re-create category rules and re-import colour presets. → <a href="#backups-import-export">Backups, import and export</a></p>
+<h2 id="recipes-check-that-my-backup-is-current">…check that my backup is current?</h2>
+<p>Advanced view → Storage: the note under the tiles says when you last exported and how many matches have been added since.</p>
+<h2 id="recipes-tell-whether-a-match-has-detail">…tell whether a match has detail?</h2>
+<p>In the Advanced view's library, <strong>●</strong> has detail and <strong>○</strong> is summary-only.</p>
+<h2 id="recipes-get-a-tour-again">…get a tour again?</h2>
+<p><strong>? Tutorial</strong> in the top bar (or <strong>? How this works</strong> in the colour panel). → <a href="#tutorials">The guided tours</a></p>
+</section>
+<section>
 <h1 id="tips-and-tricks">Tips and tricks</h1>
 <h2 id="tips-and-tricks-pasting">Pasting</h2>
 <ul><li><strong>Paste a lot at once.</strong> There is no need to do one match at a time; paste a whole stretch of history.</li><li><strong>Overlap is safe.</strong> Pasting the same matches again never double-counts them — repeats are matched by Session ID.</li><li><strong>Paste each match once if it has no Session ID.</strong> Matches without a readable ID can't be recognised as repeats.</li><li><strong>Paste, Analyze, Clear, repeat.</strong> The archive keeps every match you analyze, so you can clear the box between sessions without losing history.</li></ul>
@@ -263,6 +516,95 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <ul><li><strong>Clear the paste box</strong> after analyzing a very large log (the archive keeps the matches).</li><li><strong>Use &quot;Show all&quot;</strong> in the Basic table only when you need to scroll everything; the first 200 rows are usually enough.</li><li><strong>Visit once while online</strong>: after that, every later visit is instant and works offline (<a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a>).</li></ul>
 <h2 id="tips-and-tricks-keyboard">Keyboard</h2>
 <ul><li><strong>Esc</strong> closes the tour, the Customise panel, the phone menu and the match-detail panel.</li><li><strong>← →</strong> move through the tour steps.</li><li>Buttons, swatches and table rows can all be reached with <strong>Tab</strong> and activated with <strong>Enter</strong> or <strong>Space</strong>.</li></ul>
+</section>
+<section>
+<h1 id="controls-reference">Controls reference</h1>
+<p>Every button, field and toggle, in one place. For explanations and examples see the linked pages.</p>
+<h2 id="controls-reference-basic-view">Basic view</h2>
+<h3 id="controls-reference-top-bar">Top bar</h3>
+<div class="scroll"><table><thead><tr><th>Control</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Advanced view →</strong></td><td>Opens the per-match archive view</td></tr><tr><td><strong>? Tutorial</strong></td><td>Starts this page's guided tour</td></tr><tr><td><strong>GitHub logo</strong></td><td>Opens the project's source page in a new tab</td></tr><tr><td><strong>Theme swatches</strong></td><td>Apply one of the eight colour presets instantly</td></tr><tr><td><strong>Customise…</strong></td><td>Opens the colour, font and text-size panel</td></tr><tr><td><strong>Menu</strong> <em>(narrow screens only)</em></td><td>Shows the top bar's controls and jump-to-section links</td></tr></tbody></table></div>
+<h3 id="controls-reference-paste-area-and-buttons">Paste area and buttons</h3>
+<div class="scroll"><table><thead><tr><th>Control</th><th>What it does</th></tr></thead><tbody><tr><td>Paste box</td><td>Where you paste match logs</td></tr><tr><td><strong>Analyze</strong></td><td>Reads the text, shows results, saves matches to the archive</td></tr><tr><td><strong>Clear</strong></td><td>Empties the paste box, the results and imported summaries; the archive is untouched</td></tr><tr><td><strong>Load Example Data</strong></td><td>Loads and analyzes the sample session (needs the hosted site)</td></tr><tr><td><strong>Print / Save PDF</strong></td><td>Print dialog for the results (Analyze first)</td></tr><tr><td><strong>Export HTML</strong></td><td>Standalone themed report of the unique matches</td></tr><tr><td><strong>Minimal export</strong> (toggle)</td><td>Changes the export button to <strong>Export Data (minimal)</strong> — a compact summary-only file</td></tr><tr><td><strong>Export Raw</strong></td><td>Original text of the whole archive, <code>.json.gz</code></td></tr><tr><td><strong>Import Report</strong></td><td>Loads a raw export, minimal export, HTML report or <code>.txt</code> log</td></tr></tbody></table></div>
+<h3 id="controls-reference-notes-under-the-buttons">Notes under the buttons</h3>
+<p>A file note (name of the last file), an <strong>import note</strong> (what was imported or why it failed), an <strong>archive note</strong> (how many matches are saved), and the <strong>duplicate warning</strong>.</p>
+<h3 id="controls-reference-battle-type-categories">Battle-type categories</h3>
+<div class="scroll"><table><thead><tr><th>Control</th><th>What it does</th></tr></thead><tbody><tr><td>Rule rows (keyword, label)</td><td>Edit in place; saved as you type</td></tr><tr><td><strong>Remove</strong></td><td>Deletes the rule</td></tr><tr><td><strong>mode keyword</strong> / <strong>category label</strong> + <strong>Add rule</strong></td><td>Adds a rule at the end</td></tr></tbody></table></div>
+<h3 id="controls-reference-results">Results</h3>
+<div class="scroll"><table><thead><tr><th>Area</th><th>Notes</th></tr></thead><tbody><tr><td><strong>Overall</strong></td><td>Matches, win rate, total net SL, total RP</td></tr><tr><td><strong>Battle type split</strong></td><td>One row per category</td></tr><tr><td><strong>Goal calculator</strong></td><td>See <a href="#goal-calculator-guide">The goal calculator in depth</a></td></tr><tr><td><strong>RP by research target</strong></td><td>New-vehicle RP, largest first</td></tr><tr><td><strong>Other RP</strong> (collapsed)</td><td>Module / progress RP</td></tr><tr><td><strong>Per-match detail</strong></td><td>Every match; first 200 rows with <strong>Show 500 more</strong> and <strong>Show all</strong></td></tr></tbody></table></div>
+<h3 id="controls-reference-goal-calculator-fields">Goal calculator fields</h3>
+<p><strong>Load averages from</strong>, <strong>Win rate %</strong>, <strong>+30% RP Booster</strong>, <strong>Avg win RP</strong>, <strong>Avg loss RP</strong>, <strong>Avg win SL</strong>, <strong>Avg loss SL</strong>, <strong>RP goal remaining</strong>, <strong>SL goal remaining</strong>.</p>
+<h2 id="controls-reference-advanced-view">Advanced view</h2>
+<h3 id="controls-reference-top-bar">Top bar</h3>
+<p><strong>← Basic view</strong>, <strong>? Tutorial</strong>, GitHub logo, theme swatches, <strong>Customise…</strong>, <strong>Menu</strong> on narrow screens.</p>
+<h3 id="controls-reference-library">Library</h3>
+<div class="scroll"><table><thead><tr><th>Control</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Search</strong></td><td>Mission, category, target</td></tr><tr><td><strong>Battle type</strong> drop-down</td><td>Filter by category</td></tr><tr><td><strong>Win + loss / Victories / Defeats</strong></td><td>Filter by result</td></tr><tr><td><strong>Sort</strong></td><td>Newest, oldest, most SL, most RP, longest</td></tr><tr><td><strong>Detail only</strong></td><td>Hide summary-only matches</td></tr><tr><td>Table row (● or ○)</td><td>Click or press <strong>Enter</strong> on a ● row to open its detail</td></tr></tbody></table></div>
+<h3 id="controls-reference-match-detail">Match detail</h3>
+<p><strong>Close ✕</strong>, event sections (expand/collapse), <strong>Raw log text</strong> (expand), <strong>Copy raw text</strong>, <strong>Export this match (raw)</strong>, <strong>Delete from archive</strong>.</p>
+<h3 id="controls-reference-insights">Insights</h3>
+<p>Three collapsible tables: <strong>By map</strong>, <strong>By vehicle</strong>, <strong>Earnings by event type</strong>.</p>
+<h3 id="controls-reference-storage">Storage</h3>
+<div class="scroll"><table><thead><tr><th>Control</th><th>What it does</th></tr></thead><tbody><tr><td><strong>Export raw (.json.gz)</strong></td><td>Compressed lossless backup</td></tr><tr><td><strong>Export raw (.json)</strong></td><td>Uncompressed lossless backup</td></tr><tr><td><strong>Import raw / log file</strong></td><td>Adds matches from a raw export or plain log</td></tr><tr><td><strong>Clear duplicate matches</strong></td><td>Removes repeats, keeping the first copy</td></tr><tr><td><strong>Delete entire archive</strong></td><td>Empties the archive (asks first)</td></tr></tbody></table></div>
+<h2 id="controls-reference-customise-panel">Customise panel</h2>
+<p>Titled <strong>Colours &amp; text</strong>.</p>
+<div class="scroll"><table><thead><tr><th>Section</th><th>Controls</th></tr></thead><tbody><tr><td><strong>Start from a preset</strong></td><td>Preset list (Built-in and My presets, plus <em>Custom colours</em> when you have edited), <strong>Reset to preset</strong></td></tr><tr><td><strong>Colours</strong></td><td>Nine colour squares plus <strong>#rrggbb</strong> boxes, grouped Surfaces / Text / Accent &amp; results</td></tr><tr><td><strong>Readability</strong></td><td>Contrast list with warnings and refusals</td></tr><tr><td><strong>Font style</strong> / <strong>Text size</strong></td><td>Monospace, sans-serif, serif / small, medium, large, with a sample line</td></tr><tr><td><strong>My presets</strong></td><td>Name box, <strong>Save as my preset</strong>, and per preset <strong>Use</strong>, <strong>Rename</strong>, <strong>Delete</strong> (asks <em>Sure?</em>); <strong>Export my presets</strong>, <strong>Import…</strong>; checkboxes <strong>Allow other characters in names</strong> and <strong>Allow up to 100 presets (at your own risk)</strong></td></tr><tr><td>Footer</td><td><strong>Reset everything to default</strong>, <strong>? How this works</strong>, <strong>Close ✕</strong></td></tr></tbody></table></div>
+<h2 id="controls-reference-keyboard">Keyboard</h2>
+<div class="scroll"><table><thead><tr><th>Key</th><th>Does</th></tr></thead><tbody><tr><td><strong>Esc</strong></td><td>Closes the tour, the Customise panel, the phone menu, the match-detail panel</td></tr><tr><td><strong>← →</strong></td><td>Previous / next tour step</td></tr><tr><td><strong>Tab / Shift+Tab</strong></td><td>Move between controls</td></tr><tr><td><strong>Enter / Space</strong></td><td>Activate a focused button; <strong>Enter</strong> opens a focused library row</td></tr></tbody></table></div>
+<h2 id="controls-reference-messages-you-may-see">Messages you may see</h2>
+<div class="scroll"><table><thead><tr><th>Message</th><th>Meaning</th></tr></thead><tbody><tr><td><em>Still loading — this is taking a while…</em></td><td>Slow connection; it clears itself</td></tr><tr><td><em>Part of this page didn't load…</em> + <strong>Reload</strong></td><td>A file failed to arrive</td></tr><tr><td><em>A new version is ready.</em> <strong>Reload / Later</strong></td><td>An update is waiting</td></tr><tr><td><em>N duplicate match(es) detected…</em></td><td>Repeats were left out of totals</td></tr><tr><td><em>Could not read that file…</em></td><td>The import file wasn't understood</td></tr><tr><td><em>Run Analyze first.</em></td><td>Print/export needs results</td></tr></tbody></table></div>
+</section>
+<section>
+<h1 id="accessibility">Accessibility</h1>
+<p>The site tries to work for as many people as possible, on any device. This page lists what is there and how to use it.</p>
+<h2 id="accessibility-reading-comfortably">Reading comfortably</h2>
+<ul><li><strong>Text size:</strong> Small, Medium or Large in <strong>Customise…</strong>. Everything scales together.</li><li><strong>Font style:</strong> monospace, sans-serif or serif.</li><li><strong>Colour:</strong> eight presets, including the light <strong>Daylight</strong>, or choose any nine colours yourself.</li><li><strong>Readability checks:</strong> the panel measures the contrast of every text/background pair and <strong>refuses</strong> colour sets below 3:1; 4.5:1 or more is rated good. Text on buttons and banners flips between dark and light automatically.</li><li><strong>Phone layout:</strong> below about 680 pixels the top bar folds into a <strong>Menu</strong> with jump-to-section links.</li></ul>
+<h2 id="accessibility-keyboard">Keyboard</h2>
+<ul><li>Everything is reachable with <strong>Tab</strong>; swatches, buttons and library rows can be activated with <strong>Enter</strong> or <strong>Space</strong>.</li><li><strong>Esc</strong> closes whatever is on top: tour, Customise panel, phone menu, match detail.</li><li><strong>← →</strong> step through a guided tour.</li><li>When a tour or the phone menu closes, focus returns to the control that opened it.</li></ul>
+<h2 id="accessibility-screen-readers">Screen readers</h2>
+<ul><li>Swatches have names (Blue, Amber, …) and say whether they are pressed.</li><li>The phone <strong>Menu</strong> button says whether it is expanded.</li><li>Tours are dialogs with titles.</li><li>Colour inputs carry labels such as <em>Background colour picker</em> and <em>Background as #rrggbb</em>.</li><li>Preset buttons say what they do: <em>Use Crimson</em>, <em>Rename …</em>, <em>Delete …</em>.</li><li>Status notes (update available, loading) are announced as status messages, and load failures as alerts.</li></ul>
+<h2 id="accessibility-motion">Motion</h2>
+<p>The tour's highlight animation and the menu's smooth scrolling are turned off when your device asks for <strong>reduced motion</strong>.</p>
+<h2 id="accessibility-print">Print</h2>
+<p>Printing uses a fixed readable size and your chosen colours; see <a href="#basic-view-printing-and-save-as-pdf">Basic view</a>.</p>
+<h2 id="accessibility-known-gaps">Known gaps</h2>
+<ul><li>Hover tooltips (for example the SL/RP base/premium/booster breakdown) may not appear on touch screens; open the raw log text instead.</li><li>Data tables are plain tables, with no row/column sorting by header.</li><li>The documentation page follows your device's light/dark setting, not your site theme.</li></ul>
+<p>If something blocks you, please report it on the project's GitHub page — accessibility reports are welcome.</p>
+</section>
+<section>
+<h1 id="faq">Frequently asked questions</h1>
+<p>Fixes for specific problems are in <a href="#troubleshooting">Troubleshooting</a>. This page answers the &quot;why&quot; and &quot;what is&quot; questions.</p>
+<h2 id="faq-about-the-site">About the site</h2>
+<p><strong>What is it for?</strong> Turning War Thunder's per-match text reports into totals, averages, a research goal estimate and a searchable personal archive.</p>
+<p><strong>Is it official?</strong> No. It is an independent fan tool and has no connection with the game's publisher.</p>
+<p><strong>Does it work with the game running?</strong> It is not connected to the game at all. Copy text out of the game, paste it into the site.</p>
+<p><strong>Is it free?</strong> Yes. It is open source (see the project's licence on GitHub).</p>
+<p><strong>What is the Dev version?</strong> The in-progress copy of the site where new features are tried first. The stable version is the released one. They don't share archives.</p>
+<p><strong>Which should I use?</strong> Stable if you want the most reliable experience; Dev if you want newer features and don't mind occasional rough edges. Back up either with <strong>Export Raw</strong>.</p>
+<h2 id="faq-about-your-data">About your data</h2>
+<p><strong>Where is my data?</strong> Only in your browser on this device. See <a href="#data-lifecycle">Where your data goes</a>.</p>
+<p><strong>Does anyone see my matches?</strong> No. Nothing is uploaded. See <a href="#privacy-and-safety">Privacy and safety</a>.</p>
+<p><strong>Why did I lose my archive?</strong> Almost always because browser site data was cleared, a private window was used, or a different browser/device/address was opened. Restore from a raw export.</p>
+<p><strong>Do I need an account?</strong> No.</p>
+<p><strong>How big can the archive get?</strong> Matches compress to a small fraction of their size. The Advanced view shows your usage and your browser's allowance. Thousands of matches are fine on a normal device.</p>
+<p><strong>Can I use it on two devices?</strong> Yes, but they don't sync. Move data with a raw export and import.</p>
+<h2 id="faq-about-the-numbers">About the numbers</h2>
+<p><strong>Why is Total RP lower than the number at the end of the game's Total line?</strong> The site counts CRP, not the larger combined figure. See <a href="#reading-your-logs-why-crp-and-not-the-last-rp-figure">Reading your logs</a>.</p>
+<p><strong>Why don't &quot;RP by research target&quot; and &quot;Total RP&quot; match?</strong> They are different measures: one counts RP credited to targets, the other each match's CRP.</p>
+<p><strong>Why are my duplicates struck through?</strong> The same Session ID appeared more than once; only the first counts.</p>
+<p><strong>Why does the goal calculator say SL-bound?</strong> Your SL goal takes more matches than your RP goal. See <a href="#goal-calculator-guide">The goal calculator in depth</a>.</p>
+<p><strong>Why is my win rate different between battle types?</strong> Because modes differ a lot. That is why the split exists.</p>
+<p><strong>What does &quot;net SL&quot; mean?</strong> SL earned minus costs. See <a href="#concepts">Key concepts</a>.</p>
+<h2 id="faq-about-the-features">About the features</h2>
+<p><strong>What's the difference between Export HTML, Minimal and Raw?</strong> HTML is a readable report, Minimal is a small summary file, Raw is the real backup with original text. See <a href="#backups-import-export">Backups, import and export</a>.</p>
+<p><strong>What do ● and ○ mean?</strong> ● has stored detail; ○ is summary-only.</p>
+<p><strong>Can I change the battle types?</strong> Yes: <a href="#categories-guide">Battle-type categories</a>.</p>
+<p><strong>Can I use my own colours?</strong> Yes, all nine, plus font and size: <a href="#colours-and-text">Colours and text</a>.</p>
+<p><strong>Why a Menu button on my phone?</strong> The top bar is folded to fit; see <a href="#phone-offline-and-slow-devices">Phone, offline and slow devices</a>.</p>
+<p><strong>Does it work offline?</strong> Yes, after one visit online.</p>
+<p><strong>Can I print it?</strong> Yes, with your theme; see <a href="#basic-view-printing-and-save-as-pdf">Basic view</a>.</p>
+<h2 id="faq-about-updates">About updates</h2>
+<p><strong>How do I know a new version is available?</strong> A note appears: <em>A new version is ready.</em> with <strong>Reload</strong> and <strong>Later</strong>.</p>
+<p><strong>Will an update delete my data?</strong> No. Your archive and settings are separate from the site's files. (Keep a backup anyway.)</p>
+<p><strong>Why do new features sometimes show up only after Reload?</strong> The offline copy of the site updates in the background and waits so nothing changes under you while you work.</p>
 </section>
 <section>
 <h1 id="troubleshooting">Troubleshooting and FAQ</h1>
@@ -304,6 +646,34 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <p>It is the in-progress version: bugs are more likely than on the stable site. Keep raw backups. The Dev archive is stored separately from the stable site's, so one cannot damage the other.</p>
 <h2 id="troubleshooting-where-do-i-report-a-problem">Where do I report a problem?</h2>
 <p>Open an issue on the project's GitHub page (the logo in the top bar). Describe what you did and what you expected; do not include anything private.</p>
+</section>
+<section>
+<h1 id="limitations">What the site does not do</h1>
+<p>Knowing the limits saves time. Here is what is deliberately out of scope, or not possible.</p>
+<h2 id="limitations-not-connected-to-the-game">Not connected to the game</h2>
+<p>It never talks to War Thunder. It only reads text <strong>you</strong> paste or import. There is no live tracking and no way to fetch your history automatically.</p>
+<h2 id="limitations-not-an-account-service">Not an account service</h2>
+<p>There is no login, no cloud sync and no sharing between devices except through files you export and import yourself.</p>
+<h2 id="limitations-estimates-not-promises">Estimates, not promises</h2>
+<p>The goal calculator estimates from your own past matches. See <a href="#goal-calculator-guide-honest-limits">its limits</a>.</p>
+<h2 id="limitations-depends-on-log-wording">Depends on log wording</h2>
+<p>The parser reads the text format the game currently uses. If a game update changes the wording, some lines may go unrecognised (the Advanced view says how many). Matches still count when their headline and totals are readable.</p>
+<h2 id="limitations-one-copy-per-match">One copy per match</h2>
+<p>A match is identified by its Session ID. A match without a readable Session ID can't be recognised as a repeat, and the archive keeps one copy per Session ID.</p>
+<h2 id="limitations-storage-belongs-to-the-browser">Storage belongs to the browser</h2>
+<ul><li>The archive is limited by what your browser allows.</li><li>Clearing site data deletes it.</li><li>A browser without a usable database falls back to about 5 MB, or can't save at all in some private modes.</li><li>The stable site, the Dev site and <code>localhost</code> each keep separate data.</li></ul>
+<h2 id="limitations-summaries-have-no-detail">Summaries have no detail</h2>
+<p>Matches imported from a minimal export or HTML report carry only a summary (○). They count in totals and maps but have no breakdown.</p>
+<h2 id="limitations-not-every-setting-travels">Not every setting travels</h2>
+<p>Colour presets can be exported and imported. Battle-type rules and the goal-calculator fields can't be exported; re-create them.</p>
+<h2 id="limitations-size-limits">Size limits</h2>
+<p>Very large or hostile files are refused; see the table in <a href="#privacy-and-safety-limits">Privacy and safety</a>.</p>
+<h2 id="limitations-languages">Languages</h2>
+<p>The interface and documentation are in English. Colour preset names accept Spanish letters. A Spanish interface is not available.</p>
+<h2 id="limitations-browsers">Browsers</h2>
+<p>Needs a reasonably current browser. Very old ones show a &quot;couldn't start&quot; note.</p>
+<h2 id="limitations-this-is-the-dev-version">This is the Dev version</h2>
+<p>It exists to try things. Bugs are more likely than on the stable site. Back up with <strong>Export Raw</strong>.</p>
 </section>
 <section>
 <h1 id="privacy-and-safety">Privacy and safety</h1>
@@ -366,6 +736,15 @@ th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-a
 <p><strong>Service worker</strong> — the browser feature that lets the site cache itself for offline use and instant return visits.</p>
 <p><strong>Session ID</strong> — the unique code on every match report, used to avoid counting a match twice.</p>
 <p><strong>Swatch</strong> — a small colour button in the top bar that applies a preset.</p>
+<h2 id="glossary-more-terms">More terms</h2>
+<p><strong>Activity</strong> — the activity percentage the game reports for a match or vehicle; shown in the Advanced view.</p>
+<p><strong>Backup vehicle / damaged</strong> — tags the Advanced view shows next to a vehicle when the log flags it that way.</p>
+<p><strong>Earned SL</strong> — SL a match paid before costs (net SL subtracts costs).</p>
+<p><strong>Event type</strong> — the kind of scoring event (an award, a kill, and so on) in a match's breakdown.</p>
+<p><strong>Play RP / Skill bonus RP</strong> — RP columns in the vehicle table: RP for time played, and RP from a skill bonus.</p>
+<p><strong>Rollup</strong> — a small per-match summary saved with each archived match so the Advanced view and its insights open quickly.</p>
+<p><strong>Rule (battle-type rule)</strong> — a keyword and a label that place a match into a category.</p>
+<p><strong>Current session</strong> — what is in the paste box plus imported summaries; the opposite of the archive.</p>
 </section>
 <section>
 <h1 id="colour-customisation">Colour customisation — design record</h1>

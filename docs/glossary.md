@@ -41,3 +41,21 @@
 **Session ID** — the unique code on every match report, used to avoid counting a match twice.
 
 **Swatch** — a small colour button in the top bar that applies a preset.
+
+## More terms
+
+**Activity** — the activity percentage the game reports for a match or vehicle; shown in the Advanced view.
+
+**Backup vehicle / damaged** — tags the Advanced view shows next to a vehicle when the log flags it that way.
+
+**Earned SL** — SL a match paid before costs (net SL subtracts costs).
+
+**Event type** — the kind of scoring event (an award, a kill, and so on) in a match's breakdown.
+
+**Play RP / Skill bonus RP** — RP columns in the vehicle table: RP for time played, and RP from a skill bonus.
+
+**Rollup** — a small per-match summary saved with each archived match so the Advanced view and its insights open quickly.
+
+**Rule (battle-type rule)** — a keyword and a label that place a match into a category.
+
+**Current session** — what is in the paste box plus imported summaries; the opposite of the archive.

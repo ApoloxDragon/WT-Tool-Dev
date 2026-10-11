@@ -17,6 +17,8 @@ A table of every archived match.
 The table shows the first 500 rows of the current filter, with a way to show all. Searching and filtering never needs to unpack your archive, so it stays quick.
 
 ## Match detail
+*Section-by-section guide: [Reading a match's detail](match-detail-guide.md).*
+
 Click a ● row to open that match's full breakdown:
 
 - net and earned SL, with repair, ammunition and respawn costs;
@@ -28,6 +30,8 @@ Click a ● row to open that match's full breakdown:
 Buttons let you **copy the raw text**, **export this match** (raw), or **delete it** (it asks first; a deleted match is only recoverable from a raw export). **Esc** or **Close ✕** closes the panel.
 
 ## Insights
+*Column-by-column guide: [Insights explained](insights-guide.md).*
+
 Statistics across the whole archive, in three collapsible tables:
 
 - **By map** — results per map.
