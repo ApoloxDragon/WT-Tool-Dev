@@ -151,6 +151,7 @@ CONTRIBUTING.md, SECURITY.md   How to contribute; how to report a security issue
 tests/                         Test suite, pre-change baseline and comparison reports (dev only)
 docs/                          User documentation (Markdown pages + generated single-page index.html) and the colour design record
 tools/build-docs.js            Builds docs/index.html from the Markdown pages
+tools/make-chart-report.js     Dev tool: makes the Spanish five-chart PDF (docs/examples/) from a sample log, using the app itself
 example data/                  Sample logs and exports for testing (all from the project owner, Apolox):
                                  matches.txt                    raw match-log text (84 matches)
                                  wt-session-data.json           minimal export (summaries only)
