@@ -119,6 +119,117 @@ function page(i, p, theme, chartSvg, d) {
 </section>`;
 }
 
+
+/* ---------------------------------------------------------------- glossary pages (in Spanish) */
+// ✔ = the Spanish name is confirmed in War Thunder's own Spanish pages; ≈ = descriptive translation (not checked against the Spanish game client).
+const OK = '✔', APPROX = '≈';
+const MODES = { 'Domination': 'Dominación', 'Tank Assault': 'Asalto de tanques', 'Conquest': 'Conquista', 'Battle': 'Batalla' };
+const SECTIONS = {
+  'Activity Time': ['Tiempo de actividad', 'Tiempo en el que se estuvo activo en la partida'], 'Time Played': ['Tiempo jugado', 'Duración jugada con cada vehículo'],
+  'Damage to the enemy': ['Daño al enemigo', 'Recompensas por el daño causado'], 'Critical damage to the enemy': ['Daño crítico al enemigo', 'Recompensas por daños críticos'], 'Severe damage to the enemy': ['Daño grave al enemigo', 'Recompensas por daños graves'],
+  'Awards': ['Premios', 'Condecoraciones de la partida (ver lista de premios)'], 'Reward for winning': ['Recompensa por ganar', 'Recompensa por la victoria'], 'Reward for participating in the mission': ['Recompensa por participar en la misión', 'Recompensa por participar en la misión'],
+  'Destruction of ground targets': ['Destrucción de objetivos terrestres', 'Recompensas por destruir vehículos o blancos en tierra'], 'Destruction of aircraft': ['Destrucción de aeronaves', 'Recompensas por derribar aviones'],
+  'Scouting of the enemy': ['Reconocimiento del enemigo', 'Recompensas por detectar enemigos'], 'Damage taken by scouted enemies': ['Daño recibido por enemigos detectados', 'Por el daño que otros hacen a enemigos que se detectaron'], 'Destruction by allies of scouted enemies': ['Destrucción, por aliados, de enemigos detectados', 'Por enemigos detectados que luego destruyen los aliados'],
+  'Assistance in destroying the enemy': ['Asistencia en la destrucción del enemigo', 'Recompensas por ayudar a destruir enemigos'], 'Capture of zones': ['Captura de zonas', 'Recompensas por capturar zonas'],
+  'Skill Bonus': ['Bonificación por habilidad', 'Bonificación ligada al nivel de habilidad'], 'Automatic repair of all vehicles free.': ['Reparación automática gratuita de todos los vehículos', 'Aviso de que la reparación no tuvo coste'], 'Munitions eliminations': ['Eliminación de municiones', 'Sección poco frecuente; se muestra con el nombre del registro']
+};
+const AWARDS = { 'Tank Rescuer': 'Rescatador de tanques', 'Intelligence': 'Inteligencia', 'Teamwork': 'Trabajo en equipo', 'Adamant': 'Inquebrantable', 'Avenger': 'Vengador', 'Help with Repairing': 'Ayuda con las reparaciones', 'According to Intelligence': 'Según la inteligencia', 'Multi strike!': '¡Golpe múltiple!', 'The Best Squad': 'El mejor escuadrón', 'Eye for Eye': 'Ojo por ojo', 'Rank does not matter': 'El rango no importa', 'Supporting Fire': 'Fuego de apoyo', 'Shadow strike streak!': '¡Racha de golpes en la sombra!', 'Professional': 'Profesional', 'Without a miss': 'Sin fallar', 'Base capturer streak!': '¡Racha de captura de bases!', 'Sniper': 'Francotirador', 'Assists streak!': '¡Racha de asistencias!', 'On Hand': 'A mano', 'Final blow!': '¡Golpe final!', 'Base defender!': '¡Defensor de la base!', 'Balancer': 'Equilibrador', 'First strike!': '¡Primer golpe!', 'God Mode!': '¡Modo dios!', 'Wingman': 'Escolta' };
+const MAPS = { 'Ardennes': 'Ardenas', 'Sinai': 'Sinaí', 'Japan': 'Japón', 'Cargo port': 'Puerto de carga', 'Port Novorossiysk': 'Puerto de Novorosíisk', 'Tunisia': 'Túnez', 'Maginot Line': 'Línea Maginot', 'Middle East': 'Oriente Medio', 'Iberian Castle': 'Castillo ibérico', 'American Desert': 'Desierto americano', 'Aral Sea': 'Mar de Aral', 'Normandy': 'Normandía', 'Abandoned Town': 'Pueblo abandonado', 'Carpathians': 'Cárpatos', 'North Holland': 'Holanda del Norte', 'Fields of Normandy': 'Campos de Normandía', 'Finland': 'Finlandia', 'Battle of Hürtgen Forest': 'Batalla del bosque de Hürtgen', 'Second battle of El Alamein': 'Segunda batalla de El Alamein', 'Eastern Europe': 'Europa del Este', 'Test Site-2271': 'Polígono de pruebas 2271', 'Golden Quarry': 'Cantera dorada', 'Attica': 'Ática', 'Sweden': 'Suecia', 'Arctic. Polar Base': 'Ártico. Base polar', 'Red Desert': 'Desierto rojo', 'Poland (winter)': 'Polonia (invierno)', 'Sands of Sinai': 'Arenas del Sinaí', 'Surroundings of Volokolamsk': 'Alrededores de Volokolamsk', 'Abandoned Factory': 'Fábrica abandonada', 'Abandoned factory': 'Fábrica abandonada', 'Maginot Line (winter)': 'Línea Maginot (invierno)', 'Ardennes (winter)': 'Ardenas (invierno)', 'European Province': 'Provincia europea', 'Arctic. Pier': 'Ártico. Muelle', 'Spaceport': 'Cosmódromo', 'Seversk-13 (winter)': 'Seversk-13 (invierno)', 'Jungle': 'Selva', 'Fields of Poland (winter)': 'Campos de Polonia (invierno)', 'Fields of Poland': 'Campos de Polonia', 'Flanders': 'Flandes', 'Poland': 'Polonia', 'Karelia': 'Carelia', 'Advance to the Rhine': 'Avance hacia el Rin', 'Stalingrad': 'Stalingrado' };
+const SAME = new Set(['Mozdok', 'Fulda', 'Kursk', 'Campania', 'Sun City', 'Alaska', 'Darwin Hill', 'Vietnam', 'Breslau', 'Seversk-13', 'Pradesh']);  // proper names left as they are
+
+function glossPages(d, data) {
+  const N = d.total, row = (cells) => cells, byCount = o => Object.entries(o).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const maps = byCount(data.mapCounts), secs = byCount(data.secs).map(([n, c]) => [n, c]), evs = byCount(data.evs);
+  const pages = [];
+  // 1 — the terms of this report
+  pages.push({ title: 'Cómo leer este informe: qué significa cada término', sub: 'Definiciones de las palabras y medidas que aparecen en los gráficos', cols: 2, blocks: [
+    { h: 'Qué se cuenta y de dónde sale', head: ['Término', 'Qué significa en este informe'], rows: [
+      ['Partida', 'Una batalla jugada, tal como figura en un informe del registro. Es la unidad de todos los conteos de este documento.'],
+      ['Informe pegado', `Cada bloque de texto de una partida que se pegó en la herramienta (${num(d.pasted)} en total).`],
+      ['Partida única', `Partida contada una sola vez, identificada por su ID de sesión (${num(N)} en total).`],
+      ['Partida repetida', `Informe cuyo ID de sesión ya se había contado; no se cuenta otra vez (${num(d.repeated)} en total).`],
+      ['ID de sesión', 'Código único que acompaña a cada partida en la línea «Session» del informe.'],
+      ['Muestra', `Conjunto de partidas analizado: ${num(N)} partidas únicas del archivo ${d.file}, partidas jugadas por el propietario del proyecto (Apolox).`],
+      ['Orden en el registro', 'Posición en la que aparecen las partidas pegadas (la primera es la 1). No es una fecha: el registro no incluye fechas.'],
+      ['Victoria / Derrota', 'Resultado de la partida según el encabezado del informe («Victory» / «Defeat»).'] ] },
+    { h: 'Cómo se calculan las medidas', head: ['Término', 'Qué significa en este informe'], rows: [
+      ['Porcentaje (%)', 'Partidas del grupo ÷ partidas de referencia × 100. La referencia se indica en cada tabla: «% total» es sobre todas las partidas únicas; «% vict.» es victorias ÷ partidas de ese mapa.'],
+      ['Acumulado', 'Suma progresiva: cada punto de la línea incluye todas las partidas anteriores.'],
+      ['Ventaja', 'Victorias acumuladas menos derrotas acumuladas.'],
+      ['Racha', 'Partidas consecutivas con el mismo resultado.'],
+      ['Modo de juego', 'Texto entre corchetes del encabezado del informe (por ejemplo Domination).'],
+      ['Tipo de combate (categoría)', 'Grupo que asigna la herramienta según el modo: «Tank Assault» si el modo lo contiene (regla por defecto); todo lo demás es «Random Battles» (batallas aleatorias).'],
+      ['Mapa', 'Nombre de la misión en el encabezado del informe.'],
+      ['Tema Blue', 'Uno de los 8 temas de color de la herramienta; define los colores de todo el documento.'] ] },
+    { h: 'Cómo se leen los gráficos', head: ['Elemento', 'Qué significa'], rows: [
+      ['Eje horizontal / vertical', 'Líneas con marcas numeradas. En cada gráfico, el título del eje dice qué mide y en qué unidad (siempre partidas, salvo en el gráfico 1: posición en el registro).'],
+      ['Líneas (gráfico 1)', 'Muestra cómo cambia una cantidad en una secuencia ordenada; más empinada = más rápido se acumula.'],
+      ['Araña o radar (gráfico 2)', 'Cada eje sale de un centro común y representa un mapa; los anillos son la escala en partidas; cada color es una serie.'],
+      ['Barras (gráficos 3 y 4)', 'La longitud de la barra es el número de partidas; siempre parte de 0.'],
+      ['Circular (gráfico 5)', 'Cada sector es una parte del total (100 %); no tiene ejes.'] ] },
+    { h: 'Qué no mide este informe', head: ['Dato', 'Estado'], rows: [
+      ['Leones de Plata (SL) y puntos de investigación (RP)', 'No se grafican: todos los conteos son partidas.'],
+      ['Tiempo de juego y fechas', 'No se grafican; el registro no trae fechas.'],
+      ['Vehículos y premios', 'Solo se enumeran en el glosario con su frecuencia; no se graficaron.'],
+      ['Nombres de vehículos (TAM 2C, Leopard 2K…)', 'Son nombres propios y no se traducen.'] ] }
+  ] });
+  // 2 — War Thunder terms: economy and the log
+  pages.push({ title: 'Glosario de War Thunder (1): economía y líneas del registro', sub: `${OK} confirmado en las páginas oficiales en español de War Thunder · ${APPROX} traducción descriptiva, no comprobada con el cliente del juego en español`, cols: 2, blocks: [
+    { h: 'Economía', head: ['En el registro', 'En español', '', 'Qué significa'], rows: [
+      ['SL (Silver Lions)', 'Leones de Plata', OK, 'Moneda principal del juego: se usa para comprar vehículos, tripulaciones y módulos, reparar y reponer munición.'],
+      ['RP (Research Points)', 'Puntos de investigación', OK, 'Puntos para investigar nuevos vehículos y módulos.'],
+      ['CRP', 'CRP (sigla del registro)', APPROX, 'Cifra de la línea «Total» que la herramienta usa como los puntos de investigación de la partida. No se desarrolla la sigla porque no se ha podido confirmar; la cifra final «RP» del registro suma además el progreso de investigación, por eso no se usa.'],
+      ['Net SL / Earned SL', 'SL netos / SL ganados', APPROX, 'Neto = ganado menos los costes (reparación, munición y tripulación, reapariciones). Definición de la herramienta.'],
+      ['PA (premium account)', 'Cuenta premium', OK, 'Cuenta de pago que aumenta lo que se gana; el registro la desglosa como «(PA)».'],
+      ['Booster', 'Potenciador', APPROX, 'Bonificación temporal; el registro la desglosa como «(Booster)».'],
+      ['mission points', 'Puntos de misión', OK, 'Puntos que se suman a la puntuación de la misión; aparecen junto a cada evento.'] ] },
+    { h: 'Costes y cierre del informe', head: ['En el registro', 'En español', '', 'Qué significa'], rows: [
+      ['Automatic repair', 'Reparación automática', APPROX, 'Coste de reparar los vehículos tras la partida.'],
+      ['Ammo & crew replenishment', 'Munición y reposición de tripulación', APPROX, 'Coste de reponer munición y tripulantes.'],
+      ['Respawns in battle', 'Reapariciones en la batalla', APPROX, 'Coste de volver a aparecer en la misma partida.'],
+      ['Researched unit', 'Unidad investigada', APPROX, 'RP que fueron a desbloquear un vehículo nuevo («objetivo de investigación»).'],
+      ['Researching progress', 'Progreso de investigación', APPROX, 'RP que fueron a módulos o progreso de otro vehículo («Otros RP»).'],
+      ['Used items', 'Objetos usados', APPROX, 'Consumibles y objetos gastados en la partida.'],
+      ['Session', 'Sesión', APPROX, 'Línea con el ID de sesión, único por partida.'],
+      ['Total', 'Total', APPROX, 'Línea final con los SL, CRP y RP de la partida.'],
+      ['Activity', 'Actividad', APPROX, 'Porcentaje de actividad que informa el juego (global o por vehículo).'],
+      ['Skill Bonus', 'Bonificación por habilidad', APPROX, 'RP extra ligados al nivel de habilidad del vehículo.'],
+      ['damaged / backup', 'dañado / de reserva', APPROX, 'Etiquetas que el registro pone a un vehículo dañado o de reserva.'] ] }
+  ] });
+  // 3 — sections and modes
+  const secRows = secs.map(([n, c]) => { const t = SECTIONS[n]; return [n, t ? t[0] : '(sin traducir)', APPROX, t ? t[1] : '', `${num(c)} de ${num(N)}`]; });
+  pages.push({ title: 'Glosario de War Thunder (2): secciones del informe, modos y tipos de combate', sub: 'Las secciones agrupan las recompensas de cada partida; el recuento indica en cuántas de las partidas únicas aparece', cols: 2, blocks: [
+    { h: 'Secciones de recompensa del informe', head: ['En el registro', 'En español', '', 'Qué agrupa', 'Partidas'], rows: secRows },
+    { h: 'Modos de juego y tipos de combate', head: ['En el registro', 'En español', '', 'Partidas'], rows: [
+      ...Object.keys(MODES).filter(m => data.modeCounts[m]).map(m => [m, MODES[m], APPROX, num(data.modeCounts[m])]),
+      ...Object.keys(data.modeCounts).filter(m => !MODES[m]).map(m => [m, '(sin traducir)', APPROX, num(data.modeCounts[m])]),
+      ['Random Battles (categoría)', 'Batallas aleatorias', APPROX, num(data.catCounts['Random Battles'] || 0)],
+      ['Tank Assault (categoría)', 'Asalto de tanques', APPROX, num(data.catCounts['Tank Assault'] || 0)] ] }
+  ] });
+  // 4 — awards
+  const awRows = evs.map(([n, c]) => [n, AWARDS[n] || '(sin traducir)', APPROX, num(c)]);
+  pages.push({ title: 'Glosario de War Thunder (3): premios del informe', sub: `Premios que aparecen en las partidas de la muestra, de más a menos frecuentes (apariciones = veces que figura el premio, no partidas)`, cols: 2, blocks: [
+    { h: 'Premios', head: ['En el registro', 'En español', '', 'Apariciones'], rows: awRows.slice(0, Math.ceil(awRows.length / 2)) },
+    { h: 'Premios (continuación)', head: ['En el registro', 'En español', '', 'Apariciones'], rows: awRows.slice(Math.ceil(awRows.length / 2)) },
+    { h: 'Nota', head: ['Sobre los premios', ''], rows: [['Condición exacta', 'La condición para ganar cada premio la define el juego; aquí solo se indica su nombre y cuántas veces aparece.'], ['«Ayuda con las reparaciones»', 'Corresponde a ayudar a un aliado a reparar su vehículo; el resto se identifica por su nombre.']] }
+  ] });
+  // 5 — maps
+  const mapRows = maps.map(([n, c]) => [n, MAPS[n] || (SAME.has(n) ? n + ' (nombre propio)' : '(sin traducir)'), num(c), pct(c, N)]);
+  const third = Math.ceil(mapRows.length / 3);
+  pages.push({ title: 'Glosario de War Thunder (4): mapas', sub: `${mapRows.length} mapas distintos en la muestra, ordenados por número de partidas (${APPROX} traducciones descriptivas; los nombres propios se dejan igual)`, cols: 3, blocks: [0, 1, 2].map(k => ({ h: k === 0 ? 'Mapas' : 'Mapas (continuación)', head: ['En el registro', 'En español', 'Partidas', '%'], rows: mapRows.slice(k * third, (k + 1) * third) })) });
+  return pages;
+}
+function glossHtml(i, g, theme, total) {
+  const vars = Object.entries({ bg: 'bg', panel: 'panel', 'panel-2': 'panel2', border: 'border', accent: 'accent', text: 'text', dim: 'dim', win: 'win', loss: 'loss' }).map(([css, k]) => `--${css}:${theme.colours[k]}`).join(';');
+  const widths = h => h.length === 2 ? [30, 70] : h.length === 5 ? [25, 22, 4, 38, 11] : h[3] === 'Qué significa' ? [21, 21, 4, 54] : h[2] === 'Partidas' ? [34, 40, 14, 12] : [38, 45, 4, 13];
+  const tbl = b => `<div class="gb"><h2>${esc(b.h)}</h2><table><colgroup>${widths(b.head).map(w => `<col style="width:${w}%">`).join('')}</colgroup><tr>${b.head.map((c, j) => `<th${/^(Partidas|%|Apariciones)$/.test(c) ? ' class="n"' : ''}>${esc(c)}</th>`).join('')}</tr>${b.rows.map(r => `<tr>${r.map((c, j) => `<td${/^(Partidas|%|Apariciones)$/.test(b.head[j]) ? ' class="n"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
+  return `<section class="page" style="${vars}">
+  <div class="brief"><h1><span class="badge">Glosario</span> ${esc(g.title)}</h1><p>${esc(g.sub)}</p></div>
+  <div class="gloss cols${g.cols}">${g.blocks.map(tbl).join('')}</div>
+  <div class="foot"><span>Fuente: partidas jugadas en War Thunder.</span><span>Hecho con WT Session Readout · tema ${esc(theme.name)} · ${i + 1} de ${total}</span></div>
+</section>`;
+}
+
 (async () => {
   const srv = await startServer({}), browser = await launch(), ctx = await browser.newContext({ viewport: { width: 1200, height: 900 } });
   await ctx.addInitScript(() => { localStorage.setItem('wtSessionReadout.tutorialSeen.basic', 'true'); }); // no first-visit tour in the way
@@ -126,7 +237,11 @@ function page(i, p, theme, chartSvg, d) {
   await app.goto(srv.url + 'wt-log-analyzer.html'); await app.waitForFunction(() => window.__wtReady === true);
   await app.evaluate(t => { document.getElementById('input').value = t; }, fs.readFileSync(LOG, 'utf8'));
   await app.click('#analyzeBtn'); await app.waitForTimeout(800);
-  const data = await app.evaluate(() => ({ pasted: lastMatches.all.length, matches: lastMatches.matches.map(m => ({ result: m.result, mode: m.mode, category: m.category, mission: m.mission })), presets: BUILTIN_PRESETS }));
+  const data = await app.evaluate(() => {
+    const secs = {}, evs = {};                     // sections: matches that have one; awards: how many times each appears
+    lastMatches.matches.forEach(m => { if (!m.raw) return; const d = parseDetail(m.raw); d.sections.forEach(sc => { secs[sc.name] = (secs[sc.name] || 0) + 1; sc.events.forEach(e => { if (e.name) evs[e.name] = (evs[e.name] || 0) + 1; }); }); });
+    return { pasted: lastMatches.all.length, matches: lastMatches.matches.map(m => ({ result: m.result, mode: m.mode, category: m.category, mission: m.mission })), presets: BUILTIN_PRESETS, secs, evs };
+  });
   const M = data.matches, count = (f, k) => M.filter(f).reduce((a, m) => (a[k(m)] = (a[k(m)] || 0) + 1, a), {});
   const byMap = Object.entries(count(() => true, m => m.mission)).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   const radarMaps = byMap.slice(0, 8).map(([name]) => ({ name, w: M.filter(m => m.mission === name && m.result === 'Victory').length, l: M.filter(m => m.mission === name && m.result === 'Defeat').length }));
@@ -142,10 +257,11 @@ function page(i, p, theme, chartSvg, d) {
   const cp = [50, 100, 150].map(k => [k, ...at[k]]);
   // facts for chart 2: the 8 maps
   const rm = radarMaps.map(m => ({ ...m, t: m.w + m.l })), rmTotal = rm.reduce((a, m) => a + m.t, 0);
+  const tieCut = byMap.filter(([, n]) => n === byMap[7][1]).length > rm.filter(m => m.t === byMap[7][1]).length;
   const best = rm.reduce((a, m) => (m.w / m.t > a.w / a.t ? m : a)), worst = rm.reduce((a, m) => (m.w / m.t < a.w / a.t ? m : a));
   const mostW = rm.reduce((a, m) => (m.w > a.w ? m : a));
   // facts for chart 4
-  const top10 = byMap.slice(0, 10), top10n = top10.reduce((a, [, n]) => a + n, 0), tied8 = byMap.filter(([, n]) => n === top10[9][1]).length;
+  const top10 = byMap.slice(0, 10), top10n = top10.reduce((a, [, n]) => a + n, 0), tiedAll = byMap.filter(([, n]) => n === top10[9][1]), tiedIn = top10.filter(([, n]) => n === top10[9][1]);
   // facts for chart 5
   const byCat = c => ({ n: M.filter(m => m.category === c).length, w: M.filter(m => m.category === c && m.result === 'Victory').length });
   const catFacts = cats.map(c => ({ c, ...byCat(c) }));
@@ -158,7 +274,7 @@ function page(i, p, theme, chartSvg, d) {
     { kind: 'araña o radar', title: 'Victorias y derrotas en los 8 mapas más jugados', subtitle: 'Partidas ganadas y perdidas en cada uno de los 8 mapas con más partidas',
       table: [['Mapa', 'Vict.', 'Derr.', 'Total', '% vict.'], ...rm.map(m => [m.name, m.w, m.l, m.t, pct(m.w, m.t)])],
       reads: [`Estos 8 mapas suman ${share(rmTotal)} de las ${num(N)} partidas; los otros ${byMap.length - 8} mapas suman ${share(N - rmTotal)}.`, `Más victorias: ${mostW.name} (${mostW.w}). Mayor porcentaje de victorias: ${best.name} (${pct(best.w, best.t)}, ${best.w} de ${best.t}). Menor: ${worst.name} (${pct(worst.w, worst.t)}, ${worst.w} de ${worst.t}).`, 'Un polígono verde más alejado del centro en un eje = más victorias en ese mapa; el rojo, más derrotas.'],
-      limits: [`Cada eje es un mapa, de mayor a menor número de partidas en sentido horario desde arriba (los empates en el 8.º lugar se ordenan alfabéticamente). Los anillos cuentan partidas, de ${Math.max(1, Math.ceil(Math.max(...rm.flatMap(m => [m.w, m.l])) / 4))} en ${Math.max(1, Math.ceil(Math.max(...rm.flatMap(m => [m.w, m.l])) / 4))}.`, `Cada mapa tiene pocas partidas (entre ${Math.min(...rm.map(m => m.t))} y ${Math.max(...rm.map(m => m.t))}): los porcentajes cambian mucho con una sola partida, así que no son una medida fiable de «mapa bueno» o «mapa malo».`, 'El radar muestra la forma; los valores exactos están en la tabla.'],
+      limits: [`Cada eje es un mapa, de mayor a menor número de partidas en sentido horario desde arriba${tieCut ? ' (los empates en el 8.º lugar se ordenan alfabéticamente)' : ''}. Los anillos cuentan partidas, de ${Math.max(1, Math.ceil(Math.max(...rm.flatMap(m => [m.w, m.l])) / 4))} en ${Math.max(1, Math.ceil(Math.max(...rm.flatMap(m => [m.w, m.l])) / 4))}.`, `Cada mapa tiene pocas partidas (entre ${Math.min(...rm.map(m => m.t))} y ${Math.max(...rm.map(m => m.t))}): los porcentajes cambian mucho con una sola partida, así que no son una medida fiable de «mapa bueno» o «mapa malo».`, 'El radar muestra la forma; los valores exactos están en la tabla.'],
       use: 'El gráfico de araña (radar) compara varias categorías con una misma escala desde un centro común y sirve para ver el «perfil» de cada serie. Funciona mejor con 5 a 8 ejes; no es adecuado para leer valores exactos.', svg: radarChart({ maps: radarMaps }) },
     { kind: 'barras verticales', title: 'Partidas por modo de juego', subtitle: 'Número de partidas de cada modo, tal como aparece en el registro',
       table: [['Modo de juego', 'Partidas', '% total'], ...modes.map(([n, v]) => [n, v, pct(v, N)]), ['Total', N, pct(N, N)]],
@@ -167,16 +283,19 @@ function page(i, p, theme, chartSvg, d) {
       use: 'Las barras verticales comparan cantidades entre pocas categorías con nombres cortos: la altura de cada barra es el valor y el cero siempre es la base.', svg: barsV({ bars: modes }) },
     { kind: 'barras horizontales', title: 'Los 10 mapas más jugados', subtitle: 'Número de partidas por mapa, ordenado de mayor a menor',
       table: [['Concepto', 'Partidas', '% total'], ['Los 10 mapas del gráfico', top10n, pct(top10n, N)], [`Los otros ${byMap.length - 10} mapas`, N - top10n, pct(N - top10n, N)], [`Mapas distintos en total`, byMap.length, '—']],
-      reads: [`El mapa más jugado es ${top10[0][0]}, con ${top10[0][1]} partidas (${pct(top10[0][1], N)}).`, `Los 10 mapas del gráfico reúnen ${share(top10n)} de las ${num(N)} partidas.`, `${tied8} mapas empatan con ${top10[9][1]} partidas, el valor del último lugar: todos entran en el gráfico; entre iguales, el orden es alfabético.`],
+      reads: [`El mapa más jugado es ${top10[0][0]}, con ${top10[0][1]} partidas (${pct(top10[0][1], N)}).`, `Los 10 mapas del gráfico reúnen ${share(top10n)} de las ${num(N)} partidas.`, `${tiedAll.length} mapas tienen ${top10[9][1]} partidas, el valor del último lugar: ${tiedAll.length === tiedIn.length ? 'todos entran en el gráfico' : tiedIn.length + ' entran en el gráfico y ' + (tiedAll.length - tiedIn.length) + ' quedan fuera'}; entre iguales, el orden es alfabético.`,],
       limits: ['La longitud de cada barra es el número de partidas en ese mapa (eje horizontal, desde 0); cada barra es un mapa (eje vertical).', 'El «mapa» es el nombre de la misión que figura en el informe. No indica resultado, puntos ni tiempo en cada mapa.'],
       use: 'Las barras horizontales son ideales cuando las categorías tienen nombres largos o son muchas, y permiten ordenarlas de mayor a menor para leer un ranking de un vistazo.', svg: barsH({ bars: top10 }) },
     { kind: 'circular', title: 'Reparto de las partidas por tipo de combate y resultado', subtitle: 'Qué parte de las partidas corresponde a cada combinación de tipo de combate y resultado',
       table: [['Grupo', 'Partidas', '% total'], ...slices.map(s => [s.name, s.n, pct(s.n, N)]), ['Total', N, pct(N, N)]],
       reads: [...catFacts.map(f => `${f.c}: ${num(f.n)} partidas, de las que se ganaron ${f.w} (${pct(f.w, f.n)}).`), `En conjunto: ${wins} victorias de ${N} partidas (${pct(wins, N)}).`],
-      limits: ['Cada sector es una porción del total: todos los sectores suman las 206 partidas (100 %). Su tamaño es proporcional al número de partidas; el porcentaje está escrito dentro.', '«Random Battles» es la categoría que la herramienta asigna a toda partida cuyo modo no coincide con una regla (la regla por defecto es «Tank Assault»), no un modo concreto del juego.', 'No tiene ejes. No pondera por puntos, tiempo ni Leones de Plata.'],
+      limits: [`Cada sector es una porción del total: todos los sectores suman las ${num(N)} partidas (100 %). Su tamaño es proporcional al número de partidas; el porcentaje está escrito dentro.`, '«Random Battles» es la categoría que la herramienta asigna a toda partida cuyo modo no coincide con una regla (la regla por defecto es «Tank Assault»), no un modo concreto del juego.', 'No tiene ejes. No pondera por puntos, tiempo ni Leones de Plata.'],
       use: 'El gráfico circular muestra cómo se reparte un total en partes; solo conviene con pocas partes. No tiene ejes: cada sector es la porción del total.', svg: pieChart({ slices }) }
   ];
-  pages.forEach(p => { p.of = pages.length; });
+  const mapCounts = count(() => true, m => m.mission), modeCounts = count(() => true, m => m.mode), catCounts = count(() => true, m => m.category);
+  const gp = glossPages(d, { secs: data.secs, evs: data.evs, mapCounts, modeCounts, catCounts });
+  const TOTAL = pages.length + gp.length;
+  pages.forEach(p => { p.of = TOTAL; });
   const themes = PRESETS.map(id => data.presets.find(p => p.id === id));
   const css = `@page{size:297mm 210mm;margin:0}
 html,body{margin:0!important;padding:0!important}
@@ -190,9 +309,12 @@ html,body{margin:0!important;padding:0!important}
 .col h2{margin:0 0 3px;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}.col ul{margin:0;padding-left:14px}.col li{margin:0 0 2px}
 .col table{border-collapse:collapse;width:100%;font-size:.62rem}.col th,.col td{padding:1px 4px;text-align:left;border-bottom:1px solid var(--border)}.col th{color:var(--dim);font-weight:400}.col .n{text-align:right}
 .caption{font-size:.62rem;color:var(--dim)}
+.gloss{flex:1;min-height:0;display:grid;gap:3mm;align-content:start}.gloss.cols2{grid-template-columns:1fr 1fr}.gloss.cols3{grid-template-columns:1fr 1fr 1fr}
+.gb{background:var(--panel);border:1px solid var(--border);padding:5px 9px;font-size:.58rem;line-height:1.3;overflow:hidden;break-inside:avoid}.gb h2{margin:0 0 3px;font-size:.64rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.gb table{border-collapse:collapse;width:100%;font-size:.58rem;table-layout:fixed}.gb th{font-size:.58rem}.gb th,.gb td{padding:1.5px 4px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);white-space:normal;overflow-wrap:anywhere}.gb th{color:var(--dim);font-weight:400}.gb th.n,.gb td.n{text-align:right;white-space:nowrap}
 .usage{font-size:.64rem;color:var(--text);border-left:3px solid var(--accent);padding:5px 12px;background:var(--panel)}
 .foot{display:flex;justify-content:space-between;gap:12px;font-size:.66rem;color:var(--dim);border-top:1px solid var(--border);padding-top:5px}`;
-  const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Gráficos de partidas — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n')}</body></html>`;
+  const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Gráficos de partidas — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n')}${gp.map((g, k) => glossHtml(pages.length + k, g, themes[0], TOTAL)).join('\n')}</body></html>`;
   const doc = await (await browser.newContext()).newPage();
   await doc.goto(srv.url + 'css/styles.css'); await doc.setContent(html, { waitUntil: 'load' });
   await doc.emulateMedia({ media: 'print' });
