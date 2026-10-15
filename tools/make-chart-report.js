@@ -19,7 +19,7 @@ const t = (es, en) => (EN ? en : es);
 const LOC = t('es-ES', 'en-US');
 const LOG = path.resolve(ARGS[0] || path.join(ROOT, 'example data', 'matches-large.txt'));
 const OUT = path.resolve(ARGS[1] || path.join(ROOT, 'docs', 'examples', t('graficos-partidas-war-thunder.pdf', 'war-thunder-match-charts.pdf')));
-const WATERMARK = EN ? 'Data source: Apolox' : '';                         // the English edition is watermarked as the owner's data
+const WATERMARK = EN ? 'Data source: Apolox_Dragon on War Thunder' : '';   // the English edition is marked as the owner's data (their War Thunder username)
 const PRESETS = ['blue', 'blue', 'blue', 'blue', 'blue'];                     // the tool's Blue theme on every page
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const num = n => n.toLocaleString(LOC);
@@ -109,7 +109,7 @@ function pieChart(d) {                  // share of matches by battle type and r
 /* ---------------------------------------------------------------- page */
 const table = rows => `<table>${rows.map((r, i) => `<tr>${r.map((c, j) => (i === 0 ? '<th' : '<td') + (j ? ' class="n"' : '') + '>' + esc(c) + (i === 0 ? '</th>' : '</td>')).join('')}</tr>`).join('')}</table>`;
 const list = items => `<ul>${items.map(t => `<li>${esc(t)}</li>`).join('')}</ul>`;
-const wm = () => (WATERMARK ? `<div class="wm" aria-hidden="true"><span>${esc(WATERMARK)}</span><small>${esc('Matches played by the project owner')}</small></div>` : '');
+const wm = () => (WATERMARK ? `<div class="wm">${esc(WATERMARK)}</div>` : '');
 function page(i, p, theme, chartSvg, d) {
   const vars = Object.entries({ bg: 'bg', panel: 'panel', 'panel-2': 'panel2', border: 'border', accent: 'accent', text: 'text', dim: 'dim', win: 'win', loss: 'loss' }).map(([css, k]) => `--${css}:${theme.colours[k]}`).join(';');
   return `<section class="page" style="${vars}">
@@ -398,7 +398,7 @@ html,body{margin:0!important;padding:0!important}
 .gb{background:var(--panel);border:1px solid var(--border);padding:5px 9px;font-size:.58rem;line-height:1.3;overflow:hidden;break-inside:avoid}.gb h2{margin:0 0 3px;font-size:.64rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
 .gb table{border-collapse:collapse;width:100%;font-size:.58rem;table-layout:fixed}.gb th{font-size:.58rem}.gb th,.gb td{padding:1.5px 4px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);white-space:normal;overflow-wrap:anywhere}.gb th{color:var(--dim);font-weight:400}.gb th.n,.gb td.n{text-align:right;white-space:nowrap}
 .usage{font-size:.64rem;color:var(--text);border-left:3px solid var(--accent);padding:5px 12px;background:var(--panel)}
-.wm{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4mm;transform:rotate(-24deg);pointer-events:none;color:var(--text);opacity:.11;text-align:center;z-index:5}.wm span{font-size:15mm;font-weight:700;letter-spacing:.04em;white-space:nowrap}.wm small{font-size:5.5mm;letter-spacing:.08em;text-transform:uppercase}
+.wm{position:absolute;top:3mm;right:12mm;z-index:5;font-size:.64rem;letter-spacing:.03em;color:var(--text);opacity:.8;border:1px solid var(--border);background:var(--panel);padding:.6mm 3mm;border-radius:999px;white-space:nowrap}
 .page{position:relative}
 .foot{display:flex;justify-content:space-between;gap:12px;font-size:.66rem;color:var(--dim);border-top:1px solid var(--border);padding-top:5px}`;
   const html = `<!DOCTYPE html><html lang="${t('es', 'en')}"><head><meta charset="UTF-8"><title>${t('Gráficos de partidas', 'Match charts')} — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n')}${gp.map((g, k) => glossHtml(pages.length + k, g, themes[0], TOTAL)).join('\n')}</body></html>`;
