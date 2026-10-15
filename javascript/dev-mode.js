@@ -10,11 +10,11 @@
     document.head.append(style);
     const banner = document.createElement('div');
     banner.className = 'dev-banner';
-    banner.innerHTML = '⚠ Development build — testing in progress, not guaranteed stable. <a href="https://apoloxdragon.github.io/WarThunder-Tool/">Use the stable version</a> for reliable results.';
+    banner.innerHTML = '⚠ Development build — testing in progress, not guaranteed stable. <a href="../WarThunder-Tool/">Use the stable version</a> for reliable results.';
     document.body.prepend(banner);
     document.title = '[DEV] ' + document.title;
     const gh = document.querySelector('.github-link');
-    if (gh) gh.href = 'https://github.com/ApoloxDragon/WT-Tool-Dev';
+    if (gh) gh.href = gh.href.replace(/WarThunder-Tool$/, 'WT-Tool-Dev');
     document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"]').forEach(l => { l.href = l.getAttribute('href').replace('assets/icon', 'assets/icon-dev'); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark); else mark();

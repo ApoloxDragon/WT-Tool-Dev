@@ -1683,6 +1683,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
   const html = `<!DOCTYPE html>
 <html><head><meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'nonce-${nonce}'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
 <title>WT Session Report — ${esc(now)}</title>
 <style>
   :root {
