@@ -57,3 +57,26 @@ const WtMenu = (() => {
     close: () => set(false)
   };
 })();
+
+/* ---------- Phone tables as cards ---------- */
+// Below 680 px tables with 4+ columns are drawn one card per row (CSS: table.stack). Each cell needs its column name as a label, copied here from the header row.
+const WtStackTables = (() => {
+  const narrow = matchMedia('(max-width: 680px)');
+  let queued = false;
+  function label(table) {
+    const head = table.querySelector('tr');
+    const names = head && head.querySelectorAll('th').length >= 4 ? [...head.children].map(c => c.textContent.trim()) : null;
+    if (!names) { table.classList.remove('stack'); return; }
+    table.classList.add('stack'); head.classList.add('stack-head');
+    for (const tr of table.querySelectorAll('tr')) {
+      if (tr === head || tr.dataset.stacked) continue;
+      tr.dataset.stacked = '1';
+      [...tr.children].forEach((td, i) => { if (td.tagName === 'TD' && names[i] && !td.hasAttribute('data-label')) td.setAttribute('data-label', names[i]); });
+    }
+  }
+  const run = () => { queued = false; if (narrow.matches) document.querySelectorAll('table').forEach(label); };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(run); } };
+  new MutationObserver(queue).observe(document.body, { childList: true, subtree: true });
+  narrow.addEventListener('change', queue);
+  queue();
+})();

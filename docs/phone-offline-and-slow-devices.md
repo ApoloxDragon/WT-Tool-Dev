@@ -10,7 +10,16 @@ Below about **680 pixels** wide the top bar's controls (view switch, tutorial, G
 - The guided tours open the menu for you when a step points at something inside it.
 - Wide screens keep the normal top bar.
 
-Tables scroll sideways when they are wider than the screen. Tip: the **Text size** setting (Colours and text) can make everything easier to read.
+**Phone layout.** On a phone everything is bigger and stacked top to bottom:
+
+- Text is about 12% larger than on a computer, and the smallest labels are larger still.
+- The buttons under the paste box sit in a two-column grid (**Analyze** is full width), and the goal calculator fields and the Advanced filters are one per line, tall enough to tap.
+- Tables with four or more columns (battle types, per-match detail, the Advanced library and insights) become **cards**: one card per row, each value under its column name. Two-column tables stay tables.
+- The per-match list shows the first 30 matches, then **Show 100 more** / **Show all**, because cards are tall. (On a computer it starts with 200.)
+- The Advanced library scrolls inside its own box so a long archive doesn't make the page endless.
+- The colour panel and the guided tours stay a little more compact so a tour card can sit next to what it points at.
+
+Tip: the **Text size** setting (Colours and text) can make everything larger still.
 
 ## On a slow connection
 - The whole site is small: about 60 KB of data for a first visit, and it is loaded in **a handful of files** rather than dozens, so there are fewer slow round trips.
@@ -46,7 +55,7 @@ The offline cache is **off** when the site is opened from `localhost`, so edits 
 ## Big sessions
 With thousands of matches the page stays responsive:
 
-- The Basic view's match table shows the first 200 rows with **Show 500 more / Show all**.
+- The Basic view's match table shows the first 200 rows (30 on a phone) with **Show more / Show all**.
 - Saving to the archive runs in the background, so the page does not freeze after **Analyze**.
 - The Advanced view lists matches without unpacking them, and fills its insight tables from small stored summaries.
 

@@ -45,7 +45,7 @@ A file note (name of the last file), an **import note** (what was imported or wh
 | **Goal calculator** | See [The goal calculator in depth](goal-calculator-guide.md) |
 | **RP by research target** | New-vehicle RP, largest first |
 | **Other RP** (collapsed) | Module / progress RP |
-| **Per-match detail** | Every match; first 200 rows with **Show 500 more** and **Show all** |
+| **Per-match detail** | Every match; first 200 rows (30 on a phone) with **Show 500 more** (100 on a phone) and **Show all** |
 
 ### Goal calculator fields
 **Load averages from**, **Win rate %**, **+30% RP Booster**, **Avg win RP**, **Avg loss RP**, **Avg win SL**, **Avg loss SL**, **RP goal remaining**, **SL goal remaining**.

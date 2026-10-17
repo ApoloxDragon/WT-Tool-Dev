@@ -1816,7 +1816,8 @@ function archiveInBackground(matches) {
 // elements, and every theme switch or layout change had to re-style all of them. Only the rows on
 // screen matter, so show the first batch and let the user ask for more. Exports use the data, not
 // these rows, and printing shows everything (see beforeprint below).
-const MATCH_ROWS_FIRST = 200, MATCH_ROWS_MORE = 500;
+const PHONE = matchMedia('(max-width: 680px)').matches; // on a phone each row is a tall card, so start with fewer
+const MATCH_ROWS_FIRST = PHONE ? 30 : 200, MATCH_ROWS_MORE = PHONE ? 100 : 500;
 let matchRowItems = [];            // [[match, isDuplicate], …] for the whole session
 let matchRowsShown = MATCH_ROWS_FIRST;
 

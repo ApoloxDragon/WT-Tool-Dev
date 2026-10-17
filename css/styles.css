@@ -575,3 +575,71 @@ details.event-sec .scroll-x { padding: 0 6px 6px; }
 /* on wide screens the page makes room for the panel so you can watch it change */
 @media (min-width: 1000px) { body.cp-open { padding-right: calc(16px + min(440px, 100vw)); } }
 @media print { .colour-panel { display: none !important; } body.cp-open { padding-right: 0 !important; } }
+
+/* ---------- Phone layout: bigger text, one thing under another ---------- */
+/* (the guided tour card stays compact: it has to fit on screen next to what it points at) */
+/* Everything is in rem, so raising the root size lifts all text; the extra rules lift the smallest labels further and stack the rows. */
+@media (max-width: 680px) {
+  html { font-size: calc(18px * var(--text-scale, 1)); }
+  body { padding: 18px 14px 56px; line-height: 1.55; }
+  .brief h1 { font-size: 1.3rem; }
+  .brief p { font-size: 0.9rem; }
+  textarea { height: 260px; font-size: 1rem; padding: 14px; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; align-items: stretch; }
+  .controls button { min-height: 52px; font-size: 1rem; padding: 10px 12px; }
+  .controls #analyzeBtn { grid-column: 1 / -1; min-height: 58px; font-size: 1.1rem; }
+  .controls .note { grid-column: 1 / -1; }
+  .note { font-size: 0.9rem; }
+  .warn { font-size: 0.95rem; padding: 12px 14px; }
+  .section { margin-top: 36px; }
+  .section-title { font-size: 1rem; padding-bottom: 8px; margin-bottom: 14px; }
+  .rules-toggle summary { font-size: 0.95rem; padding: 10px 0; }
+  .rules-box { font-size: 0.95rem; }
+  .rule-row { flex-direction: column; align-items: stretch; gap: 8px; margin-bottom: 12px; }
+  .rule-row input, .goal-field select, .goal-field input { font-size: 1rem; padding: 12px; min-height: 48px; }
+  .rule-row button { min-height: 48px; }
+  .stat-cell { padding: 16px 14px; min-width: 0; }
+  .stat-cell .num, .stat-row.five .stat-cell .num { font-size: clamp(1.1rem, 6vw, 1.5rem); }
+  .stat-cell .lbl { font-size: 0.85rem; margin-top: 4px; }
+  .goal-panel { padding: 16px; gap: 18px; }
+  .goal-inputs { grid-template-columns: 1fr; gap: 16px; }
+  .goal-field label { font-size: 0.8rem; }
+  .goal-field .toggle-btn, .goal-field button { min-height: 48px; font-size: 1rem; }
+  .goal-results .row, .goal-results div { font-size: 1rem; }
+  table { font-size: 1rem; }
+  th { font-size: 0.8rem; }
+  th, td { padding: 12px 10px; }
+  .match-table-wrap { max-height: none; }
+  .match-table-wrap.tall { max-height: 75vh; -webkit-overflow-scrolling: touch; } /* the Advanced library is a long picker, so it scrolls inside its own box */
+  .match-table-wrap table { font-size: 1rem; }
+  details.event-sec summary { font-size: 1rem; padding: 12px; }
+  details.event-sec table { font-size: 0.95rem; }
+  h3.sub { font-size: 0.85rem; }
+  .detail-head { font-size: 1rem; }
+  .tag { font-size: 0.8rem; }
+  button.small { padding: 10px 14px; font-size: 0.9rem; min-height: 44px; }
+  .raw-pre { font-size: 0.85rem; }
+  .colour-panel { zoom: 0.84; width: calc(100vw / 0.84); } /* the colour panel and its tour keep their earlier size: they are tall, and the tour card has to fit beside them */
+  .tut-card { padding: 14px 16px 12px; }
+  .tut-text { font-size: 0.72rem; line-height: 1.5; margin-bottom: 10px; }
+  .tut-title { font-size: 0.9rem; }
+  .tut-step { font-size: 0.6rem; }
+  .filter-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .filter-bar input[type=text], .filter-bar select { font-size: 1rem; padding: 12px; min-height: 48px; width: 100%; flex: 0 0 auto; }
+  .filter-bar .check { font-size: 1rem; min-height: 44px; }
+  .filter-bar .check input { width: 22px; height: 22px; }
+
+  /* tables with 4+ columns: one card per row, each value under its name (labels are added by nav-menu.js) */
+  table.stack, table.stack tbody { display: block; }
+  table.stack tr.stack-head { display: none; }
+  table.stack tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; padding: 12px 14px; margin-bottom: 10px; background: var(--panel); border: 1px solid var(--border); }
+  table.stack td { display: flex; flex-direction: column; gap: 1px; padding: 0; border: 0; white-space: normal; text-align: left; min-width: 0; overflow-wrap: anywhere; }
+  table.stack td::before { content: attr(data-label); font-size: 0.75rem; color: var(--dim); text-transform: uppercase; letter-spacing: 0.04em; }
+  table.stack td:first-child { grid-column: 1 / -1; font-weight: 700; font-size: 1.1rem; }
+  table.stack td:first-child::before, table.stack td:not([data-label])::before { display: none; }
+  table.stack td:empty { display: none; }
+  table.stack tr { position: relative; }
+  table.stack td.detail-flag { position: absolute; top: 12px; right: 14px; }
+  table.stack td.detail-flag::before { display: none; }
+  .scroll-x:has(table.stack) { overflow-x: visible; }
+}
