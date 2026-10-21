@@ -15,10 +15,12 @@ const { ROOT, startServer, launch } = require('../tests/harness');
 
 const ARGS = process.argv.slice(2).filter(a => !a.startsWith('--'));
 const EN = process.argv.includes('--en');                                   // English edition (default: Spanish)
+const GUION = process.argv.includes('--guion');                             // the speaking script that goes with the charts (Spanish)
+if (GUION && EN) { console.error('--guion is only available in Spanish.'); process.exit(1); }
 const t = (es, en) => (EN ? en : es);
 const LOC = t('es-ES', 'en-US');
 const LOG = path.resolve(ARGS[0] || path.join(ROOT, 'example data', 'matches-large.txt'));
-const OUT = path.resolve(ARGS[1] || path.join(ROOT, 'docs', 'examples', t('graficos-partidas-war-thunder.pdf', 'war-thunder-match-charts.pdf')));
+const OUT = path.resolve(ARGS[1] || path.join(ROOT, 'docs', 'examples', GUION ? 'guion-presentacion-graficos.pdf' : t('graficos-partidas-war-thunder.pdf', 'war-thunder-match-charts.pdf')));
 const WATERMARK = EN ? 'Data source: Apolox_Dragon on War Thunder' : '';   // the English edition is marked as the owner's data (their War Thunder username)
 const PRESETS = ['blue', 'blue', 'blue', 'blue', 'blue'];                     // the tool's Blue theme on every page
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -105,6 +107,20 @@ function pieChart(d) {                  // share of matches by battle type and r
   s += T(560, 148 + d.slices.length * 44 + 20, t(`Total: ${num(total)} partidas = 100 %`, `Total: ${num(total)} matches = 100%`), `fill="var(--text)" ${FS(15)}`);
   return s;
 }
+
+
+/* ---------------------------------------------------------------- speaking script (--guion) */
+const guionShell = (theme, head, body, k, total) => {
+  const vars = Object.entries({ bg: 'bg', panel: 'panel', 'panel-2': 'panel2', border: 'border', accent: 'accent', text: 'text', dim: 'dim', win: 'win', loss: 'loss' }).map(([css, key]) => `--${css}:${theme.colours[key]}`).join(';');
+  return `<section class="page" style="${vars}">
+  <div class="brief">${head}</div>
+  ${body}
+  <div class="foot"><span>Fuente: partidas jugadas en War Thunder.</span><span>Guion de acompañamiento (es una guía, no un texto para leer palabra por palabra) · ${k} de ${total}</span></div>
+</section>`;
+};
+const gbox = (h, inner, cls = '') => `<div class="gbx ${cls}"><h2>${esc(h)}</h2>${inner}</div>`;
+const gul = (items, cls = '') => `<ul class="${cls}">${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
+const gtable = rows => `<table>${rows.map((r, i) => `<tr>${r.map((c, j) => (i === 0 ? '<th' : '<td') + '>' + esc(c) + (i === 0 ? '</th>' : '</td>')).join('')}</tr>`).join('')}</table>`;
 
 /* ---------------------------------------------------------------- page */
 const table = rows => `<table>${rows.map((r, i) => `<tr>${r.map((c, j) => (i === 0 ? '<th' : '<td') + (j ? ' class="n"' : '') + '>' + esc(c) + (i === 0 ? '</th>' : '</td>')).join('')}</tr>`).join('')}</table>`;
@@ -359,7 +375,7 @@ function glossHtml(i, g, theme, total) {
       use: t('El gráfico de líneas sirve para ver cómo cambia una cantidad a lo largo de una secuencia ordenada: aquí, la secuencia de partidas del registro.', 'A line chart shows how a quantity changes along an ordered sequence: here, the sequence of matches in the log.'), svg: lineChart({ order: M.map(m => m.result), wins, losses }) },
     { rb: true, kind: t('araña o radar', 'radar'), title: t('Victorias y derrotas en los 8 mapas más jugados', 'Victories and defeats on the 8 most played maps'), subtitle: t('Partidas ganadas y perdidas en cada uno de los 8 mapas con más partidas', 'Matches won and lost on each of the 8 maps with the most matches'),
       table: [[t('Mapa', 'Map'), t('Vict.', 'Wins'), t('Derr.', 'Losses'), 'Total', t('% vict.', '% wins')], ...rm.map(m => [m.name, m.w, m.l, m.t, pct(m.w, m.t)])],
-      reads: [t(`Estos 8 mapas suman ${share(rmTotal)} de las ${num(RN)} partidas; los otros ${byMap.length - 8} mapas suman ${share(RN - rmTotal)}.`, `These 8 maps add up to ${share(rmTotal)} of the ${num(RN)} matches; the other ${byMap.length - 8} maps add up to ${share(RN - rmTotal)}.`), t(`Más victorias: ${mostW.name} (${mostW.w}). Mayor porcentaje de victorias: ${best.name} (${pct(best.w, best.t)}, ${best.w} de ${best.t}). Menor: ${worst.name} (${pct(worst.w, worst.t)}, ${worst.w} de ${worst.t}).`, `Most victories: ${mostW.name} (${mostW.w}). Highest win percentage: ${best.name} (${pct(best.w, best.t)}, ${best.w} of ${best.t}). Lowest: ${worst.name} (${pct(worst.w, worst.t)}, ${worst.w} of ${worst.t}).`), t('Un polígono verde más alejado del centro en un eje = más victorias en ese mapa; el rojo, más derrotas.', 'A green polygon farther from the centre on an axis = more victories on that map; the red one, more defeats.')],
+      reads: [t(`Estos 8 mapas suman ${share(rmTotal, RN)} de las ${num(RN)} partidas; los otros ${byMap.length - 8} mapas suman ${share(RN - rmTotal, RN)}.`, `These 8 maps add up to ${share(rmTotal, RN)} of the ${num(RN)} matches; the other ${byMap.length - 8} maps add up to ${share(RN - rmTotal, RN)}.`), t(`Más victorias: ${mostW.name} (${mostW.w}). Mayor porcentaje de victorias: ${best.name} (${pct(best.w, best.t)}, ${best.w} de ${best.t}). Menor: ${worst.name} (${pct(worst.w, worst.t)}, ${worst.w} de ${worst.t}).`, `Most victories: ${mostW.name} (${mostW.w}). Highest win percentage: ${best.name} (${pct(best.w, best.t)}, ${best.w} of ${best.t}). Lowest: ${worst.name} (${pct(worst.w, worst.t)}, ${worst.w} of ${worst.t}).`), t('Un polígono verde más alejado del centro en un eje = más victorias en ese mapa; el rojo, más derrotas.', 'A green polygon farther from the centre on an axis = more victories on that map; the red one, more defeats.')],
       limits: [t(`Cada eje es un mapa, de mayor a menor número de partidas en sentido horario desde arriba${tieCut ? ' (los empates en el 8.º lugar se ordenan alfabéticamente)' : ''}. Los anillos cuentan partidas, de ${ring} en ${ring}.`, `Each axis is a map, from most to fewest matches, clockwise from the top${tieCut ? ' (ties for 8th place are sorted alphabetically)' : ''}. The rings count matches, every ${ring}.`), t(`Cada mapa tiene pocas partidas (entre ${Math.min(...rm.map(m => m.t))} y ${Math.max(...rm.map(m => m.t))}): los porcentajes cambian mucho con una sola partida, así que no son una medida fiable de «mapa bueno» o «mapa malo».`, `Each map has few matches (between ${Math.min(...rm.map(m => m.t))} and ${Math.max(...rm.map(m => m.t))}): the percentages change a lot with a single match, so they are not a reliable measure of a "good" or "bad" map.`), t('El radar muestra la forma; los valores exactos están en la tabla.', 'The radar shows the shape; the exact values are in the table.')],
       use: t('El gráfico de araña (radar) compara varias categorías con una misma escala desde un centro común y sirve para ver el «perfil» de cada serie. Funciona mejor con 5 a 8 ejes; no es adecuado para leer valores exactos.', 'A radar (spider) chart compares several categories on one scale from a common centre and shows the "profile" of each series. It works best with 5 to 8 axes; it is not suited to reading exact values.'), svg: radarChart({ maps: radarMaps }) },
     { kind: t('barras verticales', 'vertical bars'), title: t('Partidas por modo de juego', 'Matches per game mode'), subtitle: t('Número de partidas de cada modo, tal como aparece en el registro', 'Number of matches in each mode, as it appears in the log'),
@@ -369,7 +385,7 @@ function glossHtml(i, g, theme, total) {
       use: t('Las barras verticales comparan cantidades entre pocas categorías con nombres cortos: la altura de cada barra es el valor y el cero siempre es la base.', 'Vertical bars compare quantities across a few categories with short names: the height of each bar is the value, and zero is always the base.'), svg: barsV({ bars: modes }) },
     { rb: true, kind: t('barras horizontales', 'horizontal bars'), title: t('Los 10 mapas más jugados', 'The 10 most played maps'), subtitle: t('Número de partidas por mapa, ordenado de mayor a menor', 'Number of matches per map, sorted from most to fewest'),
       table: [[t('Concepto', 'Item'), t('Partidas', 'Matches'), '% total'], [t('Los 10 mapas del gráfico', 'The 10 maps in the chart'), top10n, pct(top10n, RN)], [t(`Los otros ${byMap.length - 10} mapas`, `The other ${byMap.length - 10} maps`), RN - top10n, pct(RN - top10n, RN)], [t('Mapas distintos en total', 'Different maps in total'), byMap.length, '—']],
-      reads: [t(`El mapa más jugado es ${top10[0][0]}, con ${top10[0][1]} partidas (${pct(top10[0][1], RN)}).`, `The most played map is ${top10[0][0]}, with ${top10[0][1]} matches (${pct(top10[0][1], RN)}).`), t(`Los 10 mapas del gráfico reúnen ${share(top10n)} de las ${num(RN)} partidas.`, `The 10 maps in the chart hold ${share(top10n)} of the ${num(RN)} matches.`), t(`${tiedAll.length} mapas tienen ${top10[9][1]} partidas, el valor del último lugar: ${tiedAll.length === tiedIn.length ? 'todos entran en el gráfico' : tiedIn.length + ' entran en el gráfico y ' + (tiedAll.length - tiedIn.length) + ' quedan fuera'}; entre iguales, el orden es alfabético.`, `${tiedAll.length} maps have ${top10[9][1]} matches, the value of the last place: ${tiedAll.length === tiedIn.length ? 'all of them are in the chart' : tiedIn.length + ' are in the chart and ' + (tiedAll.length - tiedIn.length) + ' are left out'}; among equals, the order is alphabetical.`)],
+      reads: [t(`El mapa más jugado es ${top10[0][0]}, con ${top10[0][1]} partidas (${pct(top10[0][1], RN)}).`, `The most played map is ${top10[0][0]}, with ${top10[0][1]} matches (${pct(top10[0][1], RN)}).`), t(`Los 10 mapas del gráfico reúnen ${share(top10n, RN)} de las ${num(RN)} partidas.`, `The 10 maps in the chart hold ${share(top10n, RN)} of the ${num(RN)} matches.`), t(`${tiedAll.length} mapas tienen ${top10[9][1]} partidas, el valor del último lugar: ${tiedAll.length === tiedIn.length ? 'todos entran en el gráfico' : tiedIn.length + ' entran en el gráfico y ' + (tiedAll.length - tiedIn.length) + ' quedan fuera'}; entre iguales, el orden es alfabético.`, `${tiedAll.length} maps have ${top10[9][1]} matches, the value of the last place: ${tiedAll.length === tiedIn.length ? 'all of them are in the chart' : tiedIn.length + ' are in the chart and ' + (tiedAll.length - tiedIn.length) + ' are left out'}; among equals, the order is alphabetical.`)],
       limits: [t('La longitud de cada barra es el número de partidas en ese mapa (eje horizontal, desde 0); cada barra es un mapa (eje vertical).', 'The length of each bar is the number of matches on that map (horizontal axis, from 0); each bar is a map (vertical axis).'), t('El «mapa» es el nombre de la misión que figura en el informe. No indica resultado, puntos ni tiempo en cada mapa.', 'The "map" is the mission name in the report. It does not show results, points or time on each map.')],
       use: t('Las barras horizontales son ideales cuando las categorías tienen nombres largos o son muchas, y permiten ordenarlas de mayor a menor para leer un ranking de un vistazo.', 'Horizontal bars are ideal when category names are long or there are many categories, and sorting them from largest to smallest makes a ranking readable at a glance.'), svg: barsH({ bars: top10 }) },
     { kind: t('circular', 'pie'), title: t('Reparto de las partidas por tipo de combate y resultado', 'Matches by battle type and result'), subtitle: t('Qué parte de las partidas corresponde a cada combinación de tipo de combate y resultado', 'What share of the matches belongs to each combination of battle type and result'),
@@ -398,11 +414,79 @@ html,body{margin:0!important;padding:0!important}
 .gloss{flex:1;min-height:0;display:grid;gap:3mm;align-content:start}.gloss.cols2{grid-template-columns:1fr 1fr}.gloss.cols3{grid-template-columns:1fr 1fr 1fr}
 .gb{background:var(--panel);border:1px solid var(--border);padding:5px 9px;font-size:.58rem;line-height:1.3;overflow:hidden;break-inside:avoid}.gb h2{margin:0 0 3px;font-size:.64rem;letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
 .gb table{border-collapse:collapse;width:100%;font-size:.58rem;table-layout:fixed}.gb th{font-size:.58rem}.gb th,.gb td{padding:1.5px 4px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);white-space:normal;overflow-wrap:anywhere}.gb th{color:var(--dim);font-weight:400}.gb th.n,.gb td.n{text-align:right;white-space:nowrap}
+.ggrid{display:grid;grid-template-columns:1.2fr 1fr;gap:3mm;flex:1;min-height:0}.ggrid2{display:grid;grid-template-columns:1fr 1fr;gap:3mm;flex:1;min-height:0;align-items:start}.gstack{display:flex;flex-direction:column;gap:3mm;min-height:0}
+.gbx{background:var(--panel);border:1px solid var(--border);padding:8px 14px;font-size:.88rem;line-height:1.45;overflow:hidden}.gbx h2{margin:0 0 5px;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}.gbx p{margin:0 0 4px}.gbx ul{margin:0;padding-left:16px}.gbx li{margin:0 0 6px}
+.gbx.big{font-size:1.2rem;line-height:1.5}.gbx.big li{margin-bottom:12px}.gbx table{border-collapse:collapse;width:100%;font-size:.82rem}.gbx th,.gbx td{padding:4px 7px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);white-space:normal}.gbx td.t{white-space:nowrap}.gbx th{color:var(--dim);font-weight:400}
+.thumb{background:var(--panel);border:1px solid var(--border);padding:4px;height:64mm;flex:0 0 auto}.thumb svg{width:100%;height:100%;display:block}.thumb svg text{font-family:inherit}
 .usage{font-size:.64rem;color:var(--text);border-left:3px solid var(--accent);padding:5px 12px;background:var(--panel)}
 .wm{position:absolute;top:3mm;right:12mm;z-index:5;font-size:.64rem;letter-spacing:.03em;color:var(--text);opacity:.8;border:1px solid var(--border);background:var(--panel);padding:.6mm 3mm;border-radius:999px;white-space:nowrap}
 .page{position:relative}
 .foot{display:flex;justify-content:space-between;gap:12px;font-size:.66rem;color:var(--dim);border-top:1px solid var(--border);padding-top:5px}`;
-  const html = `<!DOCTYPE html><html lang="${t('es', 'en')}"><head><meta charset="UTF-8"><title>${t('Gráficos de partidas', 'Match charts')} — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n')}${gp.map((g, k) => glossHtml(pages.length + k, g, themes[0], TOTAL)).join('\n')}</body></html>`;
+  let guionBody = '';
+  if (GUION) {
+    const pctN = (a, b) => pct(a, b), RBc = catFacts.find(f => f.c === 'Random Battles') || { n: 0, w: 0 }, TAc = catFacts.find(f => f.c === 'Tank Assault') || { n: 0, w: 0 };
+    const minT = Math.min(...rm.map(m => m.t)), maxT = Math.max(...rm.map(m => m.t));
+    const topModes = modes.map(([n, v]) => `${n} ${num(v)}`).join(', ');
+    const steps = [
+      { t: '0:30', name: 'Apertura' },
+      { t: '0:55', name: `Gráfico 1 · ${pages[0].title}` },
+      { t: '0:50', name: `Gráfico 2 · ${pages[1].title}` },
+      { t: '0:40', name: `Gráfico 3 · ${pages[2].title}` },
+      { t: '0:40', name: `Gráfico 4 · ${pages[3].title}` },
+      { t: '0:55', name: `Gráfico 5 · ${pages[4].title}` },
+      { t: '0:30', name: 'Cierre y preguntas' } ];
+    let acc = 0; const clock = steps.map(st => { const [m, sec] = st.t.split(':').map(Number); acc += m * 60 + sec; return `${Math.floor(acc / 60)}:${String(acc % 60).padStart(2, '0')}`; });
+    const G = [
+      { say: [`Este gráfico cuenta, partida a partida, cuántas victorias y cuántas derrotas se han acumulado. Cada punto es una partida; el eje horizontal es su posición en el registro, no una fecha.`,
+              `De las ${num(N)} partidas se ganaron ${num(wins)} (${pctN(wins, N)}) y se perdieron ${num(losses)} (${pctN(losses, N)}).`,
+              `La mayor ventaja de victorias sobre derrotas fue de +${lead.v}, en la partida n.º ${lead.at}; al final la ventaja es de +${wins - losses}.`,
+              `Racha más larga: ${sw} victorias seguidas y ${sl} derrotas seguidas.`],
+        point: 'Siga con el dedo cada línea de izquierda a derecha y señale dónde se separa la verde de la roja.',
+        ask: ['¿Por qué no hay fechas?', 'El registro de War Thunder no las incluye; solo se conoce el orden en que se pegaron las partidas.'] },
+      { say: [`Es un gráfico de araña: cada eje es un mapa y la distancia al centro son partidas. Aquí solo hay Random Battles (${num(RN)} de ${num(N)} partidas) y solo los 8 mapas más jugados, que suman ${num(rmTotal)} partidas (${pctN(rmTotal, RN)}).`,
+              `Más victorias: ${mostW.name} (${mostW.w}). Mejor porcentaje: ${best.name} (${pctN(best.w, best.t)}, ${best.w} de ${best.t}). Peor: ${worst.name} (${pctN(worst.w, worst.t)}, ${worst.w} de ${worst.t}).`,
+              `Ojo: cada mapa tiene entre ${minT} y ${maxT} partidas; con tan pocas, un solo resultado cambia mucho el porcentaje.`],
+        point: 'Señale un eje (un mapa) y compare el polígono verde (victorias) con el rojo (derrotas) en ese eje.',
+        ask: ['¿Cuál es el mejor mapa?', `Solo se puede decir que ${best.name} tiene el mejor porcentaje en esta muestra; con ${best.t} partidas no es una medida fiable de «bueno» o «malo».`] },
+      { say: [`Barras verticales: una barra por modo de juego; la altura es el número de partidas, y el cero es siempre la base.`,
+              `Son las ${num(N)} partidas, con Random Battles y Tank Assault juntas: ${topModes}.`,
+              `El modo más repetido es ${modes[0][0]}, con ${num(modes[0][1])} partidas (${pctN(modes[0][1], N)}).`],
+        point: 'Compare la altura de la barra más alta con las demás y diga el porcentaje.',
+        ask: ['¿«Tank Assault» es un modo o una categoría?', 'Las dos cosas coinciden: es el modo que figura en el registro y también la categoría que la herramienta le asigna.'] },
+      { say: [`Barras horizontales: un ranking de los 10 mapas más jugados, de más a menos; la longitud de cada barra es el número de partidas. Solo Random Battles.`,
+              `El más jugado es ${top10[0][0]}, con ${top10[0][1]} partidas (${pctN(top10[0][1], RN)}).`,
+              `Los 10 mapas del gráfico reúnen ${num(top10n)} de las ${num(RN)} partidas (${pctN(top10n, RN)}); en total hay ${byMap.length} mapas distintos.`],
+        point: 'Señale la barra más larga y luego la décima: la diferencia entre ambas es el rango del ranking.',
+        ask: ['¿Por qué barras horizontales y no verticales?', 'Los nombres de mapa son largos y son muchos; en horizontal se leen mejor y el orden de mayor a menor funciona como ranking.'] },
+      { say: [`Es un gráfico circular: el círculo entero son las ${num(N)} partidas y cada sector es una combinación de tipo de combate y resultado.`,
+              `Random Battles: ${num(RBc.n)} partidas, ${num(RBc.w)} ganadas (${pctN(RBc.w, RBc.n)}). Tank Assault: ${num(TAc.n)} partidas, ${num(TAc.w)} ganadas (${pctN(TAc.w, TAc.n)}).`,
+              `En conjunto: ${num(wins)} victorias de ${num(N)} partidas (${pctN(wins, N)}).`,
+              `Es una diferencia de esta muestra; el gráfico no explica por qué ocurre.`],
+        point: 'Lea primero el sector más grande y luego compare los dos colores de cada tipo de combate.',
+        ask: ['¿Tank Assault es más fácil?', 'Los datos solo muestran que en esta muestra se ganó más en Tank Assault; no dicen por qué ni permiten afirmar que sea más fácil.'] } ];
+    const sched = gtable([['Parte', 'Tiempo', 'Acumulado'], ...steps.map((st, i) => [st.name, st.t, clock[i]]), ['Total', '5:00', clock[clock.length - 1]]]).replace(/<td>(\d+:\d\d)<\/td>/g, '<td class="t">$1</td>');
+    const intro = guionShell(themes[0], `<h1><span class="badge">Guion</span> Presentación de los gráficos (≈ 5 minutos)</h1><p>Cómo presentar los 5 gráficos hechos con partidas de War Thunder</p>`,
+      `<div class="ggrid2">${gbox('Plan de tiempo', sched)}<div class="gstack">${gbox('Apertura (0:30): qué decir',
+        gul([`Presente el trabajo: cinco gráficos de tipos distintos (líneas, araña, barras verticales, barras horizontales y circular) hechos con partidas reales de War Thunder.`,
+             `Diga la unidad: todo se cuenta en partidas, no en puntos, tiempo ni Leones de Plata.`,
+             `Diga la muestra: ${num(N)} partidas únicas de ${num(data.pasted)} informes pegados (${num(d.repeated)} repetidos excluidos).`,
+             `Diga el enfoque: Random Battles (${num(RN)} partidas). Tank Assault (${num(N - RN)}) entra en los gráficos generales (1, 3 y 5) y queda fuera de los dos de mapas (2 y 4).`], 'say'))
+        + gbox('Consejos', gul(['Lea siempre primero el título y la unidad (partidas); después el eje; después la conclusión.', 'Diga «en esta muestra», no «siempre»: son partidas de un solo jugador.', 'Si no recuerda una cifra, la tabla «Datos exactos» de cada gráfico la tiene.', 'Las dos tablas de la última página sirven de apoyo para las preguntas.']))}</div></div>`, 1, 7);
+    const chartPages = G.map((c, i) => {
+      const pg = pages[i];
+      return guionShell(themes[0], `<h1><span class="badge">Gráfico ${i + 1}</span> ${esc(pg.title)}</h1><p>Tiempo sugerido: ${steps[i + 1].t} · acumulado al terminar: ${clock[i + 1]} · tipo: ${esc(pg.kind)}${pg.rb ? ' · solo Random Battles' : ' · Random Battles y Tank Assault'}</p>`,
+        `<div class="ggrid">${gbox('Qué decir', gul(c.say, 'say'), 'big')}<div class="gstack"><div class="thumb"><svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet">${pg.svg}</svg></div>${gbox('Señale', `<p>${esc(c.point)}</p>`)}${gbox('Si le preguntan', `<p><strong>${esc(c.ask[0])}</strong></p><p>${esc(c.ask[1])}</p>`)}</div></div>`, i + 2, 7);
+    });
+    const close = guionShell(themes[0], `<h1><span class="badge">Cierre</span> Cierre y preguntas (0:30)</h1><p>Termine con tres ideas y deje espacio para preguntas</p>`,
+      `<div class="ggrid2">${gbox('Cierre: qué decir', gul([`Cada tipo de gráfico responde a una pregunta distinta: evolución (líneas), perfil (araña), comparación entre pocas categorías (barras verticales), ranking (barras horizontales) y reparto de un total (circular).`, `En esta muestra de ${num(N)} partidas se ganó el ${pctN(wins, N)}; en Random Battles, el ${pctN(RBc.w, RBc.n)}.`, `Todo se cuenta en partidas y se calcula en el propio dispositivo con WT Session Readout; no se envía nada a ningún servidor.`], 'say'), 'big')}<div class="gstack">${gbox('Preguntas probables', gtable([['Pregunta', 'Respuesta corta'],
+          ['¿De dónde salen los datos?', `De partidas jugadas por Apolox en War Thunder, pegadas en la herramienta (${num(data.pasted)} informes; ${num(d.repeated)} repetidos se excluyen por ID de sesión).`],
+          ['¿Qué es Random Battles?', 'Es la categoría que la herramienta asigna a toda partida que no es Tank Assault; el registro no distingue si fue terrestre o aérea.'],
+          ['¿Por qué partidas y no puntos?', 'Para que todos los gráficos usen la misma unidad y se puedan comparar.'],
+          ['¿Qué no se puede concluir?', 'Causas, fechas ni evolución en el tiempo real: el registro solo guarda el orden, y son partidas de un solo jugador.']]))
+        + gbox('Cifras para tener a mano', gtable([['Dato', 'Valor'], ['Partidas únicas', num(N)], ['Informes pegados / repetidos', `${num(data.pasted)} / ${num(d.repeated)}`], ['Victorias / derrotas', `${num(wins)} / ${num(losses)} (${pctN(wins, N)})`], ['Random Battles', `${num(RBc.n)} (${num(RBc.w)} ganadas, ${pctN(RBc.w, RBc.n)})`], ['Tank Assault', `${num(TAc.n)} (${num(TAc.w)} ganadas, ${pctN(TAc.w, TAc.n)})`], ['Mapas distintos (Random Battles)', num(byMap.length)]]))}</div></div>`, 7, 7);
+    guionBody = [intro, ...chartPages, close].join('\n');
+  }
+  const html = `<!DOCTYPE html><html lang="${t('es', 'en')}"><head><meta charset="UTF-8"><title>${t('Gráficos de partidas', 'Match charts')} — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${GUION ? guionBody : pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n') + gp.map((g, k) => glossHtml(pages.length + k, g, themes[0], TOTAL)).join('\n')}</body></html>`;
   const doc = await (await browser.newContext()).newPage();
   await doc.goto(srv.url + 'css/styles.css'); await doc.setContent(html, { waitUntil: 'load' });
   await doc.emulateMedia({ media: 'print' });
