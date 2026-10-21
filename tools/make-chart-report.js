@@ -424,6 +424,7 @@ html,body{margin:0!important;padding:0!important}
 .foot{display:flex;justify-content:space-between;gap:12px;font-size:.66rem;color:var(--dim);border-top:1px solid var(--border);padding-top:5px}`;
   let guionBody = '';
   if (GUION) {
+    const JD = {}, cap = (k, v) => (JD[k] = v); // the script's own text, kept so GUION_JSON can export it (used to make the Word copy)
     const pctN = (a, b) => pct(a, b), RBc = catFacts.find(f => f.c === 'Random Battles') || { n: 0, w: 0 }, TAc = catFacts.find(f => f.c === 'Tank Assault') || { n: 0, w: 0 };
     const minT = Math.min(...rm.map(m => m.t)), maxT = Math.max(...rm.map(m => m.t));
     const topModes = modes.map(([n, v]) => `${n} ${num(v)}`).join(', ');
@@ -467,24 +468,27 @@ html,body{margin:0!important;padding:0!important}
     const sched = gtable([['Parte', 'Tiempo', 'Acumulado'], ...steps.map((st, i) => [st.name, st.t, clock[i]]), ['Total', '5:00', clock[clock.length - 1]]]).replace(/<td>(\d+:\d\d)<\/td>/g, '<td class="t">$1</td>');
     const intro = guionShell(themes[0], `<h1><span class="badge">Guion</span> Presentación de los gráficos (≈ 5 minutos)</h1><p>Cómo presentar los 5 gráficos hechos con partidas de War Thunder</p>`,
       `<div class="ggrid2">${gbox('Plan de tiempo', sched)}<div class="gstack">${gbox('Apertura (0:30): qué decir',
-        gul([`Presente el trabajo: cinco gráficos de tipos distintos (líneas, araña, barras verticales, barras horizontales y circular) hechos con partidas reales de War Thunder.`,
+        gul(cap('introSay', [`Presente el trabajo: cinco gráficos de tipos distintos (líneas, araña, barras verticales, barras horizontales y circular) hechos con partidas reales de War Thunder.`,
              `Diga la unidad: todo se cuenta en partidas, no en puntos, tiempo ni Leones de Plata.`,
              `Diga la muestra: ${num(N)} partidas únicas de ${num(data.pasted)} informes pegados (${num(d.repeated)} repetidos excluidos).`,
-             `Diga el enfoque: Random Battles (${num(RN)} partidas). Tank Assault (${num(N - RN)}) entra en los gráficos generales (1, 3 y 5) y queda fuera de los dos de mapas (2 y 4).`], 'say'))
-        + gbox('Consejos', gul(['Lea siempre primero el título y la unidad (partidas); después el eje; después la conclusión.', 'Diga «en esta muestra», no «siempre»: son partidas de un solo jugador.', 'Si no recuerda una cifra, la tabla «Datos exactos» de cada gráfico la tiene.', 'Las dos tablas de la última página sirven de apoyo para las preguntas.']))}</div></div>`, 1, 7);
+             `Diga el enfoque: Random Battles (${num(RN)} partidas). Tank Assault (${num(N - RN)}) entra en los gráficos generales (1, 3 y 5) y queda fuera de los dos de mapas (2 y 4).`]), 'say'))
+        + gbox('Consejos', gul(cap('introTips', ['Lea siempre primero el título y la unidad (partidas); después el eje; después la conclusión.', 'Diga «en esta muestra», no «siempre»: son partidas de un solo jugador.', 'Si no recuerda una cifra, la tabla «Datos exactos» de cada gráfico la tiene.', 'Las dos tablas de la última página sirven de apoyo para las preguntas.'])))}</div></div>`, 1, 7);
     const chartPages = G.map((c, i) => {
       const pg = pages[i];
       return guionShell(themes[0], `<h1><span class="badge">Gráfico ${i + 1}</span> ${esc(pg.title)}</h1><p>Tiempo sugerido: ${steps[i + 1].t} · acumulado al terminar: ${clock[i + 1]} · tipo: ${esc(pg.kind)}${pg.rb ? ' · solo Random Battles' : ' · Random Battles y Tank Assault'}</p>`,
         `<div class="ggrid">${gbox('Qué decir', gul(c.say, 'say'), 'big')}<div class="gstack"><div class="thumb"><svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet">${pg.svg}</svg></div>${gbox('Señale', `<p>${esc(c.point)}</p>`)}${gbox('Si le preguntan', `<p><strong>${esc(c.ask[0])}</strong></p><p>${esc(c.ask[1])}</p>`)}</div></div>`, i + 2, 7);
     });
     const close = guionShell(themes[0], `<h1><span class="badge">Cierre</span> Cierre y preguntas (0:30)</h1><p>Termine con tres ideas y deje espacio para preguntas</p>`,
-      `<div class="ggrid2">${gbox('Cierre: qué decir', gul([`Cada tipo de gráfico responde a una pregunta distinta: evolución (líneas), perfil (araña), comparación entre pocas categorías (barras verticales), ranking (barras horizontales) y reparto de un total (circular).`, `En esta muestra de ${num(N)} partidas se ganó el ${pctN(wins, N)}; en Random Battles, el ${pctN(RBc.w, RBc.n)}.`, `Todo se cuenta en partidas y se calcula en el propio dispositivo con WT Session Readout; no se envía nada a ningún servidor.`], 'say'), 'big')}<div class="gstack">${gbox('Preguntas probables', gtable([['Pregunta', 'Respuesta corta'],
+      `<div class="ggrid2">${gbox('Cierre: qué decir', gul(cap('closeSay', [`Cada tipo de gráfico responde a una pregunta distinta: evolución (líneas), perfil (araña), comparación entre pocas categorías (barras verticales), ranking (barras horizontales) y reparto de un total (circular).`, `En esta muestra de ${num(N)} partidas se ganó el ${pctN(wins, N)}; en Random Battles, el ${pctN(RBc.w, RBc.n)}.`, `Todo se cuenta en partidas y se calcula en el propio dispositivo con WT Session Readout; no se envía nada a ningún servidor.`]), 'say'), 'big')}<div class="gstack">${gbox('Preguntas probables', gtable(cap('qa', [['Pregunta', 'Respuesta corta'],
           ['¿De dónde salen los datos?', `De partidas jugadas por Apolox en War Thunder, pegadas en la herramienta (${num(data.pasted)} informes; ${num(d.repeated)} repetidos se excluyen por ID de sesión).`],
           ['¿Qué es Random Battles?', 'Es la categoría que la herramienta asigna a toda partida que no es Tank Assault; el registro no distingue si fue terrestre o aérea.'],
           ['¿Por qué partidas y no puntos?', 'Para que todos los gráficos usen la misma unidad y se puedan comparar.'],
-          ['¿Qué no se puede concluir?', 'Causas, fechas ni evolución en el tiempo real: el registro solo guarda el orden, y son partidas de un solo jugador.']]))
-        + gbox('Cifras para tener a mano', gtable([['Dato', 'Valor'], ['Partidas únicas', num(N)], ['Informes pegados / repetidos', `${num(data.pasted)} / ${num(d.repeated)}`], ['Victorias / derrotas', `${num(wins)} / ${num(losses)} (${pctN(wins, N)})`], ['Random Battles', `${num(RBc.n)} (${num(RBc.w)} ganadas, ${pctN(RBc.w, RBc.n)})`], ['Tank Assault', `${num(TAc.n)} (${num(TAc.w)} ganadas, ${pctN(TAc.w, TAc.n)})`], ['Mapas distintos (Random Battles)', num(byMap.length)]]))}</div></div>`, 7, 7);
+          ['¿Qué no se puede concluir?', 'Causas, fechas ni evolución en el tiempo real: el registro solo guarda el orden, y son partidas de un solo jugador.']])))
+        + gbox('Cifras para tener a mano', gtable(cap('figs', [['Dato', 'Valor'], ['Partidas únicas', num(N)], ['Informes pegados / repetidos', `${num(data.pasted)} / ${num(d.repeated)}`], ['Victorias / derrotas', `${num(wins)} / ${num(losses)} (${pctN(wins, N)})`], ['Random Battles', `${num(RBc.n)} (${num(RBc.w)} ganadas, ${pctN(RBc.w, RBc.n)})`], ['Tank Assault', `${num(TAc.n)} (${num(TAc.w)} ganadas, ${pctN(TAc.w, TAc.n)})`], ['Mapas distintos (Random Battles)', num(byMap.length)]])))}</div></div>`, 7, 7);
     guionBody = [intro, ...chartPages, close].join('\n');
+    if (process.env.GUION_JSON) fs.writeFileSync(process.env.GUION_JSON, JSON.stringify({ file: d.file, total: N, rb: RN, ta: N - RN, pasted: data.pasted, repeated: d.repeated, wins, losses, steps, clock,
+      G: G.map((c, i) => ({ title: pages[i].title, kind: pages[i].kind, rb: !!pages[i].rb, ...c })), JD, matches: M,
+      charts: pages.map(pg => ({ title: pg.title, kind: pg.kind, rb: !!pg.rb, table: pg.table, reads: pg.reads, limits: pg.limits, use: pg.use })) }, null, 1));
   }
   const html = `<!DOCTYPE html><html lang="${t('es', 'en')}"><head><meta charset="UTF-8"><title>${t('Gráficos de partidas', 'Match charts')} — WT Session Readout</title><link rel="stylesheet" href="${srv.url}css/styles.css"><style>${css}</style></head><body>${GUION ? guionBody : pages.map((p, i) => page(i, p, themes[i], p.svg, d)).join('\n') + gp.map((g, k) => glossHtml(pages.length + k, g, themes[0], TOTAL)).join('\n')}</body></html>`;
   const doc = await (await browser.newContext()).newPage();
