@@ -14,14 +14,15 @@ const fs = require('fs'), path = require('path');
 const { ROOT, startServer, launch } = require('../tests/harness');
 
 const ARGS = process.argv.slice(2).filter(a => !a.startsWith('--'));
-const EN = process.argv.includes('--en');                                   // English edition (default: Spanish)
+const DECK = process.argv.includes('--deck');                               // the English slide deck (PDF + PowerPoint), see buildDeck()
+const EN = process.argv.includes('--en') || DECK;                           // English edition (default: Spanish)
 const GUION = process.argv.includes('--guion');                             // the speaking script that goes with the charts (Spanish)
-if (GUION && EN) { console.error('--guion is only available in Spanish.'); process.exit(1); }
+if (GUION && process.argv.includes('--en')) { console.error('--guion is only available in Spanish.'); process.exit(1); }
 const t = (es, en) => (EN ? en : es);
 const LOC = t('es-ES', 'en-US');
 const LOG = path.resolve(ARGS[0] || path.join(ROOT, 'example data', 'matches-large.txt'));
-const OUT = path.resolve(ARGS[1] || path.join(ROOT, 'docs', 'examples', GUION ? 'guion-presentacion-graficos.pdf' : t('graficos-partidas-war-thunder.pdf', 'war-thunder-match-charts.pdf')));
-const WATERMARK = EN ? 'Data source: Apolox_Dragon on War Thunder' : '';   // the English edition is marked as the owner's data (their War Thunder username)
+const OUT = path.resolve(ARGS[1] || path.join(ROOT, 'docs', 'examples', GUION ? 'guion-presentacion-graficos.pdf' : DECK ? 'war-thunder-presentation.pdf' : t('graficos-partidas-war-thunder.pdf', 'war-thunder-match-charts.pdf')));
+const WATERMARK = EN && !DECK ? 'Data source: Apolox_Dragon on War Thunder' : '';   // the English edition is marked as the owner's data (their War Thunder username)
 const PRESETS = ['blue', 'blue', 'blue', 'blue', 'blue'];                     // the tool's Blue theme on every page
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const num = n => n.toLocaleString(LOC);
@@ -108,6 +109,158 @@ function pieChart(d) {                  // share of matches by battle type and r
   return s;
 }
 
+
+
+/* ---------------------------------------------------------------- slide deck (--deck): English, PDF + PowerPoint */
+// Dev-only extras, loaded only for --deck:  npm i pptxgenjs pdf-lib  (anywhere on NODE_PATH). Nothing here ships with the site.
+// "Hidden marks" (provenance for the owner, not protection: anyone can strip them by re-exporting or flattening the file):
+//   PDF   - document properties (author, keywords, source URLs), a near-invisible line of text on every slide, an invisible link over the footer
+//   PPTX  - document properties, the same hidden text and invisible link on the slide master, alt text on every picture, credit in the notes
+const OWNER = { name: 'Apolox', handle: 'Apolox_Dragon', github: 'https://github.com/ApoloxDragon', tool: 'https://github.com/ApoloxDragon/WarThunder-Tool', repo: 'https://github.com/ApoloxDragon/WT-Tool-Dev' };
+const MARK = `${OWNER.handle} · github.com/ApoloxDragon · WT Session Readout (github.com/ApoloxDragon/WarThunder-Tool)`;
+const hex = c => String(c).replace('#', '').toUpperCase();
+
+async function buildDeck({ browser, srv, pages, theme, d, f }) {
+  const C = theme.colours, v = k => '#' + hex(C[k]);
+  const N = d.total, RN = d.rb;
+  const P = (a, b) => (a / b * 100).toFixed(1) + '%';
+  const scope = (rb) => (rb ? `Random Battles only · ${num(RN)} matches` : `All ${num(N)} matches (Random Battles + Tank Assault)`);
+  const slides = [];
+  slides.push({ kind: 'title', title: `What ${num(N)} War Thunder matches show`, sub: 'Five chart types, one dataset', lines: [`Matches played by ${OWNER.handle} in War Thunder`, 'Analysed with WT Session Readout, in the browser', 'Counting unit: matches'] });
+  slides.push({ kind: 'data', title: 'The data', stats: [[num(N), 'unique matches'], [num(d.pasted), 'pasted reports'], [num(d.repeated), 'repeats removed'], [num(RN), 'Random Battles'], [num(d.ta), 'Tank Assault'], [`${num(f.wins)} (${P(f.wins, N)})`, 'matches won']],
+    bullets: ['Everything is counted in matches, not points, time or Silver Lions.', `Charts 1, 3 and 5 use all ${num(N)} matches; charts 2 and 4 use Random Battles only (${num(RN)}).`, 'Repeated reports are removed by Session ID; the tool runs entirely in the browser, nothing is uploaded.'] });
+  const modeList = f.modes.map(([n, c]) => `${n} ${num(c)}`).join(' · ');
+  const B = [
+    { rb: false, bullets: [`Won ${num(f.wins)} of ${num(N)} matches (${P(f.wins, N)}); lost ${num(f.losses)}.`, `Biggest lead: +${f.lead.v} wins over losses, at match ${f.lead.at}; the log ends at +${f.wins - f.losses}.`, `Longest streaks: ${f.sw} wins in a row, ${f.sl} losses in a row.`], note: 'The horizontal axis is the position in the log, not a date: the log has no dates.' },
+    { rb: true, bullets: [`The 8 most played maps hold ${num(f.rmTotal)} of ${num(RN)} Random Battles matches (${P(f.rmTotal, RN)}).`, `Most wins: ${f.mostW.name} (${f.mostW.w}). Best win rate: ${f.best.name}, ${f.best.w} of ${f.best.t} (${P(f.best.w, f.best.t)}).`, `Lowest win rate: ${f.worst.name}, ${f.worst.w} of ${f.worst.t} (${P(f.worst.w, f.worst.t)}).`], note: `Each map has only ${f.minT}–${f.maxT} matches, so one result moves the percentage a lot.` },
+    { rb: false, bullets: [`${f.modes[0][0]} is the most frequent mode: ${num(f.modes[0][1])} matches (${P(f.modes[0][1], N)}).`, `All modes: ${modeList}.`, `Together they add up to the ${num(N)} matches.`], note: 'Tank Assault is both a mode in the log and a category in the tool.' },
+    { rb: true, bullets: [`Most played map: ${f.top10[0][0]}, ${f.top10[0][1]} matches (${P(f.top10[0][1], RN)}).`, `The top 10 maps hold ${num(f.top10n)} of ${num(RN)} matches (${P(f.top10n, RN)}).`, `${num(f.byMap.length)} different maps appear in Random Battles.`], note: 'Horizontal bars fit long map names and read as a ranking.' },
+    { rb: false, bullets: [`Random Battles: ${num(RN)} matches, ${f.RBc.w} won (${P(f.RBc.w, f.RBc.n)}).`, `Tank Assault: ${num(d.ta)} matches, ${f.TAc.w} won (${P(f.TAc.w, f.TAc.n)}).`, `Overall: ${num(f.wins)} of ${num(N)} won (${P(f.wins, N)}).`], note: 'This is a difference in this sample; the chart does not say why.' } ];
+  pages.forEach((pg, i) => slides.push({ kind: 'chart', n: i + 1, title: pg.title, type: pg.kind, svg: pg.svg, ...B[i], scope: scope(B[i].rb) }));
+  slides.push({ kind: 'caveats', title: 'How to read this', bullets: ['One player, accumulated over time: a convenience sample, not random and not representative of all players.', '"Random Battles" is the tool\'s category for every match that is not Tank Assault; the log does not say whether a match was ground or air.', 'Map percentages rest on a few matches each; treat them as a pattern, not a verdict.', 'The log has no dates, only the order the matches were pasted in.', 'Differences shown are in this sample; the charts do not show causes.'] });
+  slides.push({ kind: 'end', title: 'Summary', bullets: [`${num(N)} unique matches: ${P(f.wins, N)} won overall.`, `Random Battles: ${P(f.RBc.w, f.RBc.n)} won; Tank Assault: ${P(f.TAc.w, f.TAc.n)} won (a smaller sample, ${num(d.ta)} matches).`, `Five chart types, five different questions: trend, profile, comparison, ranking, share.`], q: 'Questions?' });
+  const total = slides.length;
+
+  // ---- HTML (the PDF) ----
+  const vars = Object.entries({ bg: 'bg', panel: 'panel', 'panel-2': 'panel2', border: 'border', accent: 'accent', text: 'text', dim: 'dim', win: 'win', loss: 'loss' }).map(([css, k]) => `--${css}:${C[k]}`).join(';');
+  const li = a => `<ul>${a.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`;
+  const hm = `<div class="hm" style="top:3px;left:14px">${esc(MARK)}</div><div class="hm" style="top:340px;right:14px">${esc(MARK)}</div><div class="hm" style="bottom:3px;left:14px">${esc(MARK)}</div><a class="hl" href="${OWNER.github}" aria-label="Apolox on GitHub"></a>`;
+  const body = s => {
+    if (s.kind === 'title') return `<div class="mid"><div class="kick">War Thunder · match analysis</div><h1>${esc(s.title)}</h1><p class="sub">${esc(s.sub)}</p><ul class="plain">${s.lines.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`;
+    if (s.kind === 'data') return `<h2>${esc(s.title)}</h2><div class="stats">${s.stats.map(([a, b]) => `<div class="st"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join('')}</div>${li(s.bullets)}`;
+    if (s.kind === 'chart') return `<div class="head"><span class="badge">Chart ${s.n}</span><h2>${esc(s.title)}</h2><span class="chip">${esc(s.scope)}</span></div><div class="chartbox"><svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(s.title)}">${s.svg}</svg></div><div class="three">${s.bullets.map(x => `<div class="card">${esc(x)}</div>`).join('')}</div><p class="note">${esc(s.note)}</p>`;
+    if (s.kind === 'caveats') return `<h2>${esc(s.title)}</h2>${li(s.bullets)}`;
+    return `<h2>${esc(s.title)}</h2>${li(s.bullets)}<div class="q">${esc(s.q)}</div>`;
+  };
+  const css = `@page{size:1280px 720px;margin:0}html,body{margin:0!important;padding:0!important}
+.slide{position:relative;width:1280px;height:720px;box-sizing:border-box;overflow:hidden;break-after:page;page-break-after:always;padding:30px 48px 44px;display:flex;flex-direction:column;gap:14px;
+ background-color:var(--bg);background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px;background-position:-12px -12px;color:var(--text);font-family:'SF Mono',Consolas,Menlo,'Courier New',monospace;line-height:1.4;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slide:last-child{break-after:auto;page-break-after:auto}
+h1{font-size:54px;line-height:1.1;margin:8px 0 6px}h2{font-size:30px;margin:0;line-height:1.2}
+.kick{color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-size:18px}.sub{font-size:26px;color:var(--dim);margin:0 0 26px}
+.mid{margin:auto 0;border-left:5px solid var(--accent);padding:6px 0 6px 28px}.plain{list-style:none;padding:0;margin:0;font-size:22px;line-height:1.9}
+ul{margin:0;padding-left:26px;font-size:25px;line-height:1.55}li{margin:0 0 12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.st{background:var(--panel);border:1px solid var(--border);padding:16px 20px}.st b{display:block;font-size:44px;color:var(--accent);line-height:1.1}.st span{color:var(--dim);font-size:18px;text-transform:uppercase;letter-spacing:.05em}
+.head{display:flex;align-items:center;gap:16px}.head h2{flex:1;font-size:28px}.badge{background:var(--accent);color:#08101c;font-weight:700;padding:3px 12px;font-size:18px;letter-spacing:.04em;text-transform:uppercase}
+.chip{border:1px solid var(--border);background:var(--panel);padding:5px 14px;font-size:16px;color:var(--dim);border-radius:999px;white-space:nowrap}
+.chartbox{height:372px;background:var(--panel);border:1px solid var(--border);padding:6px;flex:0 0 auto}.chartbox svg{width:100%;height:100%;display:block}.chartbox svg text{font-family:inherit}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--accent);padding:10px 14px;font-size:17px;line-height:1.35}
+.note{margin:0;font-size:16px;color:var(--dim)}.q{margin-top:auto;font-size:40px;color:var(--accent);font-weight:700}
+.foot{position:absolute;left:48px;right:48px;bottom:12px;display:flex;justify-content:space-between;font-size:14px;color:var(--dim);border-top:1px solid var(--border);padding-top:6px}
+.hm{position:absolute;z-index:3;font-size:9px;color:var(--text);opacity:.02;pointer-events:none;white-space:nowrap}
+.hl{position:absolute;z-index:4;right:0;bottom:0;width:260px;height:34px;display:block;color:transparent;text-decoration:none}`;
+  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>What ${num(N)} War Thunder matches show — WT Session Readout</title><meta name="author" content="${esc(OWNER.name)} (${esc(OWNER.handle)})"><style>${css}</style></head><body>${
+    slides.map((s, i) => `<section class="slide" style="${vars}">${body(s)}<div class="foot"><span>Source: matches played in War Thunder.</span><span>${i + 1} / ${total}</span></div>${hm}</section>`).join('')}</body></html>`;
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 2 });
+  const page = await ctx.newPage();
+  await page.goto(srv.url + 'css/styles.css'); await page.setContent(html, { waitUntil: 'load' });
+  const imgDir = fs.mkdtempSync(path.join(require('os').tmpdir(), 'wt-deck-'));
+  const imgs = {};
+  for (const [i, s] of slides.entries()) if (s.kind === 'chart') { imgs[i] = path.join(imgDir, `chart-${s.n}.png`); await page.locator('.chartbox').nth(s.n - 1).screenshot({ path: imgs[i] }); }
+  await page.emulateMedia({ media: 'print' });
+  fs.mkdirSync(path.dirname(OUT), { recursive: true });
+  let pdf = await page.pdf({ width: '1280px', height: '720px', printBackground: true, margin: { top: '0', right: '0', bottom: '0', left: '0' }, preferCSSPageSize: true });
+
+  // ---- PDF document properties (optional library) ----
+  let pdfLib = null; try { pdfLib = require('pdf-lib'); } catch (e) { console.warn('pdf-lib not found: the PDF keeps its hidden text and link but gets no document properties (npm i pdf-lib).'); }
+  if (pdfLib) {
+    const doc = await pdfLib.PDFDocument.load(pdf);
+    doc.setTitle(`What ${num(N)} War Thunder matches show`); doc.setAuthor(`${OWNER.name} (${OWNER.handle})`);
+    doc.setSubject(`War Thunder match analysis by ${OWNER.handle} · ${OWNER.github}`);
+    doc.setKeywords([OWNER.handle, 'ApoloxDragon', OWNER.github, OWNER.tool, 'WT Session Readout', 'War Thunder']);
+    doc.setCreator('WT Session Readout · ' + OWNER.tool); doc.setProducer('WT Session Readout chart tool · ' + OWNER.repo);
+    const info = doc.context.lookup(doc.context.trailerInfo.Info, pdfLib.PDFDict);
+    info.set(pdfLib.PDFName.of('OwnerGitHub'), pdfLib.PDFString.of(OWNER.github)); info.set(pdfLib.PDFName.of('ToolRepository'), pdfLib.PDFString.of(OWNER.tool)); info.set(pdfLib.PDFName.of('DataSource'), pdfLib.PDFString.of(`${OWNER.handle} on War Thunder`));
+    pdf = Buffer.from(await doc.save());
+  }
+  fs.writeFileSync(OUT, pdf);
+
+  // ---- PowerPoint ----
+  let Pptx = null; try { Pptx = require('pptxgenjs'); } catch (e) { console.warn('pptxgenjs not found: no PowerPoint file made (npm i pptxgenjs).'); }
+  if (Pptx) {
+    const pptx = new Pptx(); pptx.layout = 'LAYOUT_WIDE';                          // 13.33 x 7.5 in
+    pptx.author = `${OWNER.name} (${OWNER.handle})`; pptx.company = `${OWNER.handle} · ${OWNER.github}`; pptx.title = `What ${num(N)} War Thunder matches show`; pptx.subject = `War Thunder match analysis by ${OWNER.handle} · ${OWNER.github}`;
+    const F = 'Consolas', bg = hex(C.bg), pn = hex(C.panel), bd = hex(C.border), ac = hex(C.accent), tx = hex(C.text), dm = hex(C.dim);
+    pptx.defineSlideMaster({ title: 'WT', background: { color: bg }, objects: [
+      { rect: { x: 0.5, y: 7.02, w: 12.33, h: 0.01, fill: { color: bd } } },
+      { text: { text: 'Source: matches played in War Thunder.', options: { x: 0.5, y: 7.06, w: 8, h: 0.3, fontFace: F, fontSize: 10, color: dm } } },
+      { text: { text: MARK, options: { x: 0.1, y: 0.02, w: 12, h: 0.15, fontFace: F, fontSize: 5, color: bg } } },          // hidden: same colour as the background
+      { text: { text: MARK, options: { x: 0.1, y: 3.6, w: 12, h: 0.15, fontFace: F, fontSize: 5, color: bg } } },
+      { text: { text: MARK, options: { x: 0.1, y: 7.33, w: 12, h: 0.15, fontFace: F, fontSize: 5, color: bg } } },
+      { rect: { x: 10.2, y: 7.04, w: 3.1, h: 0.4, fill: { color: bg, transparency: 100 }, line: { color: bg, transparency: 100 }, hyperlink: { url: OWNER.github, tooltip: 'Apolox on GitHub' } } } ] });
+    const add = (s, i) => {
+      const sl = pptx.addSlide({ masterName: 'WT' });
+      sl.addText(`${i + 1} / ${total}`, { x: 11.2, y: 7.06, w: 1.63, h: 0.3, align: 'right', fontFace: F, fontSize: 10, color: dm });
+      sl.addNotes(`${s.title || ''}\n\nData: matches played by ${OWNER.handle} in War Thunder. Made by ${OWNER.name} · ${OWNER.github} · tool: ${OWNER.tool}`);
+      const bullets = (arr, o) => sl.addText(arr.map(t => ({ text: t, options: { bullet: { indent: 22 }, breakLine: true, paraSpaceAfter: 8 } })), { fontFace: F, color: tx, valign: 'top', ...o });
+      if (s.kind === 'title') {
+        sl.addShape(pptx.ShapeType.rect, { x: 0.9, y: 2.0, w: 0.07, h: 3.3, fill: { color: ac }, line: { color: ac } });
+        sl.addText('WAR THUNDER · MATCH ANALYSIS', { x: 1.2, y: 1.9, w: 11, h: 0.4, fontFace: F, fontSize: 14, color: ac, charSpacing: 3 });
+        sl.addText(s.title, { x: 1.2, y: 2.35, w: 11.4, h: 1.5, fontFace: F, fontSize: 40, bold: true, color: tx, valign: 'top' });
+        sl.addText(s.sub, { x: 1.2, y: 3.85, w: 11, h: 0.5, fontFace: F, fontSize: 20, color: dm });
+        sl.addText(s.lines.map(t => ({ text: t, options: { breakLine: true, paraSpaceAfter: 6 } })), { x: 1.2, y: 4.5, w: 11, h: 1.0, fontFace: F, fontSize: 16, color: tx, valign: 'top' });
+      } else if (s.kind === 'data') {
+        sl.addText(s.title, { x: 0.5, y: 0.4, w: 12, h: 0.6, fontFace: F, fontSize: 28, bold: true, color: tx });
+        s.stats.forEach(([a, b], k) => { const x = 0.5 + (k % 3) * 4.15, y = 1.25 + Math.floor(k / 3) * 1.45;
+          sl.addShape(pptx.ShapeType.rect, { x, y, w: 4.0, h: 1.3, fill: { color: pn }, line: { color: bd, width: 1 } });
+          sl.addText(a, { x: x + 0.15, y: y + 0.08, w: 3.7, h: 0.7, fontFace: F, fontSize: 30, bold: true, color: ac });
+          sl.addText(b.toUpperCase(), { x: x + 0.15, y: y + 0.8, w: 3.7, h: 0.4, fontFace: F, fontSize: 12, color: dm }); });
+        bullets(s.bullets, { x: 0.5, y: 4.3, w: 12.3, h: 2.5, fontSize: 18 });
+      } else if (s.kind === 'chart') {
+        sl.addShape(pptx.ShapeType.rect, { x: 0.5, y: 0.38, w: 1.45, h: 0.4, fill: { color: ac }, line: { color: ac } });
+        sl.addText(`CHART ${s.n}`, { x: 0.5, y: 0.38, w: 1.45, h: 0.4, align: 'center', fontFace: F, fontSize: 13, bold: true, color: '08101C' });
+        sl.addText(s.title, { x: 2.1, y: 0.33, w: 7.0, h: 0.5, fontFace: F, fontSize: 20, bold: true, color: tx, valign: 'middle' });
+        sl.addShape(pptx.ShapeType.roundRect, { x: 9.3, y: 0.4, w: 3.53, h: 0.36, rectRadius: 0.18, fill: { color: pn }, line: { color: bd, width: 1 } });
+        sl.addText(s.scope.replace(' (Random Battles + Tank Assault)', ''), { x: 9.3, y: 0.4, w: 3.53, h: 0.36, align: 'center', fontFace: F, fontSize: 10, color: dm });
+        sl.addImage({ path: imgs[i], x: 0.5, y: 0.95, w: 12.33, h: 12.33 * 372 / 1180, altText: `${s.title}. ${s.scope}. Data: matches played by ${OWNER.handle} in War Thunder. Made with WT Session Readout · ${OWNER.github}`, hyperlink: { url: OWNER.github, tooltip: `${OWNER.handle} on GitHub` } });
+        s.bullets.forEach((t, k) => { const x = 0.5 + k * 4.15;
+          sl.addShape(pptx.ShapeType.rect, { x, y: 5.45, w: 4.0, h: 1.2, fill: { color: pn }, line: { color: bd, width: 1 } });
+          sl.addShape(pptx.ShapeType.rect, { x, y: 5.45, w: 0.05, h: 1.2, fill: { color: ac }, line: { color: ac } });
+          sl.addText(t, { x: x + 0.12, y: 5.5, w: 3.8, h: 1.1, fontFace: F, fontSize: 12, color: tx, valign: 'top' }); });
+        sl.addText(s.note, { x: 0.5, y: 6.68, w: 12.3, h: 0.3, fontFace: F, fontSize: 11, color: dm });
+      } else if (s.kind === 'caveats') {
+        sl.addText(s.title, { x: 0.5, y: 0.4, w: 12, h: 0.6, fontFace: F, fontSize: 28, bold: true, color: tx });
+        bullets(s.bullets, { x: 0.5, y: 1.3, w: 12.3, h: 5.4, fontSize: 20 });
+      } else {
+        sl.addText(s.title, { x: 0.5, y: 0.4, w: 12, h: 0.6, fontFace: F, fontSize: 28, bold: true, color: tx });
+        bullets(s.bullets, { x: 0.5, y: 1.3, w: 12.3, h: 3.6, fontSize: 20 });
+        sl.addText(s.q, { x: 0.5, y: 5.6, w: 12, h: 0.9, fontFace: F, fontSize: 36, bold: true, color: ac });
+      }
+    };
+    slides.forEach(add);
+    let buf = Buffer.from(await pptx.write({ outputType: 'nodebuffer' }));
+    // document properties pptxgenjs has no option for: keywords and a description in docProps/core.xml
+    try {
+      const JSZip = require('jszip'), z = await JSZip.loadAsync(buf), cx = await z.file('docProps/core.xml').async('string');
+      const extra = `<cp:keywords>${esc([OWNER.handle, 'ApoloxDragon', OWNER.github, OWNER.tool, 'WT Session Readout', 'War Thunder'].join(', '))}</cp:keywords><dc:description>${esc(`Made by ${OWNER.name} (${OWNER.handle}) · ${OWNER.github} · data: matches played by ${OWNER.handle} in War Thunder`)}</dc:description><cp:lastModifiedBy>${esc(OWNER.name)}</cp:lastModifiedBy>`;
+      const cx2 = cx.replace(/<cp:lastModifiedBy>.*?<\/cp:lastModifiedBy>/, '').replace(/<dc:description>.*?<\/dc:description>/, '').replace('</cp:coreProperties>', extra + '</cp:coreProperties>');
+      z.file('docProps/core.xml', cx2); buf = await z.generateAsync({ type: 'nodebuffer', compression: 'DEFLATE' });
+    } catch (e) { console.warn('could not add keywords to the PowerPoint properties:', e.message); }
+    fs.writeFileSync(OUT.replace(/\.pdf$/i, '.pptx'), buf);
+  }
+  fs.rmSync(imgDir, { recursive: true, force: true });
+  console.log(`Wrote ${path.relative(ROOT, OUT)}${Pptx ? ' and .pptx' : ''} — ${slides.length} slides, ${N} unique matches`);
+}
 
 /* ---------------------------------------------------------------- speaking script (--guion) */
 const guionShell = (theme, head, body, k, total) => {
@@ -399,6 +552,13 @@ function glossHtml(i, g, theme, total) {
   const TOTAL = pages.length + gp.length;
   pages.forEach(p => { p.of = TOTAL; });
   const themes = PRESETS.map(id => data.presets.find(p => p.id === id));
+  if (DECK) {
+    const minT2 = Math.min(...rm.map(m => m.t)), maxT2 = Math.max(...rm.map(m => m.t));
+    const fc = n => catFacts.find(x => x.c === n) || { n: 0, w: 0 };
+    await buildDeck({ browser, srv, pages, theme: themes[0], d, f: { wins, losses, lead, sw, sl, rmTotal, mostW, best, worst, minT: minT2, maxT: maxT2, modes, top10, top10n, byMap, RBc: fc('Random Battles'), TAc: fc('Tank Assault') } });
+    await browser.close(); srv.close();
+    return;
+  }
   const css = `@page{size:297mm 210mm;margin:0}
 html,body{margin:0!important;padding:0!important}
 .page{width:297mm;height:210mm;box-sizing:border-box;overflow:hidden;break-after:page;page-break-after:always;display:flex;flex-direction:column;gap:2.4mm;padding:8mm 12mm 6mm;
