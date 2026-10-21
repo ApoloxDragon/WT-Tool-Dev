@@ -77,4 +77,20 @@ exports.run = async ({ browser, base, t }) => {
     t.metric('parse time — ' + name, ms);
     t.check(`finishes in under 1 second: ${name}`, r.ok && !r.result.err && ms < 1000, r.ok ? (r.result.err || Math.round(ms) + ' ms') : r.error);
   }
+
+  /* ---- a match whose repairs cost more than it earned has a NEGATIVE total ("Total: -897 SL, ...") ---- */
+  t.scope('parser › negative totals');
+  const negPage = await newPage(browser); await negPage.goto(base + 'wt-log-analyzer.html');
+  const neg = await negPage.evaluate(() => {
+    const block = 'Defeat in the [Domination] Sweden mission!\n\nReward for winning              860 SL\n\nEarned: 3003 SL, 813 CRP\nActivity: 43%\nAutomatic repair of all vehicles: -3555 SL\nAutomatic purchasing of ammo and "Crew Replenishment": -345 SL\n\nResearched unit: \nEMBT(Germany): 813 RP\n\nSession: 4ad212e8000198f9\nTotal: -897 SL, 813 CRP, 813 RP\n';
+    const m = parseLog(block);
+    const s = m[0] ? sanitizeMatch({ ...m[0], category: 'Random Battles' }) : null;
+    return { n: m.length, netSL: m[0] && m[0].netSL, totalRP: m[0] && m[0].totalRP, detail: m[0] && parseDetail(m[0].raw).total, kept: s && s.netSL, tail: m[0] && /Total: -897 SL, 813 CRP, 813 RP\s*$/.test(m[0].raw) };
+  });
+  t.check('a negative "Total: -897 SL" is read as -897 net SL, not 0', neg.n === 1 && neg.netSL === -897, JSON.stringify(neg));
+  t.check('…and the match still counts its 813 RP', neg.totalRP === 813);
+  t.check('…the detail view reads the same negative total', !!neg.detail && neg.detail.sl === -897 && neg.detail.crp === 813);
+  t.check('…the raw text is trimmed after the Total: line', neg.tail === true);
+  t.check('…and archiving/importing keeps the minus sign (net SL is not clamped to 0)', neg.kept === -897);
+  await negPage.close();
 };

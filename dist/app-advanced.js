@@ -67,9 +67,9 @@ function clipText(v, max) {
   if (typeof v === 'number' && Number.isFinite(v)) v = String(v);
   return typeof v === 'string' ? v.slice(0, max || LIMITS.MAX_TEXT) : '';
 }
-function cleanNum(v, max) {
+function cleanNum(v, max, min = 0) {
   const n = typeof v === 'number' ? v : (typeof v === 'string' ? parseFloat(v.replace(/,/g, '')) : NaN);
-  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), 0), max || 1e9) : 0;
+  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), min), max || 1e9) : 0;
 }
 function cleanTargets(list) {
   if (!Array.isArray(list)) return [];
@@ -93,7 +93,7 @@ function sanitizeMatch(m) {
     mode: clipText(m.mode) || category,
     category,
     mission: clipText(m.mission),
-    netSL: cleanNum(m.netSL),
+    netSL: cleanNum(m.netSL, 1e9, -1e9), // may be negative
     totalRP: cleanNum(m.totalRP),
     timeSec: cleanNum(m.timeSec, 1e6),
     researched: cleanTargets(m.researched),
@@ -564,7 +564,7 @@ function parseDetail(block) {
     const sess = line.match(/^Session:\s*(\S+)/);
     if (sess) { detail.sessionId = sess[1]; inUsedItems = false; listKey = null; section = null; continue; }
     // The trailing ", N RP" figure is optional (the game leaves it off when there was no research progress).
-    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
+    const tot = line.match(/^Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
     if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: tot[3] === undefined ? null : detailNum(tot[3]) }; continue; }
 
     if (!line) { section = null; listKey = null; continue; }
@@ -1255,7 +1255,7 @@ async function archiveParsedMatches(matches) {
 // The small summary stored beside each archived match so lists can be built without
 // decompressing or re-parsing it. Bump SUMMARY_VERSION whenever parseLog's summary
 // fields change meaning — stored summaries with an older version are rebuilt from the raw text.
-const SUMMARY_VERSION = 1;
+const SUMMARY_VERSION = 2; // 2: net SL may be negative (a match whose repairs cost more than it earned)
 function summaryOf(m) {
   return { pv: SUMMARY_VERSION, result: m.result, mode: m.mode, mission: m.mission, netSL: m.netSL,
     totalRP: m.totalRP, timeSec: m.timeSec, researched: m.researched, researching: m.researching };
@@ -1315,8 +1315,9 @@ function parseLog(text) {
     const timeMatch = block.match(/Time Played\s+(\d{1,6}):(\d{1,2})/);
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
+    // The SL figure can be negative (repairs and ammo cost more than the match earned: "Total: -897 SL, 813 CRP").
     // The trailing ", N RP" figure is optional: the game leaves it off when there was no research progress.
-    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
+    const totalRegex = /Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;

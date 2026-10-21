@@ -6,7 +6,7 @@
 // The small summary stored beside each archived match so lists can be built without
 // decompressing or re-parsing it. Bump SUMMARY_VERSION whenever parseLog's summary
 // fields change meaning — stored summaries with an older version are rebuilt from the raw text.
-const SUMMARY_VERSION = 1;
+const SUMMARY_VERSION = 2; // 2: net SL may be negative (a match whose repairs cost more than it earned)
 function summaryOf(m) {
   return { pv: SUMMARY_VERSION, result: m.result, mode: m.mode, mission: m.mission, netSL: m.netSL,
     totalRP: m.totalRP, timeSec: m.timeSec, researched: m.researched, researching: m.researching };
@@ -66,8 +66,9 @@ function parseLog(text) {
     const timeMatch = block.match(/Time Played\s+(\d{1,6}):(\d{1,2})/);
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
+    // The SL figure can be negative (repairs and ammo cost more than the match earned: "Total: -897 SL, 813 CRP").
     // The trailing ", N RP" figure is optional: the game leaves it off when there was no research progress.
-    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
+    const totalRegex = /Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;

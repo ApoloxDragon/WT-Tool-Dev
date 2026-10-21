@@ -20,7 +20,7 @@ A match can earn RP toward more than one thing at once. The site keeps them apar
 They are **not added together**, because the same match performance is credited to both. Seeing a big "Other RP" number does not mean you earned extra — it is a different view of the same earning.
 
 ## Net SL vs earned SL
-The Advanced view's match detail shows both. **Earned SL** is what the match paid out; **net SL** subtracts costs. The totals on the Basic view use **net SL**, because it reflects what you actually gained.
+The Advanced view's match detail shows both. **Earned SL** is what the match paid out; **net SL** subtracts costs. The totals on the Basic view use **net SL**, because it reflects what you actually gained. Net SL can be **negative**: when repairs and ammunition cost more than the match paid (for example `Total: -897 SL`), that match subtracts from your totals and the tables show it with a minus sign.
 
 ## Wins, losses and averages
 A match is a **win** (Victory) or a **loss** (Defeat). The site averages SL and RP **separately for wins and for losses** because they are very different. Those four averages (plus your win rate) drive the [goal calculator](goal-calculator-guide.md): your expected income per match is the win rate times the average win plus the loss rate times the average loss.
