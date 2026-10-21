@@ -64,9 +64,9 @@ function clipText(v, max) {
   if (typeof v === 'number' && Number.isFinite(v)) v = String(v);
   return typeof v === 'string' ? v.slice(0, max || LIMITS.MAX_TEXT) : '';
 }
-function cleanNum(v, max) {
+function cleanNum(v, max, min) {
   const n = typeof v === 'number' ? v : (typeof v === 'string' ? parseFloat(v.replace(/,/g, '')) : NaN);
-  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), 0), max || 1e9) : 0;
+  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), min === undefined ? 0 : min), max || 1e9) : 0;
 }
 function cleanTargets(list) {
   if (!Array.isArray(list)) return [];
@@ -90,7 +90,7 @@ function sanitizeMatch(m) {
     mode: clipText(m.mode) || category,
     category,
     mission: clipText(m.mission),
-    netSL: cleanNum(m.netSL),
+    netSL: cleanNum(m.netSL, 1e9, -1e9),
     totalRP: cleanNum(m.totalRP),
     timeSec: cleanNum(m.timeSec, 1e6),
     researched: cleanTargets(m.researched),

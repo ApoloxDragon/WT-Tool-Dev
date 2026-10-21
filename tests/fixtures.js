@@ -48,7 +48,7 @@ function oracle(text) {
   const all = blocks.map((b, i) => {
     const id = (b.match(/^Session:\s*([a-f0-9]+)/im) || [])[1] || 'noid-' + i;
     // the trailing ", N RP" is optional: the game leaves it off when there was no research progress
-    const totals = [...b.matchAll(/^Total:\s*([\d,]+)\s*SL,\s*([\d,]+)\s*CRP(?:,\s*[\d,]+\s*RP)?/gm)].pop();
+    const totals = [...b.matchAll(/^Total:\s*(-?[\d,]+)\s*SL,\s*([\d,]+)\s*CRP(?:,\s*[\d,]+\s*RP)?/gm)].pop();
     const num = s => parseInt(String(s).replace(/,/g, ''), 10);
     const head = b.match(/^(?:Victory|Defeat) in the \[([^\]\n]+)\][^\S\n]+(.+?)[^\S\n]+mission!/);
     const time = b.match(/^Time Played\s+(\d+):(\d+)/m);

@@ -67,9 +67,9 @@ function clipText(v, max) {
   if (typeof v === 'number' && Number.isFinite(v)) v = String(v);
   return typeof v === 'string' ? v.slice(0, max || LIMITS.MAX_TEXT) : '';
 }
-function cleanNum(v, max) {
+function cleanNum(v, max, min) {
   const n = typeof v === 'number' ? v : (typeof v === 'string' ? parseFloat(v.replace(/,/g, '')) : NaN);
-  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), 0), max || 1e9) : 0;
+  return Number.isFinite(n) ? Math.min(Math.max(Math.round(n), min === undefined ? 0 : min), max || 1e9) : 0;
 }
 function cleanTargets(list) {
   if (!Array.isArray(list)) return [];
@@ -93,7 +93,7 @@ function sanitizeMatch(m) {
     mode: clipText(m.mode) || category,
     category,
     mission: clipText(m.mission),
-    netSL: cleanNum(m.netSL),
+    netSL: cleanNum(m.netSL, 1e9, -1e9),
     totalRP: cleanNum(m.totalRP),
     timeSec: cleanNum(m.timeSec, 1e6),
     researched: cleanTargets(m.researched),
@@ -472,7 +472,7 @@ if (addRuleBtn) addRuleBtn.addEventListener('click', () => {
 const DETAIL_PARSER_VERSION = 1;
 
 function detailNum(s) {
-  return parseInt(String(s).replace(/,/g, ''), 10) || 0;
+  return parseInt(String(s).replace(/,/g, ''), 10) || 0; // keeps a leading minus (net SL can be negative)
 }
 
 // Digit runs are capped at 15 characters so matching stays linear on any line.
@@ -564,7 +564,7 @@ function parseDetail(block) {
     const sess = line.match(/^Session:\s*(\S+)/);
     if (sess) { detail.sessionId = sess[1]; inUsedItems = false; listKey = null; section = null; continue; }
     // The trailing ", N RP" figure is optional (the game leaves it off when there was no research progress).
-    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
+    const tot = line.match(/^Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
     if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: tot[3] === undefined ? null : detailNum(tot[3]) }; continue; }
 
     if (!line) { section = null; listKey = null; continue; }
@@ -1316,7 +1316,7 @@ function parseLog(text) {
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
     // The trailing ", N RP" figure is optional: the game leaves it off when there was no research progress.
-    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
+    const totalRegex = /Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;

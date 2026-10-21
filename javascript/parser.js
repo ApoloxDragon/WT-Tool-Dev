@@ -67,7 +67,7 @@ function parseLog(text) {
     const timeSec = timeMatch ? (parseInt(timeMatch[1]) * 60 + parseInt(timeMatch[2])) : 0;
 
     // The trailing ", N RP" figure is optional: the game leaves it off when there was no research progress.
-    const totalRegex = /Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
+    const totalRegex = /Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/g;
     let tm, lastTotal = null;
     while ((tm = totalRegex.exec(block)) !== null) lastTotal = tm;
     const netSL = lastTotal ? parseInt(lastTotal[1].replace(/,/g, '')) : 0;

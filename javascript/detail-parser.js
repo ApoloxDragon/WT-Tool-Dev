@@ -10,7 +10,7 @@
 const DETAIL_PARSER_VERSION = 1;
 
 function detailNum(s) {
-  return parseInt(String(s).replace(/,/g, ''), 10) || 0;
+  return parseInt(String(s).replace(/,/g, ''), 10) || 0; // keeps a leading minus (net SL can be negative)
 }
 
 // Digit runs are capped at 15 characters so matching stays linear on any line.
@@ -102,7 +102,7 @@ function parseDetail(block) {
     const sess = line.match(/^Session:\s*(\S+)/);
     if (sess) { detail.sessionId = sess[1]; inUsedItems = false; listKey = null; section = null; continue; }
     // The trailing ", N RP" figure is optional (the game leaves it off when there was no research progress).
-    const tot = line.match(/^Total:\s*([\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
+    const tot = line.match(/^Total:\s*(-?[\d,]{1,15})\s*SL,\s*([\d,]{1,15})\s*CRP(?:,\s*([\d,]{1,15})\s*RP)?/);
     if (tot) { detail.total = { sl: detailNum(tot[1]), crp: detailNum(tot[2]), rp: tot[3] === undefined ? null : detailNum(tot[3]) }; continue; }
 
     if (!line) { section = null; listKey = null; continue; }
