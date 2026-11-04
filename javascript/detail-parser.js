@@ -10,7 +10,7 @@
 const DETAIL_PARSER_VERSION = 1;
 
 function detailNum(s) {
-  return parseInt(String(s).replace(/,/g, ''), 10) || 0;
+  return parseInt(String(s).replace(/,/g, ''), 10) || 0; // keeps a leading minus (net SL can be negative)
 }
 
 // Digit runs are capped at 15 characters so matching stays linear on any line.
