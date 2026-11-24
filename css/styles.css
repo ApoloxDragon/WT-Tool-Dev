@@ -643,3 +643,10 @@ details.event-sec .scroll-x { padding: 0 6px 6px; }
   table.stack td.detail-flag::before { display: none; }
   .scroll-x:has(table.stack) { overflow-x: visible; }
 }
+
+/* ----- GRAPH section ----- */
+.graph-panel { display: block; }
+.graph-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.graph-out { background: var(--panel); border: 1px solid var(--border); padding: 8px; }
+.graph-out canvas { display: block; width: 100%; }
+@media (max-width: 680px) { .graph-controls { grid-template-columns: 1fr; } }
