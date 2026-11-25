@@ -184,6 +184,8 @@ function analyze() {
     <tr><th>Module / progress</th><th class="num">RP Earned</th></tr>
     ${progressRows || '<tr><td colspan="2" class="note">No research progress entries found</td></tr>'}`;
 
+  setGraphMatches(matches);
+
   const kept = new Set(matches); // a Set: indexOf() here made the table O(n²) for big sessions
   matchRowItems = all.map(m => [m, !kept.has(m)]);
   matchRowsShown = MATCH_ROWS_FIRST;
@@ -198,6 +200,7 @@ document.getElementById('clearBtn').addEventListener('click', () => {
   lastMatches = null;
   lastCategoryStats = null;
   matchRowItems = [];
+  clearGraph();
   document.getElementById('matchTableMore').textContent = '';
   importedMatches = [];
   clearState('importedMatches');

@@ -76,6 +76,32 @@
       </div>
     </div>
 
+    <div class="section" id="graphSection">
+      <div class="section-title">GRAPH</div>
+      <div class="goal-panel graph-panel">
+        <div class="graph-controls">
+          <div class="goal-field">
+            <label for="graphVar">What to graph</label>
+            <select id="graphVar">
+              <option value="result">Wins vs defeats (count)</option>
+              <option value="totalRP">RP per match</option>
+              <option value="netSL">Net SL per match</option>
+              <option value="timeMin">Time played (minutes)</option>
+            </select>
+          </div>
+          <div class="goal-field">
+            <label for="graphType">Graph type</label>
+            <select id="graphType">
+              <option value="line">Line (match by match)</option>
+              <option value="hist">Histogram (frequency classes)</option>
+            </select>
+          </div>
+        </div>
+        <div class="graph-out"><canvas id="graphCanvas" role="img" aria-label="Graph"></canvas></div>
+        <div class="note" id="graphNote" style="margin-top:8px;"></div>
+      </div>
+    </div>
+
     <div class="section" id="goalCalcSection">
       <div class="section-title">GOAL CALCULATOR</div>
       <div class="goal-panel">
@@ -151,7 +177,7 @@
 
 </div>
 
-<script src="dist/app-basic.js?v=2b3c3f54"></script>
+<script src="dist/app-basic.js?v=eee5c076"></script>
 <script src="dist/extras.js?v=699d54f3" defer></script>
 </body>
 </html>

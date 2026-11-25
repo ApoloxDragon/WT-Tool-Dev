@@ -19,7 +19,7 @@ const ROOT = path.resolve(__dirname, '..');
 // ORDER MATTERS: classic scripts share one global scope, so a file must come after the ones it uses.
 const BUNDLES = {
   // the core of each page: everything needed to use it. Ends by marking the page ready (see main.js / advanced.js).
-  'app-basic.js':    ['util', 'storage', 'themes', 'categories', 'detail-parser', 'db', 'raw-export', 'parser', 'math', 'goal-calculator', 'import-export', 'main'],
+  'app-basic.js':    ['util', 'storage', 'themes', 'categories', 'detail-parser', 'db', 'raw-export', 'parser', 'math', 'charts', 'goal-calculator', 'import-export', 'main'],
   'app-advanced.js': ['util', 'storage', 'themes', 'categories', 'detail-parser', 'db', 'raw-export', 'parser', 'math', 'advanced'],
   // nice-to-have pieces shared by both pages, loaded after the core (deferred): the colour panel, the phone menu
   // (wraps the picker the colour panel fills, so it comes after it) and the tutorials (which call the menu)
